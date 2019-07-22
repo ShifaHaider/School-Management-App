@@ -1,0 +1,13 @@
+.main{
+    background-image: url("images/school1.jpg");
+    height: 100vh;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*overflow: hidden;*/
+}
+#iconButton{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}

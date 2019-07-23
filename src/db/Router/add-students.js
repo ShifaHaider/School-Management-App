@@ -7,6 +7,9 @@ var schema = require('../Schema/schema');
 var StudentModel = schema.StudentModel;
 
 
+
+
+
 api.post('/add-student', function (req, res) {
     console.log(req.body);
     var studentModel = new StudentModel(req.body);

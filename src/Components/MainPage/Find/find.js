@@ -23,7 +23,6 @@ class Find extends Component {
     constructor() {
         super();
         this.state = {
-            category: '',
             yearsList: ['' , 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
                 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036,
                 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2000, 2001, 2002, 2003, 2004, 2005,
@@ -41,6 +40,31 @@ class Find extends Component {
     }
 
     find(){
+        var filters = {
+            class: this.state.class,
+            year: this.state.year,
+        };
+        for (var v in filters){
+            if (!filters[v]) {
+               delete filters[v]
+            }
+        }
+        const url = 'http://localhost:9000/find-students/find-student';
+        fetch(url, {
+            method: "get",
+            body: JSON.stringify(filters),
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        }).then((data) => {
+            data.json().then((studentsData) => {
+                console.log(studentsData);
+            });
+        })
+            .catch((err) => {
+                console.log(err);
+            });
 
     }
 
@@ -69,7 +93,7 @@ class Find extends Component {
                             >
                                 {this.state.yearsList.map((val , ind)=>{
                                     return(
-                                        <option value={ind}>{val}</option>
+                                        <option value={val}>{val}</option>
                                     )
                                 })}
                             </Select>
@@ -88,7 +112,7 @@ class Find extends Component {
                             >
                                 {this.state.classList.map((val , ind)=>{
                                     return(
-                                        <option value={ind}>{val}</option>
+                                        <option value={val}>{val}</option>
                                     )
                                 })}
                             </Select>

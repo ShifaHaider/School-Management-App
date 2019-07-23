@@ -10,9 +10,13 @@ var StudentModel = schema.StudentModel;
 
 
 api.get('/find-student', function (req, res) {
-    StudentModel.find().exec((error, data) => {
-        console.log(error, data);
-        res.send(data);
-    });
+    console.log(req.body);
+    console.log(req.body.filters);
+    res.send('find-students');
+
+    // StudentModel.find({}).exec((error, data) => {
+    //     console.log(error, data);
+    //     res.send(data);
+    // });
 });
 module.exports = api;

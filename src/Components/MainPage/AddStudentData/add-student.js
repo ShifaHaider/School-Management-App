@@ -49,6 +49,11 @@ class AddStudents extends Component {
         this.setState({[p]: e.target.value});
     }
     saveStData(){
+     var  admissionDate = this.state.admissionDate;
+        console.log(admissionDate);
+        admissionDate =  new Date(admissionDate.split("-").reverse().join("-")).getTime();
+        console.log(admissionDate);
+
         var studentData = {
             studentName: this.state.studentName,
             fatherName: this.state.fatherName,
@@ -58,10 +63,10 @@ class AddStudents extends Component {
             phoneNo: this.state.phoneNo,
             lastInstitution: this.state.lastInstitution,
             admittedClass: this.state.admittedClass,
-            admissionDate: this.state.admissionDate
+            admissionDate: this.state.admissionDate,
+            year: 2017
         };
         console.log(studentData);
-
         // const url = 'http://localhost:9000/add-students/add-student';
         // fetch(url, {
         //     method: "post",
@@ -71,15 +76,18 @@ class AddStudents extends Component {
         //         "Content-Type": "application/json"
         //     }
         // }).then((data) => {
-        //     data.json().then((a) => {
-        //         console.log(a);
+        //     data.json().then((studData) => {
+        //         console.log(studData);
         //     });
         // })
         //     .catch((err) => {
         //         console.log(err);
         //     });
     }
-
+a(e){
+    // console.log(e.target);
+    console.log(e.target.value);
+}
     render() {
         return (
             <div>
@@ -95,7 +103,7 @@ class AddStudents extends Component {
                                    value={this.state.fatherName} onChange={this.changeValue.bind(this, 'fatherName')}/><br/><br/>
                         <TextField id="date" variant="outlined" fullWidth label="Date of Birth" value={this.state.dateOfBirth}
                                    onChange={this.changeValue.bind(this,"dateOfBirth")}
-                                   type="date" defaultValue="2017-05-24" InputLabelProps={{shrink: true,}}/>
+                                   type="date" defaultValue="24-05-2016" InputLabelProps={{shrink: true,}}/>
                         <TextField id="outlined-name" label="Address" fullWidth margin="normal" variant="outlined"
                                    value={this.state.address} onChange={this.changeValue.bind(this, 'address')}/>
                         <TextField id="outlined-name" label="CNIC No." fullWidth margin="normal" variant="outlined" type="number"
@@ -105,8 +113,9 @@ class AddStudents extends Component {
                         <TextField id="outlined-name" label="Last Institution Name" fullWidth margin="normal" variant="outlined"
                                    value={this.state.lastInstitution} onChange={this.changeValue.bind(this, 'lastInstitution')}/><br/><br/>
                         <TextField id="date" variant="outlined" fullWidth label="Date of Admitted"
-                                   onChange={this.changeValue.bind(this,"admissionDate")}
-                                   type="date" defaultValue="2017-05-24" InputLabelProps={{shrink: true,}}/><br/><br/>
+                                   // onChange={this.changeValue.bind(this,"admissionDate")}
+                                   onChange={this.a.bind(this)}
+                                   type="date" defaultValue="20-05-2014" InputLabelProps={{shrink: true,}}/><br/><br/>
                         <FormControl variant="outlined">
                             <InputLabel htmlFor="outlined-age-native-simple">
                                Admitted in Class

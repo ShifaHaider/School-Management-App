@@ -9,6 +9,7 @@ var StudentSchema = new mongoose.Schema({
     lastInstitution: {type: String , required: true},
     admittedClass: {type: String , required: true},
     admissionDate: {type: String , required: true},
+    year: {type: Number , required: true},
     // _id: {type: String},
 
 }, {minimize: false});

@@ -7,12 +7,13 @@ var schema = require('../Schema/schema');
 var StudentModel = schema.StudentModel;
 
 
-
-
-api.get('/find-student', function (req, res) {
-    StudentModel.find().exec((error, data) => {
-        console.log(error, data);
+api.post('/add-student', function (req, res) {
+    console.log(req.body);
+    var studentModel = new StudentModel(req.body);
+    studentModel.save(function (error, data) {
+        console.log(data , error);
         res.send(data);
     });
 });
+
 module.exports = api;

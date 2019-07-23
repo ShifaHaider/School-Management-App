@@ -3,6 +3,7 @@ import Login from './Components/Login/login'
 import Main from './Components/MainPage/main'
 import firebase from 'firebase';
 import {BrowserRouter as Router, Route, Redirect} from "react-router-dom";
+import ImageCropper from "./Components/MainPage/AddStudentData/image-cropper";
 
 var adminID = localStorage.getItem('adminID');
 var config = {
@@ -23,6 +24,7 @@ class App extends Component {
                 <Router>
                     <div>
                         <Route path="/main" component={Main}/>
+                        <Route path="/image" component={ImageCropper}/>
                         <Route path="/login" component={Login}/>
                         <Route path="/" exact render={() => (adminID ? <Redirect to='/main'/> : <Login/>)}/>
                     </div>

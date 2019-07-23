@@ -14,11 +14,8 @@ import AddIcon from "@material-ui/core/SvgIcon/SvgIcon";
 class Find extends Component {
     constructor() {
         super();
-        this.state = {
-
-        }
+        this.state = {}
     }
-
 
 
     render() {
@@ -27,7 +24,7 @@ class Find extends Component {
             <div>
                 <AppBar position="static">
                     <Toolbar style={{minHeight: '80px'}}><Typography color="inherit"
-                                                                     style={{fontSize: '25px'}}>FIND</Typography></Toolbar>
+                          style={{fontSize: '25px'}}>FIND</Typography></Toolbar>
                 </AppBar>
 
             </div>

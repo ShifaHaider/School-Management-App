@@ -4,9 +4,9 @@ var StudentSchema = new mongoose.Schema({
     age: {type: String , required: true},
     class: {type: String , required: true},
     year: {type: String , required: true},
-    date: {type: Number , default: Date.now()},
-    _id: {type: String , required: true},
+    admissionDate: {type: String , required: true},
+    // _id: {type: String},
 
 }, {minimize: false});
 
-exports.UserModel = mongoose.model('studentsData' , StudentSchema);
+exports.StudentModel = mongoose.model('studentsData' , StudentSchema);

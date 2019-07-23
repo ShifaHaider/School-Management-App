@@ -1,7 +1,7 @@
 import React, { Component  } from "react";
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
-import "../../../App.css";
+// import "../../../App.css";
 import TextField from "@material-ui/core/TextField";
 
 export default class ImageCropper extends Component {
@@ -87,7 +87,7 @@ export default class ImageCropper extends Component {
 
     render() {
         const { crop, croppedImageUrl, src } = this.state;
-        console.log(croppedImageUrl);
+        // console.log(croppedImageUrl);
 
         return (
             <div className="App">

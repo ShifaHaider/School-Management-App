@@ -15,7 +15,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {withStyles, makeStyles} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -148,7 +148,7 @@ class Find extends Component {
                                 onClick={this.find.bind(this)}>Find</Button>
                     </CardContent>
                 </Card><br/><br/><br/>
-                {this.state.foundStudent.length != 0 ?
+                {this.state.foundStudent.length !== 0 ?
                     <Paper>
                         <Table style={{minWidth: '700px'}}>
                             <TableHead>

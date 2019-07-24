@@ -39,8 +39,8 @@ class AutoComplete extends Component {
     }
 
     changeYear(e) {
-        var year = this.state.studentDetail.year;
-        year = e.target.value.split("-")[0];
+        // var year = this.state.studentDetail.year;
+        // year = e.target.value.split("-")[0];
     }
 
     updateData() {

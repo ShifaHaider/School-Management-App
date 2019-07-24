@@ -38,11 +38,6 @@ class Login extends Component {
 
 
     render() {
-        var screenWidth = document.body.scrollWidth / 2;
-        var card = document.getElementsByClassName('card');
-        console.log(card[0]);
-        console.log(card);
-        // a.style.marginLeft = screenWidth;
         return (
             <div className='App'>
                 <AppBar position="static">

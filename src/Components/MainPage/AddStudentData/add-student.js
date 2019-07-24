@@ -134,7 +134,7 @@ class AddStudents extends Component {
                                         <OutlinedInput name="age" id="outlined-age-native-simple"/>}>
                                 {this.state.yearsList.map((val, ind) => {
                                     return (
-                                        <option value={val}>{val}</option>
+                                        <option key={ind} value={val}>{val}</option>
                                     )
                                 })}
                             </Select>
@@ -154,7 +154,7 @@ class AddStudents extends Component {
                             >
                                 {this.state.classList.map((val, ind) => {
                                     return (
-                                        <option value={val}>{val}</option>
+                                        <option key={ind} value={val}>{val}</option>
                                     )
                                 })}
                             </Select>

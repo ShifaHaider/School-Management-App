@@ -94,7 +94,6 @@ class Find extends Component {
     studentDetail(data) {
         console.log(data);
         this.props.history.push('/main/view-student-detail/' + data._id);
-        // this.props.history.push('/main/view-student-detail/');
     }
 
     render() {
@@ -120,7 +119,7 @@ class Find extends Component {
                                         }>
                                     {this.state.yearsList.map((val, ind) => {
                                         return (
-                                            <option value={val}>{val}</option>
+                                            <option key={ind} value={val}>{val}</option>
                                         )
                                     })}
                                 </Select>
@@ -139,7 +138,7 @@ class Find extends Component {
                                 >
                                     {this.state.classList.map((val, ind) => {
                                         return (
-                                            <option value={ind}>{val}</option>
+                                            <option key={ind} value={ind}>{val}</option>
                                         )
                                     })}
                                 </Select>
@@ -165,16 +164,19 @@ class Find extends Component {
                                 {this.state.foundStudent.map((student, ind) => {
                                     console.log(student , ind);
                                     return (
-                                        <StyledTableRow key={ind}>
+                                        <StyledTableRow key={ind} style={{cursor: 'pointer'}}>
                                             <StyledTableCell component="th" scope="row">
                                                 {student.studentName}
                                             </StyledTableCell>
-                                            <StyledTableCell align="right" style={{cursor: 'pointer'}}
+                                            <StyledTableCell align="right"
                                                              onClick={this.studentDetail.bind(this , student)}>
                                                 {student.fatherName}</StyledTableCell>
-                                            <StyledTableCell align="right">{student.dateOfBirth}</StyledTableCell>
-                                            <StyledTableCell align="right">{student.admittedClass}</StyledTableCell>
-                                            <StyledTableCell align="right">{student.admissionDate}</StyledTableCell>
+                                            <StyledTableCell align="right" onClick={this.studentDetail.bind(this , student)}
+                                            >{student.dateOfBirth}</StyledTableCell>
+                                            <StyledTableCell align="right" onClick={this.studentDetail.bind(this , student)}
+                                            >{student.admittedClass}</StyledTableCell>
+                                            <StyledTableCell align="right" onClick={this.studentDetail.bind(this , student)}
+                                            >{student.admissionDate}</StyledTableCell>
                                         </StyledTableRow>
                                     )
                                 })}

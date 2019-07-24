@@ -15,6 +15,20 @@ api.post('/add-student', function (req, res) {
     });
 });
 
+
+api.post('/update-student-profile', function (req, res) {
+    console.log(req.body._id);
+    console.log(req.body.updatedData);
+    StudentModel.update({_id: req.body.studentID}, (req.body.updatedData) , function (err , data) {
+        console.log(err , data);
+    } )
+    // StudentModel.where({_id: req.body.studentID} , {req.body.updatedData})
+    // StudentModel.where({_id: req.body._id}, {studentsID: req.body.studentsID}, function (err, data) {
+    //     res.send(data);
+    // })
+});
+// Model.where({ _id: id }).update({ title: 'words' })
+
 api.get('/add-student', function (req, res) {
     StudentModel.find().exec((error, data) => {
         console.log(error, data);

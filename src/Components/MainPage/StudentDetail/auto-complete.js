@@ -13,7 +13,6 @@ import Button from "@material-ui/core/Button";
 class AutoComplete extends Component {
     constructor(props) {
         super(props);
-        console.log(props.studentDetail);
         this.state = {
             studentDetail: props.studentDetail,
             yearsList: ['', 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
@@ -27,12 +26,10 @@ class AutoComplete extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
         this.setState({studentDetail: nextProps.studentDetail});
     }
 
     changeValue(p, e) {
-        console.log(e);
         var studentDetail = this.state.studentDetail;
         studentDetail[p] = e.target.value;
         this.setState({studentDetail: studentDetail});
@@ -44,7 +41,6 @@ class AutoComplete extends Component {
     }
 
     updateData() {
-        console.log(this.state.studentDetail);
         const url = 'http://localhost:9000/add-students/update-student-profile';
         fetch(url, {
             method: "post",
@@ -55,7 +51,7 @@ class AutoComplete extends Component {
             }
         }).then((data) => {
             data.json().then((studData) => {
-                console.log(studData);
+                // console.log(studData);
             });
         })
             .catch((err) => {
@@ -64,7 +60,6 @@ class AutoComplete extends Component {
     }
 
     render() {
-        console.log(this.state.studentDetail);
         return (
             <div>
                 <Card style={{width: '715px', margin: '20px 0 15px 50px'}}>
@@ -79,7 +74,7 @@ class AutoComplete extends Component {
                         <TextField id="date" variant="outlined" fullWidth label="Date of Birth"
                                    value={this.state.studentDetail.dateOfBirth}
                                    onChange={this.changeValue.bind(this, "dateOfBirth")}
-                                   type="date" defaultValue="24-05-2016" InputLabelProps={{shrink: true,}}/>
+                                   type="date" InputLabelProps={{shrink: true,}}/>
                         <TextField id="outlined-name" label="Address" fullWidth margin="normal" variant="outlined"
                                    value={this.state.studentDetail.address}
                                    onChange={this.changeValue.bind(this, 'address')}/>
@@ -97,7 +92,7 @@ class AutoComplete extends Component {
                                    onChange={this.changeValue.bind(this, 'lastInstitution')}/><br/><br/>
                         <TextField id="date" variant="outlined" fullWidth label="Date of Admitted"
                                    onChange={this.changeYear.bind(this)} value={this.state.studentDetail.admissionDate}
-                                   type="date" defaultValue="20-05-2014" InputLabelProps={{shrink: true,}}/><br/><br/>
+                                   type="date" InputLabelProps={{shrink: true,}}/><br/><br/>
                         <FormControl variant="outlined">
                             <InputLabel htmlFor="outlined-age-native-simple">Year</InputLabel>
                             <Select style={{width: '680px', textAlign: 'left'}}

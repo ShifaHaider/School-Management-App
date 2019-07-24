@@ -1,8 +1,8 @@
 import React, { Component  } from "react";
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
-// import "../../../App.css";
 import TextField from "@material-ui/core/TextField";
+import Button from '@material-ui/core/Button';
 
 export default class ImageCropper extends Component {
     state = {
@@ -51,13 +51,13 @@ export default class ImageCropper extends Component {
     }
 
     getCroppedImg(image, crop, fileName) {
+        // console.log(image, crop, fileName);
         const canvas = document.createElement("canvas");
         const scaleX = image.naturalWidth / image.width;
         const scaleY = image.naturalHeight / image.height;
         canvas.width = crop.width;
         canvas.height = crop.height;
         const ctx = canvas.getContext("2d");
-
         ctx.drawImage(
             image,
             crop.x * scaleX,
@@ -72,7 +72,10 @@ export default class ImageCropper extends Component {
 
         return new Promise((resolve, reject) => {
             canvas.toBlob(blob => {
+                console.log(blob);
+                this.setState({imageFile: blob});
                 if (!blob) {
+
                     //reject(new Error('Canvas is empty'));
                     console.error("Canvas is empty");
                     return;
@@ -80,14 +83,17 @@ export default class ImageCropper extends Component {
                 blob.name = fileName;
                 window.URL.revokeObjectURL(this.fileUrl);
                 this.fileUrl = window.URL.createObjectURL(blob);
+                // console.log(this.fileUrl);
                 resolve(this.fileUrl);
             }, "image/jpeg");
         });
     }
-
+    fileUpload(input){
+        var file = input.target.files[0];
+        console.log(file);
+    }
     render() {
         const { crop, croppedImageUrl, src } = this.state;
-        // console.log(croppedImageUrl);
 
         return (
             <div className="App">
@@ -109,6 +115,8 @@ export default class ImageCropper extends Component {
                 {croppedImageUrl && (
                     <img alt="Crop" style={{ maxWidth: "100%" }} src={croppedImageUrl} />
                 )}
+                <Button variant="outlined">Confirm</Button>
+                {/*<input type="file" onChange={this.fileUpload.bind(this)}/>*/}
             </div>
         );
     }

@@ -20,12 +20,12 @@ class AddStudents extends Component {
         this.state = {
             studentName: '',
             fatherName: '',
-            dateOfBirth: '',
+            dateOfBirth: '20-05-2014',
             address: '',
             CNIC: '',
             phoneNo: '',
             lastInstitution: '',
-            admissionDate: '2017-05-24',
+            admissionDate: '20-05-2014',
             admittedClass: '',
             yearsList: ['', 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
                 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036,
@@ -72,7 +72,7 @@ class AddStudents extends Component {
             }
         }).then((data) => {
             data.json().then((studData) => {
-                console.log(studData);
+                // console.log(studData);
             });
         })
             .catch((err) => {
@@ -108,7 +108,7 @@ class AddStudents extends Component {
                         <TextField id="date" variant="outlined" fullWidth label="Date of Birth"
                                    value={this.state.dateOfBirth}
                                    onChange={this.changeValue.bind(this, "dateOfBirth")}
-                                   type="date" defaultValue="24-05-2016" InputLabelProps={{shrink: true,}}/>
+                                   type="date"  InputLabelProps={{shrink: true,}}/>
                         <TextField id="outlined-name" label="Address" fullWidth margin="normal" variant="outlined"
                                    value={this.state.address} onChange={this.changeValue.bind(this, 'address')}/>
                         <TextField id="outlined-name" label="CNIC No." fullWidth margin="normal" variant="outlined"
@@ -123,7 +123,7 @@ class AddStudents extends Component {
                                    onChange={this.changeValue.bind(this, 'lastInstitution')}/><br/><br/>
                         <TextField id="date" variant="outlined" fullWidth label="Date of Admitted"
                                    onChange={this.changeYear.bind(this)}
-                                   type="date" defaultValue="20-05-2014" InputLabelProps={{shrink: true,}}/><br/><br/>
+                                   type="date" value={this.state.admissionDate} InputLabelProps={{shrink: true,}}/><br/><br/>
                         <FormControl variant="outlined" >
                             <InputLabel htmlFor="outlined-age-native-simple">Year</InputLabel>
                             <Select style={{width: '680px', textAlign: 'left'}}

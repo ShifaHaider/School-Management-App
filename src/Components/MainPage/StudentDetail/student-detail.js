@@ -31,7 +31,7 @@ class StudentDetail extends Component {
             }
         }).then((data) => {
             data.json().then((a) => {
-                console.log(a);
+                // console.log(a);
                 this.setState({studentDetail: a});
             });
         })
@@ -50,8 +50,7 @@ class StudentDetail extends Component {
             <div>
                 <AppBar position="static">
                     <Toolbar style={{minHeight: '80px'}}><Typography color="inherit"
-                                                                     style={{fontSize: '25px'}}>View Student
-                        Detail</Typography></Toolbar>
+                    style={{fontSize: '25px'}}>View Student Details</Typography></Toolbar>
                 </AppBar>
                 {this.state.change ? <AutoComplete studentDetail={this.state.studentDetail}/> :
                     <Paper style={{margin: "20px 100px 15px 50px", padding: "10px 0 10px 10px", width: "900px"}}>
@@ -72,7 +71,7 @@ class StudentDetail extends Component {
                         <Typography variant="h6"
                                     component="p"><b>{this.state.studentDetail.CNIC}</b></Typography><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Phone NO.</b></Typography>
-                        <Typography variant="h6" component="p"><b>{this.state.studentDetail.phone}</b></Typography><br/><br/>
+                        <Typography variant="h6" component="p"><b>{this.state.studentDetail.phoneNo}</b></Typography><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Last Institution Name</b></Typography>
                         <Typography variant="h6"
                                     component="p"><b>{this.state.studentDetail.lastInstitution}</b></Typography><br/><br/>

@@ -54,7 +54,6 @@ class Find extends Component {
     }
 
     categoryChange(p, e) {
-        console.log(e.target.value);
         this.setState({[p]: e.target.value})
     }
 
@@ -71,7 +70,7 @@ class Find extends Component {
                 delete filters[v];
             }
         }
-        console.log(filters);
+        // console.log(filters);
         const url = 'http://localhost:9000/find-students/find-student';
         fetch(url, {
             method: "post",
@@ -82,7 +81,7 @@ class Find extends Component {
             }
         }).then((data) => {
             data.json().then((foundData) => {
-                console.log(foundData);
+                // console.log(foundData);
                 this.setState({foundStudent: foundData})
             });
         })
@@ -92,7 +91,7 @@ class Find extends Component {
     }
 
     studentDetail(data) {
-        console.log(data);
+        // console.log(data);
         this.props.history.push('/main/view-student-detail/' + data._id);
     }
 
@@ -101,7 +100,7 @@ class Find extends Component {
             <div>
                 <AppBar position="static">
                     <Toolbar style={{minHeight: '80px'}}><Typography color="inherit"
-                                                                     style={{fontSize: '25px'}}>FIND</Typography></Toolbar>
+                     style={{fontSize: '25px'}}>FIND STUDENTS: {this.state.year}</Typography></Toolbar>
                 </AppBar>
                 <Card style={{width: '500px', margin: '20px 0 0 40px'}}>
                     <CardContent>
@@ -162,7 +161,6 @@ class Find extends Component {
                             </TableHead>
                             <TableBody>
                                 {this.state.foundStudent.map((student, ind) => {
-                                    console.log(student , ind);
                                     return (
                                         <StyledTableRow key={ind} style={{cursor: 'pointer'}}>
                                             <StyledTableCell component="th" scope="row">

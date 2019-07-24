@@ -7,7 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-
+import '../../App.css'
 
 class Login extends Component {
 
@@ -44,7 +44,7 @@ class Login extends Component {
         console.log(card);
         // a.style.marginLeft = screenWidth;
         return (
-            <div>
+            <div className='App'>
                 <AppBar position="static">
                     <Toolbar style={{minHeight: '90px'}}><Typography color="inherit" style={{fontSize: '25px'}}>LOGIN</Typography></Toolbar>
                 </AppBar>
@@ -79,11 +79,6 @@ class Login extends Component {
                                 onClick={this.loginAccount.bind(this)}>Login</Button>
                     </div>
                 </Card>
-                {/*<input type="text" placeholder='Email' onChange={this.handleChange.bind(this, 'email')}*/}
-                {/*       value={this.state.email}/><br/>*/}
-                {/*<input type="password" placeholder='Password' onChange={this.handleChange.bind(this, 'password')}*/}
-                {/*       value={this.state.password}/><br/>*/}
-                {/*<button onClick={this.loginAccount.bind(this)}>Login</button>*/}
 
             </div>
         )

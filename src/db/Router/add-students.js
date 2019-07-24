@@ -6,10 +6,6 @@ var connection = require('../Connection/connection');
 var schema = require('../Schema/schema');
 var StudentModel = schema.StudentModel;
 
-
-
-
-
 api.post('/add-student', function (req, res) {
     console.log(req.body);
     var studentModel = new StudentModel(req.body);
@@ -18,5 +14,13 @@ api.post('/add-student', function (req, res) {
         res.send(data);
     });
 });
+
+api.get('/add-student', function (req, res) {
+    StudentModel.find().exec((error, data) => {
+        console.log(error, data);
+        res.send(data);
+    });
+});
+
 
 module.exports = api;

@@ -16,7 +16,7 @@ class Main extends Component {
                     <div>
                         <Route path="/main" render={() => (<Redirect to='/main/find'/>)}/>
                         <Route path="/main/find" component={Find}/>
-                        <Route path="/main/add-students" component={AddStudents}/>
+                        <Route path="/main/add-student" component={AddStudents}/>
                         <Route path="/main/view-student-detail/:id" component={StudentDetail}/>
                     </div>
                 </Router>

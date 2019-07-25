@@ -3,7 +3,6 @@ import Login from './Components/Login/login'
 import Main from './Components/MainPage/main'
 import firebase from 'firebase';
 import {BrowserRouter as Router, Route, Redirect} from "react-router-dom";
-import ImageCropper from "./Components/MainPage/AddStudentData/image-cropper";
 
 var adminID = localStorage.getItem('adminID');
 var config = {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
-import Toolbar from '@material-ui/core/Toolbar';
+import ToolBarComponent from '../ToolBarComponent/toolbar-componet';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import FilledInput from '@material-ui/core/FilledInput';
@@ -91,17 +91,13 @@ class Find extends Component {
     }
 
     studentDetail(data) {
-        // console.log(data);
         this.props.history.push('/main/view-student-detail/' + data._id);
     }
 
     render() {
         return (
             <div>
-                <AppBar position="static">
-                    <Toolbar style={{minHeight: '80px'}}><Typography color="inherit"
-                     style={{fontSize: '25px'}}>FIND STUDENTS</Typography></Toolbar>
-                </AppBar>
+                <ToolBarComponent title="Find"/>
                 <Card style={{width: '500px', margin: '20px 0 0 40px'}}>
                     <CardContent>
                         <div>

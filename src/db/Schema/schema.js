@@ -10,7 +10,7 @@ var StudentSchema = new mongoose.Schema({
     admittedClass: {type: String , required: true},
     admissionDate: {type: String , required: true},
     year: {type: String , required: true},
-    studentPhotoURL:{type: String }
+    studentPhotoURL:{type: String}
     // _id: {type: String},
 
 }, {minimize: false});

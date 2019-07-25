@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
 import ToolBarComponent from '../ToolBarComponent/toolbar-componet';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -26,6 +24,7 @@ const StyledTableCell = withStyles(theme => ({
         fontSize: 14,
     },
 }))(TableCell);
+
 const StyledTableRow = withStyles(theme => ({
     root: {
         '&:nth-of-type(odd)': {
@@ -70,7 +69,6 @@ class Find extends Component {
                 delete filters[v];
             }
         }
-        // console.log(filters);
         const url = 'http://localhost:9000/find-students/find-student';
         fetch(url, {
             method: "post",
@@ -94,55 +92,64 @@ class Find extends Component {
         this.props.history.push('/main/view-student-detail/' + data._id);
     }
 
+    print() {
+        localStorage.setItem('foundData', JSON.stringify(this.state.foundStudent));
+        window.open('/main/print', "_blank");
+    }
+
     render() {
         return (
             <div>
                 <ToolBarComponent title="Find"/>
-                <Card style={{width: '500px', margin: '20px 0 0 40px'}}>
+                <Card style={{width: 'auto', margin: '12px auto',display:'inline-block'}}>
                     <CardContent>
-                        <div>
-                            <FormControl variant="filled">
-                                <InputLabel htmlFor="filled-age-native-simple">
-                                    Search by Year
-                                </InputLabel>
-                                <Select style={{width: '150px'}}
-                                        native
-                                        value={this.state.year}
-                                        onChange={this.categoryChange.bind(this, 'year')}
-                                        input={
-                                            <FilledInput name="age" id="filled-age-native-simple"/>
-                                        }>
-                                    {this.state.yearsList.map((val, ind) => {
-                                        return (
-                                            <option key={ind} value={val}>{val}</option>
-                                        )
-                                    })}
-                                </Select>
-                            </FormControl>
-                            <FormControl variant="filled">
-                                <InputLabel htmlFor="filled-age-native-simple">
-                                    Search by Class
-                                </InputLabel>
-                                <Select style={{width: '150px'}}
-                                        native
-                                        value={this.state.class}
-                                        onChange={this.categoryChange.bind(this, 'class')}
-                                        input={
-                                            <FilledInput name="age" id="filled-age-native-simple"/>
-                                        }
-                                >
-                                    {this.state.classList.map((val, ind) => {
-                                        return (
-                                            <option key={ind} value={ind}>{val}</option>
-                                        )
-                                    })}
-                                </Select>
-                            </FormControl>
-                        </div>
+                        <FormControl variant="filled">
+                            <InputLabel htmlFor="filled-age-native-simple">
+                                Search by Year
+                            </InputLabel>
+                            <Select style={{width: '150px'}}
+                                    native
+                                    value={this.state.year}
+                                    onChange={this.categoryChange.bind(this, 'year')}
+                                    input={
+                                        <FilledInput name="age" id="filled-age-native-simple"/>
+                                    }>
+                                {this.state.yearsList.map((val, ind) => {
+                                    return (
+                                        <option key={ind} value={val}>{val}</option>
+                                    )
+                                })}
+                            </Select>
+                        </FormControl>
+
+                        <FormControl variant="filled">
+                            <InputLabel htmlFor="filled-age-native-simple">
+                                Search by Class
+                            </InputLabel>
+                            <Select style={{width: '150px'}}
+                                    native
+                                    value={this.state.class}
+                                    onChange={this.categoryChange.bind(this, 'class')}
+                                    input={
+                                        <FilledInput name="age" id="filled-age-native-simple"/>
+                                    }
+                            >
+                                {this.state.classList.map((val, ind) => {
+                                    return (
+                                        <option key={ind} value={val}>{val}</option>
+                                    )
+                                })}
+                            </Select>
+                        </FormControl>
                         <Button variant="contained" color="primary" size='large'
                                 onClick={this.find.bind(this)}>Find</Button>
+                        {this.state.foundStudent.length !== 0  ?
+                        <Button variant="contained" color="primary" size='large'
+                                onClick={this.print.bind(this)}>Print</Button>
+                        : null}
                     </CardContent>
-                </Card><br/><br/><br/>
+                </Card>
+                <br/><br/><br/>
                 {this.state.foundStudent.length !== 0 ?
                     <Paper>
                         <Table style={{minWidth: '700px'}}>
@@ -163,13 +170,16 @@ class Find extends Component {
                                                 {student.studentName}
                                             </StyledTableCell>
                                             <StyledTableCell align="right"
-                                                             onClick={this.studentDetail.bind(this , student)}>
+                                                             onClick={this.studentDetail.bind(this, student)}>
                                                 {student.fatherName}</StyledTableCell>
-                                            <StyledTableCell align="right" onClick={this.studentDetail.bind(this , student)}
+                                            <StyledTableCell align="right"
+                                                             onClick={this.studentDetail.bind(this, student)}
                                             >{student.dateOfBirth}</StyledTableCell>
-                                            <StyledTableCell align="right" onClick={this.studentDetail.bind(this , student)}
+                                            <StyledTableCell align="right"
+                                                             onClick={this.studentDetail.bind(this, student)}
                                             >{student.admittedClass}</StyledTableCell>
-                                            <StyledTableCell align="right" onClick={this.studentDetail.bind(this , student)}
+                                            <StyledTableCell align="right"
+                                                             onClick={this.studentDetail.bind(this, student)}
                                             >{student.admissionDate}</StyledTableCell>
                                         </StyledTableRow>
                                     )

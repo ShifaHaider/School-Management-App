@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
-import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
-import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
-import '../images/school2.jpg'
 import Button from "@material-ui/core/Button";
 import AutoComplete from "./auto-complete"
+import ToolBarComponent from "../ToolBarComponent/toolbar-componet";
 
 class StudentDetail extends Component {
     constructor(props) {
@@ -31,7 +29,6 @@ class StudentDetail extends Component {
             }
         }).then((data) => {
             data.json().then((a) => {
-                // console.log(a);
                 this.setState({studentDetail: a});
             });
         })
@@ -46,13 +43,10 @@ class StudentDetail extends Component {
 
     render() {
         var image = localStorage.getItem('studentPhoto');
-        console.log(image);
         return (
             <div>
-                <AppBar position="static">
-                    <Toolbar style={{minHeight: '80px'}}><Typography color="inherit"
-                        style={{fontSize: '25px'}}>View Student Details</Typography></Toolbar>
-                </AppBar>
+                <ToolBarComponent title="View Student Details"/>
+
                 {this.state.change ? <AutoComplete studentDetail={this.state.studentDetail}/> :
                     <Paper style={{margin: "20px 100px 15px 50px", padding: "10px 0 10px 10px", width: "900px"}}>
                         <img alt="Student pic" style={{height: "180px", width: "165px"}}

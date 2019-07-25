@@ -5,7 +5,6 @@ import Card from "@material-ui/core/Card";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
 import ImageCropper from "../AddStudentData/image-cropper";
 import Button from "@material-ui/core/Button";
 import FilledInput from '@material-ui/core/FilledInput';
@@ -41,7 +40,11 @@ class AutoComplete extends Component {
         studentDetail.year = e.target.value;
         this.setState({studentDetail: studentDetail});
     }
-
+    getNewImageURL =(url)=>{
+        var studentDetail = this.state.studentDetail;
+        studentDetail.studentPhotoURL = url;
+        this.setState({studentDetail: studentDetail});
+    };
     updateData() {
         const url = 'http://localhost:9000/add-students/update-student-profile';
         fetch(url, {
@@ -130,7 +133,7 @@ class AutoComplete extends Component {
                                 })}
                             </Select>
                         </FormControl>
-                        <ImageCropper/>
+                        <ImageCropper onCropped={this.getNewImageURL}/>
                     </CardContent>
                     <Button variant="contained" color="primary" size='large'
                             onClick={this.updateData.bind(this)}>Update Data</Button><br/><br/>

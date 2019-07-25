@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route , Redirect} from "react-router-dom";
 import Find from './Find/find';
 import AddStudents from './AddStudentData/add-student';
 import StudentDetail from "./StudentDetail/student-detail";
-
+import Print from './Print/print'
 class Main extends Component {
 
     render() {
@@ -14,10 +14,11 @@ class Main extends Component {
             <div className='main'>
                 <Router>
                     <div>
-                        <Route path="/main" render={() => (<Redirect to='/main/find'/>)}/>
-                        <Route path="/main/find" component={Find}/>
-                        <Route path="/main/add-student" component={AddStudents}/>
-                        <Route path="/main/view-student-detail/:id" component={StudentDetail}/>
+                        {/*<Route path="/main"  render={() => (<Redirect to='/main/find'/>)}/>*/}
+                        <Route path="/main/find" exact component={Find}/>
+                        <Route path="/main/add-student" exact component={AddStudents}/>
+                        <Route path="/main/print" exact component={Print}/>
+                        <Route path="/main/view-student-detail/:id"  exact component={StudentDetail}/>
                     </div>
                 </Router>
             </div>

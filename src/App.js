@@ -22,12 +22,13 @@ class App extends Component {
             <div>
                 <Router>
                     <div>
-                        {/*<Route path="/main" component={Main}/>*/}
+                        <Route path="/main" component={Main}/>
+                        <Route path="/login" component={Login}/>
                         {/*<Route path="/image-cropper" component={ImageCropper}/>*/}
                         {/*<Route path="/login" component={Login}/>*/}
-                        <Route path="/"  render={() => (adminID ? <Redirect to='/main'/> : <Redirect to='/login'/>)}/>
-                        <Route path="/login" exact render={() => (adminID ? <Redirect to='/main/find'/> : <Login/>)}/>
-                        <Route path="/main"  render={() => (!adminID ? <Redirect to='/login'/> : <Main/>)}/>
+                        {/*<Route path="/"  render={() => (adminID ? <Redirect to='/main'/> : <Redirect to='/login'/>)}/>*/}
+                        {/*<Route path="/login" exact render={() => (adminID ? <Redirect to='/main'/> : <Login/>)}/>*/}
+                        {/*<Route path=""  render={() => (!adminID ? <Redirect to='/login'/> : <Main/>)}/>*/}
                     </div>
                 </Router>
             </div>

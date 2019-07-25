@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
-import Toolbar from '@material-ui/core/Toolbar';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
@@ -11,6 +8,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import ImageCropper from "./image-cropper";
 import FilledInput from '@material-ui/core/FilledInput';
+import ToolBarComponent from "../ToolBarComponent/toolbar-componet";
 
 
 class AddStudents extends Component {
@@ -40,17 +38,15 @@ class AddStudents extends Component {
         };
     }
 
-    getStudentImageURL=(url) =>{
-        console.log(url);
+    getStudentImageURL = (url) => {
         this.setState({studentImageURL: url});
-    }
+    };
 
     changeValue(p, e) {
         this.setState({[p]: e.target.value});
     }
 
     saveStData() {
-        var studentImageURL = localStorage.getItem('studentPhoto');
         var studentData = {
             studentName: this.state.studentName,
             fatherName: this.state.fatherName,
@@ -96,11 +92,7 @@ class AddStudents extends Component {
     render() {
         return (
             <div>
-                <AppBar position="static">
-                    <Toolbar style={{minHeight: '80px'}}><Typography color="inherit"
-                                                                     style={{fontSize: '25px'}}>Add Students
-                        Data</Typography></Toolbar>
-                </AppBar>
+                <ToolBarComponent title="Add Student"/>
                 <Card style={{width: '715px', margin: '20px 0 15px 50px'}}>
                     <CardContent>
                         <TextField id="outlined-name" label="Name of Student" fullWidth margin="normal"
@@ -164,8 +156,7 @@ class AddStudents extends Component {
                                 })}
                             </Select>
                         </FormControl>
-                        {/*<InputMask mask="99/99/9999" placeholder="Enter birthdate" />*/}
-                        <ImageCropper onCroped={this.getStudentImageURL}/>
+                        <ImageCropper onCropped={this.getStudentImageURL}/>
                     </CardContent>
                     <Button variant="contained" color="primary" size='large'
                             onClick={this.saveStData.bind(this)}>Add Data</Button><br/><br/>

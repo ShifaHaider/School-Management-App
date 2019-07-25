@@ -86,7 +86,7 @@ constructor(props){
 
                 window.URL.revokeObjectURL(this.fileUrl);
                 this.fileUrl = window.URL.createObjectURL(blob);
-                // console.log(this.fileUrl);
+                console.log(this.fileUrl);
                 this.setState({fileURL: this.fileUrl});
                 resolve(this.fileUrl);
             }, "image/jpeg");
@@ -94,8 +94,8 @@ constructor(props){
     }
 
     fileUpload(){
-        this.props.onCroped(this.state.fileURL);
-        localStorage.setItem("studentPhoto" , this.state.fileURL);
+        console.log(this.state.fileURL);
+        this.props.onCropped(this.state.fileURL);
         // var event = firebase.storage().ref().put(this.state.fileURL);
         // event.getDownloadURL().then((snapshot) => {
         //     console.log(snapshot);
@@ -128,10 +128,3 @@ constructor(props){
         );
     }
 }
-// service firebase.storage {
-//     match /b/{bucket}/o {
-//     match /{allPaths=**} {
-//         allow read, write: if request.auth != null;
-//     }
-// }
-// }

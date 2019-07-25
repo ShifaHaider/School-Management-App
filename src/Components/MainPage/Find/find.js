@@ -48,7 +48,7 @@ class Find extends Component {
             year: '',
             class: '',
             foundStudent: [],
-
+            heading: 'Students of year: '
 
         };
     }
@@ -100,7 +100,7 @@ class Find extends Component {
             <div>
                 <AppBar position="static">
                     <Toolbar style={{minHeight: '80px'}}><Typography color="inherit"
-                     style={{fontSize: '25px'}}>FIND STUDENTS: {this.state.year}</Typography></Toolbar>
+                     style={{fontSize: '25px'}}>FIND STUDENTS</Typography></Toolbar>
                 </AppBar>
                 <Card style={{width: '500px', margin: '20px 0 0 40px'}}>
                     <CardContent>

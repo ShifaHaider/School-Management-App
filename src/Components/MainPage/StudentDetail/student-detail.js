@@ -45,17 +45,18 @@ class StudentDetail extends Component {
     }
 
     render() {
-
+        var image = localStorage.getItem('studentPhoto');
+        console.log(image);
         return (
             <div>
                 <AppBar position="static">
                     <Toolbar style={{minHeight: '80px'}}><Typography color="inherit"
-                    style={{fontSize: '25px'}}>View Student Details</Typography></Toolbar>
+                        style={{fontSize: '25px'}}>View Student Details</Typography></Toolbar>
                 </AppBar>
                 {this.state.change ? <AutoComplete studentDetail={this.state.studentDetail}/> :
                     <Paper style={{margin: "20px 100px 15px 50px", padding: "10px 0 10px 10px", width: "900px"}}>
                         <img alt="Student pic" style={{height: "180px", width: "165px"}}
-                             src={'https://www.pixelstalk.net/wp-content/uploads/2014/12/cool-abstract-flower-HD-wallpaper.jpg'}/><br/><br/>
+                             src={image}/><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Student Name</b></Typography>
                         <Typography variant="h6"
                                     component="p"><b>{this.state.studentDetail.studentName}</b></Typography><br/><br/>
@@ -71,7 +72,8 @@ class StudentDetail extends Component {
                         <Typography variant="h6"
                                     component="p"><b>{this.state.studentDetail.CNIC}</b></Typography><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Phone NO.</b></Typography>
-                        <Typography variant="h6" component="p"><b>{this.state.studentDetail.phoneNo}</b></Typography><br/><br/>
+                        <Typography variant="h6"
+                                    component="p"><b>{this.state.studentDetail.phoneNo}</b></Typography><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Last Institution Name</b></Typography>
                         <Typography variant="h6"
                                     component="p"><b>{this.state.studentDetail.lastInstitution}</b></Typography><br/><br/>

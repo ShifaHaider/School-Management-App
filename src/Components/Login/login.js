@@ -30,6 +30,7 @@ class Login extends Component {
                 console.log(data);
                 localStorage.setItem("adminID", data.user.uid);
                 this.props.history.push('/main');
+                window.location.reload();
             })
             .catch((error) => {
                 console.log(error.message);
@@ -38,16 +39,17 @@ class Login extends Component {
 
 
     render() {
+        var card = document.getElementsByClassName('cardStyle');
+        console.log(card);
+        console.log(card.length);
         return (
             <div className='App'>
                 <AppBar position="static">
                     <Toolbar style={{minHeight: '90px'}}><Typography color="inherit" style={{fontSize: '25px'}}>LOGIN</Typography></Toolbar>
                 </AppBar>
-                <Card className='card'
-                      style={{width: '416px', textAlign: 'center', height: '350px', marginTop: '100px'}}>
-                    <div style={{paddingTop: '40px'}}>
-                        <CardContent>
-                            <Typography>
+
+                <Card className='cardStyle' style={{width: '416px', textAlign: 'center', height: '350px', marginTop: '100px'}}>
+                        <CardContent style={{paddingTop: '40px'}}>
                                 <TextField
                                     id="outlined-name"
                                     label="Email"
@@ -56,8 +58,6 @@ class Login extends Component {
                                     variant="outlined"
                                     onChange={this.handleChange.bind(this, 'email')}
                                 />
-                            </Typography>
-                            <Typography>
                                 <TextField
                                     id="outlined-password-input"
                                     label="Password"
@@ -68,12 +68,11 @@ class Login extends Component {
                                     variant="outlined"
                                     onChange={this.handleChange.bind(this, 'password')}
                                 />
-                            </Typography>
                         </CardContent>
                         <Button variant="contained" color="primary" size='large'
                                 onClick={this.loginAccount.bind(this)}>Login</Button>
-                    </div>
                 </Card>
+                <Card className='cardStyle'></Card>
 
             </div>
         )

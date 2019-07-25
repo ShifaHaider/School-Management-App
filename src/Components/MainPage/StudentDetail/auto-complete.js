@@ -8,6 +8,7 @@ import Select from "@material-ui/core/Select";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import ImageCropper from "../AddStudentData/image-cropper";
 import Button from "@material-ui/core/Button";
+import FilledInput from '@material-ui/core/FilledInput';
 
 
 class AutoComplete extends Component {
@@ -36,8 +37,9 @@ class AutoComplete extends Component {
     }
 
     changeYear(e) {
-        // var year = this.state.studentDetail.year;
-        // year = e.target.value.split("-")[0];
+        var studentDetail = this.state.studentDetail;
+        studentDetail.year = e.target.value;
+        this.setState({studentDetail: studentDetail});
     }
 
     updateData() {
@@ -93,14 +95,14 @@ class AutoComplete extends Component {
                         <TextField id="date" variant="outlined" fullWidth label="Date of Admitted"
                                    onChange={this.changeYear.bind(this)} value={this.state.studentDetail.admissionDate}
                                    type="date" InputLabelProps={{shrink: true,}}/><br/><br/>
-                        <FormControl variant="outlined">
-                            <InputLabel htmlFor="outlined-age-native-simple">Year</InputLabel>
+                        <FormControl variant="filled">
+                            <InputLabel htmlFor="filled-age-native-simple">Year</InputLabel>
                             <Select style={{width: '680px', textAlign: 'left'}}
                                     native
                                     value={this.state.studentDetail.year}
                                     onChange={this.changeYear.bind(this)}
                                     input={
-                                        <OutlinedInput name="age" id="outlined-age-native-simple"/>}>
+                                        <FilledInput name="age" id="filled-age-native-simple"/>}>
                                 {this.state.yearsList.map((val, ind) => {
                                     return (
                                         <option key={ind} value={val}>{val}</option>
@@ -109,8 +111,8 @@ class AutoComplete extends Component {
                             </Select>
                         </FormControl>
                         <br/><br/>
-                        <FormControl variant="outlined">
-                            <InputLabel htmlFor="outlined-age-native-simple">
+                        <FormControl variant="filled">
+                            <InputLabel htmlFor="filled-age-native-simple">
                                 Admitted in Class
                             </InputLabel>
                             <Select style={{width: '680px', textAlign: 'left'}}
@@ -118,7 +120,7 @@ class AutoComplete extends Component {
                                     value={this.state.studentDetail.admittedClass}
                                     onChange={this.changeValue.bind(this, 'admittedClass')}
                                     input={
-                                        <OutlinedInput name="age" id="outlined-age-native-simple"/>
+                                        <FilledInput name="age" id="filled-age-native-simple"/>
                                     }
                             >
                                 {this.state.classList.map((val, ind) => {

@@ -3,16 +3,25 @@ import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 import TextField from "@material-ui/core/TextField";
 import Button from '@material-ui/core/Button';
+import firebase from 'firebase';
+
 
 export default class ImageCropper extends Component {
-    state = {
+constructor(props){
+    super(props);
+    this.state = {
         src: null,
         crop: {
             unit: "%",
             width: 30,
             aspect: 16 / 9
-        }
+        },
+        confirm: '',
+        imageFile: {},
+        fileURL: ''
     };
+};
+
 
     onSelectFile = e => {
         if (e.target.files && e.target.files.length > 0) {
@@ -21,6 +30,7 @@ export default class ImageCropper extends Component {
                 this.setState({ src: reader.result })
             );
             reader.readAsDataURL(e.target.files[0]);
+
         }
     };
 
@@ -41,17 +51,12 @@ export default class ImageCropper extends Component {
 
     async makeClientCrop(crop) {
         if (this.imageRef && crop.width && crop.height) {
-            const croppedImageUrl = await this.getCroppedImg(
-                this.imageRef,
-                crop,
-                "newFile.jpeg"
-            );
+            const croppedImageUrl = await this.getCroppedImg(this.imageRef, crop, "newFile.jpeg");
             this.setState({ croppedImageUrl });
         }
     }
 
     getCroppedImg(image, crop, fileName) {
-        // console.log(image, crop, fileName);
         const canvas = document.createElement("canvas");
         const scaleX = image.naturalWidth / image.width;
         const scaleY = image.naturalHeight / image.height;
@@ -72,29 +77,33 @@ export default class ImageCropper extends Component {
 
         return new Promise((resolve, reject) => {
             canvas.toBlob(blob => {
-                console.log(blob);
-                this.setState({imageFile: blob});
                 if (!blob) {
-
-                    //reject(new Error('Canvas is empty'));
                     console.error("Canvas is empty");
                     return;
                 }
                 blob.name = fileName;
+                this.setState({imageFile: blob});
+
                 window.URL.revokeObjectURL(this.fileUrl);
                 this.fileUrl = window.URL.createObjectURL(blob);
                 // console.log(this.fileUrl);
+                this.setState({fileURL: this.fileUrl});
                 resolve(this.fileUrl);
             }, "image/jpeg");
-        });
+    });
     }
-    fileUpload(input){
-        var file = input.target.files[0];
-        console.log(file);
+
+    fileUpload(){
+        this.props.onCroped(this.state.fileURL);
+        localStorage.setItem("studentPhoto" , this.state.fileURL);
+        // var event = firebase.storage().ref().put(this.state.fileURL);
+        // event.getDownloadURL().then((snapshot) => {
+        //     console.log(snapshot);
+        // });
+
     }
     render() {
         const { crop, croppedImageUrl, src } = this.state;
-
         return (
             <div className="App">
                 <div>
@@ -102,22 +111,27 @@ export default class ImageCropper extends Component {
                     <TextField id="outlined-name" margin="normal" variant="outlined"
                           type='file' onChange={this.onSelectFile}/>
                 </div>
-                {src && (
-                    <ReactCrop
-                        src={src}
-                        crop={crop}
-                        onImageLoaded={this.onImageLoaded}
-                        onComplete={this.onCropComplete}
-                        onChange={this.onCropChange}
-                    />
-                )}
+                { src &&  <ReactCrop
+                    src={src}
+                    crop={crop}
+                    onImageLoaded={this.onImageLoaded}
+                    onComplete={this.onCropComplete}
+                    onChange={this.onCropChange}
+                /> }
                 <br/>
                 {croppedImageUrl && (
                     <img alt="Crop" style={{ maxWidth: "100%" }} src={croppedImageUrl} />
                 )}
-                <Button variant="outlined">Confirm</Button>
-                {/*<input type="file" onChange={this.fileUpload.bind(this)}/>*/}
+                <br/>
+                <Button variant="outlined" onClick={this.fileUpload.bind(this)}>Confirm</Button>
             </div>
         );
     }
 }
+// service firebase.storage {
+//     match /b/{bucket}/o {
+//     match /{allPaths=**} {
+//         allow read, write: if request.auth != null;
+//     }
+// }
+// }

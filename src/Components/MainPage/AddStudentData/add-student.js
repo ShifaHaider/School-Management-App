@@ -9,6 +9,13 @@ import InputLabel from '@material-ui/core/InputLabel';
 import ImageCropper from "./image-cropper";
 import FilledInput from '@material-ui/core/FilledInput';
 import ToolBarComponent from "../ToolBarComponent/toolbar-componet";
+import {
+    MuiPickersUtilsProvider,
+    KeyboardTimePicker,
+    KeyboardDatePicker,
+} from '@material-ui/pickers';
+// import DateFnsUtils from '@date-io/date-fns';
+import Grid from '@material-ui/core/Grid';
 
 
 class AddStudents extends Component {
@@ -39,6 +46,7 @@ class AddStudents extends Component {
     }
 
     getStudentImageURL = (url) => {
+        console.log(url);
         this.setState({studentImageURL: url});
     };
 
@@ -83,18 +91,28 @@ class AddStudents extends Component {
         this.setState({year: year[0]});
     }
 
-    handleDateChange(data) {
-        console.log(data);
-        console.log(data.target.value);
-    }
-
 
     render() {
         return (
             <div>
                 <ToolBarComponent title="Add Student"/>
+                {/*<InputMask mask="99-99-9999" defaultValue="26-07-2019" />*/}
                 <Card style={{width: '715px', margin: '20px 0 15px 50px'}}>
                     <CardContent>
+                        {/*<MuiPickersUtilsProvider utils={DateFnsUtils}>*/}
+                        {/*    <Grid container justify="space-around">*/}
+                        {/*        <KeyboardDatePicker*/}
+                        {/*            margin="normal"*/}
+                        {/*            id="mui-pickers-date"*/}
+                        {/*            label="Date picker"*/}
+                        {/*            // value={selectedDate}*/}
+                        {/*            // onChange={handleDateChange}*/}
+                        {/*            KeyboardButtonProps={{*/}
+                        {/*                'aria-label': 'change date',*/}
+                        {/*            }}*/}
+                        {/*        />*/}
+                        {/*    </Grid>*/}
+                        {/*</MuiPickersUtilsProvider>*/}
                         <TextField id="outlined-name" label="Name of Student" fullWidth margin="normal"
                                    variant="outlined"
                                    value={this.state.studentName}
@@ -157,9 +175,9 @@ class AddStudents extends Component {
                             </Select>
                         </FormControl>
                         <ImageCropper onCropped={this.getStudentImageURL}/>
+                        <Button variant="contained" color="primary" size='large'
+                                onClick={this.saveStData.bind(this)}>Add Data</Button><br/><br/>
                     </CardContent>
-                    <Button variant="contained" color="primary" size='large'
-                            onClick={this.saveStData.bind(this)}>Add Data</Button><br/><br/>
                 </Card>
             </div>
         )

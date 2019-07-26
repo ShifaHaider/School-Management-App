@@ -41,16 +41,19 @@ class StudentDetail extends Component {
         this.setState({change: "change"})
     }
 
+    print() {
+        localStorage.setItem('studentDetail', JSON.stringify(this.state.studentDetail));
+        window.open('/main/student-detail-print', "_blank");
+    }
     render() {
-        var image = localStorage.getItem('studentPhoto');
+        console.log(this.state.studentDetail.studentPhotoURL);
         return (
             <div>
                 <ToolBarComponent title="View Student Details"/>
-
                 {this.state.change ? <AutoComplete studentDetail={this.state.studentDetail}/> :
                     <Paper style={{margin: "20px 100px 15px 50px", padding: "10px 0 10px 10px", width: "900px"}}>
                         <img alt="Student pic" style={{height: "180px", width: "165px"}}
-                             src={image}/><br/><br/>
+                             src={this.state.studentDetail.studentPhotoURL}/><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Student Name</b></Typography>
                         <Typography variant="h6"
                                     component="p"><b>{this.state.studentDetail.studentName}</b></Typography><br/><br/>
@@ -79,6 +82,8 @@ class StudentDetail extends Component {
                                     component="p"><b>{this.state.studentDetail.admissionDate}</b></Typography><br/>
                         <Button variant="contained" color="primary" size='large'
                                 onClick={this.change.bind(this)}>Edit</Button>
+                        <Button variant="contained" color="primary" size='large'
+                                onClick={this.print.bind(this)}>Print</Button>
                     </Paper>}
             </div>
         )

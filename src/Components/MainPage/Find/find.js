@@ -14,6 +14,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {withStyles} from '@material-ui/core/styles';
+import print from 'print-js'
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -93,8 +94,22 @@ class Find extends Component {
     }
 
     print() {
-        localStorage.setItem('foundData', JSON.stringify(this.state.foundStudent));
-        window.open('/main/print', "_blank");
+        var title = "Data of School Students" + this.state.year ? "of Year" + this.state.year: null;
+        print({
+            printable: this.state.foundStudent,
+            properties: [
+                { field: "studentName", displayName: 'Student Name'},
+                { field: 'fatherName', displayName: "Father's Name"},
+                { field: 'dateOfBirth', displayName: 'Date of Birth'},
+                { field: 'address', displayName: 'Address'},
+                { field: 'CNIC', displayName: 'CNIC No.'},
+                { field: 'phoneNo', displayName: 'Phone No'},
+                { field: 'lastInstitution', displayName: 'Last Institution attended '},
+                { field: 'admissionDate', displayName: 'Date of Admitted'},
+                { field: 'admittedClass', displayName: 'Admitted in Class'},
+            ],
+            header: "",
+            type: 'json'});
     }
 
     render() {

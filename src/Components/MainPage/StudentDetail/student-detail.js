@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from "@material-ui/core/Button";
 import AutoComplete from "./auto-complete"
 import ToolBarComponent from "../ToolBarComponent/toolbar-componet";
+import Container from "@material-ui/core/Container";
 
 class StudentDetail extends Component {
     constructor(props) {
@@ -50,8 +51,9 @@ class StudentDetail extends Component {
         return (
             <div>
                 <ToolBarComponent title="View Student Details"/>
+                <Container maxWidth="md">
                 {this.state.change ? <AutoComplete studentDetail={this.state.studentDetail}/> :
-                    <Paper style={{margin: "20px 100px 15px 50px", padding: "10px 0 10px 10px", width: "900px"}}>
+                    <Paper style={{margin: "20px 100px 15px 50px", padding: "10px 0 10px 10px"}}>
                         <img alt="Student pic" style={{height: "180px", width: "165px"}}
                              src={this.state.studentDetail.studentPhotoURL}/><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Student Name</b></Typography>
@@ -88,6 +90,7 @@ class StudentDetail extends Component {
                         <Button variant="contained" color="primary" size='large'
                                 onClick={this.print.bind(this)}>Print</Button>
                     </Paper>}
+                </Container>
             </div>
         )
     }

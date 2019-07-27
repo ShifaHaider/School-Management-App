@@ -4,6 +4,8 @@ import "react-image-crop/dist/ReactCrop.css";
 import TextField from "@material-ui/core/TextField";
 import Button from '@material-ui/core/Button';
 import firebase from 'firebase';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 
 export default class ImageCropper extends Component {
@@ -21,7 +23,10 @@ export default class ImageCropper extends Component {
             fileURL: '',
             downloadURL: '',
             showCrop: false,
-            onSelect: false
+            onSelect: false,
+            loading: false,
+            success: false,
+            text: ''
         };
     };
 
@@ -30,7 +35,7 @@ export default class ImageCropper extends Component {
         if (e.target.files && e.target.files.length > 0) {
             const reader = new FileReader();
             reader.addEventListener("load", () =>
-                this.setState({src: reader.result, onSelect : true})
+                this.setState({src: reader.result, onSelect: true})
             );
             reader.readAsDataURL(e.target.files[0]);
 
@@ -93,16 +98,17 @@ export default class ImageCropper extends Component {
         });
     }
 
-    fileUpload (){
-        var blob = new Blob([this.state.fileURL], { type: 'image/jpeg'});
-        var event = firebase.storage().ref().child(this.state.imageFile.name).put(this.state.imageFile).then((snapshot)=>{
-           snapshot.ref.getDownloadURL().then((downloadURL)=> {
-               console.log(downloadURL);
-               this.props.onCropped(downloadURL);
-               this.setState({onSelect : false});
-           });
+    fileUpload() {
+        var blob = new Blob([this.state.fileURL], {type: 'image/jpeg'});
+        this.setState({loading: true, onSelect: false});
+        var event = firebase.storage().ref().child(this.state.imageFile.name).put(this.state.imageFile).then((snapshot) => {
+            snapshot.ref.getDownloadURL().then((downloadURL) => {
+                console.log(downloadURL);
+                this.props.onCropped(downloadURL);
+                this.setState({onSelect: false, loading: false , text: "Success!"});
+            });
         });
-        this.setState({src: null , showCrop: true});
+        this.setState({src: null, showCrop: true});
 
     }
 
@@ -127,8 +133,12 @@ export default class ImageCropper extends Component {
                 ) : null}
                 <br/>
                 {this.state.onSelect ?
-                <Button variant="outlined" onClick={this.fileUpload.bind(this)}>Confirm</Button> : null}
+                    <Button color="primary" onClick={this.fileUpload.bind(this)}>Confirm</Button> : null}
+                <br/>
+                {this.state.loading ?
+                <CircularProgress color="primary" /> : <p>{this.state.text}</p>}
             </div>
         );
     }
 }
+

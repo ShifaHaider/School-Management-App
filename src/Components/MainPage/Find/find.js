@@ -17,6 +17,7 @@ import {withStyles} from '@material-ui/core/styles';
 import print from 'print-js'
 import MenuItem from '@material-ui/core/MenuItem';
 import Container from '@material-ui/core/Container';
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 
 const StyledTableCell = withStyles(theme => ({
@@ -48,7 +49,8 @@ class Find extends Component {
             year: '',
             class: '',
             foundStudent: [],
-            heading: 'Students of year: '
+            heading: 'Students of year: ',
+            loading: false
 
         };
     }
@@ -70,6 +72,7 @@ class Find extends Component {
                 delete filters[v];
             }
         }
+        this.setState({loading: true})
         const url = 'http://localhost:9000/find-students/find-student';
         fetch(url, {
             method: "post",
@@ -81,7 +84,7 @@ class Find extends Component {
         }).then((data) => {
             data.json().then((foundData) => {
                 // console.log(foundData);
-                this.setState({foundStudent: foundData})
+                this.setState({loading: false ,foundStudent: foundData})
             });
         })
             .catch((err) => {
@@ -175,8 +178,11 @@ class Find extends Component {
                         <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
                                 onClick={this.print.bind(this)}>Print</Button>
                         : null}
-
+                    <br/><br/>
+                    {this.state.loading ?
+                       <div><CircularProgress color="primary" /><p>Loading...</p></div> : null}
                 </div>
+
                 <br/>
                 {this.state.foundStudent.length !== 0 ?
                     <Paper>
@@ -184,10 +190,10 @@ class Find extends Component {
                             <TableHead>
                                 <TableRow>
                                     <StyledTableCell>Student Name</StyledTableCell>
-                                    <StyledTableCell align="right">Father Name</StyledTableCell>
-                                    <StyledTableCell align="right">DateOFBirth</StyledTableCell>
-                                    <StyledTableCell align="right">AdmittedClass</StyledTableCell>
-                                    <StyledTableCell align="right">AdmittedDate</StyledTableCell>
+                                    <StyledTableCell align="left">Father Name</StyledTableCell>
+                                    <StyledTableCell align="left">DateOFBirth</StyledTableCell>
+                                    <StyledTableCell align="left">AdmittedClass</StyledTableCell>
+                                    <StyledTableCell align="left">AdmittedDate</StyledTableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -197,16 +203,15 @@ class Find extends Component {
                                             <StyledTableCell component="th" scope="row">
                                                 {student.studentName}
                                             </StyledTableCell>
-                                            <StyledTableCell align="right"
-                                                             onClick={this.studentDetail.bind(this, student)}>
+                                            <StyledTableCell align="left" onClick={this.studentDetail.bind(this, student)}>
                                                 {student.fatherName}</StyledTableCell>
-                                            <StyledTableCell align="right"
+                                            <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}
                                             >{student.dateOfBirth}</StyledTableCell>
-                                            <StyledTableCell align="right"
+                                            <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}
                                             >{student.admittedClass}</StyledTableCell>
-                                            <StyledTableCell align="right"
+                                            <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}
                                             >{student.admissionDate}</StyledTableCell>
                                         </StyledTableRow>

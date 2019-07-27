@@ -8,11 +8,18 @@ import Select from "@material-ui/core/Select";
 import ImageCropper from "../AddStudentData/image-cropper";
 import Button from "@material-ui/core/Button";
 import FilledInput from '@material-ui/core/FilledInput';
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import DialogActions from "@material-ui/core/DialogActions";
+import Container from "@material-ui/core/Container";
 
 
 class AutoComplete extends Component {
     constructor(props) {
         super(props);
+        console.log(new Date(props.studentDetail.dateOfBirth).toLocaleDateString());
         this.state = {
             studentDetail: props.studentDetail,
             yearsList: ['', 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
@@ -22,6 +29,9 @@ class AutoComplete extends Component {
                 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043,
                 2044, 2045, 2046, 2047, 2048, 2049, 2050],
             classList: ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
+            open: false,
+            dialogText: "",
+            loading: false
         }
     }
 
@@ -32,7 +42,7 @@ class AutoComplete extends Component {
     changeValue(p, e) {
         var studentDetail = this.state.studentDetail;
         if(studentDetail[p] === "admissionDate"){
-            this.setState({year: e.target.value.split("-")[0]})
+            this.setState({year: e.target.value.split("/")[0]})
         }
         studentDetail[p] = e.target.value;
         this.setState({studentDetail: studentDetail});
@@ -53,9 +63,12 @@ class AutoComplete extends Component {
         studentDetail.admissionDate = new Date(studentDetail.admissionDate).getTime();
         for (var d in studentDetail) {
             if(studentDetail[d] == ''){
-                alert('Field is required');
+                this.setState({open: true , dialogText: "field is Required !!"});
                 return;
                 break;
+            }
+            else {
+                // this.setState({open: true , loading: true , dialogText: "Saving..."});
             }
         }
         const url = 'http://localhost:9000/add-students/update-student-profile';
@@ -68,8 +81,7 @@ class AutoComplete extends Component {
             }
         }).then((data) => {
             data.json().then((studData) => {
-                this.setState({studentName: "" , fatherName: "" , dateOfBirth: "" ,address:"",CNIC:"" ,phoneNo:"",
-                    lastInstitution:"", admittedClass:"" , admissionDate:"" , year:""});
+                this.setState({ loading: false, dialogText: "Saved!!"});
             });
         })
             .catch((err) => {
@@ -77,10 +89,14 @@ class AutoComplete extends Component {
             });
     }
 
+    handleClose(){
+        this.setState({open: false});
+    }
+
     render() {
         return (
             <div>
-                <Card style={{width: '715px', margin: '20px 0 15px 50px'}}>
+                <Card style={{width: '', margin: '20px 0 15px 50px'}}>
                     <CardContent>
                         <TextField id="outlined-name" label="Name of Student" fullWidth margin="normal"
                                    variant="outlined"
@@ -90,7 +106,8 @@ class AutoComplete extends Component {
                                    value={this.state.studentDetail.fatherName}
                                    onChange={this.changeValue.bind(this, 'fatherName')}/><br/><br/>
                         <TextField id="date" variant="outlined" fullWidth label="Date of Birth"
-                                   value={new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString()}
+                                   // value={new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString()}
+                                   value="2010-10-02"
                                    onChange={this.changeValue.bind(this, "dateOfBirth")}
                                    type="date" InputLabelProps={{shrink: true,}}/>
                         <TextField id="outlined-name" label="Address" fullWidth margin="normal" variant="outlined"
@@ -147,12 +164,28 @@ class AutoComplete extends Component {
                             </Select>
                         </FormControl>
                         <ImageCropper onCropped={this.getNewImageURL}/>
+                        <Button variant="contained" color="primary" size='large' style={{float: "right"}}
+                                onClick={this.updateData.bind(this)}>Update Data</Button>
                     </CardContent>
-                    <Button variant="contained" color="primary" size='large'
-                            onClick={this.updateData.bind(this)}>Update Data</Button><br/><br/>
                 </Card>
-
-
+                <Dialog fullWidth
+                        open={this.state.open}
+                        onClose={this.handleClose.bind(this)}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description">
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                            {this.state.loading ? <CircularProgress color="primary" /> :null}
+                            <br/>
+                            {this.state.dialogText}
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={this.handleClose.bind(this)} color="primary" autoFocus>
+                            Ok
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </div>
         )
     }

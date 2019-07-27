@@ -9,15 +9,13 @@ import InputLabel from '@material-ui/core/InputLabel';
 import ImageCropper from "./image-cropper";
 import FilledInput from '@material-ui/core/FilledInput';
 import ToolBarComponent from "../ToolBarComponent/toolbar-componet";
-import {
-    MuiPickersUtilsProvider,
-    KeyboardTimePicker,
-    KeyboardDatePicker,
-} from '@material-ui/pickers';
-// import DateFnsUtils from '@date-io/date-fns';
-import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 class AddStudents extends Component {
@@ -42,6 +40,9 @@ class AddStudents extends Component {
             setSelectedDate: '',
 
             studentImageURL: '',
+            open: false,
+            dialogText: "",
+            loading: false
         };
     }
 
@@ -59,6 +60,7 @@ class AddStudents extends Component {
     }
 
     saveStData() {
+        // this.setState({open: true});
         var dateOfBirth = new Date(this.state.dateOfBirth).getTime();
         var admissionDate = new Date(this.state.admissionDate).getTime();
         var studentData = {
@@ -74,13 +76,14 @@ class AddStudents extends Component {
             year: this.state.year,
             studentPhotoURL: this.state.studentImageURL,
         };
-
-
         for (var d in studentData) {
             if(studentData[d] == ''){
-                alert('Field is required');
+                this.setState({open: true , dialogText: "field is Required !!"});
                 return;
                 break;
+            }
+            else {
+                this.setState({open: true , loading: true , dialogText: "Saving..."});
             }
         }
 
@@ -95,10 +98,11 @@ class AddStudents extends Component {
         }).then((data) => {
             data.json().then((studData) => {
                 this.setState({studentName: "" , fatherName: "" , dateOfBirth: "" ,address:"",CNIC:"" ,phoneNo:"",
-                    lastInstitution:"", admittedClass:"" , admissionDate:"" , year:""});
+                    lastInstitution:"", admittedClass:"" , admissionDate:"" , year:"" , loading: false, dialogText: "Saved!!"});
             });
         })
             .catch((err) => {
+                this.setState({open: true, err});
                 console.log(err);
             });
     }
@@ -107,14 +111,17 @@ class AddStudents extends Component {
         this.setState({year: e.target.value});
     }
 
+    handleClose(){
+        this.setState({open: false});
+    }
 
     render() {
         return (
             <div>
                 <ToolBarComponent title="Add Student"/>
                 {/*<InputMask mask="99-99-9999" defaultValue="26-07-2019" />*/}
-                <Container maxWidth="sm">
-                <Card style={{width: '715px', margin: '20px 0 15px 0'}}>
+                <Container maxWidth="md">
+                <Card style={{ margin: '20px 0 15px 0'}}>
                     <CardContent>
                         <TextField id="outlined-name" label="Name of Student" fullWidth margin="normal"
                                    variant="outlined"
@@ -179,11 +186,27 @@ class AddStudents extends Component {
                             </Select>
                         </FormControl>
                         <ImageCropper onCropped={this.getStudentImageURL}/>
-                        {}
                         <Button variant="contained" color="primary" size='large' style={{float: "right"}}
                                 onClick={this.saveStData.bind(this)}>Save Data</Button><br/><br/>
                     </CardContent>
                 </Card>
+                    <Dialog fullWidth
+                            open={this.state.open}
+                        onClose={this.handleClose.bind(this)}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description">
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                {this.state.loading ? <CircularProgress color="primary" /> :null}
+                                <br/>{this.state.dialogText}
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={this.handleClose.bind(this)} color="primary" autoFocus>
+                                Ok
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
                 </Container>
             </div>
         )

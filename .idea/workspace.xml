@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce5b2128-fabb-4493-9843-87b1f0ad7263" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/image-cropper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/image-cropper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/MainPage/Find/find.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainPage/Find/find.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/MainPage/Find/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainPage/Find/table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/MainPage/StudentDetail/auto-complete.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainPage/StudentDetail/auto-complete.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/StudentDetailPrint/student-detail-print.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/StudentDetailPrint/student-detail-print.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/Router/add-students.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/Router/find-students.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/Schema/schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/Schema/schema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/StudentDetail/auto-complete.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="102" column="35" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
+            <state relative-caret-position="518">
+              <caret line="135" column="109" selection-start-line="135" selection-start-column="109" selection-end-line="135" selection-end-column="109" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -50,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="194" column="61" lean-forward="true" selection-start-line="194" selection-start-column="61" selection-end-line="194" selection-end-column="61" />
+            <state relative-caret-position="620">
+              <caret line="215" column="1" lean-forward="true" selection-start-line="215" selection-start-column="1" selection-end-line="215" selection-end-column="1" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="n#!!block;n#changeYear#0;n#AddStudents#0" />
@@ -66,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/Find/find.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="82" column="45" lean-forward="true" selection-start-line="82" selection-start-column="45" selection-end-line="82" selection-end-column="45" />
+            <state relative-caret-position="303">
+              <caret line="205" column="74" selection-start-line="205" selection-start-column="74" selection-end-line="205" selection-end-column="74" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#1601#1931#0" />
@@ -237,10 +224,10 @@
         <option value="$PROJECT_DIR$/src/db/Router/add-students.js" />
         <option value="$PROJECT_DIR$/src/db/Router/students.js" />
         <option value="$PROJECT_DIR$/src/db/Schema/schema.js" />
-        <option value="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js" />
-        <option value="$PROJECT_DIR$/src/Components/MainPage/Find/find.js" />
         <option value="$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail.js" />
         <option value="$PROJECT_DIR$/src/Components/MainPage/StudentDetail/auto-complete.js" />
+        <option value="$PROJECT_DIR$/src/Components/MainPage/Find/find.js" />
+        <option value="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js" />
       </list>
     </option>
   </component>
@@ -382,12 +369,12 @@
       <workItem from="1564236233310" duration="1767000" />
       <workItem from="1564240589064" duration="860000" />
       <workItem from="1564242714330" duration="599000" />
-      <workItem from="1564246508003" duration="561000" />
+      <workItem from="1564246508003" duration="1096000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203665000" />
+    <option name="totallyTimeSpent" value="204200000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -623,39 +610,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/Find/find.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="82" column="45" lean-forward="true" selection-start-line="82" selection-start-column="45" selection-end-line="82" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#1601#1931#0" />
-            <element signature="n#!!block;n#categoryChange#0;n#Find#0" />
-            <element signature="n#!!block;n#studentDetail#0;n#Find#0" />
-            <element signature="n#!!block;n#print#0;n#Find#0" />
-            <element signature="n#!!block;n#changeKeyword#0;n#Find#0" />
-            <element signature="n#!!block;n#searchByKeyword#0;n#Find#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/image-cropper.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="681">
           <caret line="138" column="71" selection-start-line="138" selection-start-column="71" selection-end-line="138" selection-end-column="71" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="194" column="61" lean-forward="true" selection-start-line="194" selection-start-column="61" selection-end-line="194" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="n#!!block;n#changeYear#0;n#AddStudents#0" />
           </folding>
         </state>
       </provider>
@@ -672,10 +632,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/MainPage/StudentDetail/auto-complete.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="102" column="35" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
+        <state relative-caret-position="518">
+          <caret line="135" column="109" selection-start-line="135" selection-start-column="109" selection-end-line="135" selection-end-column="109" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/Find/find.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="205" column="74" selection-start-line="205" selection-start-column="74" selection-end-line="205" selection-end-column="74" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#1601#1931#0" />
+            <element signature="n#!!block;n#categoryChange#0;n#Find#0" />
+            <element signature="n#!!block;n#studentDetail#0;n#Find#0" />
+            <element signature="n#!!block;n#print#0;n#Find#0" />
+            <element signature="n#!!block;n#changeKeyword#0;n#Find#0" />
+            <element signature="n#!!block;n#searchByKeyword#0;n#Find#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="215" column="1" lean-forward="true" selection-start-line="215" selection-start-column="1" selection-end-line="215" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="n#!!block;n#changeYear#0;n#AddStudents#0" />
           </folding>
         </state>
       </provider>

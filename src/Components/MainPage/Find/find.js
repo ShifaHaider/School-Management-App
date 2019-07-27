@@ -203,7 +203,8 @@ class Find extends Component {
                         : null}
                     <br/><br/>
                     {this.state.loading ?
-                       <div><CircularProgress color="primary" />Loading...</div> : null}
+                       <div><CircularProgress color="primary" />Loading... </div> : null}
+
                 </div>
                 <div style={{margin: '12px auto', textAlign: "center" }}>
                     <TextField style={{marginTop: 0 , width: '300px'}}

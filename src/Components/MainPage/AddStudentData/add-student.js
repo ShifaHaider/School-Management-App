@@ -196,9 +196,9 @@ class AddStudents extends Component {
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description">
                         <DialogContent>
-                            <DialogContentText id="alert-dialog-description">
+                            <DialogContentText id="alert-dialog-description" style={{textAlign: "center"}}>
                                 {this.state.loading ? <CircularProgress color="primary" /> :null}
-                                <br/>{this.state.dialogText}
+                                {this.state.dialogText}
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>

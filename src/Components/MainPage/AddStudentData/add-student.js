@@ -16,6 +16,8 @@ import {
 } from '@material-ui/pickers';
 // import DateFnsUtils from '@date-io/date-fns';
 import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+
 
 
 class AddStudents extends Component {
@@ -24,24 +26,22 @@ class AddStudents extends Component {
         this.state = {
             studentName: '',
             fatherName: '',
-            dateOfBirth: '20-05-2014',
+            dateOfBirth: '',
             address: '',
             CNIC: '',
             phoneNo: '',
             lastInstitution: '',
-            admissionDate: '20-05-2014',
+            admissionDate: '',
             admittedClass: '',
             yearsList: ['', 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
                 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036,
-                2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2000, 2001, 2002, 2003, 2004, 2005,
-                2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
-                2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043,
-                2044, 2045, 2046, 2047, 2048, 2049, 2050],
+                2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2050],
             classList: ["", "Reception", "Junior", "Senior", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
             year: '',
             selectedDate: '',
             setSelectedDate: '',
-            studentImageURL: ''
+
+            studentImageURL: '',
         };
     }
 
@@ -51,23 +51,39 @@ class AddStudents extends Component {
     };
 
     changeValue(p, e) {
+        console.log(e.target.value);
+        if(p === "admissionDate"){
+            this.setState({year: e.target.value.split("-")[0]})
+        }
         this.setState({[p]: e.target.value});
     }
 
     saveStData() {
+        var dateOfBirth = new Date(this.state.dateOfBirth).getTime();
+        var admissionDate = new Date(this.state.admissionDate).getTime();
         var studentData = {
             studentName: this.state.studentName,
             fatherName: this.state.fatherName,
-            dateOfBirth: this.state.dateOfBirth,
+            dateOfBirth: dateOfBirth,
             address: this.state.address,
             CNIC: this.state.CNIC,
             phoneNo: this.state.phoneNo,
             lastInstitution: this.state.lastInstitution,
             admittedClass: this.state.admittedClass,
-            admissionDate: this.state.admissionDate,
+            admissionDate: admissionDate,
             year: this.state.year,
             studentPhotoURL: this.state.studentImageURL,
         };
+
+
+        for (var d in studentData) {
+            if(studentData[d] == ''){
+                alert('Field is required');
+                return;
+                break;
+            }
+        }
+
         const url = 'http://localhost:9000/add-students/add-student';
         fetch(url, {
             method: "post",
@@ -78,7 +94,8 @@ class AddStudents extends Component {
             }
         }).then((data) => {
             data.json().then((studData) => {
-                // console.log(studData);
+                this.setState({studentName: "" , fatherName: "" , dateOfBirth: "" ,address:"",CNIC:"" ,phoneNo:"",
+                    lastInstitution:"", admittedClass:"" , admissionDate:"" , year:""});
             });
         })
             .catch((err) => {
@@ -87,8 +104,7 @@ class AddStudents extends Component {
     }
 
     changeYear(e) {
-        var year = e.target.value.split("-");
-        this.setState({year: year[0]});
+        this.setState({year: e.target.value});
     }
 
 
@@ -97,22 +113,9 @@ class AddStudents extends Component {
             <div>
                 <ToolBarComponent title="Add Student"/>
                 {/*<InputMask mask="99-99-9999" defaultValue="26-07-2019" />*/}
-                <Card style={{width: '715px', margin: '20px 0 15px 50px'}}>
+                <Container maxWidth="sm">
+                <Card style={{width: '715px', margin: '20px 0 15px 0'}}>
                     <CardContent>
-                        {/*<MuiPickersUtilsProvider utils={DateFnsUtils}>*/}
-                        {/*    <Grid container justify="space-around">*/}
-                        {/*        <KeyboardDatePicker*/}
-                        {/*            margin="normal"*/}
-                        {/*            id="mui-pickers-date"*/}
-                        {/*            label="Date picker"*/}
-                        {/*            // value={selectedDate}*/}
-                        {/*            // onChange={handleDateChange}*/}
-                        {/*            KeyboardButtonProps={{*/}
-                        {/*                'aria-label': 'change date',*/}
-                        {/*            }}*/}
-                        {/*        />*/}
-                        {/*    </Grid>*/}
-                        {/*</MuiPickersUtilsProvider>*/}
                         <TextField id="outlined-name" label="Name of Student" fullWidth margin="normal"
                                    variant="outlined"
                                    value={this.state.studentName}
@@ -137,16 +140,17 @@ class AddStudents extends Component {
                                    value={this.state.lastInstitution}
                                    onChange={this.changeValue.bind(this, 'lastInstitution')}/><br/><br/>
                         <TextField id="date" variant="outlined" fullWidth label="Date of Admitted"
-                                   onChange={this.changeYear.bind(this)}
-                                   type="date" value={this.state.admissionDate} InputLabelProps={{shrink: true,}}/><br/><br/>
+                                   value={this.state.admissionDate}
+                                   onChange={this.changeValue.bind(this , "admissionDate")}
+                                   type="date" InputLabelProps={{shrink: true,}}/><br/><br/>
                         <FormControl variant="filled">
-                            <InputLabel htmlFor="filled-age-native-simple">Year</InputLabel>
+                            <InputLabel htmlFor="filled-age-native-simple" >Year</InputLabel>
                             <Select style={{width: '680px', textAlign: 'left'}}
                                     native
                                     value={this.state.year}
                                     onChange={this.changeYear.bind(this)}
                                     input={
-                                        <FilledInput name="age" id="filled-age-native-simple"/>}>
+                                        <FilledInput name="age" id="filled-age-native-simple" fullWidth/>}>
                                 {this.state.yearsList.map((val, ind) => {
                                     return (
                                         <option key={ind} value={val}>{val}</option>
@@ -175,10 +179,12 @@ class AddStudents extends Component {
                             </Select>
                         </FormControl>
                         <ImageCropper onCropped={this.getStudentImageURL}/>
-                        <Button variant="contained" color="primary" size='large'
-                                onClick={this.saveStData.bind(this)}>Add Data</Button><br/><br/>
+                        {}
+                        <Button variant="contained" color="primary" size='large' style={{float: "right"}}
+                                onClick={this.saveStData.bind(this)}>Save Data</Button><br/><br/>
                     </CardContent>
                 </Card>
+                </Container>
             </div>
         )
     }

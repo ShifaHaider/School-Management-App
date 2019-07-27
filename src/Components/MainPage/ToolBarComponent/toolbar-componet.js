@@ -7,6 +7,9 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import {Link} from "react-router-dom";
 import Toolbar from '@material-ui/core/Toolbar';
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+import Button from '@material-ui/core/Button';
+
 
 
 class ToolBarComponent extends Component {
@@ -15,7 +18,8 @@ class ToolBarComponent extends Component {
         super(props);
         this.state = {
             openMenu: false
-        }
+        };
+
     }
 
 
@@ -28,19 +32,26 @@ class ToolBarComponent extends Component {
 
 
         return (
-            <div>
+            <div style={{ flexGrow: 1,}}>
                 <AppBar position="static">
                     <Toolbar style={{minHeight: '80px'}}>
-                        <Typography color="inherit" style={{fontSize: '25px'}}>{this.props.title}</Typography>
-                        <IconButton edge="end" color="inherit" onClick={this.handleOpen.bind(this)}>
-                            <MoreIcon/>
-                        </IconButton>
+                        <Typography color="inherit" style={{fontSize: '25px' , flexGrow: 1}}>{this.props.title}</Typography>
+                        <PopupState variant="popover" popupId="demo-popup-menu">
+                            {popupState => (
+                                <React.Fragment>
+                                    <IconButton aria-label="delete" color="inherit" {...bindTrigger(popupState)} style={{float: "right"}}>
+                                        <MoreIcon />
+                                    </IconButton>
+                                    <Menu {...bindMenu(popupState)}>
+                                        <MenuItem onClick={popupState.close}><Link to="/main/find">Find Student</Link></MenuItem>
+                                        <MenuItem onClick={popupState.close}><Link to="/main/add-student">Add Student</Link></MenuItem>
+                                    </Menu>
+                                </React.Fragment>
+                            )}
+                        </PopupState>
                     </Toolbar>
                 </AppBar>
-                <Menu id="simple-menu" keepMounted open={this.state.openMenu}>
-                    <MenuItem> <Link to="/main/find">Find Student</Link></MenuItem>
-                    <MenuItem><Link to="/main/add-student">Add Student</Link></MenuItem>
-                </Menu>
+
             </div>
         )
     }

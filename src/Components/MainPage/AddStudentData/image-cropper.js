@@ -14,12 +14,14 @@ export default class ImageCropper extends Component {
             crop: {
                 unit: "%",
                 width: 30,
-                aspect: 16 / 9
+                aspect: 16 / 16
             },
             confirm: '',
             imageFile: {},
             fileURL: '',
-            downloadURL: ''
+            downloadURL: '',
+            showCrop: false,
+            onSelect: false
         };
     };
 
@@ -28,7 +30,7 @@ export default class ImageCropper extends Component {
         if (e.target.files && e.target.files.length > 0) {
             const reader = new FileReader();
             reader.addEventListener("load", () =>
-                this.setState({src: reader.result})
+                this.setState({src: reader.result, onSelect : true})
             );
             reader.readAsDataURL(e.target.files[0]);
 
@@ -97,10 +99,10 @@ export default class ImageCropper extends Component {
            snapshot.ref.getDownloadURL().then((downloadURL)=> {
                console.log(downloadURL);
                this.props.onCropped(downloadURL);
-
+               this.setState({onSelect : false});
            });
         });
-        this.setState({src: null});
+        this.setState({src: null , showCrop: true});
 
     }
 
@@ -120,11 +122,12 @@ export default class ImageCropper extends Component {
                     onChange={this.onCropChange}
                 />}
                 <br/>
-                {croppedImageUrl && (
+                {croppedImageUrl && this.state.showCrop ? (
                     <img alt="Crop" style={{maxWidth: "100%"}} src={croppedImageUrl}/>
-                )}
+                ) : null}
                 <br/>
-                <Button variant="outlined" onClick={this.fileUpload.bind(this)}>Confirm</Button>
+                {this.state.onSelect ?
+                <Button variant="outlined" onClick={this.fileUpload.bind(this)}>Confirm</Button> : null}
             </div>
         );
     }

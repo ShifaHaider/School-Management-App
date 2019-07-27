@@ -15,6 +15,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {withStyles} from '@material-ui/core/styles';
 import print from 'print-js'
+import MenuItem from '@material-ui/core/MenuItem';
+import Container from '@material-ui/core/Container';
+
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -40,11 +43,8 @@ class Find extends Component {
         this.state = {
             yearsList: ['', 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
                 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036,
-                2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2000, 2001, 2002, 2003, 2004, 2005,
-                2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
-                2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043,
-                2044, 2045, 2046, 2047, 2048, 2049, 2050],
-            classList: ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
+                2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2050],
+            classList: ["", "Reception", "Junior", "Senior", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
             year: '',
             class: '',
             foundStudent: [],
@@ -94,77 +94,90 @@ class Find extends Component {
     }
 
     print() {
-        var title = "Data of School Students" + this.state.year ? "of Year" + this.state.year: null;
+        var title = "";
+        var foundStudent = this.state.foundStudent;
+        for (var i = 0; i < foundStudent.length; i++) {
+            foundStudent[i].serialNo = ++i;
+            if (foundStudent[i].dateOfBirth) {
+                foundStudent[i].dateOfBirth = new Date(foundStudent[i].dateOfBirth).toLocaleDateString();
+            }
+            else if (foundStudent[i].admissionDate) {
+                foundStudent[i].admissionDate = new Date(foundStudent[i].admissionDate).toLocaleDateString();
+            }
+        }
         print({
             printable: this.state.foundStudent,
             properties: [
-                { field: "studentName", displayName: 'Student Name'},
-                { field: 'fatherName', displayName: "Father's Name"},
-                { field: 'dateOfBirth', displayName: 'Date of Birth'},
-                { field: 'address', displayName: 'Address'},
-                { field: 'CNIC', displayName: 'CNIC No.'},
-                { field: 'phoneNo', displayName: 'Phone No'},
-                { field: 'lastInstitution', displayName: 'Last Institution attended '},
-                { field: 'admissionDate', displayName: 'Date of Admitted'},
-                { field: 'admittedClass', displayName: 'Admitted in Class'},
+                {field: "studentName", displayName: 'Student Name'},
+                {field: "serialNo", displayName: 'S.No'},
+                {field: 'fatherName', displayName: "Father's Name"},
+                {field: 'dateOfBirth', displayName: 'Date of Birth'},
+                {field: 'address', displayName: 'Address'},
+                {field: 'CNIC', displayName: 'CNIC No.'},
+                {field: 'phoneNo', displayName: 'Phone No'},
+                {field: 'lastInstitution', displayName: 'Last Institution attended '},
+                {field: 'admissionDate', displayName: 'Date of Admitted'},
+                {field: 'admittedClass', displayName: 'Admitted in Class'},
             ],
-            header: "",
-            type: 'json'});
+            gridStyle: 'font-size: 18px; border: 1px solid #000; white-space: pre; padding: 2px 2px 2px 2px; text-align: center',
+            gridHeaderStyle: 'font-size: 18px; font-weight: bold; border: 1px solid #000; padding: 2px 2px 2px 2px; text-align: center; ',
+            header: title,
+            type: 'json'
+        });
     }
 
     render() {
         return (
             <div>
                 <ToolBarComponent title="Find"/>
-                <Card style={{width: 'auto', margin: '12px auto',display:'inline-block'}}>
-                    <CardContent>
-                        <FormControl variant="filled">
-                            <InputLabel htmlFor="filled-age-native-simple">
-                                Search by Year
-                            </InputLabel>
-                            <Select style={{width: '150px'}}
-                                    native
-                                    value={this.state.year}
-                                    onChange={this.categoryChange.bind(this, 'year')}
-                                    input={
-                                        <FilledInput name="age" id="filled-age-native-simple"/>
-                                    }>
-                                {this.state.yearsList.map((val, ind) => {
-                                    return (
-                                        <option key={ind} value={val}>{val}</option>
-                                    )
-                                })}
-                            </Select>
-                        </FormControl>
-
-                        <FormControl variant="filled">
-                            <InputLabel htmlFor="filled-age-native-simple">
-                                Search by Class
-                            </InputLabel>
-                            <Select style={{width: '150px'}}
-                                    native
-                                    value={this.state.class}
-                                    onChange={this.categoryChange.bind(this, 'class')}
-                                    input={
-                                        <FilledInput name="age" id="filled-age-native-simple"/>
-                                    }
-                            >
-                                {this.state.classList.map((val, ind) => {
-                                    return (
-                                        <option key={ind} value={val}>{val}</option>
-                                    )
-                                })}
-                            </Select>
-                        </FormControl>
-                        <Button variant="contained" color="primary" size='large'
-                                onClick={this.find.bind(this)}>Find</Button>
-                        {this.state.foundStudent.length !== 0  ?
-                        <Button variant="contained" color="primary" size='large'
+                <div style={{margin: '12px auto', textAlign: "center"}}>
+                    <FormControl variant="filled"
+                    >
+                        <InputLabel htmlFor="filled-age-simple">Search by Year</InputLabel>
+                        <Select style={{width: '250px'}}
+                                value={this.state.year}
+                                onChange={this.categoryChange.bind(this, 'year')}
+                                input={<FilledInput name="age" id="filled-age-simple"/>}
+                        >
+                            {this.state.yearsList.map((val, ind) => {
+                                return (
+                                    <MenuItem key={ind} value={val}>{val}</MenuItem>
+                                )
+                            })}
+                        </Select>
+                    </FormControl>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <FormControl variant="filled">
+                        <InputLabel htmlFor="filled-age-simple">Search by Class</InputLabel>
+                        <Select style={{width: '250px'}}
+                                value={this.state.class}
+                                onChange={this.categoryChange.bind(this, 'class')}
+                                input={<FilledInput name="age" id="filled-age-simple"/>}
+                        >
+                            {this.state.classList.map((val, ind) => {
+                                return (
+                                    <MenuItem key={ind} value={val}>{val}</MenuItem>
+                                )
+                            })}
+                        </Select>
+                    </FormControl>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
+                            onClick={this.find.bind(this)}>Find</Button>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    {this.state.foundStudent.length !== 0 ?
+                        <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
                                 onClick={this.print.bind(this)}>Print</Button>
                         : null}
-                    </CardContent>
-                </Card>
-                <br/><br/><br/>
+
+                </div>
+                <br/>
                 {this.state.foundStudent.length !== 0 ?
                     <Paper>
                         <Table style={{minWidth: '700px'}}>

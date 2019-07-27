@@ -58,10 +58,12 @@ class StudentDetail extends Component {
                         <Typography variant="h6"
                                     component="p"><b>{this.state.studentDetail.studentName}</b></Typography><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Father's Name</b></Typography>
-                        <Typography variant="h6" component="p"><b>{this.state.studentDetail.fatherName}</b></Typography><br/><br/>
+                        <Typography variant="h6" component="p"><b>{this.state.studentDetail.fatherName}
+                        </b></Typography><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Date of Birth</b></Typography>
                         <Typography variant="h6"
-                                    component="p"><b>{this.state.studentDetail.dateOfBirth}</b></Typography><br/><br/>
+                                    component="p"><b>{new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString()}
+                                    </b></Typography><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Address</b></Typography>
                         <Typography variant="h6"
                                     component="p"><b>{this.state.studentDetail.address}</b></Typography><br/><br/>
@@ -79,7 +81,8 @@ class StudentDetail extends Component {
                                     component="p"><b>{this.state.studentDetail.admittedClass}</b></Typography><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Admission Date</b></Typography>
                         <Typography variant="h6"
-                                    component="p"><b>{this.state.studentDetail.admissionDate}</b></Typography><br/>
+                                    component="p"><b>{new Date(this.state.studentDetail.admissionDate).toLocaleDateString()}
+                                    </b></Typography><br/>
                         <Button variant="contained" color="primary" size='large'
                                 onClick={this.change.bind(this)}>Edit</Button>
                         <Button variant="contained" color="primary" size='large'

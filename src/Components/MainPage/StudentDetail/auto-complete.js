@@ -31,10 +31,12 @@ class AutoComplete extends Component {
 
     changeValue(p, e) {
         var studentDetail = this.state.studentDetail;
+        if(studentDetail[p] === "admissionDate"){
+            this.setState({year: e.target.value.split("-")[0]})
+        }
         studentDetail[p] = e.target.value;
         this.setState({studentDetail: studentDetail});
     }
-
     changeYear(e) {
         var studentDetail = this.state.studentDetail;
         studentDetail.year = e.target.value;
@@ -46,6 +48,16 @@ class AutoComplete extends Component {
         this.setState({studentDetail: studentDetail});
     };
     updateData() {
+        var studentDetail = this.state.studentDetail;
+        studentDetail.dateOfBirth = new Date(studentDetail.dateOfBirth).getTime();
+        studentDetail.admissionDate = new Date(studentDetail.admissionDate).getTime();
+        for (var d in studentDetail) {
+            if(studentDetail[d] == ''){
+                alert('Field is required');
+                return;
+                break;
+            }
+        }
         const url = 'http://localhost:9000/add-students/update-student-profile';
         fetch(url, {
             method: "post",
@@ -56,7 +68,8 @@ class AutoComplete extends Component {
             }
         }).then((data) => {
             data.json().then((studData) => {
-                // console.log(studData);
+                this.setState({studentName: "" , fatherName: "" , dateOfBirth: "" ,address:"",CNIC:"" ,phoneNo:"",
+                    lastInstitution:"", admittedClass:"" , admissionDate:"" , year:""});
             });
         })
             .catch((err) => {
@@ -77,7 +90,7 @@ class AutoComplete extends Component {
                                    value={this.state.studentDetail.fatherName}
                                    onChange={this.changeValue.bind(this, 'fatherName')}/><br/><br/>
                         <TextField id="date" variant="outlined" fullWidth label="Date of Birth"
-                                   value={this.state.studentDetail.dateOfBirth}
+                                   value={new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString()}
                                    onChange={this.changeValue.bind(this, "dateOfBirth")}
                                    type="date" InputLabelProps={{shrink: true,}}/>
                         <TextField id="outlined-name" label="Address" fullWidth margin="normal" variant="outlined"
@@ -96,7 +109,7 @@ class AutoComplete extends Component {
                                    value={this.state.studentDetail.lastInstitution}
                                    onChange={this.changeValue.bind(this, 'lastInstitution')}/><br/><br/>
                         <TextField id="date" variant="outlined" fullWidth label="Date of Admitted"
-                                   onChange={this.changeYear.bind(this)} value={this.state.studentDetail.admissionDate}
+                                   onChange={this.changeYear.bind(this)} value={new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString()}
                                    type="date" InputLabelProps={{shrink: true,}}/><br/><br/>
                         <FormControl variant="filled">
                             <InputLabel htmlFor="filled-age-native-simple">Year</InputLabel>

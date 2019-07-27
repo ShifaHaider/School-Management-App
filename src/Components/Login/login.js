@@ -7,6 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Container from '@material-ui/core/Container';
 import '../../App.css'
 
 class Login extends Component {
@@ -45,7 +46,7 @@ class Login extends Component {
                     <Toolbar style={{minHeight: '90px'}}><Typography color="inherit"
                                                                      style={{fontSize: '25px'}}>LOGIN</Typography></Toolbar>
                 </AppBar>
-
+                <Container maxWidth="sm">
                 <Card className='cardStyle'
                       style={{width: '416px', textAlign: 'center', height: '350px', marginTop: '100px'}}>
                     <CardContent style={{paddingTop: '40px'}}>
@@ -71,6 +72,7 @@ class Login extends Component {
                     <Button variant="contained" color="primary" size='large'
                             onClick={this.loginAccount.bind(this)}>Login</Button>
                 </Card>
+                </Container>
             </div>
         )
     }

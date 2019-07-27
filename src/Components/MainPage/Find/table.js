@@ -179,7 +179,7 @@ class ReactVirtualizedTable extends React.Component {
                         {
                             width: 200,
                             label: 'Student Name',
-                            dataKey: 'studentName',
+                            dataKey: 'name',
                         },
                         {
                             width: 120,

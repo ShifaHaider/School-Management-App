@@ -136,7 +136,7 @@ export default class ImageCropper extends Component {
                     <Button color="primary" onClick={this.fileUpload.bind(this)}>Confirm</Button> : null}
                 <br/>
                 {this.state.loading ?
-                <CircularProgress color="primary" /> : <p>{this.state.text}</p>}
+                <CircularProgress color="primary" /> : this.state.text}
             </div>
         );
     }

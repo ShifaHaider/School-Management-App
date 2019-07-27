@@ -27,10 +27,10 @@ class StudentDetailPrint extends Component {
                 <h1>Student Details</h1>
                 <Paper style={{margin: "20px 100px 15px 50px", padding: "10px 0 10px 10px", width: "900px"}}>
                     <img alt="Student pic" style={{height: "180px", width: "165px"}}
-                         src={this.state.studentDetail.studentPhotoURL}/><br/><br/>
+                         src={this.state.studentDetail.photoURL}/><br/><br/>
                     <Typography variant="h5" component="h3"><b>* Student Name</b></Typography>
                     <Typography variant="h6"
-                                component="p"><b>{this.state.studentDetail.studentName}</b></Typography><br/><br/>
+                                component="p"><b>{this.state.studentDetail.name}</b></Typography><br/><br/>
                     <Typography variant="h5" component="h3"><b>* Father's Name</b></Typography>
                     <Typography variant="h6" component="p"><b>{this.state.studentDetail.fatherName}</b></Typography><br/><br/>
                     <Typography variant="h5" component="h3"><b>* Date of Birth</b></Typography>
@@ -39,18 +39,18 @@ class StudentDetailPrint extends Component {
                     <Typography variant="h5" component="h3"><b>* Address</b></Typography>
                     <Typography variant="h6"
                                 component="p"><b>{this.state.studentDetail.address}</b></Typography><br/><br/>
-                    <Typography variant="h5" component="h3"><b>* CNIC NO.</b></Typography>
+                    <Typography variant="h5" component="h3"><b>* cnic NO.</b></Typography>
                     <Typography variant="h6"
-                                component="p"><b>{this.state.studentDetail.CNIC}</b></Typography><br/><br/>
+                                component="p"><b>{this.state.studentDetail.cnic}</b></Typography><br/><br/>
                     <Typography variant="h5" component="h3"><b>* Phone NO.</b></Typography>
                     <Typography variant="h6"
-                                component="p"><b>{this.state.studentDetail.phoneNo}</b></Typography><br/><br/>
+                                component="p"><b>{this.state.studentDetail.phone}</b></Typography><br/><br/>
                     <Typography variant="h5" component="h3"><b>* Last Institution Name</b></Typography>
                     <Typography variant="h6"
                                 component="p"><b>{this.state.studentDetail.lastInstitution}</b></Typography><br/><br/>
                     <Typography variant="h5" component="h3"><b>* Admitted Class</b></Typography>
                     <Typography variant="h6"
-                                component="p"><b>{this.state.studentDetail.admittedClass}</b></Typography><br/><br/>
+                                component="p"><b>{this.state.studentDetail.admittedInClass}</b></Typography><br/><br/>
                     <Typography variant="h5" component="h3"><b>* Admission Date</b></Typography>
                     <Typography variant="h6"
                                 component="p"><b>{this.state.studentDetail.admissionDate}</b></Typography><br/>

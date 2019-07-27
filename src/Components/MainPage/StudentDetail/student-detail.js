@@ -20,7 +20,7 @@ class StudentDetail extends Component {
 
 
     loadDetailStudent() {
-        const url = 'http://localhost:9000/find-students/find-student-detail';
+        const url = 'https://school-management--app.herokuapp.com/students/find-student-detail';
         fetch(url, {
             method: "post",
             body: JSON.stringify({studentID: this.state.studentID}),
@@ -41,13 +41,8 @@ class StudentDetail extends Component {
     change() {
         this.setState({change: "change"})
     }
-
-    print() {
-        localStorage.setItem('studentDetail', JSON.stringify(this.state.studentDetail));
-        window.open('/main/student-detail-print', "_blank");
-    }
     render() {
-        console.log(this.state.studentDetail.studentPhotoURL);
+        console.log(this.state.studentDetail.photoURL);
         return (
             <div>
                 <ToolBarComponent title="View Student Details"/>
@@ -55,10 +50,10 @@ class StudentDetail extends Component {
                 {this.state.change ? <AutoComplete studentDetail={this.state.studentDetail}/> :
                     <Paper style={{margin: "20px 100px 15px 50px", padding: "10px 0 10px 10px"}}>
                         <img alt="Student pic" style={{height: "180px", width: "165px"}}
-                             src={this.state.studentDetail.studentPhotoURL}/><br/><br/>
+                             src={this.state.studentDetail.photoURL}/><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Student Name</b></Typography>
                         <Typography variant="h6"
-                                    component="p"><b>{this.state.studentDetail.studentName}</b></Typography><br/><br/>
+                                    component="p"><b>{this.state.studentDetail.name}</b></Typography><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Father's Name</b></Typography>
                         <Typography variant="h6" component="p"><b>{this.state.studentDetail.fatherName}
                         </b></Typography><br/><br/>
@@ -69,26 +64,24 @@ class StudentDetail extends Component {
                         <Typography variant="h5" component="h3"><b>* Address</b></Typography>
                         <Typography variant="h6"
                                     component="p"><b>{this.state.studentDetail.address}</b></Typography><br/><br/>
-                        <Typography variant="h5" component="h3"><b>* CNIC NO.</b></Typography>
+                        <Typography variant="h5" component="h3"><b>* cnic NO.</b></Typography>
                         <Typography variant="h6"
-                                    component="p"><b>{this.state.studentDetail.CNIC}</b></Typography><br/><br/>
+                                    component="p"><b>{this.state.studentDetail.cnic}</b></Typography><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Phone NO.</b></Typography>
                         <Typography variant="h6"
-                                    component="p"><b>{this.state.studentDetail.phoneNo}</b></Typography><br/><br/>
+                                    component="p"><b>{this.state.studentDetail.phone}</b></Typography><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Last Institution Name</b></Typography>
                         <Typography variant="h6"
                                     component="p"><b>{this.state.studentDetail.lastInstitution}</b></Typography><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Admitted Class</b></Typography>
                         <Typography variant="h6"
-                                    component="p"><b>{this.state.studentDetail.admittedClass}</b></Typography><br/><br/>
+                                    component="p"><b>{this.state.studentDetail.admittedInClass}</b></Typography><br/><br/>
                         <Typography variant="h5" component="h3"><b>* Admission Date</b></Typography>
                         <Typography variant="h6"
                                     component="p"><b>{new Date(this.state.studentDetail.admissionDate).toLocaleDateString()}
                                     </b></Typography><br/>
                         <Button variant="contained" color="primary" size='large'
                                 onClick={this.change.bind(this)}>Edit</Button>
-                        <Button variant="contained" color="primary" size='large'
-                                onClick={this.print.bind(this)}>Print</Button>
                     </Paper>}
                 </Container>
             </div>

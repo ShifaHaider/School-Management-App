@@ -19,7 +19,7 @@ import Container from "@material-ui/core/Container";
 class AutoComplete extends Component {
     constructor(props) {
         super(props);
-        console.log(new Date(props.studentDetail.dateOfBirth).toLocaleDateString());
+        console.log(new Date(props.studentDetail.dateOfBirth).toLocaleDateString().replace(/\//g,'-'));
         this.state = {
             studentDetail: props.studentDetail,
             yearsList: ['', 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
@@ -54,7 +54,7 @@ class AutoComplete extends Component {
     }
     getNewImageURL =(url)=>{
         var studentDetail = this.state.studentDetail;
-        studentDetail.studentPhotoURL = url;
+        studentDetail.photoURL = url;
         this.setState({studentDetail: studentDetail});
     };
     updateData() {
@@ -71,7 +71,7 @@ class AutoComplete extends Component {
                 // this.setState({open: true , loading: true , dialogText: "Saving..."});
             }
         }
-        const url = 'http://localhost:9000/add-students/update-student-profile';
+        const url = 'https://school-management--app.herokuapp.com/students/update-student-profile';
         fetch(url, {
             method: "post",
             body: JSON.stringify({studentID: this.state.studentDetail._id , updatedData: this.state.studentDetail}),
@@ -94,39 +94,46 @@ class AutoComplete extends Component {
     }
 
     render() {
+        // var dateOfBirth = new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString().replace(/\//g,'-');
+        var dateOfBirth = new Date(this.state.studentDetail.dateOfBirth);
+          dateOfBirth = dateOfBirth.getFullYear() + '-' + dateOfBirth.getMonth() + "-" + dateOfBirth.getDay();
+        console.log(dateOfBirth);
+        var admissionDate = new Date(this.state.studentDetail.admissionDate);
+        admissionDate = admissionDate.getFullYear() + '-' + admissionDate.getMonth() + "-" + admissionDate.getDay();
+        console.log(admissionDate);
         return (
             <div>
                 <Card style={{width: '', margin: '20px 0 15px 50px'}}>
                     <CardContent>
                         <TextField id="outlined-name" label="Name of Student" fullWidth margin="normal"
                                    variant="outlined"
-                                   value={this.state.studentDetail.studentName}
-                                   onChange={this.changeValue.bind(this, 'studentName')}/>
+                                   value={this.state.studentDetail.name}
+                                   onChange={this.changeValue.bind(this, 'name')}/>
                         <TextField id="outlined-name" label="Father's Name" fullWidth margin="normal" variant="outlined"
                                    value={this.state.studentDetail.fatherName}
                                    onChange={this.changeValue.bind(this, 'fatherName')}/><br/><br/>
                         <TextField id="date" variant="outlined" fullWidth label="Date of Birth"
-                                   // value={new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString()}
-                                   value="2010-10-02"
+                                   value={dateOfBirth}
+                                   // value="2010-10-02"
                                    onChange={this.changeValue.bind(this, "dateOfBirth")}
                                    type="date" InputLabelProps={{shrink: true,}}/>
                         <TextField id="outlined-name" label="Address" fullWidth margin="normal" variant="outlined"
                                    value={this.state.studentDetail.address}
                                    onChange={this.changeValue.bind(this, 'address')}/>
-                        <TextField id="outlined-name" label="CNIC No." fullWidth margin="normal" variant="outlined"
+                        <TextField id="outlined-name" label="cnic No." fullWidth margin="normal" variant="outlined"
                                    type="number"
-                                   value={this.state.studentDetail.CNIC}
-                                   onChange={this.changeValue.bind(this, 'CNIC')}/>
+                                   value={this.state.studentDetail.cnic}
+                                   onChange={this.changeValue.bind(this, 'cnic')}/>
                         <TextField id="outlined-name" label="Phone No." fullWidth margin="normal" variant="outlined"
                                    type="number"
-                                   value={this.state.studentDetail.phoneNo}
-                                   onChange={this.changeValue.bind(this, 'phoneNo')}/>
+                                   value={this.state.studentDetail.phone}
+                                   onChange={this.changeValue.bind(this, 'phone')}/>
                         <TextField id="outlined-name" label="Last Institution Name" fullWidth margin="normal"
                                    variant="outlined"
                                    value={this.state.studentDetail.lastInstitution}
                                    onChange={this.changeValue.bind(this, 'lastInstitution')}/><br/><br/>
                         <TextField id="date" variant="outlined" fullWidth label="Date of Admitted"
-                                   onChange={this.changeYear.bind(this)} value={new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString()}
+                                   onChange={this.changeValue.bind(this , "admittedInClass")} value={admissionDate}
                                    type="date" InputLabelProps={{shrink: true,}}/><br/><br/>
                         <FormControl variant="filled">
                             <InputLabel htmlFor="filled-age-native-simple">Year</InputLabel>
@@ -150,8 +157,8 @@ class AutoComplete extends Component {
                             </InputLabel>
                             <Select style={{width: '680px', textAlign: 'left'}}
                                     native
-                                    value={this.state.studentDetail.admittedClass}
-                                    onChange={this.changeValue.bind(this, 'admittedClass')}
+                                    value={this.state.studentDetail.admittedInClass}
+                                    onChange={this.changeValue.bind(this, 'admittedInClass')}
                                     input={
                                         <FilledInput name="age" id="filled-age-native-simple"/>
                                     }

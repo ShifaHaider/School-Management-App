@@ -16,21 +16,22 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import InputMask from 'react-input-mask';
+import MaterialInput from '@material-ui/core/Input';
 
 class AddStudents extends Component {
     constructor() {
         super();
         this.state = {
-            studentName: '',
+            name: '',
             fatherName: '',
             dateOfBirth: '',
             address: '',
-            CNIC: '',
-            phoneNo: '',
+            cnic: '',
+            phone: '',
             lastInstitution: '',
             admissionDate: '',
-            admittedClass: '',
+            admittedInClass: '',
             yearsList: ['', 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
                 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036,
                 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2050],
@@ -52,7 +53,7 @@ class AddStudents extends Component {
     };
 
     changeValue(p, e) {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         if(p === "admissionDate"){
             this.setState({year: e.target.value.split("-")[0]})
         }
@@ -64,17 +65,17 @@ class AddStudents extends Component {
         var dateOfBirth = new Date(this.state.dateOfBirth).getTime();
         var admissionDate = new Date(this.state.admissionDate).getTime();
         var studentData = {
-            studentName: this.state.studentName,
+            name: this.state.name,
             fatherName: this.state.fatherName,
             dateOfBirth: dateOfBirth,
             address: this.state.address,
-            CNIC: this.state.CNIC,
-            phoneNo: this.state.phoneNo,
+            cnic: this.state.cnic,
+            phone: this.state.phone,
             lastInstitution: this.state.lastInstitution,
-            admittedClass: this.state.admittedClass,
+            admittedInClass: this.state.admittedInClass,
             admissionDate: admissionDate,
             year: this.state.year,
-            studentPhotoURL: this.state.studentImageURL,
+            photoURL: this.state.studentImageURL,
         };
         for (var d in studentData) {
             if(studentData[d] == ''){
@@ -87,7 +88,7 @@ class AddStudents extends Component {
             }
         }
 
-        const url = 'http://localhost:9000/add-students/add-student';
+        const url = 'https://school-management--app.herokuapp.com/students/add-student';
         fetch(url, {
             method: "post",
             body: JSON.stringify(studentData),
@@ -97,8 +98,8 @@ class AddStudents extends Component {
             }
         }).then((data) => {
             data.json().then((studData) => {
-                this.setState({studentName: "" , fatherName: "" , dateOfBirth: "" ,address:"",CNIC:"" ,phoneNo:"",
-                    lastInstitution:"", admittedClass:"" , admissionDate:"" , year:"" , loading: false, dialogText: "Saved!!"});
+                this.setState({name: "" , fatherName: "" , dateOfBirth: "" ,address:"",cnic:"" ,phone:"",
+                    lastInstitution:"", admittedInClass:"" , admissionDate:"" , year:"" , loading: false, dialogText: "Saved!!"});
             });
         })
             .catch((err) => {
@@ -119,14 +120,14 @@ class AddStudents extends Component {
         return (
             <div>
                 <ToolBarComponent title="Add Student"/>
-                {/*<InputMask mask="99-99-9999" defaultValue="26-07-2019" />*/}
                 <Container maxWidth="md">
-                <Card style={{ margin: '20px 0 15px 0'}}>
+                    <Card style={{ margin: '20px 0 15px 0'}}>
                     <CardContent>
+                        {/*<InputMask {...this.props} mask="99999-9999999-9" maskChar=" " />*/}
                         <TextField id="outlined-name" label="Name of Student" fullWidth margin="normal"
                                    variant="outlined"
-                                   value={this.state.studentName}
-                                   onChange={this.changeValue.bind(this, 'studentName')}/>
+                                   value={this.state.name}
+                                   onChange={this.changeValue.bind(this, 'name')}/>
                         <TextField id="outlined-name" label="Father's Name" fullWidth margin="normal" variant="outlined"
                                    value={this.state.fatherName}
                                    onChange={this.changeValue.bind(this, 'fatherName')}/><br/><br/>
@@ -136,12 +137,12 @@ class AddStudents extends Component {
                                    type="date" InputLabelProps={{shrink: true,}}/>
                         <TextField id="outlined-name" label="Address" fullWidth margin="normal" variant="outlined"
                                    value={this.state.address} onChange={this.changeValue.bind(this, 'address')}/>
-                        <TextField id="outlined-name" label="CNIC No." fullWidth margin="normal" variant="outlined"
-                                   type="number"
-                                   value={this.state.CNIC} onChange={this.changeValue.bind(this, 'CNIC')}/>
+                        <TextField id="outlined-name" label="cnic No." fullWidth margin="normal" variant="outlined"
+                                   type="number"  mask="99999-9999999-9"
+                                   value={this.state.cnic} onChange={this.changeValue.bind(this, 'cnic')}/>
                         <TextField id="outlined-name" label="Phone No." fullWidth margin="normal" variant="outlined"
-                                   type="number"
-                                   value={this.state.phoneNo} onChange={this.changeValue.bind(this, 'phoneNo')}/>
+                                   type="number" data-inputmask="'mask': '99-9999999'"
+                                   value={this.state.phone} onChange={this.changeValue.bind(this, 'phone')}/>
                         <TextField id="outlined-name" label="Last Institution Name" fullWidth margin="normal"
                                    variant="outlined"
                                    value={this.state.lastInstitution}
@@ -172,8 +173,8 @@ class AddStudents extends Component {
                             </InputLabel>
                             <Select style={{width: '680px', textAlign: 'left'}}
                                     native
-                                    value={this.state.admittedClass}
-                                    onChange={this.changeValue.bind(this, 'admittedClass')}
+                                    value={this.state.admittedInClass}
+                                    onChange={this.changeValue.bind(this, 'admittedInClass')}
                                     input={
                                         <FilledInput name="age" id="outlined-age-native-simple"/>
                                     }
@@ -190,8 +191,7 @@ class AddStudents extends Component {
                                 onClick={this.saveStData.bind(this)}>Save Data</Button><br/><br/>
                     </CardContent>
                 </Card>
-                    <Dialog fullWidth
-                            open={this.state.open}
+                    <Dialog fullWidth open={this.state.open}
                         onClose={this.handleClose.bind(this)}
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description">

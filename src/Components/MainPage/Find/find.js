@@ -18,6 +18,7 @@ import print from 'print-js'
 import MenuItem from '@material-ui/core/MenuItem';
 import Container from '@material-ui/core/Container';
 import CircularProgress from "@material-ui/core/CircularProgress";
+import TextField from '@material-ui/core/TextField';
 
 
 const StyledTableCell = withStyles(theme => ({
@@ -50,7 +51,8 @@ class Find extends Component {
             class: '',
             foundStudent: [],
             heading: 'Students of year: ',
-            loading: false
+            loading: false,
+            keyword: ''
 
         };
     }
@@ -61,19 +63,19 @@ class Find extends Component {
 
     find() {
         var filters = {
-            admittedClass: this.state.class,
+            admittedInClass: this.state.class,
             year: this.state.year,
         };
-        if (filters.admittedClass == 0) {
-            delete filters.admittedClass;
+        if (filters.admittedInClass == 0) {
+            delete filters.admittedInClass;
         }
         for (var v in filters) {
             if (!filters[v]) {
                 delete filters[v];
             }
         }
-        this.setState({loading: true})
-        const url = 'http://localhost:9000/find-students/find-student';
+        this.setState({loading: true});
+        const url = 'https://school-management--app.herokuapp.com/students/find-student';
         fetch(url, {
             method: "post",
             body: JSON.stringify(filters),
@@ -111,16 +113,16 @@ class Find extends Component {
         print({
             printable: this.state.foundStudent,
             properties: [
-                {field: "studentName", displayName: 'Student Name'},
+                {field: "name", displayName: 'Student Name'},
                 {field: "serialNo", displayName: 'S.No'},
                 {field: 'fatherName', displayName: "Father's Name"},
                 {field: 'dateOfBirth', displayName: 'Date of Birth'},
                 {field: 'address', displayName: 'Address'},
-                {field: 'CNIC', displayName: 'CNIC No.'},
-                {field: 'phoneNo', displayName: 'Phone No'},
+                {field: 'cnic', displayName: 'cnic No.'},
+                {field: 'phone', displayName: 'Phone No'},
                 {field: 'lastInstitution', displayName: 'Last Institution attended '},
                 {field: 'admissionDate', displayName: 'Date of Admitted'},
-                {field: 'admittedClass', displayName: 'Admitted in Class'},
+                {field: 'admittedInClass', displayName: 'Admitted in Class'},
             ],
             gridStyle: 'font-size: 18px; border: 1px solid #000; white-space: pre; padding: 2px 2px 2px 2px; text-align: center',
             gridHeaderStyle: 'font-size: 18px; font-weight: bold; border: 1px solid #000; padding: 2px 2px 2px 2px; text-align: center; ',
@@ -128,6 +130,27 @@ class Find extends Component {
             type: 'json'
         });
     }
+
+    changeKeyword(e){
+        this.setState({keyword: e.target.value})
+    }
+
+    searchByKeyword() {
+        const url = 'https://school-management--app.herokuapp.com/students/find-by-keyword/?keyword=' + this.state.keyword;
+        console.log(this.state.keyword);
+        fetch(url, {
+            method: "get",
+        })
+            .then((data) => {
+                data.json().then((students) => {
+                    this.setState({foundStudent: students})
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
 
     render() {
         return (
@@ -180,7 +203,24 @@ class Find extends Component {
                         : null}
                     <br/><br/>
                     {this.state.loading ?
-                       <div><CircularProgress color="primary" /><p>Loading...</p></div> : null}
+                       <div><CircularProgress color="primary" />Loading...</div> : null}
+                </div>
+                <div style={{margin: '12px auto', textAlign: "center" }}>
+                    <TextField style={{marginTop: 0 , width: '300px'}}
+                        id="filled-name"
+                        label="Search by keyword"
+                        value={this.state.keyword}
+                        onChange={this.changeKeyword.bind(this)}
+                        margin="normal"
+                        variant="filled"/>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
+                            onClick={this.searchByKeyword.bind(this)}>Find</Button>
+                    {/*<br/><br/>*/}
+                    {/*{this.state.loading ?*/}
+                    {/*   <div><CircularProgress color="primary" /><p>Loading...</p></div> : null}*/}
                 </div>
 
                 <br/>
@@ -189,11 +229,11 @@ class Find extends Component {
                         <Table style={{minWidth: '700px'}}>
                             <TableHead>
                                 <TableRow>
-                                    <StyledTableCell>Student Name</StyledTableCell>
-                                    <StyledTableCell align="left">Father Name</StyledTableCell>
-                                    <StyledTableCell align="left">DateOFBirth</StyledTableCell>
-                                    <StyledTableCell align="left">AdmittedClass</StyledTableCell>
-                                    <StyledTableCell align="left">AdmittedDate</StyledTableCell>
+                                    <StyledTableCell>Name of Students</StyledTableCell>
+                                    <StyledTableCell align="left">Father's Name</StyledTableCell>
+                                    <StyledTableCell align="left">Date of Birth</StyledTableCell>
+                                    <StyledTableCell align="left">Admitted in Class</StyledTableCell>
+                                    <StyledTableCell align="left">Admitted Date</StyledTableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -201,19 +241,18 @@ class Find extends Component {
                                     return (
                                         <StyledTableRow key={ind} style={{cursor: 'pointer'}}>
                                             <StyledTableCell component="th" scope="row">
-                                                {student.studentName}
+                                                {student.name}
                                             </StyledTableCell>
                                             <StyledTableCell align="left" onClick={this.studentDetail.bind(this, student)}>
                                                 {student.fatherName}</StyledTableCell>
                                             <StyledTableCell align="left"
-                                                             onClick={this.studentDetail.bind(this, student)}
-                                            >{student.dateOfBirth}</StyledTableCell>
+                                                             onClick={this.studentDetail.bind(this, student)}>{new Date(student.dateOfBirth).toLocaleDateString()}</StyledTableCell>
                                             <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}
-                                            >{student.admittedClass}</StyledTableCell>
+                                            >{student.admittedInClass}</StyledTableCell>
                                             <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}
-                                            >{student.admissionDate}</StyledTableCell>
+                                            >{new Date(student.admissionDate).toLocaleDateString()}</StyledTableCell>
                                         </StyledTableRow>
                                     )
                                 })}

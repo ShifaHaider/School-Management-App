@@ -187,43 +187,56 @@ class AddStudents extends Component {
                     <Container maxWidth="md">
                         <Card style={{margin: '20px 0 15px 0'}}>
                             <CardContent>
-                                <TextField id="outlined-name" label="Name of Student" fullWidth margin="normal"
+                                <TextField id="outlined-name" label="Name of Student"  margin="normal" style={{width: "415px"}}
                                            variant="outlined"
                                            value={this.state.name}
                                            onChange={this.changeValue.bind(this, 'name')}/>
-                                <TextField id="outlined-name" label="Father's Name" fullWidth margin="normal"
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                <TextField id="outlined-name" label="Father's Name"  margin="normal" style={{width: "415px"}}
                                            variant="outlined"
                                            value={this.state.fatherName}
-                                           onChange={this.changeValue.bind(this, 'fatherName')}/><br/><br/>
-                                <TextField id="date" variant="outlined" fullWidth label="Date of Birth"
-                                           value={this.state.dateOfBirth}
-                                           onChange={this.changeValue.bind(this, "dateOfBirth")}
-                                           type="date" InputLabelProps={{shrink: true,}}/>
-                                <TextField id="outlined-name" label="Address" fullWidth margin="normal"
+                                           onChange={this.changeValue.bind(this, 'fatherName')}/><br/>
+                                <TextField id="outlined-name" label="Address"  margin="normal" style={{width: "415px"}}
                                            variant="outlined"
                                            value={this.state.address}
                                            onChange={this.changeValue.bind(this, 'address')}/>
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
                                 <InputMask mask="99999-9999999-9"
                                            value={this.state.cnic} onChange={this.changeValue.bind(this, "cnic")}>
-                                    {() => <TextField id="outlined-name" label="CNIC No." fullWidth margin="normal"
+                                    {() => <TextField id="outlined-name" label="CNIC No." style={{width: "415px"}} margin="normal"
                                                       variant="outlined"
                                     />}</InputMask>
                                 <InputMask mask="9999-9999999"
                                            value={this.state.phone} onChange={this.changeValue.bind(this, 'phone')}>
-                                    {() => <TextField id="outlined-name" label="Phone No." fullWidth margin="normal"
+                                    {() => <TextField id="outlined-name" label="Phone No."  margin="normal" style={{width: "415px"}}
                                                       variant="outlined"
                                     />}</InputMask>
-                                <TextField id="outlined-name" label="Last Institution Name" fullWidth margin="normal"
-                                           variant="outlined"
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                <TextField id="outlined-name" label="Last Institution Name"  margin="normal"
+                                           variant="outlined" style={{width: "415px"}}
                                            value={this.state.lastInstitution}
                                            onChange={this.changeValue.bind(this, 'lastInstitution')}/><br/><br/>
-                                <TextField id="date" variant="outlined" fullWidth label="Date of Admitted"
-                                           value={this.state.admissionDate}
+                                <TextField id="date" variant="outlined"  label="Date of Admitted"
+                                           value={this.state.admissionDate} style={{width: "415px"}}
                                            onChange={this.changeValue.bind(this, "admissionDate")}
+                                           type="date" InputLabelProps={{shrink: true,}}/>
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                <TextField id="date" variant="outlined"  label="Date of Birth" style={{width: "415px"}}
+                                           value={this.state.dateOfBirth}
+                                           onChange={this.changeValue.bind(this, "dateOfBirth")}
                                            type="date" InputLabelProps={{shrink: true,}}/><br/><br/>
+
                                 <FormControl variant="filled">
                                     <InputLabel htmlFor="filled-age-native-simple">Year</InputLabel>
-                                    <Select style={{width: '865px', textAlign: 'left'}}
+                                    <Select style={{width: '415px', textAlign: 'left'}}
                                             native
                                             value={this.state.year}
                                             onChange={this.changeYear.bind(this)}
@@ -236,12 +249,14 @@ class AddStudents extends Component {
                                         })}
                                     </Select>
                                 </FormControl>
-                                <br/><br/>
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
                                 <FormControl variant="filled">
                                     <InputLabel htmlFor="filled-age-native-simple">
                                         Admitted in Class
                                     </InputLabel>
-                                    <Select style={{width: '865px', textAlign: 'left'}}
+                                    <Select style={{width: '415px', textAlign: 'left'}}
                                             native
                                             value={this.state.admittedInClass}
                                             onChange={this.changeValue.bind(this, 'admittedInClass')}

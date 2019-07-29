@@ -47,10 +47,9 @@ class Login extends Component {
                    style={{fontSize: '25px'}}>LOGIN</Typography></Toolbar>
                 </AppBar>
                 <Container maxWidth="sm">
-                <Card className='cardStyle'
-                      style={{width: '416px', textAlign: 'center', height: '350px', marginTop: '100px'}}>
+                <Card className='cardStyle' style={{textAlign: 'center', height: '330px', marginTop: '100px'}}>
                     <CardContent style={{paddingTop: '40px'}}>
-                        <TextField
+                        <TextField style={{width: "335px"}}
                             id="outlined-name"
                             label="Email"
                             value={this.state.email}
@@ -58,7 +57,7 @@ class Login extends Component {
                             variant="outlined"
                             onChange={this.handleChange.bind(this, 'email')}
                         />
-                        <TextField
+                        <TextField style={{width: "335px"}}
                             id="outlined-password-input"
                             label="Password"
                             type="password"
@@ -69,7 +68,7 @@ class Login extends Component {
                             onChange={this.handleChange.bind(this, 'password')}
                         />
                     </CardContent>
-                    <Button variant="contained" color="primary" size='large'
+                    <Button variant="contained" color="primary" size='large' style={{width: "240px" , height: "55px"}}
                             onClick={this.loginAccount.bind(this)}>Login</Button>
                 </Card>
                 </Container>

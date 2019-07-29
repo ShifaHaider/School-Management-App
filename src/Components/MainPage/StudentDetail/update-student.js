@@ -10,13 +10,11 @@ import Button from "@material-ui/core/Button";
 import FilledInput from '@material-ui/core/FilledInput';
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import DialogActions from "@material-ui/core/DialogActions";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import InputMask from "react-input-mask";
-import Toolbar from "@material-ui/core/Toolbar";
 
 
 class UpdateStudent extends Component {
@@ -88,21 +86,21 @@ class UpdateStudent extends Component {
             }
         }
         const url = 'https://school-management--app.herokuapp.com/students/update-student-profile';
-        // fetch(url, {
-        //     method: "post",
-        //     body: JSON.stringify({studentID: this.state.studentDetail._id, updatedData: this.state.studentDetail}),
-        //     headers: {
-        //         "Accept": "application/json",
-        //         "Content-Type": "application/json"
-        //     }
-        // }).then((data) => {
-        //     data.json().then((studData) => {
-        //         this.setState({loading: false, dialogText: "Saved!!"});
-        //     });
-        // })
-        //     .catch((err) => {
-        //         console.log(err);
-        //     });
+        fetch(url, {
+            method: "post",
+            body: JSON.stringify({studentID: this.state.studentDetail._id, updatedData: this.state.studentDetail}),
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        }).then((data) => {
+            data.json().then((studData) => {
+                this.setState({loading: false, dialogText: "Saved!!"});
+            });
+        })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     handleClose() {

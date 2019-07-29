@@ -8,7 +8,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import {Link} from "react-router-dom";
 import Toolbar from '@material-ui/core/Toolbar';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
-import Button from '@material-ui/core/Button';
 
 
 
@@ -32,7 +31,7 @@ class ToolBarComponent extends Component {
 
 
         return (
-            <div style={{ flexGrow: 1,}}>
+            <div style={{ flexGrow: 1, position: 'fixed' , top: 0, zIndex: 100, width: "100%"}}>
                 <AppBar position="static">
                     <Toolbar style={{minHeight: '80px'}}>
                         <Typography color="inherit" style={{fontSize: '25px' , flexGrow: 1}}>{this.props.title}</Typography>

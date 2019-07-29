@@ -87,7 +87,7 @@ class Find extends Component {
         }).then((data) => {
             data.json().then((foundData) => {
                 console.log(foundData);
-                this.setState({loading: false ,foundStudent: foundData})
+                this.setState({loading: false, foundStudent: foundData})
             });
         })
             .catch((err) => {
@@ -106,8 +106,7 @@ class Find extends Component {
             foundStudent[i].serialNo = ++i;
             if (foundStudent[i].dateOfBirth) {
                 foundStudent[i].dateOfBirth = new Date(foundStudent[i].dateOfBirth).toLocaleDateString();
-            }
-            else if (foundStudent[i].admissionDate) {
+            } else if (foundStudent[i].admissionDate) {
                 foundStudent[i].admissionDate = new Date(foundStudent[i].admissionDate).toLocaleDateString();
             }
         }
@@ -132,11 +131,12 @@ class Find extends Component {
         });
     }
 
-    changeKeyword(e){
+    changeKeyword(e) {
         this.setState({keyword: e.target.value})
     }
 
     searchByKeyword() {
+        if (!this.state.keyword) return;
         const url = 'https://school-management--app.herokuapp.com/students/find-by-keyword/?keyword=' + this.state.keyword;
         console.log(this.state.keyword);
         this.setState({findLoading: true});
@@ -145,7 +145,7 @@ class Find extends Component {
         })
             .then((data) => {
                 data.json().then((students) => {
-                    this.setState({foundStudent: students , findLoading: false})
+                    this.setState({foundStudent: students, findLoading: false})
                 });
             })
             .catch((err) => {
@@ -205,24 +205,24 @@ class Find extends Component {
                         : null}
                     <br/><br/>
                     {this.state.loading ?
-                       <div><CircularProgress color="primary" />Loading... </div> : null}
+                        <div><CircularProgress color="primary"/>Loading... </div> : null}
 
                 </div>
-                <div style={{margin: '12px auto', textAlign: "center" }}>
-                    <TextField style={{marginTop: 0 , width: '300px'}}
-                        id="filled-name"
-                        label="Search by keyword"
-                        value={this.state.keyword}
-                        onChange={this.changeKeyword.bind(this)}
-                        margin="normal"
-                        variant="filled"/>
+                <div style={{margin: '12px auto', textAlign: "center"}}>
+                    <TextField style={{marginTop: 0, width: '300px'}}
+                               id="filled-name"
+                               label="Search by keyword"
+                               value={this.state.keyword}
+                               onChange={this.changeKeyword.bind(this)}
+                               margin="normal"
+                               variant="filled"/>
                     &nbsp;
                     &nbsp;
                     &nbsp;
                     <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
                             onClick={this.searchByKeyword.bind(this)}>Find</Button>
                     {this.state.findLoading ?
-                        <div><CircularProgress color="primary" />Loading... </div> : null}
+                        <div><CircularProgress color="primary"/>Loading... </div> : null}
                     {/*<br/><br/>*/}
                     {/*{this.state.loading ?*/}
                     {/*   <div><CircularProgress color="primary" /><p>Loading...</p></div> : null}*/}
@@ -248,10 +248,11 @@ class Find extends Component {
                                             <StyledTableCell component="th" scope="row">
                                                 {student.name}
                                             </StyledTableCell>
-                                            <StyledTableCell align="left" onClick={this.studentDetail.bind(this, student)}>
+                                            <StyledTableCell align="left"
+                                                             onClick={this.studentDetail.bind(this, student)}>
                                                 {student.fatherName}</StyledTableCell>
                                             <StyledTableCell align="left"
-                                                             onClick={this.studentDetail.bind(this, student)}>{student.dateOfBirth ? new Date(student.dateOfBirth ).toLocaleDateString(): "-"}</StyledTableCell>
+                                                             onClick={this.studentDetail.bind(this, student)}>{student.dateOfBirth ? new Date(student.dateOfBirth).toLocaleDateString() : "-"}</StyledTableCell>
                                             <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}
                                             >{student.admittedInClass}</StyledTableCell>

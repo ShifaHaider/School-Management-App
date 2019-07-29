@@ -52,7 +52,8 @@ class Find extends Component {
             foundStudent: [],
             heading: 'Students of year: ',
             loading: false,
-            keyword: ''
+            keyword: '',
+            findLoading: false
 
         };
     }
@@ -138,12 +139,13 @@ class Find extends Component {
     searchByKeyword() {
         const url = 'https://school-management--app.herokuapp.com/students/find-by-keyword/?keyword=' + this.state.keyword;
         console.log(this.state.keyword);
+        this.setState({findLoading: true});
         fetch(url, {
             method: "get",
         })
             .then((data) => {
                 data.json().then((students) => {
-                    this.setState({foundStudent: students})
+                    this.setState({foundStudent: students , findLoading: false})
                 });
             })
             .catch((err) => {
@@ -219,6 +221,8 @@ class Find extends Component {
                     &nbsp;
                     <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
                             onClick={this.searchByKeyword.bind(this)}>Find</Button>
+                    {this.state.findLoading ?
+                        <div><CircularProgress color="primary" />Loading... </div> : null}
                     {/*<br/><br/>*/}
                     {/*{this.state.loading ?*/}
                     {/*   <div><CircularProgress color="primary" /><p>Loading...</p></div> : null}*/}

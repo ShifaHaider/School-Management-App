@@ -13,12 +13,48 @@ import Container from '@material-ui/core/Container';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import InputMask from 'react-input-mask';
-import MaterialInput from '@material-ui/core/Input';
 import Typography from "@material-ui/core/Typography";
+import clsx from 'clsx';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import ErrorIcon from '@material-ui/icons/Error';
+import InfoIcon from '@material-ui/icons/Info';
+import CloseIcon from '@material-ui/icons/Close';
+import { amber, green } from '@material-ui/core/colors';
+import IconButton from '@material-ui/core/IconButton';
+import Snackbar from '@material-ui/core/Snackbar';
+import SnackbarContent from '@material-ui/core/SnackbarContent';
+import WarningIcon from '@material-ui/icons/Warning';
+const variantIcon = {
+    success: CheckCircleIcon,
+    warning: WarningIcon,
+    error: ErrorIcon,
+    info: InfoIcon,
+};
+function MySnackbarContentWrapper(props) {
+    // const classes = useStyles1();
+    const { className, message, onClose, variant, ...other } = props;
+    const Icon = variantIcon[variant];
+
+    return (
+        <SnackbarContent
+            aria-describedby="client-snackbar"
+            message={
+                <span id="client-snackbar">
+          <Icon />
+                    {message}
+        </span>
+            }
+            action={[
+                <IconButton key="close" aria-label="close" color="inherit" onClick={onClose}>
+                    <CloseIcon />
+                </IconButton>,
+            ]}
+            {...other}
+        />
+    );
+}
 
 class AddStudents extends Component {
 
@@ -234,6 +270,20 @@ class AddStudents extends Component {
                         </DialogActions>
                     </Dialog>
                 </Container>
+                <Snackbar
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                    }}
+                    // open={open}
+                    autoHideDuration={6000}
+                >
+                    <MySnackbarContentWrapper
+                        // onClose={handleClose}
+                        variant="success"
+                        message="This is a success message!"
+                    />
+                </Snackbar>
             </div>
         )
     }

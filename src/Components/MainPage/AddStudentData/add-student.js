@@ -18,8 +18,10 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import InputMask from 'react-input-mask';
 import MaterialInput from '@material-ui/core/Input';
+import Typography from "@material-ui/core/Typography";
 
 class AddStudents extends Component {
+
     constructor() {
         super();
         this.state = {
@@ -43,8 +45,80 @@ class AddStudents extends Component {
             studentImageURL: '',
             open: false,
             dialogText: "",
-            loading: false
+            loading: false,
+            value: '',
+            mask: '9999-9999-9999-9999'
         };
+    }
+
+    saveStData() {
+        // this.setState({open: true});
+        var dateOfBirth = new Date(this.state.dateOfBirth).getTime();
+        var admissionDate = new Date(this.state.admissionDate).getTime();
+        var requiredData = {
+            name:  this.state.name,
+            fatherName:this.state.fatherName,
+            year: this.state.year,
+            admittedInClass: this.state.admittedInClass,
+            admissionDate: admissionDate,
+            address: this.state.address,
+        };
+        var studentData = {
+            name: requiredData.name,
+            fatherName: requiredData.fatherName,
+            dateOfBirth:dateOfBirth,
+            address: requiredData.address,
+            cnic: this.state.cnic,
+            phone: this.state.phone,
+            lastInstitution: this.state.lastInstitution,
+            admittedInClass: requiredData.admittedInClass,
+            admissionDate: admissionDate,
+            year: requiredData.year,
+            photoURL: this.state.studentImageURL,
+        };
+        for (var d in requiredData){
+            if( requiredData[d] == ''){
+                this.setState({open: true, dialogText: "field is Required !!"});
+                return;
+                break;
+            }
+          else {
+              this.setState({dialogText: 'Saving..' , open: true, })
+            }
+        }
+        const url = 'https://school-management--app.herokuapp.com/students/add-student';
+                fetch(url, {
+                    method: "post",
+                    body: JSON.stringify(studentData),
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    }
+                }).then((data) => {
+                    data.json().then((studData) => {
+                        console.log(studData);
+                        this.setState({
+                            name: "",
+                            fatherName: "",
+                            dateOfBirth: "",
+                            address: "",
+                            cnic: "",
+                            phone: "",
+                            lastInstitution: "",
+                            admittedInClass: "",
+                            admissionDate: "",
+                            year: "",
+                            loading: false,
+                            dialogText: "Saved!!"
+                        });
+                    });
+                })
+                    .catch((err) => {
+                        this.setState({open: true, err});
+                        console.log(err);
+                    });
+
+
     }
 
     getStudentImageURL = (url) => {
@@ -53,66 +127,18 @@ class AddStudents extends Component {
     };
 
     changeValue(p, e) {
-        // console.log(e.target.value);
-        if(p === "admissionDate"){
+        console.log(e.target.value);
+        if (p === "admissionDate") {
             this.setState({year: e.target.value.split("-")[0]})
         }
         this.setState({[p]: e.target.value});
-    }
-
-    saveStData() {
-        // this.setState({open: true});
-        var dateOfBirth = new Date(this.state.dateOfBirth).getTime();
-        var admissionDate = new Date(this.state.admissionDate).getTime();
-        var studentData = {
-            name: this.state.name,
-            fatherName: this.state.fatherName,
-            dateOfBirth: dateOfBirth,
-            address: this.state.address,
-            cnic: this.state.cnic,
-            phone: this.state.phone,
-            lastInstitution: this.state.lastInstitution,
-            admittedInClass: this.state.admittedInClass,
-            admissionDate: admissionDate,
-            year: this.state.year,
-            photoURL: this.state.studentImageURL,
-        };
-        for (var d in studentData) {
-            if(studentData[d] == ''){
-                this.setState({open: true , dialogText: "field is Required !!"});
-                return;
-                break;
-            }
-            else {
-                this.setState({open: true , loading: true , dialogText: "Saving..."});
-            }
-        }
-
-        const url = 'https://school-management--app.herokuapp.com/students/add-student';
-        fetch(url, {
-            method: "post",
-            body: JSON.stringify(studentData),
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            }
-        }).then((data) => {
-            data.json().then((studData) => {
-                this.setState({name: "" , fatherName: "" , dateOfBirth: "" ,address:"",cnic:"" ,phone:"",
-                    lastInstitution:"", admittedInClass:"" , admissionDate:"" , year:"" , loading: false, dialogText: "Saved!!"});
-            });
-        })
-            .catch((err) => {
-                this.setState({open: true, err});
-                console.log(err);
-            });
     }
 
     changeYear(e) {
         this.setState({year: e.target.value});
     }
 
-    handleClose(){
+    handleClose() {
         this.setState({open: false});
     }
 
@@ -121,85 +147,85 @@ class AddStudents extends Component {
             <div>
                 <ToolBarComponent title="Add Student"/>
                 <Container maxWidth="md">
-                    <Card style={{ margin: '20px 0 15px 0'}}>
-                    <CardContent>
-                        {/*<InputMask {...this.props} mask="99999-9999999-9" maskChar=" " />*/}
-                        <TextField id="outlined-name" label="Name of Student" fullWidth margin="normal"
-                                   variant="outlined"
-                                   value={this.state.name}
-                                   onChange={this.changeValue.bind(this, 'name')}/>
-                        <TextField id="outlined-name" label="Father's Name" fullWidth margin="normal" variant="outlined"
-                                   value={this.state.fatherName}
-                                   onChange={this.changeValue.bind(this, 'fatherName')}/><br/><br/>
-                        <TextField id="date" variant="outlined" fullWidth label="Date of Birth"
-                                   value={this.state.dateOfBirth}
-                                   onChange={this.changeValue.bind(this, "dateOfBirth")}
-                                   type="date" InputLabelProps={{shrink: true,}}/>
-                        <TextField id="outlined-name" label="Address" fullWidth margin="normal" variant="outlined"
-                                   value={this.state.address} onChange={this.changeValue.bind(this, 'address')}/>
-                        <TextField id="outlined-name" label="cnic No." fullWidth margin="normal" variant="outlined"
-                                   type="number"  mask="99999-9999999-9"
-                                   value={this.state.cnic} onChange={this.changeValue.bind(this, 'cnic')}/>
-                        <TextField id="outlined-name" label="Phone No." fullWidth margin="normal" variant="outlined"
-                                   type="number" data-inputmask="'mask': '99-9999999'"
-                                   value={this.state.phone} onChange={this.changeValue.bind(this, 'phone')}/>
-                        <TextField id="outlined-name" label="Last Institution Name" fullWidth margin="normal"
-                                   variant="outlined"
-                                   value={this.state.lastInstitution}
-                                   onChange={this.changeValue.bind(this, 'lastInstitution')}/><br/><br/>
-                        <TextField id="date" variant="outlined" fullWidth label="Date of Admitted"
-                                   value={this.state.admissionDate}
-                                   onChange={this.changeValue.bind(this , "admissionDate")}
-                                   type="date" InputLabelProps={{shrink: true,}}/><br/><br/>
-                        <FormControl variant="filled">
-                            <InputLabel htmlFor="filled-age-native-simple" >Year</InputLabel>
-                            <Select style={{width: '680px', textAlign: 'left'}}
-                                    native
-                                    value={this.state.year}
-                                    onChange={this.changeYear.bind(this)}
-                                    input={
-                                        <FilledInput name="age" id="filled-age-native-simple" fullWidth/>}>
-                                {this.state.yearsList.map((val, ind) => {
-                                    return (
-                                        <option key={ind} value={val}>{val}</option>
-                                    )
-                                })}
-                            </Select>
-                        </FormControl>
-                        <br/><br/>
-                        <FormControl variant="filled">
-                            <InputLabel htmlFor="filled-age-native-simple">
-                                Admitted in Class
-                            </InputLabel>
-                            <Select style={{width: '680px', textAlign: 'left'}}
-                                    native
-                                    value={this.state.admittedInClass}
-                                    onChange={this.changeValue.bind(this, 'admittedInClass')}
-                                    input={
-                                        <FilledInput name="age" id="outlined-age-native-simple"/>
-                                    }
-                            >
-                                {this.state.classList.map((val, ind) => {
-                                    return (
-                                        <option key={ind} value={val}>{val}</option>
-                                    )
-                                })}
-                            </Select>
-                        </FormControl>
-                        <ImageCropper onCropped={this.getStudentImageURL}/>
-                        <Button variant="contained" color="primary" size='large' style={{float: "right"}}
-                                onClick={this.saveStData.bind(this)}>Save Data</Button><br/><br/>
-                    </CardContent>
-                </Card>
+                    <Card style={{margin: '20px 0 15px 0'}}>
+                        <CardContent>
+                            <TextField id="outlined-name" label="Name of Student" fullWidth margin="normal"
+                                       variant="outlined"
+                                       value={this.state.name}
+                                       onChange={this.changeValue.bind(this, 'name')}/>
+                            <TextField id="outlined-name" label="Father's Name" fullWidth margin="normal"
+                                       variant="outlined"
+                                       value={this.state.fatherName}
+                                       onChange={this.changeValue.bind(this, 'fatherName')}/><br/><br/>
+                            <TextField id="date" variant="outlined" fullWidth label="Date of Birth"
+                                       value={this.state.dateOfBirth}
+                                       onChange={this.changeValue.bind(this, "dateOfBirth")}
+                                       type="date" InputLabelProps={{shrink: true,}}/>
+                            <TextField id="outlined-name" label="Address" fullWidth margin="normal" variant="outlined"
+                                       value={this.state.address} onChange={this.changeValue.bind(this, 'address')}/>
+                            <InputMask mask="99999-9999999-9"
+                              value={this.state.cnic} onChange={this.changeValue.bind(this, "cnic")}>
+    {() =>   <TextField id="outlined-name" label="CNIC No." fullWidth margin="normal" variant="outlined"
+                                       />}</InputMask>
+                            <InputMask mask="9999-9999999"
+                              value={this.state.phone} onChange={this.changeValue.bind(this , 'phone')}>
+    {() =>   <TextField id="outlined-name" label="Phone No." fullWidth margin="normal" variant="outlined"
+                                       />}</InputMask>
+                            <TextField id="outlined-name" label="Last Institution Name" fullWidth margin="normal"
+                                       variant="outlined"
+                                       value={this.state.lastInstitution}
+                                       onChange={this.changeValue.bind(this, 'lastInstitution')}/><br/><br/>
+                            <TextField id="date" variant="outlined" fullWidth label="Date of Admitted"
+                                       value={this.state.admissionDate}
+                                       onChange={this.changeValue.bind(this, "admissionDate")}
+                                       type="date" InputLabelProps={{shrink: true,}}/><br/><br/>
+                            <FormControl variant="filled">
+                                <InputLabel htmlFor="filled-age-native-simple">Year</InputLabel>
+                                <Select style={{width: '865px', textAlign: 'left'}}
+                                        native
+                                        value={this.state.year}
+                                        onChange={this.changeYear.bind(this)}
+                                        input={
+                                            <FilledInput name="age" id="filled-age-native-simple" fullWidth/>}>
+                                    {this.state.yearsList.map((val, ind) => {
+                                        return (
+                                            <option key={ind} value={val}>{val}</option>
+                                        )
+                                    })}
+                                </Select>
+                            </FormControl>
+                            <br/><br/>
+                            <FormControl variant="filled">
+                                <InputLabel htmlFor="filled-age-native-simple">
+                                    Admitted in Class
+                                </InputLabel>
+                                <Select style={{width: '865px', textAlign: 'left'}}
+                                        native
+                                        value={this.state.admittedInClass}
+                                        onChange={this.changeValue.bind(this, 'admittedInClass')}
+                                        input={
+                                            <FilledInput name="age" id="outlined-age-native-simple"/>
+                                        }
+                                >
+                                    {this.state.classList.map((val, ind) => {
+                                        return (
+                                            <option key={ind} value={val}>{val}</option>
+                                        )
+                                    })}
+                                </Select>
+                            </FormControl>
+                            <ImageCropper onCropped={this.getStudentImageURL}/>
+                            <Button variant="contained" color="primary" size='large' style={{float: "right"}}
+                                    onClick={this.saveStData.bind(this)}>Save Data</Button><br/><br/>
+                        </CardContent>
+                    </Card>
                     <Dialog fullWidth open={this.state.open}
-                        onClose={this.handleClose.bind(this)}
-                        aria-labelledby="alert-dialog-title"
-                        aria-describedby="alert-dialog-description">
+                            onClose={this.handleClose.bind(this)}
+                            aria-labelledby="alert-dialog-title"
+                            aria-describedby="alert-dialog-description">
                         <DialogContent>
-                            <DialogContentText id="alert-dialog-description" style={{textAlign: "center"}}>
-                                {this.state.loading ? <CircularProgress color="primary" /> :null}
-                                {this.state.dialogText}
-                            </DialogContentText>
+                                {this.state.loading ? <CircularProgress color="primary"/> : null}
+                                <Typography >{this.state.dialogText}</Typography>
                         </DialogContent>
                         <DialogActions>
                             <Button onClick={this.handleClose.bind(this)} color="primary" autoFocus>

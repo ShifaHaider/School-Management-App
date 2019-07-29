@@ -44,7 +44,7 @@ class Login extends Component {
             <div className='App'>
                 <AppBar position="static">
                     <Toolbar style={{minHeight: '90px'}}><Typography color="inherit"
-                                                                     style={{fontSize: '25px'}}>LOGIN</Typography></Toolbar>
+                   style={{fontSize: '25px'}}>LOGIN</Typography></Toolbar>
                 </AppBar>
                 <Container maxWidth="sm">
                 <Card className='cardStyle'

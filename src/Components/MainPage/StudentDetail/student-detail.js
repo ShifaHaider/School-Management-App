@@ -2,9 +2,16 @@ import React, {Component} from 'react';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Button from "@material-ui/core/Button";
-import AutoComplete from "./auto-complete"
+import UpdateStudent from "./update-student"
 import ToolBarComponent from "../ToolBarComponent/toolbar-componet";
 import Container from "@material-ui/core/Container";
+import { height } from 'window-size';
+import "../../../App.css"
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+
 
 class StudentDetail extends Component {
     constructor(props) {
@@ -41,48 +48,65 @@ class StudentDetail extends Component {
     change() {
         this.setState({change: "change"})
     }
+
     render() {
         console.log(this.state.studentDetail.photoURL);
         return (
-            <div>
-                <ToolBarComponent title="View Student Details"/>
+            <div >
+             <ToolBarComponent title="View Student Details"/>
+                {/* <img alt="Student pic" style={{height: "180px", width: "165px"}}
+                             src={this.state.studentDetail.photoURL || "https://www.caretechfoundation.org.uk/wp-content/uploads/anonymous-person-221117.jpg"}/> */}
+                {/*{this.state.change ?  <UpdateStudent studentDetail={this.state.studentDetail}/>: null}*/}
                 <Container maxWidth="md">
-                {this.state.change ? <AutoComplete studentDetail={this.state.studentDetail}/> :
-                    <Paper style={{margin: "20px 100px 15px 50px", padding: "10px 0 10px 10px"}}>
-                        <img alt="Student pic" style={{height: "180px", width: "165px"}}
-                             src={this.state.studentDetail.photoURL}/><br/><br/>
-                        <Typography variant="h5" component="h3"><b>* Student Name</b></Typography>
-                        <Typography variant="h6"
-                                    component="p"><b>{this.state.studentDetail.name}</b></Typography><br/><br/>
-                        <Typography variant="h5" component="h3"><b>* Father's Name</b></Typography>
-                        <Typography variant="h6" component="p"><b>{this.state.studentDetail.fatherName}
-                        </b></Typography><br/><br/>
-                        <Typography variant="h5" component="h3"><b>* Date of Birth</b></Typography>
-                        <Typography variant="h6"
-                                    component="p"><b>{new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString()}
-                                    </b></Typography><br/><br/>
-                        <Typography variant="h5" component="h3"><b>* Address</b></Typography>
-                        <Typography variant="h6"
-                                    component="p"><b>{this.state.studentDetail.address}</b></Typography><br/><br/>
-                        <Typography variant="h5" component="h3"><b>* cnic NO.</b></Typography>
-                        <Typography variant="h6"
-                                    component="p"><b>{this.state.studentDetail.cnic}</b></Typography><br/><br/>
-                        <Typography variant="h5" component="h3"><b>* Phone NO.</b></Typography>
-                        <Typography variant="h6"
-                                    component="p"><b>{this.state.studentDetail.phone}</b></Typography><br/><br/>
-                        <Typography variant="h5" component="h3"><b>* Last Institution Name</b></Typography>
-                        <Typography variant="h6"
-                                    component="p"><b>{this.state.studentDetail.lastInstitution}</b></Typography><br/><br/>
-                        <Typography variant="h5" component="h3"><b>* Admitted Class</b></Typography>
-                        <Typography variant="h6"
-                                    component="p"><b>{this.state.studentDetail.admittedInClass}</b></Typography><br/><br/>
-                        <Typography variant="h5" component="h3"><b>* Admission Date</b></Typography>
-                        <Typography variant="h6"
-                                    component="p"><b>{new Date(this.state.studentDetail.admissionDate).toLocaleDateString()}
-                                    </b></Typography><br/>
-                        <Button variant="contained" color="primary" size='large'
+                    {this.state.change ? <UpdateStudent studentDetail={this.state.studentDetail}/> :
+                    <Card style={{display: "flex" ,margin: "100px auto",}}>
+                    <div className="image-container">
+                        <img src="https://nannyoptions.ie/2014/wp-content/uploads/2017/10/Why-Babies-and-Children-May-Wake-Up-Early-1-948x640.jpg"
+                             className="image"/>
+                    </div>
+                    <div className="content-container">
+                        <p className="h3">{this.state.studentDetail.name}</p>
+                        <p className="f-name">S/o {this.state.studentDetail.fatherName} </p>
+                        <div className="detail-container">
+
+                            <div className="detail-container-content">
+                                <p className="cell_1">Date Of Birth: </p>
+                                <p className="cell_2">{new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString()}</p>
+                            </div>
+
+                            <div className="detail-container-content">
+                                <p className="cell_1">Address: </p>
+                                <p className="cell_2">{this.state.studentDetail.address}</p>
+                            </div>
+                            <div className="detail-container-content">
+                                <p className="cell_1">CNIC: </p>
+                                <p className="cell_2">{this.state.studentDetail.cnic}</p>
+                            </div>
+                            <div className="detail-container-content">
+                                <p className="cell_1">Phone No: </p>
+                                <p className="cell_2">{this.state.studentDetail.phone}</p>
+                            </div>
+
+
+                            <div className="detail-container-content">
+                                <p className="cell_1">Last Institution: </p>
+                                <p className="cell_2">{this.state.studentDetail.lastInstitution}</p>
+                            </div>
+                            <div className="detail-container-content">
+                                <p className="cell_1">Admitted In Class: </p>
+                                <p className="cell_2">{this.state.studentDetail.admittedInClass}</p>
+                            </div>
+
+                            <div className="detail-container-content">
+                                <p className="cell_1">Admission Date: </p>
+                                <p className="cell_2">{new Date(this.state.studentDetail.admissionDate).toLocaleDateString()}</p>
+                            </div>
+                        </div>
+                        <Button color="primary"  size='large' style={{float:"right" , margin:"10px"}}
                                 onClick={this.change.bind(this)}>Edit</Button>
-                    </Paper>}
+                    </div>
+
+                </Card>}
                 </Container>
             </div>
         )

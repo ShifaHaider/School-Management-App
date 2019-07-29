@@ -85,7 +85,7 @@ class Find extends Component {
             }
         }).then((data) => {
             data.json().then((foundData) => {
-                // console.log(foundData);
+                console.log(foundData);
                 this.setState({loading: false ,foundStudent: foundData})
             });
         })
@@ -247,7 +247,7 @@ class Find extends Component {
                                             <StyledTableCell align="left" onClick={this.studentDetail.bind(this, student)}>
                                                 {student.fatherName}</StyledTableCell>
                                             <StyledTableCell align="left"
-                                                             onClick={this.studentDetail.bind(this, student)}>{new Date(student.dateOfBirth).toLocaleDateString()}</StyledTableCell>
+                                                             onClick={this.studentDetail.bind(this, student)}>{student.dateOfBirth ? new Date(student.dateOfBirth ).toLocaleDateString(): "-"}</StyledTableCell>
                                             <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}
                                             >{student.admittedInClass}</StyledTableCell>

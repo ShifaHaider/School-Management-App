@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-// import './style.css'
-import {BrowserRouter as Router, Route, Redirect} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import Find from './Find/find';
 import ReactVirtualizedTable from './Find/table';
 import AddStudents from './AddStudentData/add-student';
 import StudentDetail from "./StudentDetail/student-detail";
 import StudentDetailPrint from "../StudentDetailPrint/student-detail-print";
+import UpdateStudent from "./StudentDetail/update-student";
 
 
 class Main extends Component {
@@ -23,6 +23,7 @@ class Main extends Component {
                         <Route path="/main/add-student" component={AddStudents}/>
                         <Route path="/main/student-detail-print" exact component={StudentDetailPrint}/>
                         <Route path="/main/view-student-detail/:id" exact component={StudentDetail}/>
+                        <Route path="/main/update-student" exact component={UpdateStudent}/>
                     </div>
                 </Router>
             </div>

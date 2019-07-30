@@ -157,10 +157,9 @@ class Find extends Component {
     render() {
         return (
             <div>
-                <ToolBarComponent title="Find"/>
+                <ToolBarComponent title='Find'/>
                 <div style={{margin: '115px auto', textAlign: "center"}}>
-                    <FormControl variant="filled"
-                    >
+                    <FormControl variant="filled">
                         <InputLabel htmlFor="filled-age-simple">Search by Year</InputLabel>
                         <Select style={{width: '250px'}}
                                 value={this.state.year}
@@ -205,9 +204,8 @@ class Find extends Component {
                     &nbsp;
                     &nbsp;
                     <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
-                            onClick={this.searchByKeyword.bind(this)}>Find</Button>
-                    {/*<Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}*/}
-                    {/*        onClick={this.find.bind(this)}>Find</Button>*/}
+                            onClick={this.searchByKeyword.bind(this)}> {this.state.loading ?
+                        <CircularProgress style={{width: "20px" , height: "20px", color: 'white'}}/>: null}&nbsp;&nbsp;Find</Button>
                     &nbsp;
                     &nbsp;
                     &nbsp;
@@ -215,26 +213,7 @@ class Find extends Component {
                         <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
                                 onClick={this.print.bind(this)}>Print</Button>
                         : null}
-                    <br/><br/>
-                    {this.state.loading ?
-                        <div><CircularProgress color="primary"/>Loading... </div> : null}
                 </div>
-                {/*<div style={{margin: '12px auto', textAlign: "center"}}>*/}
-                {/*    <TextField style={{marginTop: 0, width: '300px'}}*/}
-                {/*               id="filled-name"*/}
-                {/*               label="Search by keyword"*/}
-                {/*               value={this.state.keyword}*/}
-                {/*               onChange={this.changeKeyword.bind(this)}*/}
-                {/*               margin="normal"*/}
-                {/*               variant="filled"/>*/}
-                {/*    &nbsp;*/}
-                {/*    &nbsp;*/}
-                {/*    &nbsp;*/}
-                {/*    <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}*/}
-                {/*            onClick={this.searchByKeyword.bind(this)}>Find</Button>*/}
-                {/*    {this.state.findLoading ?*/}
-                {/*        <div><CircularProgress color="primary"/>Loading... </div> : null}*/}
-                {/*</div>*/}
                 <br/>
                 {this.state.foundStudent.length !== 0 ?
                     <Paper>

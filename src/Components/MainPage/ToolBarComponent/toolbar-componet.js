@@ -18,14 +18,20 @@ class ToolBarComponent extends Component {
         this.state = {
             openMenu: false
         };
-
     }
 
 
     handleOpen() {
         this.setState({openMenu: true})
     }
-
+    findStudent(){
+        console.log(this.props);
+        console.log(this.props.history);
+        // this.props.history.push('/main/find');
+    }
+    addStudent(){
+        // this.props.history.push('/main/add-student');
+    }
 
     render() {
 
@@ -34,7 +40,8 @@ class ToolBarComponent extends Component {
             <div style={{ flexGrow: 1, position: 'fixed' , top: 0, zIndex: 100, width: "100%"}}>
                 <AppBar position="static">
                     <Toolbar style={{minHeight: '80px'}}>
-                        <Typography color="inherit" style={{fontSize: '25px' , flexGrow: 1}}>{this.props.title}</Typography>
+                        <Typography color="inherit" style={{fontSize: '25px' , flexGrow: 1}}>{this.props.title}
+                        </Typography>
                         <PopupState variant="popover" popupId="demo-popup-menu">
                             {popupState => (
                                 <React.Fragment>
@@ -42,8 +49,8 @@ class ToolBarComponent extends Component {
                                         <MoreIcon />
                                     </IconButton>
                                     <Menu {...bindMenu(popupState)}>
-                                        <MenuItem onClick={popupState.close}><Link to="/main/find">Find Student</Link></MenuItem>
-                                        <MenuItem onClick={popupState.close}><Link to="/main/add-student">Add Student</Link></MenuItem>
+                                        <MenuItem onClick={this.findStudent.bind(this)}><Link to='/main/find'>Find Students</Link></MenuItem>
+                                        <MenuItem onClick={this.addStudent.bind(this)}><Link to='/main/add-student'>Add Student</Link></MenuItem>
                                     </Menu>
                                 </React.Fragment>
                             )}

@@ -15,7 +15,6 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import InputMask from 'react-input-mask';
-import Typography from "@material-ui/core/Typography";
 import clsx from 'clsx';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import ErrorIcon from '@material-ui/icons/Error';
@@ -26,7 +25,37 @@ import IconButton from '@material-ui/core/IconButton';
 import Snackbar from '@material-ui/core/Snackbar';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import WarningIcon from '@material-ui/icons/Warning';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
 
+
+
+const useStyles1 = makeStyles(theme => ({
+    success: {
+        backgroundColor: green[600],
+    },
+    error: {
+        backgroundColor: theme.palette.error.dark,
+    },
+    info: {
+        backgroundColor: theme.palette.primary.main,
+    },
+    warning: {
+        backgroundColor: amber[700],
+    },
+    icon: {
+        fontSize: 20,
+    },
+    iconVariant: {
+        opacity: 0.9,
+        marginRight: theme.spacing(1),
+    },
+    message: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+}));
 const variantIcon = {
     success: CheckCircleIcon,
     warning: WarningIcon,
@@ -35,28 +64,35 @@ const variantIcon = {
 };
 
 function MySnackbarContentWrapper(props) {
-    // const classes = useStyles1();
+    const classes = useStyles1();
     const {className, message, onClose, variant, ...other} = props;
     const Icon = variantIcon[variant];
 
     return (
         <SnackbarContent
+            className={clsx(classes[variant], className)}
             aria-describedby="client-snackbar"
             message={
-                <span id="client-snackbar">
-          <Icon/>
+                <span id="client-snackbar" className={classes.message}>
+          <Icon className={clsx(classes.icon, classes.iconVariant)} />
                     {message}
         </span>
             }
             action={[
                 <IconButton key="close" aria-label="close" color="inherit" onClick={onClose}>
-                    <CloseIcon/>
+                    <CloseIcon className={classes.icon} />
                 </IconButton>,
             ]}
             {...other}
         />
     );
 }
+MySnackbarContentWrapper.propTypes = {
+    className: PropTypes.string,
+    message: PropTypes.string,
+    onClose: PropTypes.func,
+    variant: PropTypes.oneOf(['error', 'info', 'success', 'warning']).isRequired,
+};
 
 class AddStudents extends Component {
 
@@ -79,18 +115,19 @@ class AddStudents extends Component {
             year: '',
             selectedDate: '',
             setSelectedDate: '',
-
             studentImageURL: '',
             open: false,
             dialogText: "",
             loading: false,
             value: '',
-            mask: '9999-9999-9999-9999'
+            mask: '9999-9999-9999-9999',
+            snackbarOpen: false,
+            snackbarMessage: "",
+            variant: "success"
         };
     }
 
     saveStData() {
-        // this.setState({open: true});
         var dateOfBirth = new Date(this.state.dateOfBirth).getTime();
         var admissionDate = new Date(this.state.admissionDate).getTime();
         var requiredData = {
@@ -116,7 +153,7 @@ class AddStudents extends Component {
         };
         for (var d in requiredData) {
             if (requiredData[d] == '') {
-                this.setState({open: true, dialogText: "field is Required !!"});
+                this.setState({ snackbarOpen: true , snackbarMessage: "Some Fields is Required!!" , variant:"error"});
                 return;
                 break;
             } else {
@@ -146,7 +183,8 @@ class AddStudents extends Component {
                     admissionDate: "",
                     year: "",
                     loading: false,
-                    dialogText: "Saved!!"
+                    open: false,
+                    snackbarOpen: true , snackbarMessage: "Successfully Saved!!" , variant: "success"
                 });
             });
         })
@@ -159,7 +197,6 @@ class AddStudents extends Component {
     }
 
     getStudentImageURL = (url) => {
-        console.log(url);
         this.setState({studentImageURL: url});
     };
 
@@ -179,6 +216,9 @@ class AddStudents extends Component {
         this.setState({open: false});
     }
 
+    snackbarClose(){
+        this.setState({snackbarOpen: false});
+    }
     render() {
         return (
             <div>
@@ -235,16 +275,15 @@ class AddStudents extends Component {
                                            type="date" InputLabelProps={{shrink: true,}}/><br/><br/>
 
                                 <FormControl variant="filled">
-                                    <InputLabel htmlFor="filled-age-native-simple">Year</InputLabel>
+                                    <InputLabel htmlFor="filled-age-simple">Year</InputLabel>
                                     <Select style={{width: '415px', textAlign: 'left'}}
-                                            native
                                             value={this.state.year}
                                             onChange={this.changeYear.bind(this)}
                                             input={
-                                                <FilledInput name="age" id="filled-age-native-simple" fullWidth/>}>
+                                                <FilledInput name="age" id="filled-age-simple" fullWidth/>}>
                                         {this.state.yearsList.map((val, ind) => {
                                             return (
-                                                <option key={ind} value={val}>{val}</option>
+                                                <MenuItem key={ind} value={val}>{val}</MenuItem>
                                             )
                                         })}
                                     </Select>
@@ -253,20 +292,19 @@ class AddStudents extends Component {
                                 &nbsp;
                                 &nbsp;
                                 <FormControl variant="filled">
-                                    <InputLabel htmlFor="filled-age-native-simple">
+                                    <InputLabel htmlFor="filled-age-simple">
                                         Admitted in Class
                                     </InputLabel>
                                     <Select style={{width: '415px', textAlign: 'left'}}
-                                            native
                                             value={this.state.admittedInClass}
                                             onChange={this.changeValue.bind(this, 'admittedInClass')}
                                             input={
-                                                <FilledInput name="age" id="outlined-age-native-simple"/>
+                                                <FilledInput name="age" id="filled-age-simple"/>
                                             }
                                     >
                                         {this.state.classList.map((val, ind) => {
                                             return (
-                                                <option key={ind} value={val}>{val}</option>
+                                                <MenuItem key={ind} value={val}>{val}</MenuItem>
                                             )
                                         })}
                                     </Select>
@@ -280,9 +318,8 @@ class AddStudents extends Component {
                                 onClose={this.handleClose.bind(this)}
                                 aria-labelledby="alert-dialog-title"
                                 aria-describedby="alert-dialog-description">
-                            <DialogContent>
+                            <DialogContent style={{textAlign: "center"}}>
                                 {this.state.loading ? <CircularProgress color="primary"/> : null}
-                                <Typography>{this.state.dialogText}</Typography>
                             </DialogContent>
                             <DialogActions>
                                 <Button onClick={this.handleClose.bind(this)} color="primary" autoFocus>
@@ -292,18 +329,19 @@ class AddStudents extends Component {
                         </Dialog>
                     </Container>
                 </div>
-                <Snackbar
+                <Snackbar style={{bottom: "10px"}}
                     anchorOrigin={{
                         vertical: 'bottom',
-                        horizontal: 'left',
+                        horizontal: 'center',
                     }}
-                    // open={open}
-                    autoHideDuration={6000}
+                    open={this.state.snackbarOpen}
+                    autoHideDuration={3000}
+                    onClose={this.snackbarClose.bind(this)}
                 >
                     <MySnackbarContentWrapper
-                        // onClose={handleClose}
-                        variant="success"
-                        message="This is a success message!"
+                        onClose={this.snackbarClose.bind(this)}
+                        variant={this.state.variant}
+                        message={this.state.snackbarMessage}
                     />
                 </Snackbar>
             </div>

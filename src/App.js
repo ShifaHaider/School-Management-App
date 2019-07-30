@@ -4,7 +4,6 @@ import Main from './Components/MainPage/main'
 import firebase from 'firebase';
 import {BrowserRouter as Router, Route, Redirect} from "react-router-dom";
 import { createMuiTheme } from '@material-ui/core/styles';
-import teal from '@material-ui/core/colors/teal';
 import { ThemeProvider } from '@material-ui/styles';
 
 const theme = createMuiTheme({
@@ -32,12 +31,8 @@ class App extends Component {
                     <Router>
                         <div>
                             <Route path="/" exact render={() => adminID ? <Redirect to='/main'/> : <Redirect to='/login'/>}/>
-                            {/*<Route path="/login" component={Login}/>*/}
-                            {/*<Route path="/image-cropper" component={ImageCropper}/>*/}
-                            {/*<Route path="/login" component={Login}/>*/}
                             <Route path="/main" render={() => (adminID ? <Main/> : <Redirect to='/login'/>)}/>
                             <Route path="/login" exact render={() => (adminID ? <Redirect to='/main'/> : <Login/>)}/>
-                            {/*<Route path=""  render={() => (!adminID ? <Redirect to='/login'/> : <Main/>)}/>*/}
                         </div>
                     </Router>
                 </div>

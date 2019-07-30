@@ -15,8 +15,83 @@ import DialogActions from "@material-ui/core/DialogActions";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import InputMask from "react-input-mask";
+import clsx from 'clsx';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import ErrorIcon from '@material-ui/icons/Error';
+import InfoIcon from '@material-ui/icons/Info';
+import CloseIcon from '@material-ui/icons/Close';
+import {amber, green} from '@material-ui/core/colors';
+import IconButton from '@material-ui/core/IconButton';
+import Snackbar from '@material-ui/core/Snackbar';
+import SnackbarContent from '@material-ui/core/SnackbarContent';
+import WarningIcon from '@material-ui/icons/Warning';
+import PropTypes from 'prop-types';
+import {makeStyles} from "@material-ui/core";
 
 
+
+const useStyles1 = makeStyles(theme => ({
+    success: {
+        backgroundColor: green[600],
+    },
+    error: {
+        backgroundColor: theme.palette.error.dark,
+    },
+    info: {
+        backgroundColor: theme.palette.primary.main,
+    },
+    warning: {
+        backgroundColor: amber[700],
+    },
+    icon: {
+        fontSize: 20,
+    },
+    iconVariant: {
+        opacity: 0.9,
+        marginRight: theme.spacing(1),
+    },
+    message: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+}));
+const variantIcon = {
+    success: CheckCircleIcon,
+    warning: WarningIcon,
+    error: ErrorIcon,
+    info: InfoIcon,
+};
+
+function MySnackbarContentWrapper(props) {
+    const classes = useStyles1();
+    const {className, message, onClose, variant, ...other} = props;
+    const Icon = variantIcon[variant];
+
+    return (
+        <SnackbarContent
+            className={clsx(classes[variant], className)}
+            aria-describedby="client-snackbar"
+            message={
+                <span id="client-snackbar" className={classes.message}>
+          <Icon className={clsx(classes.icon, classes.iconVariant)} />
+                    {message}
+        </span>
+            }
+            action={[
+                <IconButton key="close" aria-label="close" color="inherit" onClick={onClose}>
+                    <CloseIcon className={classes.icon} />
+                </IconButton>,
+            ]}
+            {...other}
+        />
+    );
+}
+MySnackbarContentWrapper.propTypes = {
+    className: PropTypes.string,
+    message: PropTypes.string,
+    onClose: PropTypes.func,
+    variant: PropTypes.oneOf(['error', 'info', 'success', 'warning']).isRequired,
+};
 class UpdateStudent extends Component {
     constructor(props) {
         super(props);
@@ -33,7 +108,10 @@ class UpdateStudent extends Component {
             open: false,
             dialogText: "",
             loading: false,
-            cnic: ""
+            cnic: "",
+            snackbarOpen: false,
+            snackbarMessage: "",
+            variant: "success"
         }
     }
 
@@ -78,7 +156,7 @@ class UpdateStudent extends Component {
         for (var d in requiredData) {
             if (requiredData[d] == '') {
                 console.log(3234);
-                this.setState({open: true, dialogText: "field is Required !!"});
+                this.setState({ snackbarOpen: true , snackbarMessage: "Some Fields is Required!!" , variant:"error"});
                 return;
                 break;
             } else {
@@ -95,7 +173,7 @@ class UpdateStudent extends Component {
             }
         }).then((data) => {
             data.json().then((studData) => {
-                this.setState({loading: false, dialogText: "Saved!!"});
+                this.setState({snackbarOpen: true , snackbarMessage: "Successfully Saved!!" , variant: "success"});
             });
         })
             .catch((err) => {
@@ -108,13 +186,10 @@ class UpdateStudent extends Component {
     }
 
     cancelPage() {
-        console.log(this.props);
-        // console.log(this.props.match.params.id);
         // this.props.history.push('/main/view-student-detail/' + this.state.studentDetail._id);
     }
 
     render() {
-        // var dateOfBirth = new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString().replace(/\//g,'-');
         var dateOfBirth = new Date(this.state.studentDetail.dateOfBirth);
         dateOfBirth = dateOfBirth.getFullYear() + '-' + dateOfBirth.getMonth() + "-" + dateOfBirth.getDay();
         var dob = dateOfBirth.split("-");
@@ -124,7 +199,6 @@ class UpdateStudent extends Component {
             }
         }
         dob = dob.join("-");
-        console.log(dob);
         var admissionDate = new Date(this.state.studentDetail.admissionDate);
         admissionDate = admissionDate.getFullYear() + '-' + admissionDate.getMonth() + "-" + admissionDate.getDate();
         var adm = admissionDate.split("-");
@@ -134,7 +208,6 @@ class UpdateStudent extends Component {
             }
         }
         adm = adm.join("-");
-        console.log(adm);
 
         return (
             <div>
@@ -232,6 +305,21 @@ class UpdateStudent extends Component {
                         </Button>
                     </DialogActions>
                 </Dialog>
+                <Snackbar style={{bottom: "10px"}}
+                          anchorOrigin={{
+                              vertical: 'bottom',
+                              horizontal: 'center',
+                          }}
+                          open={this.state.snackbarOpen}
+                          autoHideDuration={3000}
+                          onClose={this.snackbarClose.bind(this)}
+                >
+                    <MySnackbarContentWrapper
+                        onClose={this.snackbarClose.bind(this)}
+                        variant={this.state.variant}
+                        message={this.state.snackbarMessage}
+                    />
+                </Snackbar>
             </div>
         )
     }

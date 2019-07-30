@@ -42,7 +42,6 @@ export default class ImageCropper extends Component {
         }
     };
 
-    // If you setState the crop in here you should return false.
     onImageLoaded = image => {
         this.imageRef = image;
     };
@@ -91,7 +90,6 @@ export default class ImageCropper extends Component {
                 this.setState({imageFile: blob});
                 window.URL.revokeObjectURL(this.fileUrl);
                 this.fileUrl = window.URL.createObjectURL(blob);
-                // console.log(this.fileUrl);
                 this.setState({fileURL: this.fileUrl});
                 resolve(this.fileUrl);
             }, "image/jpeg");
@@ -99,9 +97,8 @@ export default class ImageCropper extends Component {
     }
 
     fileUpload() {
-        var blob = new Blob([this.state.fileURL], {type: 'image/jpeg'});
         this.setState({loading: true, onSelect: false});
-        var event = firebase.storage().ref().child(this.state.imageFile.name).put(this.state.imageFile).then((snapshot) => {
+        firebase.storage().ref().child(this.state.imageFile.name).put(this.state.imageFile).then((snapshot) => {
             snapshot.ref.getDownloadURL().then((downloadURL) => {
                 console.log(downloadURL);
                 this.props.onCropped(downloadURL);

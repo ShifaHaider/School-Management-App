@@ -28,6 +28,7 @@ import WarningIcon from '@material-ui/icons/Warning';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
+import Typography from '@material-ui/core/Typography';
 
 
 
@@ -153,11 +154,11 @@ class AddStudents extends Component {
         };
         for (var d in requiredData) {
             if (requiredData[d] == '') {
-                this.setState({ snackbarOpen: true , snackbarMessage: "Some Fields is Required!!" , variant:"error"});
+                this.setState({ snackbarOpen: true , snackbarMessage: "Some Fields is Required!!" , variant:"error" ,});
                 return;
                 break;
             } else {
-                this.setState({dialogText: 'Saving..', open: true,})
+                this.setState({dialogText: 'Saving..', open: true, loading : true})
             }
         }
         const url = 'https://school-management--app.herokuapp.com/students/add-student';
@@ -201,7 +202,6 @@ class AddStudents extends Component {
     };
 
     changeValue(p, e) {
-        console.log(e.target.value);
         if (p === "admissionDate") {
             this.setState({year: e.target.value.split("-")[0]})
         }
@@ -240,6 +240,7 @@ class AddStudents extends Component {
                                            onChange={this.changeValue.bind(this, 'fatherName')}/><br/>
                                 <TextField id="outlined-name" label="Address"  margin="normal" style={{width: "415px"}}
                                            variant="outlined"
+                                           // multiline={true}
                                            value={this.state.address}
                                            onChange={this.changeValue.bind(this, 'address')}/>
                                 &nbsp;
@@ -318,14 +319,10 @@ class AddStudents extends Component {
                                 onClose={this.handleClose.bind(this)}
                                 aria-labelledby="alert-dialog-title"
                                 aria-describedby="alert-dialog-description">
-                            <DialogContent style={{textAlign: "center"}}>
+                            <DialogContent style={{textAlign: "center" , paddingTop: "30px"}}>
                                 {this.state.loading ? <CircularProgress color="primary"/> : null}
+                                <Typography>{this.state.dialogText}</Typography>
                             </DialogContent>
-                            <DialogActions>
-                                <Button onClick={this.handleClose.bind(this)} color="primary" autoFocus>
-                                    Ok
-                                </Button>
-                            </DialogActions>
                         </Dialog>
                     </Container>
                 </div>

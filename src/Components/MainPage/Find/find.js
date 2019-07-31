@@ -50,7 +50,9 @@ class Find extends Component {
             heading: 'Students of year: ',
             loading: false,
             keyword: '',
-            findLoading: false
+            findLoading: false,
+            error: "",
+            searchResult: ""
 
         };
     }
@@ -60,6 +62,7 @@ class Find extends Component {
     }
 
     find() {
+        this.setState({loading: true});
         var filters = {
             admittedInClass: this.state.class,
             year: this.state.year,
@@ -72,7 +75,7 @@ class Find extends Component {
                 delete filters[v];
             }
         }
-        this.setState({loading: true});
+
         const url = 'https://school-management--app.herokuapp.com/students/find-student';
         fetch(url, {
             method: "post",
@@ -82,12 +85,19 @@ class Find extends Component {
                 "Content-Type": "application/json"
             }
         }).then((data) => {
-            data.json().then((foundData) => {
-                console.log(foundData);
-                this.setState({loading: false, foundStudent: foundData})
+            data.json().then((foundData , error) => {
+                console.log(error );
+                console.log(foundData );
+              if(foundData.length == 0){
+                  this.setState({searchResult: "Search not found!! "})
+              }
+                this.setState({loading: false, foundStudent: foundData , error: error})
             });
         })
             .catch((err) => {
+                if(err == "TypeError: Failed to fetch"){
+                    this.setState({loading: false, open: true,searchResult: "Please connect to internet your device.."});
+                }
                 console.log(err);
             });
     }
@@ -99,14 +109,18 @@ class Find extends Component {
     print() {
         var title = "";
         var foundStudent = this.state.foundStudent;
+        console.log(foundStudent);
         for (var i = 0; i < foundStudent.length; i++) {
-            foundStudent[i].serialNo = ++i;
-            if (foundStudent[i].dateOfBirth) {
-                foundStudent[i].dateOfBirth = new Date(foundStudent[i].dateOfBirth).toLocaleDateString();
-            } else if (foundStudent[i].admissionDate) {
-                foundStudent[i].admissionDate = new Date(foundStudent[i].admissionDate).toLocaleDateString();
-            }
-        }
+            foundStudent[i].serialNo = i + 1;
+               if (foundStudent[i].dateOfBirth != null) {
+                   foundStudent[i].dateOfBirth = new Date(foundStudent[i].dateOfBirth).toLocaleDateString();
+                   // this.setState({foundStudent: foundStudent})
+               }
+               if (foundStudent[i].admissionDate !== null) {
+                   foundStudent[i].admissionDate = new Date(foundStudent[i].admissionDate).toLocaleDateString();
+                   // this.setState({foundStudent: foundStudent})
+               }
+           }
         print({
             printable: this.state.foundStudent,
             properties: [
@@ -204,8 +218,8 @@ class Find extends Component {
                     &nbsp;
                     &nbsp;
                     <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
-                            onClick={this.searchByKeyword.bind(this)}> {this.state.loading ?
-                        <CircularProgress style={{width: "20px" , height: "20px", color: 'white'}}/>: null}&nbsp;&nbsp;Find</Button>
+                            onClick={this.searchByKeyword.bind(this)}> Find {this.state.loading ? <div> &nbsp;&nbsp;
+                        <CircularProgress style={{width: "20px" , height: "20px", color: 'white'}}/></div>: null}</Button>
                     &nbsp;
                     &nbsp;
                     &nbsp;
@@ -213,8 +227,8 @@ class Find extends Component {
                         <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
                                 onClick={this.print.bind(this)}>Print</Button>
                         : null}
+                    <h3 style={{textAlign: "center"}}>{this.state.searchResult}</h3>
                 </div>
-                <br/>
                 {this.state.foundStudent.length !== 0 ?
                     <Paper>
                         <Table style={{minWidth: '700px'}}>

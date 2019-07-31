@@ -44,13 +44,37 @@ class StudentDetail extends Component {
     }
 
     change() {
-        this.setState({change: "change"})
+        this.setState({change: "change"});
+        var dateOfBirth = new Date(this.state.studentDetail.dateOfBirth);
+        dateOfBirth = dateOfBirth.getFullYear() + '-' + dateOfBirth.getMonth() + "-" + dateOfBirth.getDay();
+        var dob = dateOfBirth.split("-");
+        for (var i = 0; i < dob.length; i++) {
+            if (dob[i].length < 2) {
+                dob.splice(i, 1, "0" + dob[i]);
+            }
+        }
+        dob = dob.join("-");
+        var studentDetail = this.state.studentDetail;
+        studentDetail.dateOfBirth = dob;
+        this.setState({studentDetail: studentDetail});
+        var admissionDate = new Date(this.state.studentDetail.admissionDate);
+        admissionDate = admissionDate.getFullYear() + '-' + admissionDate.getMonth() + "-" + admissionDate.getDate();
+        var adm = admissionDate.split("-");
+        for (var d = 0; d < adm.length; d++) {
+            if (adm[d].length < 2) {
+                adm.splice(d, 1, "0" + adm[d]);
+            }
+        }
+        adm = adm.join("-");
+        var studentDetail2 = this.state.studentDetail;
+        studentDetail2.admissionDate = adm;
+        this.setState({studentDetail: studentDetail});
     }
 
     render() {
         console.log(this.state.studentDetail.photoURL);
         return (
-            <div >
+            <div style={{marginTop: '120px'}}>
              <ToolBarComponent title="View Student Details"/>
                 <Container>
                     {this.state.change ? <UpdateStudent studentDetail={this.state.studentDetail}/> :
@@ -66,7 +90,7 @@ class StudentDetail extends Component {
                                 </ListItem>
                                 <ListItem button>
                                     <ListItemText secondary="Date of Birth" />
-                                    <ListItemText primary={new Date(this.state.studentDetail.admissionDate).toLocaleDateString()} style={{textAlign: "right"}}/>
+                                    <ListItemText primary={new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString()} style={{textAlign: "right"}}/>
                                 </ListItem>
                                 <ListItem button>
                                     <ListItemText secondary="Address" />

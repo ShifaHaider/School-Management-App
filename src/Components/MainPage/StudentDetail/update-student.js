@@ -179,6 +179,7 @@ class UpdateStudent extends Component {
         }).then((data) => {
             data.json().then((studData) => {
                 this.setState({open: false,snackbarOpen: true, snackbarMessage: "Successfully Saved!!", variant: "success"});
+                this.props.afterComplete(false)
             });
         })
             .catch((err) => {

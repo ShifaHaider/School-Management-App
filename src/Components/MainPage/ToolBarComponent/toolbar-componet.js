@@ -14,6 +14,7 @@ import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 class ToolBarComponent extends Component {
 
     constructor(props) {
+        console.log(props);
         super(props);
         this.state = {
             openMenu: false

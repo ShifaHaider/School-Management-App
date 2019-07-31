@@ -44,7 +44,7 @@ class StudentDetail extends Component {
     }
 
     change() {
-        this.setState({change: "change"});
+        this.setState({change: true});
         var dateOfBirth = new Date(this.state.studentDetail.dateOfBirth);
         dateOfBirth = dateOfBirth.getFullYear() + '-' + dateOfBirth.getMonth() + "-" + dateOfBirth.getDay();
         var dob = dateOfBirth.split("-");
@@ -68,16 +68,18 @@ class StudentDetail extends Component {
         adm = adm.join("-");
         var studentDetail2 = this.state.studentDetail;
         studentDetail2.admissionDate = adm;
-        this.setState({studentDetail: studentDetail});
+        this.setState({studentDetail: studentDetail2});
     }
-
+pageChange=(condition)=>{
+        this.setState({change: condition});
+};
     render() {
         console.log(this.state.studentDetail.photoURL);
         return (
             <div style={{marginTop: '120px'}}>
              <ToolBarComponent title="View Student Details"/>
                 <Container>
-                    {this.state.change ? <UpdateStudent studentDetail={this.state.studentDetail}/> :
+                    {this.state.change ? <UpdateStudent studentDetail={this.state.studentDetail} afterComplete={this.pageChange}/> :
                     <Card style={{margin: "30px auto",width: "50%" }}>
                         <CardContent style={{textAlign: "center"}}>
                             <img alt="student pic" style={{borderRadius: "50%" ,height: "160px"}} src={this.state.studentDetail.photoURL || "https://www.caretechfoundation.org.uk/wp-content/uploads/anonymous-person-221117.jpg"}/>

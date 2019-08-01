@@ -288,17 +288,6 @@ class AddStudents extends Component {
                                            variant="filled" style={{flex: "1 1"}}
                                            value={this.state.lastInstitution}
                                            onChange={this.changeValue.bind(this, 'lastInstitution')}/></div>
-                                {/*<div style={{display: "flex" , width: "100%"}}>*/}
-                                {/*<TextField id="date" variant="filled"  label="Date of Admitted"*/}
-                                {/*           value={this.state.admissionDate} style={{flex: "1 1"}}*/}
-                                {/*           onChange={this.changeValue.bind(this, "admissionDate")}*/}
-                                {/*           type="date" InputLabelProps={{shrink: true,}}/>*/}
-                                {/*&nbsp;*/}
-                                {/*&nbsp;*/}
-                                {/*<TextField id="date" variant="filled"  label="Date of Birth" style={{flex: "1 1"}}*/}
-                                {/*           value={this.state.dateOfBirth}*/}
-                                {/*           onChange={this.changeValue.bind(this, "dateOfBirth")}*/}
-                                {/*           type="date" InputLabelProps={{shrink: true,}}/></div>*/}
                                 <br/>
                                 <div style={{display: "flex" , width: "100%"}}>
                                 <FormControl variant="filled" style={{flex: "1 1"}}>

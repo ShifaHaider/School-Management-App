@@ -258,24 +258,6 @@ class UpdateStudent extends Component {
                                 value={this.state.studentDetail.lastInstitution}
                                        onChange={this.changeValue.bind(this, 'lastInstitution')}/>
                             </div><br/>
-                            {/*<div style={{display: "flex" , width: "100%"}}>*/}
-                            {/*<TextField id="date"*/}
-                            {/*           // variant="filled"*/}
-                            {/*           label="Date of Birth" style={{flex: "1 1"}}*/}
-                            {/*           value={new Date(this.state.studentDetail.dateOfBirth).toJSON().split("T")[0]}*/}
-                            {/*           onChange={this.changeValue.bind(this, "dateOfBirth")}*/}
-                            {/*           type="date" InputLabelProps={{shrink: true,}}/>*/}
-                            {/*&nbsp;*/}
-                            {/*&nbsp;*/}
-                            {/*<TextField id="date"*/}
-                            {/*           // variant="filled"*/}
-                            {/*           label="Date of Admitted"*/}
-                            {/*           style={{flex: "1 1"}}*/}
-                            {/*           onChange={this.changeValue.bind(this, "admissionDate")}*/}
-
-                            {/*    value={this.state.studentDetail.admissionDate ? new Date(this.state.studentDetail.admissionDate).toJSON().split("T")[0]: new Date()}*/}
-                            {/*           type="date" InputLabelProps={{shrink: true,}}/>*/}
-                            {/*</div><br/>*/}
                             <div style={{display: "flex" , width: "100%"}}>
                             <FormControl
                                 // variant="filled"

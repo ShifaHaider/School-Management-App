@@ -7,7 +7,6 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import ImageCropper from "../AddStudentData/image-cropper";
 import Button from "@material-ui/core/Button";
-import FilledInput from '@material-ui/core/FilledInput';
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -29,6 +28,7 @@ import {makeStyles} from "@material-ui/core";
 import MenuItem from '@material-ui/core/MenuItem';
 import {DatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
+import FilledInput from "@material-ui/core/FilledInput";
 
 
 const useStyles1 = makeStyles(theme => ({
@@ -117,6 +117,7 @@ class UpdateStudent extends Component {
             dob : '',
             adm: "",
             openImageCropper: false,
+            newImageUrl: ''
         };
     }
 
@@ -182,7 +183,7 @@ class UpdateStudent extends Component {
             });
         })
             .catch((err) => {
-                console.log(err);
+                (err);
             });
     }
 
@@ -206,6 +207,10 @@ class UpdateStudent extends Component {
         }
         this.setState({studentDetail: studentDetail});
     }
+
+    openImagePicker=(boolean)=>{
+        this.setState({openImageCropper: boolean});
+    };
     render() {
         return (
             <div>
@@ -214,62 +219,60 @@ class UpdateStudent extends Component {
                         <CardContent>
                             <div style={{display: "flex" , width: "100%"}}>
                             <TextField id="outlined-name" label="Name of Student"  margin="normal"
-                                       // variant="filled"
+                                       variant="filled"
                                        style={{flex: "1 1"}}
                                 value={this.state.studentDetail.name}
                                        onChange={this.changeValue.bind(this, 'name')}/>
                             &nbsp;
                             &nbsp;
                             <TextField id="outlined-name" label="Father's Name"  margin="normal"
-                                       // variant="filled"
+                                       variant="filled"
                                        style={{flex: "1 1"}}
                                 value={this.state.studentDetail.fatherName}
                                        onChange={this.changeValue.bind(this, 'fatherName')}/>
                             </div>
                             <div style={{display: "flex" , width: "100%"}}>
                             <TextField id="outlined-name" label="Address"  margin="normal"
-                                       // variant="filled"
+                                       variant="filled"
                                 value={this.state.studentDetail.address}
                                        style={{flex: "1 1"}}
                                        onChange={this.changeValue.bind(this, 'address')}/>
                             &nbsp;
                             &nbsp;
-                            <InputMask mask="99999-9999999-9"
-                                value={this.state.studentDetail.cnic}
-                                       onChange={this.changeValue.bind(this, 'cnic')}>
-                                {() => <TextField id="outlined-name" label="CNIC No."  margin="normal"
-                                                  // variant="filled"
-                                                  style={{flex: "1 1"}}
-                                />}</InputMask>
+                                <TextField id="outlined-name" label="Last Institution Name"  margin="normal"
+                                           variant="filled"
+                                           style={{flex: "1 1"}}
+                                           value={this.state.studentDetail.lastInstitution}
+                                           onChange={this.changeValue.bind(this, 'lastInstitution')}/>
                             </div>
                             <div style={{display: "flex" , width: "100%"}}>
                             <InputMask mask="9999-9999999"
                                 value={this.state.studentDetail.phone}
                                        onChange={this.changeValue.bind(this, 'phone')}>
                                 {() => <TextField id="outlined-name" label="Phone No."  margin="normal"
-                                                  // variant="filled"
+                                                  variant="filled"
                                                   style={{flex: "1 1"}}
                                 />}</InputMask>
                             &nbsp;
                             &nbsp;
-                            <TextField id="outlined-name" label="Last Institution Name"  margin="normal"
-                                       // variant="filled"
-                                       style={{flex: "1 1"}}
-                                value={this.state.studentDetail.lastInstitution}
-                                       onChange={this.changeValue.bind(this, 'lastInstitution')}/>
+                                <InputMask mask="99999-9999999-9"
+                                           value={this.state.studentDetail.cnic}
+                                           onChange={this.changeValue.bind(this, 'cnic')}>
+                                    {() => <TextField id="outlined-name" label="CNIC No."  margin="normal"
+                                                      variant="filled"
+                                                      style={{flex: "1 1"}}
+                                    />}</InputMask>
                             </div><br/>
                             <div style={{display: "flex" , width: "100%"}}>
                             <FormControl
-                                // variant="filled"
+                                variant="filled"
                                 style={{flex: "1 1"}}>
                                 <InputLabel htmlFor="filled-age-simple">Year</InputLabel>
                                 <Select style={{textAlign: 'left'}}
                                     value={this.state.studentDetail.year}
                                         onChange={this.changeYear.bind(this)}
-                                        inputProps={{
-                                            name: 'age',
-                                            id: 'age-simple',
-                                        }}>
+                                        input={
+                                            <FilledInput name="age" id="filled-age-simple" fullWidth/>}>
                                     {this.state.yearsList.map((val, ind) => {
                                         return (
                                             <MenuItem key={ind} value={val}>{val}</MenuItem>
@@ -280,7 +283,7 @@ class UpdateStudent extends Component {
                             &nbsp;
                             &nbsp;
                             <FormControl
-                                // variant="filled"
+                                variant="filled"
                                          style={{flex: "1 1"}}>
                                 <InputLabel htmlFor="filled-age-simple">
                                     Admitted in Class
@@ -288,10 +291,8 @@ class UpdateStudent extends Component {
                                 <Select style={{textAlign: 'left'}}
                                     value={this.state.studentDetail.admittedInClass}
                                         onChange={this.changeValue.bind(this, 'admittedInClass')}
-                                        inputProps={{
-                                            name: 'age',
-                                            id: 'age-simple',
-                                        }}
+                                        input={
+                                            <FilledInput name="age" id="filled-age-simple" fullWidth/>}
                                 >
                                     {this.state.classList.map((val, ind) => {
                                         return (
@@ -303,19 +304,19 @@ class UpdateStudent extends Component {
                             <br/>
                             <div style={{display: "flex" , width: "100%"}}>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                                    <DatePicker value={this.state.studentDetail.dateOfBirth} label='Date of Birth' onChange={this.handleDateChange.bind(this , 'dateOfBirth')} style={{flex: "1 1"}}/>
+                                    <DatePicker inputVariant="filled" value={this.state.studentDetail.dateOfBirth} label='Date of Birth' onChange={this.handleDateChange.bind(this , 'dateOfBirth')} style={{flex: "1 1"}}/>
                                 </MuiPickersUtilsProvider>
                                 &nbsp;
                                 &nbsp;
                                 <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                                    <DatePicker value={this.state.studentDetail.admissionDate} label="Date of Admitted" onChange={this.handleDateChange.bind(this , "admissionDate")} style={{flex: "1 1"}}/>
+                                    <DatePicker inputVariant="filled" value={this.state.studentDetail.admissionDate} label="Date of Admitted" onChange={this.handleDateChange.bind(this , "admissionDate")} style={{flex: "1 1"}}/>
                                 </MuiPickersUtilsProvider>
                             </div>
                             <br/>
                             <Button variant="contained" color="primary" size='large'
                                     onClick={this.uploadPhoto.bind(this)}>Upload Photo</Button>
                             {this.state.openImageCropper ?
-                                <ImageCropper onCropped={this.getNewImageURL}/>: null}<br/>
+                                <ImageCropper onCropped={this.getNewImageURL} photoUrl={this.state.studentDetail.photoURL} openImagePicker={this.openImagePicker}/>: null}<br/>
                             <Button variant="contained" color="primary" size='large' style={{float: "right"}}
                                     onClick={this.updateData.bind(this)}>Update</Button><br/><br/>
                         </CardContent>

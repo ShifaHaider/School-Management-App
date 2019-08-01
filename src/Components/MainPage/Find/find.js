@@ -16,8 +16,7 @@ import print from 'print-js'
 import MenuItem from '@material-ui/core/MenuItem';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from '@material-ui/core/TextField';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -59,11 +58,11 @@ class Find extends Component {
     }
 
     categoryChange(p, e) {
-        this.setState({[p]: e.target.value})
+        this.setState({keyword: '' , [p]: e.target.value})
     }
 
     find() {
-        this.setState({loading: true});
+        this.setState({loading: true , keyword: ''});
         var filters = {
             admittedInClass: this.state.class,
             year: this.state.year,
@@ -88,9 +87,12 @@ class Find extends Component {
         }).then((data) => {
             data.json().then((foundData, error) => {
                 console.log(error);
-                console.log(foundData);
                 if (foundData.length == 0) {
                     this.setState({searchResult: "Search not found!! "})
+                }
+                else {
+                    this.setState({searchResult: ""})
+
                 }
                 this.setState({loading: false, foundStudent: foundData, error: error})
             });
@@ -117,6 +119,7 @@ class Find extends Component {
         console.log(foundStudent);
         for (var i = 0; i < foundStudent.length; i++) {
             foundStudent[i].serialNo = i + 1;
+            console.log(foundStudent[i].dateOfBirth);
             foundStudent[i].dateOfBirth = foundStudent[i].dateOfBirth ? new Date(foundStudent[i].dateOfBirth).toLocaleDateString() : '-';
             foundStudent[i].admissionDate = foundStudent[i].dateOfBirth ? new Date(foundStudent[i].admissionDate).toLocaleDateString(): "-";
             foundStudent[i].cnic = foundStudent[i].cnic ?  foundStudent[i].cnic: "-";
@@ -145,7 +148,7 @@ class Find extends Component {
     }
 
     changeKeyword(e) {
-        this.setState({keyword: e.target.value})
+        this.setState({class: '' , year: '',keyword: e.target.value})
     }
 
     searchByKeyword() {
@@ -168,7 +171,6 @@ class Find extends Component {
                 console.log(err);
             });
     }
-
 
     render() {
         return (
@@ -239,8 +241,10 @@ class Find extends Component {
                                 <TableRow>
                                     <TableCell>Name of Students</TableCell>
                                     <TableCell align="left">Father's Name</TableCell>
+                                    <TableCell align="left">CNIC No.</TableCell>
+                                    <TableCell align="left">Phone No.</TableCell>
                                     <TableCell align="left">Date of Birth</TableCell>
-                                    <TableCell align="left">Admitted in Class</TableCell>
+                                    <TableCell align="left" >Admitted in Class</TableCell>
                                     <TableCell align="left">Admitted Date</TableCell>
                                 </TableRow>
                             </TableHead>
@@ -255,8 +259,15 @@ class Find extends Component {
                                                              onClick={this.studentDetail.bind(this, student)}>
                                                 {student.fatherName}</StyledTableCell>
                                             <StyledTableCell align="left"
-                                                             onClick={this.studentDetail.bind(this, student)}>{student.dateOfBirth ? new Date(student.dateOfBirth).toLocaleDateString() : "-"}</StyledTableCell>
+                                                             onClick={this.studentDetail.bind(this, student)}>
+                                                {student.cnic ?student.cnic: "-"}</StyledTableCell>
                                             <StyledTableCell align="left"
+                                                             onClick={this.studentDetail.bind(this, student)}>
+                                                {student.phone?student.phone: "-"}</StyledTableCell>
+                                            <StyledTableCell align="left"
+                                                             onClick={this.studentDetail.bind(this, student)}>
+                                                {student.dateOfBirth ? new Date(student.dateOfBirth).toLocaleDateString() : "-"}</StyledTableCell>
+                                            <StyledTableCell align="left" style={{textAlign: "center"}}
                                                              onClick={this.studentDetail.bind(this, student)}
                                             >{student.admittedInClass}</StyledTableCell>
                                             <StyledTableCell align="left"

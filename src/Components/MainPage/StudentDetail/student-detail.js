@@ -41,7 +41,7 @@ class StudentDetail extends Component {
             });
         })
             .catch((err) => {
-                console.log(err);
+                (err);
             });
     }
 
@@ -54,7 +54,6 @@ class StudentDetail extends Component {
     };
 
     render() {
-        console.log(this.state.studentDetail.photoURL);
         return (
             <div style={{marginTop: '120px'}}>
                 <ToolBarComponent title="View Student Details"/>

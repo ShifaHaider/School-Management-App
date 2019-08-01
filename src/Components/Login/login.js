@@ -91,7 +91,6 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
-            a: 300,
             snackbarOpen: false,
             snackbarMessage: "",
             variant: "error"
@@ -105,14 +104,12 @@ class Login extends Component {
     loginAccount() {
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
             .then((data) => {
-                console.log(data);
                 localStorage.setItem("adminID", data.user.uid);
                 // this.props.history.push('/main');
                 window.location.assign("/main/find");
             })
             .catch((error) => {
                 this.setState({ snackbarOpen: true , snackbarMessage: error.message });
-
                 console.log(error.message);
 
             });

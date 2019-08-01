@@ -11,7 +11,6 @@ import FilledInput from '@material-ui/core/FilledInput';
 import ToolBarComponent from "../ToolBarComponent/toolbar-componet";
 import Container from '@material-ui/core/Container';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import InputMask from 'react-input-mask';
@@ -32,8 +31,6 @@ import Typography from '@material-ui/core/Typography';
 import DateFnsUtils from "@date-io/date-fns";
 import {
     DatePicker,
-    TimePicker,
-    DateTimePicker,
     MuiPickersUtilsProvider,
 } from "@material-ui/pickers";
 
@@ -137,12 +134,8 @@ class AddStudents extends Component {
     }
 
     saveStData() {
-        console.log(this.state.dateOfBirth);
-        console.log(this.state.admissionDate);
         var dateOfBirth = new Date(this.state.dateOfBirth).getTime();
         var admissionDate = new Date(this.state.admissionDate).getTime();
-        console.log(dateOfBirth);
-        console.log(admissionDate);
         var requiredData = {
             name: this.state.name,
             fatherName: this.state.fatherName,
@@ -174,38 +167,37 @@ class AddStudents extends Component {
             }
         }
         const url = 'https://school-management--app.herokuapp.com/students/add-student';
-        // fetch(url, {
-        //     method: "post",
-        //     body: JSON.stringify(studentData),
-        //     headers: {
-        //         "Accept": "application/json",
-        //         "Content-Type": "application/json"
-        //     }
-        // }).then((data) => {
-        //     data.json().then((studData) => {
-        //         console.log(studData);
-        //         this.setState({
-        //             name: "",
-        //             fatherName: "",
-        //             dateOfBirth: "",
-        //             address: "",
-        //             cnic: "",
-        //             phone: "",
-        //             lastInstitution: "",
-        //             admittedInClass: "",
-        //             admissionDate: "",
-        //             year: "",
-        //             loading: false,
-        //             open: false,
-        //             studentImageURL: "",
-        //             snackbarOpen: true , snackbarMessage: "Successfully Saved!!" , variant: "success"
-        //         });
-        //     });
-        // })
-        //     .catch((err) => {
-        //         this.setState({open: true, err});
-        //         console.log(err);
-        //     });
+        fetch(url, {
+            method: "post",
+            body: JSON.stringify(studentData),
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        }).then((data) => {
+            data.json().then((studData) => {
+                this.setState({
+                    name: "",
+                    fatherName: "",
+                    dateOfBirth: "",
+                    address: "",
+                    cnic: "",
+                    phone: "",
+                    lastInstitution: "",
+                    admittedInClass: "",
+                    admissionDate: "",
+                    year: "",
+                    loading: false,
+                    open: false,
+                    studentImageURL: "",
+                    snackbarOpen: true , snackbarMessage: "Successfully Saved!!" , variant: "success" , openImageCropper: false
+                });
+            });
+        })
+            .catch((err) => {
+                this.setState({open: true, err});
+                console.log(err);
+            });
 
 
     }
@@ -243,6 +235,9 @@ class AddStudents extends Component {
         this.setState({[p]: e});
     }
 
+    openImagePicker=(boolean)=>{
+        this.setState({openImageCropper: boolean});
+    };
     render() {
         return (
             <div>
@@ -271,11 +266,11 @@ class AddStudents extends Component {
                                            onChange={this.changeValue.bind(this, 'address')}/>
                                 &nbsp;
                                 &nbsp;
-                                <InputMask mask="99999-9999999-9"
-                                           value={this.state.cnic} onChange={this.changeValue.bind(this, "cnic")}>
-                                    {() => <TextField id="outlined-name" label="CNIC No." style={{flex: "1 1"}} margin="normal"
-                                                      variant="filled"
-                                    />}</InputMask></div>
+                                    <TextField id="outlined-name" label="Last Institution Name"  margin="normal"
+                                               variant="filled" style={{flex: "1 1"}}
+                                               value={this.state.lastInstitution}
+                                               onChange={this.changeValue.bind(this, 'lastInstitution')}/>
+                                </div>
                                 <div style={{display: "flex" , width: "100%"}}>
                                 <InputMask mask="9999-9999999"
                                            value={this.state.phone} onChange={this.changeValue.bind(this, 'phone')}>
@@ -284,10 +279,22 @@ class AddStudents extends Component {
                                     />}</InputMask>
                                 &nbsp;
                                 &nbsp;
-                                <TextField id="outlined-name" label="Last Institution Name"  margin="normal"
-                                           variant="filled" style={{flex: "1 1"}}
-                                           value={this.state.lastInstitution}
-                                           onChange={this.changeValue.bind(this, 'lastInstitution')}/></div>
+                                    <InputMask mask="99999-9999999-9"
+                                               value={this.state.cnic} onChange={this.changeValue.bind(this, "cnic")}>
+                                        {() => <TextField id="outlined-name" label="CNIC No." style={{flex: "1 1"}} margin="normal"
+                                                          variant="filled"
+                                        />}</InputMask></div>
+                                <br/>
+                                <div style={{display: "flex" , width: "100%"}}>
+                                    <MuiPickersUtilsProvider utils={DateFnsUtils} >
+                                        <DatePicker inputVariant="filled" value={this.state.dateOfBirth} label='Date of Birth' onChange={this.handleDateChange.bind(this , 'dateOfBirth')} style={{flex: "1 1"}}/>
+                                    </MuiPickersUtilsProvider>
+                                    &nbsp;
+                                    &nbsp;
+                                    <MuiPickersUtilsProvider utils={DateFnsUtils} >
+                                        <DatePicker inputVariant="filled" value={this.state.admissionDate} label="Date of Admitted" onChange={this.handleDateChange.bind(this , "admissionDate")} style={{flex: "1 1"}}/>
+                                    </MuiPickersUtilsProvider>
+                                </div>
                                 <br/>
                                 <div style={{display: "flex" , width: "100%"}}>
                                 <FormControl variant="filled" style={{flex: "1 1"}}>
@@ -324,22 +331,12 @@ class AddStudents extends Component {
                                         })}
                                     </Select>
                                 </FormControl>
-                                </div><br/>
-                                <div style={{display: "flex" , width: "100%"}}>
-                                <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                                    <DatePicker value={this.state.dateOfBirth} label='Date of Birth' onChange={this.handleDateChange.bind(this , 'dateOfBirth')} style={{flex: "1 1"}}/>
-                                </MuiPickersUtilsProvider>
-                                    &nbsp;
-                                    &nbsp;
-                                <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                                    <DatePicker value={this.state.admissionDate} label="Date of Admitted" onChange={this.handleDateChange.bind(this , "admissionDate")} style={{flex: "1 1"}}/>
-                                </MuiPickersUtilsProvider>
                                 </div>
                                 <br/>
                                 <Button variant="contained" color="primary" size='large'
                                         onClick={this.uploadPhoto.bind(this)}>Upload Photo</Button>
                                 {this.state.openImageCropper ?
-                                <ImageCropper onCropped={this.getStudentImageURL}/>: null}<br/>
+                                <ImageCropper onCropped={this.getStudentImageURL} openImagePicker={this.openImagePicker} />: null}<br/>
                                 <Button variant="contained" color="primary" size='large' style={{float: "right"}}
                                         onClick={this.saveStData.bind(this)}>Save</Button><br/><br/>
                             </CardContent>

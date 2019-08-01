@@ -10,7 +10,6 @@ const history = createBrowserHistory();
 
 const theme = createMuiTheme({
     palette: {
-        // primary: {main: '#00897b'},
         primary: {main: '#00897b'},
     },
 });
@@ -36,7 +35,6 @@ class App extends Component {
                             <Route path="/" exact render={() => adminID ? <Redirect to='/main'/> : <Redirect to='/login'/>}/>
                             <Route path="/main" render={() => (adminID ? <Main/> : <Redirect to='/login'/>)}/>
                             <Route path="/login" exact render={() => (adminID ? <Redirect to='/main'/> : <Login/>)}/>
-                            {/*<Route path="/login" exact component={Login}/>*/}
                         </div>
                     </Router>
                 </div>

@@ -16,7 +16,8 @@ import print from 'print-js'
 import MenuItem from '@material-ui/core/MenuItem';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from '@material-ui/core/TextField';
-
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -85,18 +86,22 @@ class Find extends Component {
                 "Content-Type": "application/json"
             }
         }).then((data) => {
-            data.json().then((foundData , error) => {
-                console.log(error );
-                console.log(foundData );
-              if(foundData.length == 0){
-                  this.setState({searchResult: "Search not found!! "})
-              }
-                this.setState({loading: false, foundStudent: foundData , error: error})
+            data.json().then((foundData, error) => {
+                console.log(error);
+                console.log(foundData);
+                if (foundData.length == 0) {
+                    this.setState({searchResult: "Search not found!! "})
+                }
+                this.setState({loading: false, foundStudent: foundData, error: error})
             });
         })
             .catch((err) => {
-                if(err == "TypeError: Failed to fetch"){
-                    this.setState({loading: false, open: true,searchResult: "Please connect to internet your device.."});
+                if (err == "TypeError: Failed to fetch") {
+                    this.setState({
+                        loading: false,
+                        open: true,
+                        searchResult: "Please connect to internet your device.."
+                    });
                 }
                 console.log(err);
             });
@@ -112,20 +117,17 @@ class Find extends Component {
         console.log(foundStudent);
         for (var i = 0; i < foundStudent.length; i++) {
             foundStudent[i].serialNo = i + 1;
-               if (foundStudent[i].dateOfBirth != null) {
-                   foundStudent[i].dateOfBirth = new Date(foundStudent[i].dateOfBirth).toLocaleDateString();
-                   // this.setState({foundStudent: foundStudent})
-               }
-               if (foundStudent[i].admissionDate !== null) {
-                   foundStudent[i].admissionDate = new Date(foundStudent[i].admissionDate).toLocaleDateString();
-                   // this.setState({foundStudent: foundStudent})
-               }
-           }
+            foundStudent[i].dateOfBirth = foundStudent[i].dateOfBirth ? new Date(foundStudent[i].dateOfBirth).toLocaleDateString() : '-';
+            foundStudent[i].admissionDate = foundStudent[i].dateOfBirth ? new Date(foundStudent[i].admissionDate).toLocaleDateString(): "-";
+            foundStudent[i].cnic = foundStudent[i].cnic ?  foundStudent[i].cnic: "-";
+            foundStudent[i].phone = foundStudent[i].phone ?  foundStudent[i].phone: "-";
+            foundStudent[i].lastInstitution = foundStudent[i].lastInstitution ?  foundStudent[i].lastInstitution: "-";
+        }
         print({
             printable: this.state.foundStudent,
             properties: [
-                {field: "name", displayName: 'Student Name'},
                 {field: "serialNo", displayName: 'S.No'},
+                {field: "name", displayName: 'Student Name'},
                 {field: 'fatherName', displayName: "Father's Name"},
                 {field: 'dateOfBirth', displayName: 'Date of Birth'},
                 {field: 'address', displayName: 'Address'},
@@ -135,8 +137,8 @@ class Find extends Component {
                 {field: 'admissionDate', displayName: 'Date of Admitted'},
                 {field: 'admittedInClass', displayName: 'Admitted in Class'},
             ],
-            gridStyle: 'font-size: 18px; border: 1px solid #000; white-space: pre; padding: 2px 2px 2px 2px; text-align: center',
-            gridHeaderStyle: 'font-size: 18px; font-weight: bold; border: 1px solid #000; padding: 2px 2px 2px 2px; text-align: center; ',
+            gridStyle: 'font-size: 18px; border: 1px solid #000; white-space: pre; padding: 2px 2px 2px 2px; text-align: center; font-family: sans-serif;',
+            gridHeaderStyle: 'font-size: 18px; font-weight: bold; border: 1px solid #000; padding: 2px 2px 2px 2px; text-align: center; font-family: sans-serif;',
             header: title,
             type: 'json'
         });
@@ -172,7 +174,7 @@ class Find extends Component {
         return (
             <div>
                 <ToolBarComponent title='Find'/>
-                <div style={{margin: '115px auto', textAlign: "center"}}>
+                <div style={{margin: '115px auto 0', textAlign: "center"}}>
                     <FormControl variant="filled">
                         <InputLabel htmlFor="filled-age-simple">Search by Year</InputLabel>
                         <Select style={{width: '250px'}}
@@ -219,7 +221,8 @@ class Find extends Component {
                     &nbsp;
                     <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
                             onClick={this.searchByKeyword.bind(this)}> Find {this.state.loading ? <div> &nbsp;&nbsp;
-                        <CircularProgress style={{width: "20px" , height: "20px", color: 'white'}}/></div>: null}</Button>
+                        <CircularProgress style={{width: "20px", height: "20px", color: 'white'}}/>
+                    </div> : null}</Button>
                     &nbsp;
                     &nbsp;
                     &nbsp;
@@ -227,18 +230,18 @@ class Find extends Component {
                         <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
                                 onClick={this.print.bind(this)}>Print</Button>
                         : null}
-                    <h3 style={{textAlign: "center"}}>{this.state.searchResult}</h3>
+                    {this.state.searchResult ? <h3 style={{textAlign: "center"}}>{this.state.searchResult}</h3> : ''}
                 </div>
                 {this.state.foundStudent.length !== 0 ?
-                    <Paper>
+                    <Paper style={{margin: "0 16px 0 16px "}}>
                         <Table style={{minWidth: '700px'}}>
                             <TableHead>
                                 <TableRow>
-                                    <StyledTableCell>Name of Students</StyledTableCell>
-                                    <StyledTableCell align="left">Father's Name</StyledTableCell>
-                                    <StyledTableCell align="left">Date of Birth</StyledTableCell>
-                                    <StyledTableCell align="left">Admitted in Class</StyledTableCell>
-                                    <StyledTableCell align="left">Admitted Date</StyledTableCell>
+                                    <TableCell>Name of Students</TableCell>
+                                    <TableCell align="left">Father's Name</TableCell>
+                                    <TableCell align="left">Date of Birth</TableCell>
+                                    <TableCell align="left">Admitted in Class</TableCell>
+                                    <TableCell align="left">Admitted Date</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>

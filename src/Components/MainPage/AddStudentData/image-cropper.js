@@ -5,12 +5,16 @@ import TextField from "@material-ui/core/TextField";
 import Button from '@material-ui/core/Button';
 import firebase from 'firebase';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
-
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
 
 export default class ImageCropper extends Component {
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
             src: null,
             crop: {
@@ -26,7 +30,8 @@ export default class ImageCropper extends Component {
             onSelect: false,
             loading: false,
             success: false,
-            text: ''
+            text: '',
+            open: true
         };
     };
 
@@ -102,38 +107,55 @@ export default class ImageCropper extends Component {
             snapshot.ref.getDownloadURL().then((downloadURL) => {
                 console.log(downloadURL);
                 this.props.onCropped(downloadURL);
-                this.setState({onSelect: false, loading: false , text: "Success!"});
+                this.setState({onSelect: false, loading: false, text: "Saved!!"});
             });
         });
         this.setState({src: null, showCrop: true});
 
     }
 
+    handleClose(){
+        this.setState({open: false})
+    }
     render() {
         const {crop, croppedImageUrl, src} = this.state;
         return (
             <div className="App">
-                <div>
-                    <TextField id="outlined-name" margin="normal" variant="outlined"
-                               type='file' onChange={this.onSelectFile}/>
-                </div>
-                {this.state.src && <ReactCrop
-                    src={src}
-                    crop={crop}
-                    onImageLoaded={this.onImageLoaded}
-                    onComplete={this.onCropComplete}
-                    onChange={this.onCropChange}
-                />}
-                <br/>
-                {croppedImageUrl && this.state.showCrop ? (
-                    <img alt="Crop" style={{maxWidth: "100%"}} src={croppedImageUrl}/>
-                ) : null}
-                <br/>
-                {this.state.onSelect ?
-                    <Button color="primary" onClick={this.fileUpload.bind(this)}>Confirm</Button> : null}
-                <br/>
-                {this.state.loading ?
-                <CircularProgress color="primary" /> : this.state.text}
+                <Dialog fullWidth open={this.state.open}
+                        onClose={this.handleClose.bind(this)}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description">
+                    <DialogContent style={{textAlign: "center", paddingTop: "30px"}}>
+                        <input accept="image/*"
+                               style={{display: "none"}} id="outlined-button-file"
+                               multiple type="file" onChange={this.onSelectFile}
+                        />
+                        <label htmlFor="outlined-button-file">
+                            <Button variant="outlined" component="span">
+                                Upload
+                            </Button>
+                        </label><br/>
+                        {this.state.src &&
+                        <ReactCrop style={{height: "200px"}} src={src} crop={crop} onImageLoaded={this.onImageLoaded}
+                                   onComplete={this.onCropComplete} onChange={this.onCropChange}
+                        />}
+                        <br/>
+                        {croppedImageUrl && this.state.showCrop ? (
+                            <img alt="Crop" style={{maxWidth: "100%"}} src={croppedImageUrl}/>
+                        ) : null}
+                        <br/>
+                        {this.state.onSelect ?
+                            <Button color="primary" onClick={this.fileUpload.bind(this)}>Confirm</Button> : null}
+                        <br/>
+                        {this.state.loading ?
+                            <CircularProgress color="primary"/> : this.state.text}
+                    </DialogContent>
+                    <DialogActions>
+                    <Button onClick={this.handleClose.bind(this)} color="primary">
+                        Close
+                    </Button>
+                    </DialogActions>
+                </Dialog>
             </div>
         );
     }

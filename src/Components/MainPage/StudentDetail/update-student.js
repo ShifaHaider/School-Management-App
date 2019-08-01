@@ -11,7 +11,6 @@ import FilledInput from '@material-ui/core/FilledInput';
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import DialogActions from "@material-ui/core/DialogActions";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import InputMask from "react-input-mask";
@@ -161,7 +160,7 @@ class UpdateStudent extends Component {
         };
         for (var d in requiredData) {
             if (requiredData[d] == '') {
-                this.setState({snackbarOpen: true, snackbarMessage: "Some Fields is Required!!", variant: "error"});
+                this.setState({snackbarOpen: true, snackbarMessage: "Some Fields are Required!!", variant: "error"});
                 return;
                 break;
             } else {
@@ -191,9 +190,6 @@ class UpdateStudent extends Component {
         this.setState({open: false});
     }
 
-    cancelPage() {
-        // this.props.history.push('/main/view-student-detail/' + this.state.studentDetail._id);
-    }
 
     snackbarClose() {
         this.setState({snackbarOpen: false});
@@ -205,18 +201,18 @@ class UpdateStudent extends Component {
                 <Container maxWidth="md">
                     <Card>
                         <CardContent>
-                            <TextField id="outlined-name" label="Name of Student" fullWidth margin="normal"
+                            <TextField id="outlined-name" label="Name of Student"  margin="normal"
                                        variant="outlined" style={{width: "415px"}}
                                 value={this.state.studentDetail.name}
                                        onChange={this.changeValue.bind(this, 'name')}/>
                             &nbsp;
                             &nbsp;
                             &nbsp;
-                            <TextField id="outlined-name" label="Father's Name" fullWidth margin="normal"
+                            <TextField id="outlined-name" label="Father's Name"  margin="normal"
                                        variant="outlined" style={{width: "415px"}}
                                 value={this.state.studentDetail.fatherName}
                                        onChange={this.changeValue.bind(this, 'fatherName')}/>
-                            <TextField id="outlined-name" label="Address" fullWidth margin="normal" variant="outlined"
+                            <TextField id="outlined-name" label="Address"  margin="normal" variant="outlined"
                                 value={this.state.studentDetail.address}
                                        style={{width: "415px"}}
                                        onChange={this.changeValue.bind(this, 'address')}/>
@@ -226,34 +222,34 @@ class UpdateStudent extends Component {
                             <InputMask mask="99999-9999999-9"
                                 value={this.state.studentDetail.cnic}
                                        onChange={this.changeValue.bind(this, 'cnic')}>
-                                {() => <TextField id="outlined-name" label="CNIC No." fullWidth margin="normal"
+                                {() => <TextField id="outlined-name" label="CNIC No."  margin="normal"
                                                   variant="outlined" style={{width: "415px"}}
                                 />}</InputMask>
                             <InputMask mask="9999-9999999"
                                 value={this.state.studentDetail.phone}
                                        onChange={this.changeValue.bind(this, 'phone')}>
-                                {() => <TextField id="outlined-name" label="Phone No." fullWidth margin="normal"
+                                {() => <TextField id="outlined-name" label="Phone No."  margin="normal"
                                                   variant="outlined" style={{width: "415px"}}
                                 />}</InputMask>
                             &nbsp;
                             &nbsp;
                             &nbsp;
-                            <TextField id="outlined-name" label="Last Institution Name" fullWidth margin="normal"
+                            <TextField id="outlined-name" label="Last Institution Name"  margin="normal"
                                        variant="outlined" style={{width: "415px"}}
                                 value={this.state.studentDetail.lastInstitution}
                                        onChange={this.changeValue.bind(this, 'lastInstitution')}/><br/><br/>
-                            <TextField id="date" variant="outlined" fullWidth label="Date of Birth"
+                            <TextField id="date" variant="outlined"  label="Date of Birth"
                                        style={{width: "415px"}}
-                                       value={this.state.studentDetail.dateOfBirth}
+                                       value={new Date(this.state.studentDetail.dateOfBirth).toJSON().split("T")[0]}
                                        onChange={this.changeValue.bind(this, "dateOfBirth")}
                                        type="date" InputLabelProps={{shrink: true,}}/>
                             &nbsp;
                             &nbsp;
                             &nbsp;
-                            <TextField id="date" variant="outlined" fullWidth label="Date of Admitted"
+                            <TextField id="date" variant="outlined"  label="Date of Admitted"
                                        style={{width: "415px"}}
                                        onChange={this.changeValue.bind(this, "admissionDate")}
-                                value={this.state.studentDetail.admissionDate}
+                                value={new Date(this.state.studentDetail.admissionDate).toJSON().split("T")[0]}
                                        type="date" InputLabelProps={{shrink: true,}}/><br/><br/>
                             <FormControl variant="filled">
                                 <InputLabel htmlFor="filled-age-simple">Year</InputLabel>

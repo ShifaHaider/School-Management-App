@@ -77,7 +77,7 @@ class StudentDetail extends Component {
                                     <ListItem button>
                                         <ListItemText secondary="Date of Birth"/>
                                         <ListItemText
-                                            primary={new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString()}
+                                            primary={this.state.studentDetail.dateOfBirth ? new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString(): "-"}
                                             style={{textAlign: "right"}}/>
                                     </ListItem>
                                     <ListItem button>
@@ -104,7 +104,7 @@ class StudentDetail extends Component {
                                     <ListItem button>
                                         <ListItemText secondary="Date of Admitted"/>
                                         <ListItemText
-                                            primary={new Date(this.state.studentDetail.admissionDate).toLocaleDateString()}
+                                            primary={this.state.studentDetail.admissionDate ? new Date(this.state.studentDetail.admissionDate).toLocaleDateString(): "-"}
                                             style={{textAlign: "right"}}/>
                                     </ListItem>
                                     <ListItem button>

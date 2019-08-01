@@ -27,6 +27,8 @@ import WarningIcon from '@material-ui/icons/Warning';
 import PropTypes from 'prop-types';
 import {makeStyles} from "@material-ui/core";
 import MenuItem from '@material-ui/core/MenuItem';
+import {DatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
+import DateFnsUtils from "@date-io/date-fns";
 
 
 const useStyles1 = makeStyles(theme => ({
@@ -96,7 +98,6 @@ MySnackbarContentWrapper.propTypes = {
 class UpdateStudent extends Component {
     constructor(props) {
         super(props);
-        console.log(props.studentDetail);
         this.state = {
             studentDetail: props.studentDetail,
             yearsList: ['', 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
@@ -114,7 +115,8 @@ class UpdateStudent extends Component {
             snackbarMessage: "",
             variant: "success",
             dob : '',
-            adm: ""
+            adm: "",
+            openImageCropper: false,
         };
     }
 
@@ -123,9 +125,7 @@ class UpdateStudent extends Component {
     }
 
     changeValue(p, e) {
-        console.log(p);
         var studentDetail = this.state.studentDetail;
-        console.log(p == "admissionDate");
         if (p === "admissionDate") {
             studentDetail.year = e.target.value.split("-")[0];
             this.setState({studentDetail: studentDetail})
@@ -190,74 +190,104 @@ class UpdateStudent extends Component {
         this.setState({open: false});
     }
 
-
     snackbarClose() {
         this.setState({snackbarOpen: false});
     }
 
+    uploadPhoto(){
+        this.setState({openImageCropper: true});
+    }
+    handleDateChange(p , e){
+        var studentDetail = this.state.studentDetail;
+        studentDetail[p] = e;
+        if (p === "admissionDate") {
+            studentDetail.year = e.getFullYear();
+            this.setState({studentDetail: studentDetail})
+        }
+        this.setState({studentDetail: studentDetail});
+    }
     render() {
         return (
             <div>
                 <Container maxWidth="md">
                     <Card>
                         <CardContent>
+                            <div style={{display: "flex" , width: "100%"}}>
                             <TextField id="outlined-name" label="Name of Student"  margin="normal"
-                                       variant="outlined" style={{width: "415px"}}
+                                       // variant="filled"
+                                       style={{flex: "1 1"}}
                                 value={this.state.studentDetail.name}
                                        onChange={this.changeValue.bind(this, 'name')}/>
                             &nbsp;
                             &nbsp;
-                            &nbsp;
                             <TextField id="outlined-name" label="Father's Name"  margin="normal"
-                                       variant="outlined" style={{width: "415px"}}
+                                       // variant="filled"
+                                       style={{flex: "1 1"}}
                                 value={this.state.studentDetail.fatherName}
                                        onChange={this.changeValue.bind(this, 'fatherName')}/>
-                            <TextField id="outlined-name" label="Address"  margin="normal" variant="outlined"
+                            </div>
+                            <div style={{display: "flex" , width: "100%"}}>
+                            <TextField id="outlined-name" label="Address"  margin="normal"
+                                       // variant="filled"
                                 value={this.state.studentDetail.address}
-                                       style={{width: "415px"}}
+                                       style={{flex: "1 1"}}
                                        onChange={this.changeValue.bind(this, 'address')}/>
-                            &nbsp;
                             &nbsp;
                             &nbsp;
                             <InputMask mask="99999-9999999-9"
                                 value={this.state.studentDetail.cnic}
                                        onChange={this.changeValue.bind(this, 'cnic')}>
                                 {() => <TextField id="outlined-name" label="CNIC No."  margin="normal"
-                                                  variant="outlined" style={{width: "415px"}}
+                                                  // variant="filled"
+                                                  style={{flex: "1 1"}}
                                 />}</InputMask>
+                            </div>
+                            <div style={{display: "flex" , width: "100%"}}>
                             <InputMask mask="9999-9999999"
                                 value={this.state.studentDetail.phone}
                                        onChange={this.changeValue.bind(this, 'phone')}>
                                 {() => <TextField id="outlined-name" label="Phone No."  margin="normal"
-                                                  variant="outlined" style={{width: "415px"}}
+                                                  // variant="filled"
+                                                  style={{flex: "1 1"}}
                                 />}</InputMask>
                             &nbsp;
                             &nbsp;
-                            &nbsp;
                             <TextField id="outlined-name" label="Last Institution Name"  margin="normal"
-                                       variant="outlined" style={{width: "415px"}}
+                                       // variant="filled"
+                                       style={{flex: "1 1"}}
                                 value={this.state.studentDetail.lastInstitution}
-                                       onChange={this.changeValue.bind(this, 'lastInstitution')}/><br/><br/>
-                            <TextField id="date" variant="outlined"  label="Date of Birth"
-                                       style={{width: "415px"}}
-                                       value={new Date(this.state.studentDetail.dateOfBirth).toJSON().split("T")[0]}
-                                       onChange={this.changeValue.bind(this, "dateOfBirth")}
-                                       type="date" InputLabelProps={{shrink: true,}}/>
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                            <TextField id="date" variant="outlined"  label="Date of Admitted"
-                                       style={{width: "415px"}}
-                                       onChange={this.changeValue.bind(this, "admissionDate")}
-                                value={new Date(this.state.studentDetail.admissionDate).toJSON().split("T")[0]}
-                                       type="date" InputLabelProps={{shrink: true,}}/><br/><br/>
-                            <FormControl variant="filled">
+                                       onChange={this.changeValue.bind(this, 'lastInstitution')}/>
+                            </div><br/>
+                            {/*<div style={{display: "flex" , width: "100%"}}>*/}
+                            {/*<TextField id="date"*/}
+                            {/*           // variant="filled"*/}
+                            {/*           label="Date of Birth" style={{flex: "1 1"}}*/}
+                            {/*           value={new Date(this.state.studentDetail.dateOfBirth).toJSON().split("T")[0]}*/}
+                            {/*           onChange={this.changeValue.bind(this, "dateOfBirth")}*/}
+                            {/*           type="date" InputLabelProps={{shrink: true,}}/>*/}
+                            {/*&nbsp;*/}
+                            {/*&nbsp;*/}
+                            {/*<TextField id="date"*/}
+                            {/*           // variant="filled"*/}
+                            {/*           label="Date of Admitted"*/}
+                            {/*           style={{flex: "1 1"}}*/}
+                            {/*           onChange={this.changeValue.bind(this, "admissionDate")}*/}
+
+                            {/*    value={this.state.studentDetail.admissionDate ? new Date(this.state.studentDetail.admissionDate).toJSON().split("T")[0]: new Date()}*/}
+                            {/*           type="date" InputLabelProps={{shrink: true,}}/>*/}
+                            {/*</div><br/>*/}
+                            <div style={{display: "flex" , width: "100%"}}>
+                            <FormControl
+                                // variant="filled"
+                                style={{flex: "1 1"}}>
                                 <InputLabel htmlFor="filled-age-simple">Year</InputLabel>
-                                <Select style={{width: '415px', textAlign: 'left'}}
+                                <Select style={{textAlign: 'left'}}
                                     value={this.state.studentDetail.year}
                                         onChange={this.changeYear.bind(this)}
-                                        input={
-                                            <FilledInput name="age" id="filled-age-simple"/>}>
+                                        inputProps={{
+                                            name: 'age',
+                                            id: 'age-simple',
+                                        }}>
                                     {this.state.yearsList.map((val, ind) => {
                                         return (
                                             <MenuItem key={ind} value={val}>{val}</MenuItem>
@@ -267,17 +297,19 @@ class UpdateStudent extends Component {
                             </FormControl>
                             &nbsp;
                             &nbsp;
-                            &nbsp;
-                            <FormControl variant="filled">
+                            <FormControl
+                                // variant="filled"
+                                         style={{flex: "1 1"}}>
                                 <InputLabel htmlFor="filled-age-simple">
                                     Admitted in Class
                                 </InputLabel>
-                                <Select style={{width: '415px', textAlign: 'left'}}
+                                <Select style={{textAlign: 'left'}}
                                     value={this.state.studentDetail.admittedInClass}
                                         onChange={this.changeValue.bind(this, 'admittedInClass')}
-                                        input={
-                                            <FilledInput name="age" id="filled-age-simple"/>
-                                        }
+                                        inputProps={{
+                                            name: 'age',
+                                            id: 'age-simple',
+                                        }}
                                 >
                                     {this.state.classList.map((val, ind) => {
                                         return (
@@ -285,11 +317,25 @@ class UpdateStudent extends Component {
                                         )
                                     })}
                                 </Select>
-                            </FormControl>
-                            <ImageCropper onCropped={this.getNewImageURL}/>
+                            </FormControl></div>
+                            <br/>
+                            <div style={{display: "flex" , width: "100%"}}>
+                                <MuiPickersUtilsProvider utils={DateFnsUtils} >
+                                    <DatePicker value={this.state.studentDetail.dateOfBirth} label='Date of Birth' onChange={this.handleDateChange.bind(this , 'dateOfBirth')} style={{flex: "1 1"}}/>
+                                </MuiPickersUtilsProvider>
+                                &nbsp;
+                                &nbsp;
+                                <MuiPickersUtilsProvider utils={DateFnsUtils} >
+                                    <DatePicker value={this.state.studentDetail.admissionDate} label="Date of Admitted" onChange={this.handleDateChange.bind(this , "admissionDate")} style={{flex: "1 1"}}/>
+                                </MuiPickersUtilsProvider>
+                            </div>
+                            <br/>
                             <Button variant="contained" color="primary" size='large'
-                                    style={{float: "right", margin: "10px"}}
-                                    onClick={this.updateData.bind(this)}>Update Data</Button>
+                                    onClick={this.uploadPhoto.bind(this)}>Upload Photo</Button>
+                            {this.state.openImageCropper ?
+                                <ImageCropper onCropped={this.getNewImageURL}/>: null}<br/>
+                            <Button variant="contained" color="primary" size='large' style={{float: "right"}}
+                                    onClick={this.updateData.bind(this)}>Update</Button><br/><br/>
                         </CardContent>
                     </Card>
                 </Container>

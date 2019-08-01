@@ -137,8 +137,12 @@ class AddStudents extends Component {
     }
 
     saveStData() {
+        console.log(this.state.dateOfBirth);
+        console.log(this.state.admissionDate);
         var dateOfBirth = new Date(this.state.dateOfBirth).getTime();
         var admissionDate = new Date(this.state.admissionDate).getTime();
+        console.log(dateOfBirth);
+        console.log(admissionDate);
         var requiredData = {
             name: this.state.name,
             fatherName: this.state.fatherName,
@@ -170,38 +174,38 @@ class AddStudents extends Component {
             }
         }
         const url = 'https://school-management--app.herokuapp.com/students/add-student';
-        fetch(url, {
-            method: "post",
-            body: JSON.stringify(studentData),
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            }
-        }).then((data) => {
-            data.json().then((studData) => {
-                console.log(studData);
-                this.setState({
-                    name: "",
-                    fatherName: "",
-                    dateOfBirth: "",
-                    address: "",
-                    cnic: "",
-                    phone: "",
-                    lastInstitution: "",
-                    admittedInClass: "",
-                    admissionDate: "",
-                    year: "",
-                    loading: false,
-                    open: false,
-                    studentImageURL: "",
-                    snackbarOpen: true , snackbarMessage: "Successfully Saved!!" , variant: "success"
-                });
-            });
-        })
-            .catch((err) => {
-                this.setState({open: true, err});
-                console.log(err);
-            });
+        // fetch(url, {
+        //     method: "post",
+        //     body: JSON.stringify(studentData),
+        //     headers: {
+        //         "Accept": "application/json",
+        //         "Content-Type": "application/json"
+        //     }
+        // }).then((data) => {
+        //     data.json().then((studData) => {
+        //         console.log(studData);
+        //         this.setState({
+        //             name: "",
+        //             fatherName: "",
+        //             dateOfBirth: "",
+        //             address: "",
+        //             cnic: "",
+        //             phone: "",
+        //             lastInstitution: "",
+        //             admittedInClass: "",
+        //             admissionDate: "",
+        //             year: "",
+        //             loading: false,
+        //             open: false,
+        //             studentImageURL: "",
+        //             snackbarOpen: true , snackbarMessage: "Successfully Saved!!" , variant: "success"
+        //         });
+        //     });
+        // })
+        //     .catch((err) => {
+        //         this.setState({open: true, err});
+        //         console.log(err);
+        //     });
 
 
     }
@@ -233,9 +237,10 @@ class AddStudents extends Component {
         this.setState({openImageCropper: true});
     }
     handleDateChange(p , e){
-        console.log(e);
+        if (p === "admissionDate") {
+            this.setState({year: e.getFullYear()})
+        }
         this.setState({[p]: e});
-        // console.log(e.target.value);
     }
 
     render() {
@@ -283,7 +288,6 @@ class AddStudents extends Component {
                                            variant="filled" style={{flex: "1 1"}}
                                            value={this.state.lastInstitution}
                                            onChange={this.changeValue.bind(this, 'lastInstitution')}/></div>
-                                <br/>
                                 {/*<div style={{display: "flex" , width: "100%"}}>*/}
                                 {/*<TextField id="date" variant="filled"  label="Date of Admitted"*/}
                                 {/*           value={this.state.admissionDate} style={{flex: "1 1"}}*/}
@@ -334,10 +338,11 @@ class AddStudents extends Component {
                                 </div><br/>
                                 <div style={{display: "flex" , width: "100%"}}>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils} >
-
-                                
                                     <DatePicker value={this.state.dateOfBirth} label='Date of Birth' onChange={this.handleDateChange.bind(this , 'dateOfBirth')} style={{flex: "1 1"}}/>
-                                 
+                                </MuiPickersUtilsProvider>
+                                    &nbsp;
+                                    &nbsp;
+                                <MuiPickersUtilsProvider utils={DateFnsUtils} >
                                     <DatePicker value={this.state.admissionDate} label="Date of Admitted" onChange={this.handleDateChange.bind(this , "admissionDate")} style={{flex: "1 1"}}/>
                                 </MuiPickersUtilsProvider>
                                 </div>

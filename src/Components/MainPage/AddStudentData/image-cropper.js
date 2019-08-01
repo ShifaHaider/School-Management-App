@@ -132,7 +132,7 @@ export default class ImageCropper extends Component {
                         />
                         <label htmlFor="outlined-button-file">
                             <Button variant="outlined" component="span">
-                                Upload
+                                Choose photo
                             </Button>
                         </label><br/>
                         {this.state.src &&

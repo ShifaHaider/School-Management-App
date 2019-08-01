@@ -14,7 +14,6 @@ import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 class ToolBarComponent extends Component {
 
     constructor(props) {
-        console.log(props);
         super(props);
         this.state = {
             openMenu: false
@@ -41,7 +40,7 @@ class ToolBarComponent extends Component {
             <div style={{ flexGrow: 1, position: 'fixed' , top: 0, zIndex: 100, width: "100%"}}>
                 <AppBar position="static">
                     <Toolbar >
-                        <Typography color="inherit" style={{fontSize: '25px' , flexGrow: 1}}>{this.props.title}
+                        <Typography color="inherit" style={{fontSize: '20px' , flexGrow: 1}}>{this.props.title}
                         </Typography>
                         <PopupState variant="popover" popupId="demo-popup-menu">
                             {popupState => (

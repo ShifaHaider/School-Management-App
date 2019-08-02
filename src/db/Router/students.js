@@ -28,6 +28,7 @@ api.post('/add-student', function (req, res) {
 
 
 api.post('/update-student-profile', function (req, res) {
+    console.log(req.body);
     StudentModel.update({_id: req.body.studentID}, (req.body.updatedData), function (error, data) {
         res.send(data || error);
     })
@@ -49,8 +50,6 @@ api.get('/find-by-keyword', function (req, res) {
         res.send(data || error);
     });
 });
-
-
 
 
 module.exports = api;

@@ -122,8 +122,8 @@ class Login extends Component {
         return (
             <div className='App'>
                 <AppBar position="static">
-                    <Toolbar style={{minHeight: '90px'}}><Typography color="inherit"
-                   style={{fontSize: '25px'}}>LOGIN</Typography></Toolbar>
+                    <Toolbar><Typography color="inherit"
+                   style={{fontSize: '20px'}}>LOGIN</Typography></Toolbar>
                 </AppBar>
                 <Container maxWidth="sm">
                 <Card className='cardStyle' style={{textAlign: 'center', height: '330px', marginTop: '100px'}}>

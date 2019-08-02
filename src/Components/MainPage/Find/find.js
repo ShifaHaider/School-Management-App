@@ -40,10 +40,10 @@ class Find extends Component {
     constructor() {
         super();
         this.state = {
-            yearsList: ['', 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
+            yearsList: [ 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
                 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036,
                 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2050],
-            classList: ["", "Reception", "Junior", "Senior", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
+            classList: ["Reception", "Junior", "Senior", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
             year: '',
             class: '',
             foundStudent: [],
@@ -86,7 +86,7 @@ class Find extends Component {
             }
         }).then((data) => {
             data.json().then((foundData, error) => {
-                console.log(error);
+                // console.log(foundData);
                 if (foundData.length == 0) {
                     this.setState({searchResult: "Search not found!! "})
                 }
@@ -102,7 +102,7 @@ class Find extends Component {
                     this.setState({
                         loading: false,
                         open: true,
-                        searchResult: "Please connect to internet your device.."
+                        searchResult: "Please check your internet connection.."
                     });
                 }
                 console.log(err);
@@ -116,10 +116,8 @@ class Find extends Component {
     print() {
         var title = "";
         var foundStudent = this.state.foundStudent;
-        console.log(foundStudent);
         for (var i = 0; i < foundStudent.length; i++) {
             foundStudent[i].serialNo = i + 1;
-            console.log(foundStudent[i].dateOfBirth);
             foundStudent[i].dateOfBirth = foundStudent[i].dateOfBirth ? new Date(foundStudent[i].dateOfBirth).toLocaleDateString() : '-';
             foundStudent[i].admissionDate = foundStudent[i].dateOfBirth ? new Date(foundStudent[i].admissionDate).toLocaleDateString(): "-";
             foundStudent[i].cnic = foundStudent[i].cnic ?  foundStudent[i].cnic: "-";
@@ -157,7 +155,6 @@ class Find extends Component {
             return;
         }
         const url = 'https://school-management--app.herokuapp.com/students/find-by-keyword/?keyword=' + this.state.keyword;
-        console.log(this.state.keyword);
         this.setState({findLoading: true});
         fetch(url, {
             method: "get",
@@ -184,6 +181,9 @@ class Find extends Component {
                                 onChange={this.categoryChange.bind(this, 'year')}
                                 input={<FilledInput name="age" id="filled-age-simple"/>}
                         >
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
                             {this.state.yearsList.map((val, ind) => {
                                 return (
                                     <MenuItem key={ind} value={val}>{val}</MenuItem>
@@ -201,6 +201,9 @@ class Find extends Component {
                                 onChange={this.categoryChange.bind(this, 'class')}
                                 input={<FilledInput name="age" id="filled-age-simple"/>}
                         >
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
                             {this.state.classList.map((val, ind) => {
                                 return (
                                     <MenuItem key={ind} value={val}>{val}</MenuItem>

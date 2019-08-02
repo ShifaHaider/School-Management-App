@@ -41,7 +41,7 @@ class StudentDetail extends Component {
             });
         })
             .catch((err) => {
-                (err);
+                console.log(err);
             });
     }
 

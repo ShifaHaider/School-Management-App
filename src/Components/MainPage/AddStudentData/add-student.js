@@ -112,10 +112,10 @@ class AddStudents extends Component {
             lastInstitution: '',
             admissionDate: new Date(),
             admittedInClass: '',
-            yearsList: ['', 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
+            yearsList: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
                 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036,
                 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2050],
-            classList: ["", "Reception", "Junior", "Senior", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
+            classList: ["Reception", "Junior", "Senior", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
             year: '',
             // selectedDate: '',
             setSelectedDate: '',
@@ -133,6 +133,9 @@ class AddStudents extends Component {
         };
     }
 
+    getStudentImageURL = (url) => {
+        this.setState({studentImageURL: url});
+    };
     saveStData() {
         var dateOfBirth = new Date(this.state.dateOfBirth).getTime();
         var admissionDate = new Date(this.state.admissionDate).getTime();
@@ -189,7 +192,7 @@ class AddStudents extends Component {
                     year: "",
                     loading: false,
                     open: false,
-                    studentImageURL: "",
+                    // studentImageURL: "",
                     snackbarOpen: true , snackbarMessage: "Successfully Saved!!" , variant: "success" , openImageCropper: false
                 });
             });
@@ -201,10 +204,6 @@ class AddStudents extends Component {
 
 
     }
-
-    getStudentImageURL = (url) => {
-        this.setState({studentImageURL: url});
-    };
 
     changeValue(p, e) {
         if (p === "admissionDate") {
@@ -261,7 +260,6 @@ class AddStudents extends Component {
                                 <div style={{display: "flex" , width: "100%"}}>
                                 <TextField id="outlined-name" label="Address"  margin="normal" style={{flex: "1 1"}}
                                            variant="filled"
-                                           // multiline={true}
                                            value={this.state.address}
                                            onChange={this.changeValue.bind(this, 'address')}/>
                                 &nbsp;
@@ -304,6 +302,9 @@ class AddStudents extends Component {
                                             onChange={this.changeYear.bind(this)}
                                             input={
                                                 <FilledInput name="age" id="filled-age-simple" fullWidth/>}>
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
                                         {this.state.yearsList.map((val, ind) => {
                                             return (
                                                 <MenuItem key={ind} value={val}>{val}</MenuItem>
@@ -324,6 +325,9 @@ class AddStudents extends Component {
                                                 <FilledInput name="age" id="filled-age-simple"/>
                                             }
                                     >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
                                         {this.state.classList.map((val, ind) => {
                                             return (
                                                 <MenuItem key={ind} value={val}>{val}</MenuItem>

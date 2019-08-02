@@ -25,9 +25,8 @@ class ToolBarComponent extends Component {
         this.setState({openMenu: true})
     }
     findStudent(){
-        console.log(this.props);
-        console.log(this.props.history);
         // this.props.history.push('/main/find');
+
     }
     addStudent(){
         // this.props.history.push('/main/add-student');

@@ -100,13 +100,13 @@ class UpdateStudent extends Component {
         super(props);
         this.state = {
             studentDetail: props.studentDetail,
-            yearsList: ['', 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
+            yearsList: [ 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
                 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036,
                 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2000, 2001, 2002, 2003, 2004, 2005,
                 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
                 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043,
                 2044, 2045, 2046, 2047, 2048, 2049, 2050],
-            classList: ["", "Reception", "Junior", "Senior", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
+            classList: ["Reception", "Junior", "Senior", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
             open: false,
             dialogText: "",
             loading: false,
@@ -143,7 +143,7 @@ class UpdateStudent extends Component {
 
     getNewImageURL = (url) => {
         var studentDetail = this.state.studentDetail;
-        studentDetail.photoURL = url;
+         studentDetail.photoURL = url;
         this.setState({studentDetail: studentDetail});
     };
 
@@ -183,7 +183,7 @@ class UpdateStudent extends Component {
             });
         })
             .catch((err) => {
-                (err);
+                console.log(err);
             });
     }
 
@@ -273,6 +273,9 @@ class UpdateStudent extends Component {
                                         onChange={this.changeYear.bind(this)}
                                         input={
                                             <FilledInput name="age" id="filled-age-simple" fullWidth/>}>
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
                                     {this.state.yearsList.map((val, ind) => {
                                         return (
                                             <MenuItem key={ind} value={val}>{val}</MenuItem>
@@ -294,6 +297,9 @@ class UpdateStudent extends Component {
                                         input={
                                             <FilledInput name="age" id="filled-age-simple" fullWidth/>}
                                 >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
                                     {this.state.classList.map((val, ind) => {
                                         return (
                                             <MenuItem key={ind} value={val}>{val}</MenuItem>
@@ -316,7 +322,7 @@ class UpdateStudent extends Component {
                             <Button variant="contained" color="primary" size='large'
                                     onClick={this.uploadPhoto.bind(this)}>Upload Photo</Button>
                             {this.state.openImageCropper ?
-                                <ImageCropper onCropped={this.getNewImageURL} photoUrl={this.state.studentDetail.photoURL} openImagePicker={this.openImagePicker}/>: null}<br/>
+                                <ImageCropper onCropped={this.getNewImageURL} openImagePicker={this.openImagePicker}/>: null}<br/>
                             <Button variant="contained" color="primary" size='large' style={{float: "right"}}
                                     onClick={this.updateData.bind(this)}>Update</Button><br/><br/>
                         </CardContent>

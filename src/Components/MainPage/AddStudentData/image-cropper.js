@@ -13,21 +13,21 @@ export default class ImageCropper extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            src: null,
             crop: {
                 unit: "%",
                 width: 30,
                 aspect: 16 / 16
             },
-            confirm: '',
+            src: null,
             imageFile: {},
+            confirm: '',
             fileURL: '',
             downloadURL: '',
+            text: '',
             showCrop: false,
             onSelect: false,
             loading: false,
             success: false,
-            text: '',
             open: true,
         };
     };
@@ -101,16 +101,17 @@ export default class ImageCropper extends Component {
         this.setState({loading: true, onSelect: false});
         firebase.storage().ref().child(this.state.imageFile.name).put(this.state.imageFile).then((snapshot) => {
             snapshot.ref.getDownloadURL().then((downloadURL) => {
-
+                // console.log(downloadURL);
                 this.props.onCropped(downloadURL);
                 this.setState({onSelect: false, loading: false, text: "Saved!!"});
             });
         });
-        this.setState({src: null, showCrop: true});
+        this.setState({ showCrop: true});
 
     }
 
     handleClose() {
+        this.setState({open: false});
         this.props.openImagePicker(false);
     }
 

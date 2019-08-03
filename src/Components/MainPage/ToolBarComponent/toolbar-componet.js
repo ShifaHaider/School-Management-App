@@ -31,7 +31,10 @@ class ToolBarComponent extends Component {
     addStudent(){
         // this.props.history.push('/main/add-student');
     }
-
+    logout(){
+        localStorage.clear();
+        window.location.reload();
+    }
     render() {
 
 
@@ -50,6 +53,7 @@ class ToolBarComponent extends Component {
                                     <Menu {...bindMenu(popupState)}>
                                         <MenuItem onClick={this.findStudent.bind(this)}><Link to='/main/find'>Find Students</Link></MenuItem>
                                         <MenuItem onClick={this.addStudent.bind(this)}><Link to='/main/add-student'>Add Student</Link></MenuItem>
+                                        <MenuItem onClick={this.logout.bind(this)}><Link to='/login'>Log Out</Link></MenuItem>
                                     </Menu>
                                 </React.Fragment>
                             )}

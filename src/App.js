@@ -14,15 +14,16 @@ const theme = createMuiTheme({
     },
 });
 var adminID = localStorage.getItem('adminID');
-var config = {
-    apiKey: "AIzaSyAUItwpA9AmbqxtBKNcJSuRvXCbOMuSQkQ",
-    authDomain: "react-smart-todo.firebaseapp.com",
-    databaseURL: "https://react-smart-todo.firebaseio.com",
-    projectId: "react-smart-todo",
-    storageBucket: "react-smart-todo.appspot.com",
-    messagingSenderId: "659919751663"
+var firebaseConfig = {
+    apiKey: "AIzaSyCUCzxHxUaymfJoAZIRD_1hDczuZxrbdCA",
+    authDomain: "school-management-160cf.firebaseapp.com",
+    databaseURL: "https://school-management-160cf.firebaseio.com",
+    projectId: "school-management-160cf",
+    storageBucket: "school-management-160cf.appspot.com",
+    messagingSenderId: "592758080526",
+    appId: "1:592758080526:web:3166c28a95168ae9"
 };
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 
 class App extends Component {
 

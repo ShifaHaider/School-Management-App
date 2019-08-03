@@ -320,7 +320,7 @@ class UpdateStudent extends Component {
                             </div>
                             <br/>
                             <div style={{textAlign: "center"}}>
-                            <Button variant="contained" color="primary" size='large'
+                            <Button variant="outlined" color="primary" size='large'
                                     onClick={this.uploadPhoto.bind(this)}>Upload Photo</Button>
                             </div>
                             {this.state.openImageCropper ?

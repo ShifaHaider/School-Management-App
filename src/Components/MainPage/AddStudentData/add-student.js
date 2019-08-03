@@ -289,7 +289,7 @@ class AddStudents extends Component {
                                     &nbsp;
                                     &nbsp;
                                     <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                                        <DatePicker inputVariant="filled" value={this.state.admissionDate} label="Date of Admitted" onChange={this.handleDateChange.bind(this , "admissionDate")} style={{flex: "1 1"}}/>
+                                        <DatePicker inputVariant="filled" value={this.state.admissionDate} label="Date of Admission" onChange={this.handleDateChange.bind(this , "admissionDate")} style={{flex: "1 1"}}/>
                                     </MuiPickersUtilsProvider>
                                 </div>
                                 <br/>
@@ -315,7 +315,7 @@ class AddStudents extends Component {
                                 &nbsp;
                                 <FormControl variant="filled" style={{flex: "1 1"}}>
                                     <InputLabel htmlFor="filled-age-simple">
-                                        Admitted in Class
+                                        Admission in Class
                                     </InputLabel>
                                     <Select style={{ textAlign: 'left'}}
                                             value={this.state.admittedInClass}
@@ -336,8 +336,10 @@ class AddStudents extends Component {
                                 </FormControl>
                                 </div>
                                 <br/>
+                                <div style={{textAlign: 'center'}}>
                                 <Button variant="contained" color="primary" size='large'
                                         onClick={this.uploadPhoto.bind(this)}>Upload Photo</Button>
+                                </div>
                                 {this.state.openImageCropper ?
                                 <ImageCropper onCropped={this.getStudentImageURL} openImagePicker={this.openImagePicker} />: null}<br/>
                                 <Button variant="contained" color="primary" size='large' style={{float: "right"}}

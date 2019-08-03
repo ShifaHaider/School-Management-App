@@ -117,7 +117,6 @@ class AddStudents extends Component {
                 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2050],
             classList: ["Reception", "Junior", "Senior", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
             year: '',
-            // selectedDate: '',
             setSelectedDate: '',
             studentImageURL: '',
             open: false,

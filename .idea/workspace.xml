@@ -4,13 +4,10 @@
     <list default="true" id="ce5b2128-fabb-4493-9843-87b1f0ad7263" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Login/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/image-cropper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/image-cropper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/MainPage/Find/find.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainPage/Find/find.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/MainPage/StudentDetail/update-student.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainPage/StudentDetail/update-student.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/MainPage/ToolBarComponent/toolbar-componet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainPage/ToolBarComponent/toolbar-componet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/Router/students.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/Router/students.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -27,8 +24,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/ToolBarComponent/toolbar-componet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+            <state relative-caret-position="289">
+              <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -39,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="611">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="-849">
+              <caret line="43" column="21" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="21" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -51,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/Find/find.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
-              <caret line="89" column="42" lean-forward="true" selection-start-line="89" selection-start-column="42" selection-end-line="89" selection-end-column="42" />
+            <state relative-caret-position="85">
+              <caret line="36" column="14" lean-forward="true" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
               <folding>
                 <element signature="e#972#1131#0" />
                 <element signature="e#984#1087#0" />
@@ -60,9 +57,66 @@
                 <element signature="e#1191#1319#0" />
                 <element signature="e#1203#1316#0" />
                 <element signature="e#1235#1309#0" />
+                <element signature="n#Find#0" />
+                <element signature="n#!!block;n#constructor#0;n#Find#0" />
+                <element signature="e#1423#2161#0" />
+                <element signature="e#1448#1775#0" />
                 <element signature="n#!!block;n#categoryChange#0;n#Find#0" />
+                <element signature="n#!!block;n#find#0;n#Find#0" />
+                <element signature="e#2352#2445#0" />
+                <element signature="e#2489#2544#0" />
+                <element signature="e#2576#2667#0" />
+                <element signature="e#2607#2657#0" />
+                <element signature="e#2778#2994#0" />
+                <element signature="e#2872#2984#0" />
+                <element signature="e#3011#3453#0" />
+                <element signature="e#3064#3441#0" />
+                <element signature="e#3152#3244#0" />
+                <element signature="e#3266#3340#0" />
+                <element signature="e#3483#3825#0" />
+                <element signature="e#3542#3777#0" />
+                <element signature="e#3578#3757#0" />
+                <element signature="n#!!block;n#studentDetail#0;n#Find#0" />
                 <element signature="n#!!block;n#print#0;n#Find#0" />
+                <element signature="e#4086#4716#0" />
+                <element signature="e#4731#5878#0" />
+                <element signature="e#4805#5496#0" />
                 <element signature="n#!!block;n#changeKeyword#0;n#Find#0" />
+                <element signature="n#!!block;n#searchByKeyword#0;n#Find#0" />
+                <element signature="e#6045#6101#0" />
+                <element signature="e#6289#6327#0" />
+                <element signature="e#6357#6521#0" />
+                <element signature="e#6406#6505#0" />
+                <element signature="e#6551#6600#0" />
+                <element signature="n#!!block;n#render#0;n#Find#0" />
+                <element signature="e#6654#13596#0" />
+                <element signature="e#6725#10142#0" />
+                <element signature="e#6805#7702#0" />
+                <element signature="e#6952#7667#0" />
+                <element signature="e#7266#7371#0" />
+                <element signature="e#7440#7631#0" />
+                <element signature="e#7804#8704#0" />
+                <element signature="e#7952#8669#0" />
+                <element signature="e#8268#8373#0" />
+                <element signature="e#8442#8633#0" />
+                <element signature="e#8806#9187#0" />
+                <element signature="e#9289#9637#0" />
+                <element signature="e#9475#9620#0" />
+                <element signature="e#9803#9969#0" />
+                <element signature="e#10219#13568#0" />
+                <element signature="e#10286#13539#0" />
+                <element signature="e#10350#11077#0" />
+                <element signature="e#10394#11036#0" />
+                <element signature="e#11106#13506#0" />
+                <element signature="e#11197#13463#0" />
+                <element signature="e#11284#13391#0" />
+                <element signature="e#11383#11553#0" />
+                <element signature="e#11598#11825#0" />
+                <element signature="e#11870#12110#0" />
+                <element signature="e#12155#12396#0" />
+                <element signature="e#12441#12728#0" />
+                <element signature="e#12773#13031#0" />
+                <element signature="e#13076#13333#0" />
               </folding>
             </state>
           </provider>
@@ -71,16 +125,85 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/StudentDetail/update-student.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1870">
-              <caret line="144" selection-start-line="144" selection-end-line="144" />
+            <state relative-caret-position="170">
+              <caret line="97" column="38" selection-start-line="97" selection-start-column="38" selection-end-line="97" selection-end-column="38" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#1651#2120#0" />
+                <element signature="e#1666#1710#0" />
+                <element signature="e#1723#1781#0" />
+                <element signature="e#1793#1853#0" />
+                <element signature="e#1868#1912#0" />
+                <element signature="e#1924#1953#0" />
+                <element signature="e#1972#2040#0" />
+                <element signature="e#2055#2117#0" />
+                <element signature="e#2144#2245#0" />
                 <element signature="n#!!block;n#MySnackbarContentWrapper#0" />
-                <element signature="e#3463#4150#0" />
+                <element signature="e#2454#3053#0" />
+                <element signature="e#2614#2785#0" />
+                <element signature="e#2820#3018#0" />
+                <element signature="e#2838#3003#0" />
+                <element signature="e#3101#3279#0" />
+                <element signature="n#UpdateStudent#0" />
+                <element signature="n#!!block;n#constructor#0;n#UpdateStudent#0" />
+                <element signature="e#3432#4631#0" />
+                <element signature="e#3505#4192#0" />
                 <element signature="n#!!block;n#componentWillReceiveProps#0;n#UpdateStudent#0" />
+                <element signature="n#!!block;n#changeValue#0;n#UpdateStudent#0" />
+                <element signature="e#4868#5000#0" />
                 <element signature="n#!!block;n#changeYear#0;n#UpdateStudent#0" />
+                <element signature="e#5317#5533#0" />
+                <element signature="n#!!block;n#updateData#0;n#UpdateStudent#0" />
+                <element signature="e#5806#6155#0" />
+                <element signature="e#6193#6532#0" />
+                <element signature="e#6234#6414#0" />
+                <element signature="e#6420#6522#0" />
+                <element signature="e#6652#6941#0" />
+                <element signature="e#6819#6931#0" />
+                <element signature="e#6958#7204#0" />
+                <element signature="e#7003#7192#0" />
+                <element signature="e#7234#7283#0" />
                 <element signature="n#!!block;n#handleClose#0;n#UpdateStudent#0" />
                 <element signature="n#!!block;n#snackbarClose#0;n#UpdateStudent#0" />
+                <element signature="n#!!block;n#uploadPhoto#0;n#UpdateStudent#0" />
+                <element signature="n#!!block;n#handleDateChange#0;n#UpdateStudent#0" />
+                <element signature="e#7655#7774#0" />
+                <element signature="e#7868#7927#0" />
+                <element signature="n#!!block;n#render#0;n#UpdateStudent#0" />
+                <element signature="e#7973#16814#0" />
+                <element signature="e#7995#15519#0" />
+                <element signature="e#8041#15490#0" />
+                <element signature="e#8072#15462#0" />
+                <element signature="e#8114#9024#0" />
+                <element signature="e#8190#8535#0" />
+                <element signature="e#8634#8989#0" />
+                <element signature="e#9053#10006#0" />
+                <element signature="e#9129#9472#0" />
+                <element signature="e#9575#9971#0" />
+                <element signature="e#10035#11240#0" />
+                <element signature="e#10111#10591#0" />
+                <element signature="e#10340#10578#0" />
+                <element signature="e#10694#11205#0" />
+                <element signature="e#10943#11192#0" />
+                <element signature="e#11274#13859#0" />
+                <element signature="e#11350#12474#0" />
+                <element signature="e#11589#12431#0" />
+                <element signature="e#11966#12087#0" />
+                <element signature="e#12164#12387#0" />
+                <element signature="e#12573#13853#0" />
+                <element signature="e#12731#12871#0" />
+                <element signature="e#12904#13810#0" />
+                <element signature="e#13345#13466#0" />
+                <element signature="e#13543#13766#0" />
+                <element signature="e#13922#14809#0" />
+                <element signature="e#14002#14329#0" />
+                <element signature="e#14440#14774#0" />
+                <element signature="e#14872#15024#0" />
+                <element signature="e#15243#15413#0" />
+                <element signature="e#15536#16105#0" />
+                <element signature="e#15813#16079#0" />
+                <element signature="e#16122#16795#0" />
+                <element signature="e#16197#16328#0" />
+                <element signature="e#16541#16767#0" />
               </folding>
             </state>
           </provider>
@@ -89,8 +212,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="144" column="34" lean-forward="true" selection-start-line="144" selection-start-column="34" selection-end-line="144" selection-end-column="34" />
+            <state relative-caret-position="170">
+              <caret line="378" lean-forward="true" selection-start-line="378" selection-end-line="378" />
               <folding>
                 <element signature="e#1735#2204#0" />
                 <element signature="e#1750#1794#0" />
@@ -107,10 +230,69 @@
                 <element signature="e#2905#3104#0" />
                 <element signature="e#2923#3089#0" />
                 <element signature="e#3186#3364#0" />
+                <element signature="n#AddStudents#0" />
+                <element signature="n#!!block;n#constructor#0;n#AddStudents#0" />
+                <element signature="e#3464#4657#0" />
+                <element signature="e#3751#4089#0" />
+                <element signature="e#4700#4754#0" />
+                <element signature="n#!!block;n#saveStData#0;n#AddStudents#0" />
+                <element signature="e#4946#5214#0" />
+                <element signature="e#5242#5737#0" />
+                <element signature="e#5775#6115#0" />
+                <element signature="e#5816#6000#0" />
+                <element signature="e#6006#6105#0" />
+                <element signature="e#6224#6444#0" />
+                <element signature="e#6322#6434#0" />
+                <element signature="e#6461#7174#0" />
+                <element signature="e#6506#7162#0" />
+                <element signature="e#6538#7146#0" />
+                <element signature="e#7204#7303#0" />
                 <element signature="n#!!block;n#changeValue#0;n#AddStudents#0" />
+                <element signature="e#7374#7449#0" />
                 <element signature="n#!!block;n#changeYear#0;n#AddStudents#0" />
                 <element signature="n#!!block;n#handleClose#0;n#AddStudents#0" />
+                <element signature="n#!!block;n#snackbarClose#0;n#AddStudents#0" />
+                <element signature="n#!!block;n#uploadPhoto#0;n#AddStudents#0" />
                 <element signature="n#!!block;n#handleDateChange#0;n#AddStudents#0" />
+                <element signature="e#7854#7916#0" />
+                <element signature="e#7988#8047#0" />
+                <element signature="n#!!block;n#render#0;n#AddStudents#0" />
+                <element signature="e#8093#17014#0" />
+                <element signature="e#8171#16347#0" />
+                <element signature="e#8226#16324#0" />
+                <element signature="e#8276#15657#0" />
+                <element signature="e#8345#15625#0" />
+                <element signature="e#8391#9274#0" />
+                <element signature="e#8471#8782#0" />
+                <element signature="e#8914#9235#0" />
+                <element signature="e#9307#10201#0" />
+                <element signature="e#9387#9696#0" />
+                <element signature="e#9811#10162#0" />
+                <element signature="e#10234#11250#0" />
+                <element signature="e#10314#10714#0" />
+                <element signature="e#10505#10701#0" />
+                <element signature="e#10829#11244#0" />
+                <element signature="e#11029#11231#0" />
+                <element signature="e#11321#12216#0" />
+                <element signature="e#11405#11726#0" />
+                <element signature="e#11849#12177#0" />
+                <element signature="e#12287#14941#0" />
+                <element signature="e#12367#13482#0" />
+                <element signature="e#12550#13435#0" />
+                <element signature="e#12938#13067#0" />
+                <element signature="e#13148#13387#0" />
+                <element signature="e#13593#14902#0" />
+                <element signature="e#13682#13830#0" />
+                <element signature="e#13867#14855#0" />
+                <element signature="e#14358#14487#0" />
+                <element signature="e#14568#14807#0" />
+                <element signature="e#15012#15168#0" />
+                <element signature="e#15400#15572#0" />
+                <element signature="e#15682#16291#0" />
+                <element signature="e#15967#16257#0" />
+                <element signature="e#16364#16995#0" />
+                <element signature="e#16433#16546#0" />
+                <element signature="e#16741#16967#0" />
               </folding>
             </state>
           </provider>
@@ -128,21 +310,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/image-cropper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="104" column="44" lean-forward="true" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
+            <state relative-caret-position="295">
+              <caret line="108" selection-start-line="108" selection-end-line="108" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#1024#1331#0" />
-                <element signature="e#1083#1325#0" />
-                <element signature="e#1363#1401#0" />
-                <element signature="e#1433#1475#0" />
-                <element signature="e#1520#1558#0" />
-                <element signature="e#1592#1812#0" />
-                <element signature="e#1650#1806#0" />
-                <element signature="e#1855#2972#0" />
-                <element signature="e#2452#2964#0" />
-                <element signature="e#2488#2938#0" />
-                <element signature="e#2517#2618#0" />
               </folding>
             </state>
           </provider>
@@ -151,7 +322,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/db/Router/students.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
+            <state relative-caret-position="884">
               <caret line="52" selection-start-line="52" selection-end-line="52" />
             </state>
           </provider>
@@ -256,14 +427,14 @@
         <option value="$PROJECT_DIR$/firebase.json" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/Components/MainPage/ToolBarComponent/toolbar-componet.js" />
         <option value="$PROJECT_DIR$/src/Components/Login/login.js" />
         <option value="$PROJECT_DIR$/src/db/Router/students.js" />
-        <option value="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js" />
-        <option value="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/image-cropper.js" />
-        <option value="$PROJECT_DIR$/src/Components/MainPage/Find/find.js" />
         <option value="$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail.js" />
+        <option value="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/image-cropper.js" />
         <option value="$PROJECT_DIR$/src/Components/MainPage/StudentDetail/update-student.js" />
+        <option value="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js" />
+        <option value="$PROJECT_DIR$/src/Components/MainPage/Find/find.js" />
+        <option value="$PROJECT_DIR$/src/Components/MainPage/ToolBarComponent/toolbar-componet.js" />
       </list>
     </option>
   </component>
@@ -302,37 +473,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Components" type="462c0819:PsiDirectoryNode" />
               <item name="MainPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="school-management-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="school-management-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="MainPage" type="462c0819:PsiDirectoryNode" />
-              <item name="AddStudentData" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="school-management-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="school-management-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="MainPage" type="462c0819:PsiDirectoryNode" />
-              <item name="Find" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="school-management-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="school-management-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="MainPage" type="462c0819:PsiDirectoryNode" />
-              <item name="ToolBarComponent" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="school-management-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="school-management-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="StudentDetailPrint" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="school-management-app" type="b2602c69:ProjectViewProjectNode" />
@@ -514,12 +654,19 @@
       <workItem from="1564734018527" duration="1785000" />
       <workItem from="1564735890948" duration="1793000" />
       <workItem from="1564737725758" duration="1864000" />
-      <workItem from="1564739670074" duration="595000" />
+      <workItem from="1564739670074" duration="1779000" />
+      <workItem from="1564741501239" duration="2168000" />
+      <workItem from="1564744892202" duration="1848000" />
+      <workItem from="1564747115410" duration="1589000" />
+      <workItem from="1564751647414" duration="733000" />
+      <workItem from="1564754972131" duration="660000" />
+      <workItem from="1564762731001" duration="1311000" />
+      <workItem from="1564794699948" duration="1413000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="321620000" />
+    <option name="totallyTimeSpent" value="332526000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -762,10 +909,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/StudentDetailPrint/student-detail-print.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/db/Schema/schema.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/db/Router/students.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
@@ -776,38 +940,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/db/Router/students.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/image-cropper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="104" column="44" lean-forward="true" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
+        <state relative-caret-position="295">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#1024#1331#0" />
-            <element signature="e#1083#1325#0" />
-            <element signature="e#1363#1401#0" />
-            <element signature="e#1433#1475#0" />
-            <element signature="e#1520#1558#0" />
-            <element signature="e#1592#1812#0" />
-            <element signature="e#1650#1806#0" />
-            <element signature="e#1855#2972#0" />
-            <element signature="e#2452#2964#0" />
-            <element signature="e#2488#2938#0" />
-            <element signature="e#2517#2618#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/MainPage/Find/find.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="89" column="42" lean-forward="true" selection-start-line="89" selection-start-column="42" selection-end-line="89" selection-end-column="42" />
+        <state relative-caret-position="85">
+          <caret line="36" column="14" lean-forward="true" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
           <folding>
             <element signature="e#972#1131#0" />
             <element signature="e#984#1087#0" />
@@ -815,43 +961,159 @@
             <element signature="e#1191#1319#0" />
             <element signature="e#1203#1316#0" />
             <element signature="e#1235#1309#0" />
+            <element signature="n#Find#0" />
+            <element signature="n#!!block;n#constructor#0;n#Find#0" />
+            <element signature="e#1423#2161#0" />
+            <element signature="e#1448#1775#0" />
             <element signature="n#!!block;n#categoryChange#0;n#Find#0" />
+            <element signature="n#!!block;n#find#0;n#Find#0" />
+            <element signature="e#2352#2445#0" />
+            <element signature="e#2489#2544#0" />
+            <element signature="e#2576#2667#0" />
+            <element signature="e#2607#2657#0" />
+            <element signature="e#2778#2994#0" />
+            <element signature="e#2872#2984#0" />
+            <element signature="e#3011#3453#0" />
+            <element signature="e#3064#3441#0" />
+            <element signature="e#3152#3244#0" />
+            <element signature="e#3266#3340#0" />
+            <element signature="e#3483#3825#0" />
+            <element signature="e#3542#3777#0" />
+            <element signature="e#3578#3757#0" />
+            <element signature="n#!!block;n#studentDetail#0;n#Find#0" />
             <element signature="n#!!block;n#print#0;n#Find#0" />
+            <element signature="e#4086#4716#0" />
+            <element signature="e#4731#5878#0" />
+            <element signature="e#4805#5496#0" />
             <element signature="n#!!block;n#changeKeyword#0;n#Find#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="n#!!block;n#searchByKeyword#0;n#Find#0" />
+            <element signature="e#6045#6101#0" />
+            <element signature="e#6289#6327#0" />
+            <element signature="e#6357#6521#0" />
+            <element signature="e#6406#6505#0" />
+            <element signature="e#6551#6600#0" />
+            <element signature="n#!!block;n#render#0;n#Find#0" />
+            <element signature="e#6654#13596#0" />
+            <element signature="e#6725#10142#0" />
+            <element signature="e#6805#7702#0" />
+            <element signature="e#6952#7667#0" />
+            <element signature="e#7266#7371#0" />
+            <element signature="e#7440#7631#0" />
+            <element signature="e#7804#8704#0" />
+            <element signature="e#7952#8669#0" />
+            <element signature="e#8268#8373#0" />
+            <element signature="e#8442#8633#0" />
+            <element signature="e#8806#9187#0" />
+            <element signature="e#9289#9637#0" />
+            <element signature="e#9475#9620#0" />
+            <element signature="e#9803#9969#0" />
+            <element signature="e#10219#13568#0" />
+            <element signature="e#10286#13539#0" />
+            <element signature="e#10350#11077#0" />
+            <element signature="e#10394#11036#0" />
+            <element signature="e#11106#13506#0" />
+            <element signature="e#11197#13463#0" />
+            <element signature="e#11284#13391#0" />
+            <element signature="e#11383#11553#0" />
+            <element signature="e#11598#11825#0" />
+            <element signature="e#11870#12110#0" />
+            <element signature="e#12155#12396#0" />
+            <element signature="e#12441#12728#0" />
+            <element signature="e#12773#13031#0" />
+            <element signature="e#13076#13333#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/MainPage/StudentDetail/update-student.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="144" selection-start-line="144" selection-end-line="144" />
+        <state relative-caret-position="170">
+          <caret line="97" column="38" selection-start-line="97" selection-start-column="38" selection-end-line="97" selection-end-column="38" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#1651#2120#0" />
+            <element signature="e#1666#1710#0" />
+            <element signature="e#1723#1781#0" />
+            <element signature="e#1793#1853#0" />
+            <element signature="e#1868#1912#0" />
+            <element signature="e#1924#1953#0" />
+            <element signature="e#1972#2040#0" />
+            <element signature="e#2055#2117#0" />
+            <element signature="e#2144#2245#0" />
             <element signature="n#!!block;n#MySnackbarContentWrapper#0" />
-            <element signature="e#3463#4150#0" />
+            <element signature="e#2454#3053#0" />
+            <element signature="e#2614#2785#0" />
+            <element signature="e#2820#3018#0" />
+            <element signature="e#2838#3003#0" />
+            <element signature="e#3101#3279#0" />
+            <element signature="n#UpdateStudent#0" />
+            <element signature="n#!!block;n#constructor#0;n#UpdateStudent#0" />
+            <element signature="e#3432#4631#0" />
+            <element signature="e#3505#4192#0" />
             <element signature="n#!!block;n#componentWillReceiveProps#0;n#UpdateStudent#0" />
+            <element signature="n#!!block;n#changeValue#0;n#UpdateStudent#0" />
+            <element signature="e#4868#5000#0" />
             <element signature="n#!!block;n#changeYear#0;n#UpdateStudent#0" />
+            <element signature="e#5317#5533#0" />
+            <element signature="n#!!block;n#updateData#0;n#UpdateStudent#0" />
+            <element signature="e#5806#6155#0" />
+            <element signature="e#6193#6532#0" />
+            <element signature="e#6234#6414#0" />
+            <element signature="e#6420#6522#0" />
+            <element signature="e#6652#6941#0" />
+            <element signature="e#6819#6931#0" />
+            <element signature="e#6958#7204#0" />
+            <element signature="e#7003#7192#0" />
+            <element signature="e#7234#7283#0" />
             <element signature="n#!!block;n#handleClose#0;n#UpdateStudent#0" />
             <element signature="n#!!block;n#snackbarClose#0;n#UpdateStudent#0" />
+            <element signature="n#!!block;n#uploadPhoto#0;n#UpdateStudent#0" />
+            <element signature="n#!!block;n#handleDateChange#0;n#UpdateStudent#0" />
+            <element signature="e#7655#7774#0" />
+            <element signature="e#7868#7927#0" />
+            <element signature="n#!!block;n#render#0;n#UpdateStudent#0" />
+            <element signature="e#7973#16814#0" />
+            <element signature="e#7995#15519#0" />
+            <element signature="e#8041#15490#0" />
+            <element signature="e#8072#15462#0" />
+            <element signature="e#8114#9024#0" />
+            <element signature="e#8190#8535#0" />
+            <element signature="e#8634#8989#0" />
+            <element signature="e#9053#10006#0" />
+            <element signature="e#9129#9472#0" />
+            <element signature="e#9575#9971#0" />
+            <element signature="e#10035#11240#0" />
+            <element signature="e#10111#10591#0" />
+            <element signature="e#10340#10578#0" />
+            <element signature="e#10694#11205#0" />
+            <element signature="e#10943#11192#0" />
+            <element signature="e#11274#13859#0" />
+            <element signature="e#11350#12474#0" />
+            <element signature="e#11589#12431#0" />
+            <element signature="e#11966#12087#0" />
+            <element signature="e#12164#12387#0" />
+            <element signature="e#12573#13853#0" />
+            <element signature="e#12731#12871#0" />
+            <element signature="e#12904#13810#0" />
+            <element signature="e#13345#13466#0" />
+            <element signature="e#13543#13766#0" />
+            <element signature="e#13922#14809#0" />
+            <element signature="e#14002#14329#0" />
+            <element signature="e#14440#14774#0" />
+            <element signature="e#14872#15024#0" />
+            <element signature="e#15243#15413#0" />
+            <element signature="e#15536#16105#0" />
+            <element signature="e#15813#16079#0" />
+            <element signature="e#16122#16795#0" />
+            <element signature="e#16197#16328#0" />
+            <element signature="e#16541#16767#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="144" column="34" lean-forward="true" selection-start-line="144" selection-start-column="34" selection-end-line="144" selection-end-column="34" />
+        <state relative-caret-position="170">
+          <caret line="378" lean-forward="true" selection-start-line="378" selection-end-line="378" />
           <folding>
             <element signature="e#1735#2204#0" />
             <element signature="e#1750#1794#0" />
@@ -868,18 +1130,77 @@
             <element signature="e#2905#3104#0" />
             <element signature="e#2923#3089#0" />
             <element signature="e#3186#3364#0" />
+            <element signature="n#AddStudents#0" />
+            <element signature="n#!!block;n#constructor#0;n#AddStudents#0" />
+            <element signature="e#3464#4657#0" />
+            <element signature="e#3751#4089#0" />
+            <element signature="e#4700#4754#0" />
+            <element signature="n#!!block;n#saveStData#0;n#AddStudents#0" />
+            <element signature="e#4946#5214#0" />
+            <element signature="e#5242#5737#0" />
+            <element signature="e#5775#6115#0" />
+            <element signature="e#5816#6000#0" />
+            <element signature="e#6006#6105#0" />
+            <element signature="e#6224#6444#0" />
+            <element signature="e#6322#6434#0" />
+            <element signature="e#6461#7174#0" />
+            <element signature="e#6506#7162#0" />
+            <element signature="e#6538#7146#0" />
+            <element signature="e#7204#7303#0" />
             <element signature="n#!!block;n#changeValue#0;n#AddStudents#0" />
+            <element signature="e#7374#7449#0" />
             <element signature="n#!!block;n#changeYear#0;n#AddStudents#0" />
             <element signature="n#!!block;n#handleClose#0;n#AddStudents#0" />
+            <element signature="n#!!block;n#snackbarClose#0;n#AddStudents#0" />
+            <element signature="n#!!block;n#uploadPhoto#0;n#AddStudents#0" />
             <element signature="n#!!block;n#handleDateChange#0;n#AddStudents#0" />
+            <element signature="e#7854#7916#0" />
+            <element signature="e#7988#8047#0" />
+            <element signature="n#!!block;n#render#0;n#AddStudents#0" />
+            <element signature="e#8093#17014#0" />
+            <element signature="e#8171#16347#0" />
+            <element signature="e#8226#16324#0" />
+            <element signature="e#8276#15657#0" />
+            <element signature="e#8345#15625#0" />
+            <element signature="e#8391#9274#0" />
+            <element signature="e#8471#8782#0" />
+            <element signature="e#8914#9235#0" />
+            <element signature="e#9307#10201#0" />
+            <element signature="e#9387#9696#0" />
+            <element signature="e#9811#10162#0" />
+            <element signature="e#10234#11250#0" />
+            <element signature="e#10314#10714#0" />
+            <element signature="e#10505#10701#0" />
+            <element signature="e#10829#11244#0" />
+            <element signature="e#11029#11231#0" />
+            <element signature="e#11321#12216#0" />
+            <element signature="e#11405#11726#0" />
+            <element signature="e#11849#12177#0" />
+            <element signature="e#12287#14941#0" />
+            <element signature="e#12367#13482#0" />
+            <element signature="e#12550#13435#0" />
+            <element signature="e#12938#13067#0" />
+            <element signature="e#13148#13387#0" />
+            <element signature="e#13593#14902#0" />
+            <element signature="e#13682#13830#0" />
+            <element signature="e#13867#14855#0" />
+            <element signature="e#14358#14487#0" />
+            <element signature="e#14568#14807#0" />
+            <element signature="e#15012#15168#0" />
+            <element signature="e#15400#15572#0" />
+            <element signature="e#15682#16291#0" />
+            <element signature="e#15967#16257#0" />
+            <element signature="e#16364#16995#0" />
+            <element signature="e#16433#16546#0" />
+            <element signature="e#16741#16967#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/StudentDetailPrint/student-detail-print.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+        <state relative-caret-position="-849">
+          <caret line="43" column="21" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="21" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -888,8 +1209,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/MainPage/ToolBarComponent/toolbar-componet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+        <state relative-caret-position="289">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

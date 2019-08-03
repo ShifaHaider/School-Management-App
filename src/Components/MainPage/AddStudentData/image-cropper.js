@@ -29,6 +29,7 @@ export default class ImageCropper extends Component {
             loading: false,
             success: false,
             open: true,
+            imageFileObj: {}
         };
     };
 
@@ -40,6 +41,7 @@ export default class ImageCropper extends Component {
                 this.setState({src: reader.result, onSelect: true})
             );
             reader.readAsDataURL(e.target.files[0]);
+            this.setState({imageFileObj: e.target.files[0]})
         }
     };
 
@@ -87,8 +89,8 @@ export default class ImageCropper extends Component {
                     console.error("Canvas is empty");
                     return;
                 }
-                blob.name = "images";
-                this.setState({imageFile: blob});
+                blob.name = fileName;
+                this.setState({imageFile: blob,});
                 window.URL.revokeObjectURL(this.fileUrl);
                 this.fileUrl = window.URL.createObjectURL(blob);
                 this.setState({fileURL: this.fileUrl});
@@ -98,15 +100,17 @@ export default class ImageCropper extends Component {
     }
 
     fileUpload() {
+        var file = this.state.imageFile;
+        var imageFile = this.state.imageFileObj;
+        file.name = imageFile.name;
         this.setState({loading: true, onSelect: false});
-        firebase.storage().ref().child(this.state.imageFile.name).put(this.state.imageFile).then((snapshot) => {
+        firebase.storage().ref().child(file.name).put(file).then((snapshot) => {
             snapshot.ref.getDownloadURL().then((downloadURL) => {
-                // console.log(downloadURL);
                 this.props.onCropped(downloadURL);
                 this.setState({onSelect: false, loading: false, text: "Saved!!"});
             });
         });
-        this.setState({ showCrop: true});
+        this.setState({showCrop: true});
 
     }
 

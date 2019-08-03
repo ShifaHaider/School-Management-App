@@ -86,13 +86,11 @@ class Find extends Component {
             }
         }).then((data) => {
             data.json().then((foundData, error) => {
-                // console.log(foundData);
                 if (foundData.length == 0) {
                     this.setState({searchResult: "Search not found!! "})
                 }
                 else {
                     this.setState({searchResult: ""})
-
                 }
                 this.setState({loading: false, foundStudent: foundData, error: error})
             });

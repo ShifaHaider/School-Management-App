@@ -143,7 +143,7 @@ class UpdateStudent extends Component {
 
     getNewImageURL = (url) => {
         var studentDetail = this.state.studentDetail;
-         studentDetail.photoURL = url;
+        studentDetail.photoURL = url;
         this.setState({studentDetail: studentDetail});
     };
 

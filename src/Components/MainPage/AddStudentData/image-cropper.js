@@ -24,7 +24,6 @@ export default class ImageCropper extends Component {
             fileURL: '',
             downloadURL: '',
             text: '',
-            showCrop: false,
             onSelect: false,
             loading: false,
             success: false,
@@ -110,7 +109,7 @@ export default class ImageCropper extends Component {
                 this.setState({onSelect: false, loading: false, text: "Saved!!"});
             });
         });
-        this.setState({showCrop: true});
+        this.setState({src: null});
 
     }
 
@@ -142,7 +141,7 @@ export default class ImageCropper extends Component {
                                    onComplete={this.onCropComplete} onChange={this.onCropChange}
                         />}
                         <br/>
-                        {croppedImageUrl && this.state.showCrop ? (
+                        {croppedImageUrl ? (
                             <img alt="Crop" style={{maxWidth: "100%"}} src={croppedImageUrl}/>
                         ) : null}
                         <br/>

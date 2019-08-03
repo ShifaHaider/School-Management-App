@@ -239,7 +239,7 @@ class Find extends Component {
                     <Paper style={{margin: "0 16px 0 16px "}}>
                         <Table style={{minWidth: '700px'}}>
                             <TableHead>
-                                <TableRow>
+                                <TableRow style={{ textAlign: "center"}}>
                                     <TableCell>Name of Students</TableCell>
                                     <TableCell align="left">Father's Name</TableCell>
                                     <TableCell align="left">CNIC No.</TableCell>
@@ -252,7 +252,7 @@ class Find extends Component {
                             <TableBody>
                                 {this.state.foundStudent.map((student, ind) => {
                                     return (
-                                        <StyledTableRow key={ind} style={{cursor: 'pointer'}}>
+                                        <StyledTableRow key={ind} style={{cursor: 'pointer', textAlign: "center"}}>
                                             <StyledTableCell component="th" scope="row">
                                                 {student.name}
                                             </StyledTableCell>
@@ -268,7 +268,7 @@ class Find extends Component {
                                             <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}>
                                                 {student.dateOfBirth ? new Date(student.dateOfBirth).toLocaleDateString() : "-"}</StyledTableCell>
-                                            <StyledTableCell align="left" style={{textAlign: "center"}}
+                                            <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}
                                             >{student.admittedInClass}</StyledTableCell>
                                             <StyledTableCell align="left"

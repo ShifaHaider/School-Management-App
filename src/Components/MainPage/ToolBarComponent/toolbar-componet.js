@@ -22,7 +22,7 @@ class ToolBarComponent extends Component {
 
 
     handleOpen() {
-        this.setState({openMenu: true})
+        this.setState({openMenu: true});
     }
     findStudent(){
         // this.props.history.push('/main/find');

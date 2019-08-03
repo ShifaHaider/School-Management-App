@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce5b2128-fabb-4493-9843-87b1f0ad7263" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/Router/students.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/Router/students.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -118,8 +117,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="338" column="63" selection-start-line="338" selection-start-column="63" selection-end-line="338" selection-end-column="63" />
+            <state relative-caret-position="293">
+              <caret line="291" column="131" selection-start-line="291" selection-start-column="131" selection-end-line="291" selection-end-column="131" />
               <folding>
                 <element signature="e#1735#2204#0" />
                 <element signature="e#1750#1794#0" />
@@ -291,7 +290,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="1292" />
     <option name="height" value="767" />
@@ -517,12 +516,12 @@
       <workItem from="1564794699948" duration="1697000" />
       <workItem from="1564796441826" duration="1004000" />
       <workItem from="1564799021437" duration="1130000" />
-      <workItem from="1564807086604" duration="614000" />
+      <workItem from="1564807086604" duration="955000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="335558000" />
+    <option name="totallyTimeSpent" value="335899000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -927,8 +926,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="338" column="63" selection-start-line="338" selection-start-column="63" selection-end-line="338" selection-end-column="63" />
+        <state relative-caret-position="293">
+          <caret line="291" column="131" selection-start-line="291" selection-start-column="131" selection-end-line="291" selection-end-column="131" />
           <folding>
             <element signature="e#1735#2204#0" />
             <element signature="e#1750#1794#0" />

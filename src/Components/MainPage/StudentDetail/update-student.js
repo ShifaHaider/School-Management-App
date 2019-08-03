@@ -319,8 +319,10 @@ class UpdateStudent extends Component {
                                 </MuiPickersUtilsProvider>
                             </div>
                             <br/>
+                            <div style={{textAlign: "center"}}>
                             <Button variant="contained" color="primary" size='large'
                                     onClick={this.uploadPhoto.bind(this)}>Upload Photo</Button>
+                            </div>
                             {this.state.openImageCropper ?
                                 <ImageCropper onCropped={this.getNewImageURL} openImagePicker={this.openImagePicker}/>: null}<br/>
                             <Button variant="contained" color="primary" size='large' style={{float: "right"}}

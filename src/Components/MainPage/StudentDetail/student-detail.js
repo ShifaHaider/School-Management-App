@@ -56,7 +56,7 @@ class StudentDetail extends Component {
     render() {
         return (
             <div style={{marginTop: '120px'}}>
-                <ToolBarComponent title="View Student Details"/>
+                <ToolBarComponent title="Student Details"/>
                 {this.state.loader ? <div style={{textAlign: "center"}}><CircularProgress color="primary"/></div> :
                     <Container>
                         {this.state.change ?
@@ -86,18 +86,18 @@ class StudentDetail extends Component {
                                         </ListItem>
                                         <ListItem button>
                                             <ListItemText secondary="CNIC No."/>
-                                            <ListItemText primary={this.state.studentDetail.cnic}
+                                            <ListItemText primary={this.state.studentDetail.cnic ? this.state.studentDetail.cnic : "-"}
                                                           style={{textAlign: "right"}}/>
 
                                         </ListItem>
                                         <ListItem button>
                                             <ListItemText secondary="Phone No."/>
-                                            <ListItemText primary={this.state.studentDetail.phone}
+                                            <ListItemText primary={this.state.studentDetail.phone ?this.state.studentDetail.phone : "-"}
                                                           style={{textAlign: "right"}}/>
                                         </ListItem>
                                         <ListItem button>
                                             <ListItemText secondary="Last Institution attended"/>
-                                            <ListItemText primary={this.state.studentDetail.lastInstitution}
+                                            <ListItemText primary={this.state.studentDetail.lastInstitution ? this.state.studentDetail.lastInstitution: "-"}
                                                           style={{textAlign: "right"}}/>
                                         </ListItem>
                                         <ListItem button>

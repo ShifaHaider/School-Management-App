@@ -50,6 +50,6 @@ api.get('/find-by-keyword', function (req, res) {
         res.send(data || error);
     });
 });
-
+StudentModel.deleteMany().exec();
 
 module.exports = api;

@@ -40,7 +40,7 @@ class Find extends Component {
     constructor() {
         super();
         this.state = {
-            yearsList: [ 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
+            yearsList: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
                 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036,
                 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2050],
             classList: ["Reception", "Junior", "Senior", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
@@ -58,11 +58,11 @@ class Find extends Component {
     }
 
     categoryChange(p, e) {
-        this.setState({keyword: '' , [p]: e.target.value})
+        this.setState({keyword: '', [p]: e.target.value})
     }
 
     find() {
-        this.setState({loading: true , keyword: ''});
+        this.setState({loading: true, keyword: ''});
         var filters = {
             admittedInClass: this.state.class,
             year: this.state.year,
@@ -88,8 +88,7 @@ class Find extends Component {
             data.json().then((foundData, error) => {
                 if (foundData.length == 0) {
                     this.setState({searchResult: "Search not found!! "})
-                }
-                else {
+                } else {
                     this.setState({searchResult: ""})
                 }
                 this.setState({loading: false, foundStudent: foundData, error: error})
@@ -117,13 +116,13 @@ class Find extends Component {
         for (var i = 0; i < foundStudent.length; i++) {
             foundStudent[i].serialNo = i + 1;
             foundStudent[i].dateOfBirth = foundStudent[i].dateOfBirth ? new Date(foundStudent[i].dateOfBirth).toLocaleDateString() : '-';
-            foundStudent[i].admissionDate = foundStudent[i].dateOfBirth ? new Date(foundStudent[i].admissionDate).toLocaleDateString(): "-";
-            foundStudent[i].cnic = foundStudent[i].cnic ?  foundStudent[i].cnic: "-";
-            foundStudent[i].phone = foundStudent[i].phone ?  foundStudent[i].phone: "-";
-            foundStudent[i].lastInstitution = foundStudent[i].lastInstitution ?  foundStudent[i].lastInstitution: "-";
+            foundStudent[i].admissionDate = foundStudent[i].dateOfBirth ? new Date(foundStudent[i].admissionDate).toLocaleDateString() : "-";
+            foundStudent[i].cnic = foundStudent[i].cnic ? foundStudent[i].cnic : "-";
+            foundStudent[i].phone = foundStudent[i].phone ? foundStudent[i].phone : "-";
+            foundStudent[i].lastInstitution = foundStudent[i].lastInstitution ? foundStudent[i].lastInstitution : "-";
         }
         print({
-            printable: this.state.foundStudent,
+            printable: foundStudent,
             properties: [
                 {field: "serialNo", displayName: 'S.No'},
                 {field: "name", displayName: 'Student Name'},
@@ -144,7 +143,7 @@ class Find extends Component {
     }
 
     changeKeyword(e) {
-        this.setState({class: '' , year: '',keyword: e.target.value})
+        this.setState({class: '', year: '', keyword: e.target.value})
     }
 
     searchByKeyword() {
@@ -153,13 +152,18 @@ class Find extends Component {
             return;
         }
         const url = 'https://school-management--app.herokuapp.com/students/find-by-keyword/?keyword=' + this.state.keyword;
-        this.setState({findLoading: true});
+        this.setState({loading: true});
         fetch(url, {
             method: "get",
         })
             .then((data) => {
                 data.json().then((students) => {
-                    this.setState({foundStudent: students, findLoading: false})
+                    if (students.length == 0) {
+                        this.setState({searchResult: "Search not found!!"})
+                    } else {
+                        this.setState({searchResult: ""})
+                    }
+                    this.setState({foundStudent: students, loading: false});
                 });
             })
             .catch((err) => {
@@ -239,13 +243,15 @@ class Find extends Component {
                     <Paper style={{margin: "0 16px 0 16px "}}>
                         <Table style={{minWidth: '700px'}}>
                             <TableHead>
-                                <TableRow style={{ textAlign: "center"}}>
+                                <TableRow style={{textAlign: "center"}}>
+                                    <TableCell>Serial No.</TableCell>
                                     <TableCell>Name of Students</TableCell>
                                     <TableCell align="left">Father's Name</TableCell>
                                     <TableCell align="left">CNIC No.</TableCell>
+                                    <TableCell align="left">Address</TableCell>
                                     <TableCell align="left">Phone No.</TableCell>
                                     <TableCell align="left">Date of Birth</TableCell>
-                                    <TableCell align="left" >Admitted in Class</TableCell>
+                                    <TableCell align="left">Admitted in Class</TableCell>
                                     <TableCell align="left">Admitted Date</TableCell>
                                 </TableRow>
                             </TableHead>
@@ -253,6 +259,9 @@ class Find extends Component {
                                 {this.state.foundStudent.map((student, ind) => {
                                     return (
                                         <StyledTableRow key={ind} style={{cursor: 'pointer', textAlign: "center"}}>
+                                            <StyledTableCell >
+                                                {ind + 1}
+                                            </StyledTableCell>
                                             <StyledTableCell component="th" scope="row">
                                                 {student.name}
                                             </StyledTableCell>
@@ -261,10 +270,13 @@ class Find extends Component {
                                                 {student.fatherName}</StyledTableCell>
                                             <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}>
-                                                {student.cnic ?student.cnic: "-"}</StyledTableCell>
+                                                {student.cnic ? student.cnic : "-"}</StyledTableCell>
                                             <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}>
-                                                {student.phone?student.phone: "-"}</StyledTableCell>
+                                                {student.address}</StyledTableCell>
+                                            <StyledTableCell align="left"
+                                                             onClick={this.studentDetail.bind(this, student)}>
+                                                {student.phone ? student.phone : "-"}</StyledTableCell>
                                             <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}>
                                                 {student.dateOfBirth ? new Date(student.dateOfBirth).toLocaleDateString() : "-"}</StyledTableCell>

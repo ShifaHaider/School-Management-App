@@ -116,7 +116,7 @@ class AddStudents extends Component {
                 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036,
                 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2050],
             classList: ["Reception", "Junior", "Senior", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
-            year: '',
+            year: new Date().getFullYear(),
             setSelectedDate: '',
             studentImageURL: '',
             open: false,
@@ -128,15 +128,21 @@ class AddStudents extends Component {
             snackbarMessage: "",
             variant: "success",
             openImageCropper: false,
-            selectedDate: new Date()
+            selectedDate: new Date(),
+            currentClass: '',
         };
     }
 
     getStudentImageURL = (url) => {
         this.setState({studentImageURL: url});
     };
+
     saveStData() {
         var dateOfBirth = new Date(this.state.dateOfBirth).getTime();
+        var ageDifMs = Date.now() - new Date(this.state.dateOfBirth).getTime();
+        var ageDate = new Date(ageDifMs);
+        var age = Math.abs(ageDate.getFullYear() - 1970);
+        console.log(age);
         var admissionDate = new Date(this.state.admissionDate).getTime();
         var requiredData = {
             name: this.state.name,
@@ -161,7 +167,7 @@ class AddStudents extends Component {
         };
         for (var d in requiredData) {
             if (requiredData[d] == '') {
-                this.setState({ snackbarOpen: true , snackbarMessage: "Some Fields are Required!!" , variant:"error" ,});
+                this.setState({ snackbarOpen: true , snackbarMessage: "Some Fields are Required!!" , variant:"error" });
                 return;
                 break;
             } else {
@@ -181,17 +187,17 @@ class AddStudents extends Component {
                 this.setState({
                     name: "",
                     fatherName: "",
-                    dateOfBirth: "",
+                    dateOfBirth: new Date(),
                     address: "",
                     cnic: "",
                     phone: "",
                     lastInstitution: "",
                     admittedInClass: "",
-                    admissionDate: "",
+                    admissionDate: new Date(),
                     year: "",
                     loading: false,
                     open: false,
-                    // studentImageURL: "",
+                    studentImageURL: "",
                     snackbarOpen: true , snackbarMessage: "Successfully Saved!!" , variant: "success" , openImageCropper: false
                 });
             });
@@ -207,6 +213,9 @@ class AddStudents extends Component {
     changeValue(p, e) {
         if (p === "admissionDate") {
             this.setState({year: e.target.value.split("-")[0]})
+        }
+        if (p === "admittedInClass") {
+            this.setState({currentClass: e.target.value})
         }
         this.setState({[p]: e.target.value});
     }
@@ -226,6 +235,7 @@ class AddStudents extends Component {
     uploadPhoto(){
         this.setState({openImageCropper: true});
     }
+
     handleDateChange(p , e){
         if (p === "admissionDate") {
             this.setState({year: e.getFullYear()})
@@ -320,6 +330,30 @@ class AddStudents extends Component {
                                     <Select style={{ textAlign: 'left'}}
                                             value={this.state.admittedInClass}
                                             onChange={this.changeValue.bind(this, 'admittedInClass')}
+                                            input={
+                                                <FilledInput name="age" id="filled-age-simple"/>
+                                            }
+                                    >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        {this.state.classList.map((val, ind) => {
+                                            return (
+                                                <MenuItem key={ind} value={val}>{val}</MenuItem>
+                                            )
+                                        })}
+                                    </Select>
+                                </FormControl>
+                                </div>
+                                <br/>
+                                <div style={{display: "flex" , width: "100%"}}>
+                                <FormControl variant="filled" style={{flex: "1 1"}}>
+                                    <InputLabel htmlFor="filled-age-simple">
+                                        Current Class
+                                    </InputLabel>
+                                    <Select style={{ textAlign: 'left'}}
+                                            value={this.state.currentClass}
+                                            onChange={this.changeValue.bind(this, 'currentClass')}
                                             input={
                                                 <FilledInput name="age" id="filled-age-simple"/>
                                             }

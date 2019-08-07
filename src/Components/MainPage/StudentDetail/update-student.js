@@ -117,7 +117,8 @@ class UpdateStudent extends Component {
             dob : '',
             adm: "",
             openImageCropper: false,
-            newImageUrl: ''
+            newImageUrl: '',
+            currentClass: ''
         };
     }
 
@@ -148,9 +149,11 @@ class UpdateStudent extends Component {
     };
 
     updateData() {
+        console.log(this.state.currentClass);
         var studentDetail = this.state.studentDetail;
         studentDetail.dateOfBirth = new Date(studentDetail.dateOfBirth).getTime();
         studentDetail.admissionDate = new Date(studentDetail.admissionDate).getTime();
+        studentDetail.currentClass = this.state.currentClass;
         var requiredData = {
             name: this.state.studentDetail.name,
             fatherName: this.state.studentDetail.fatherName,
@@ -211,6 +214,9 @@ class UpdateStudent extends Component {
     openImagePicker=(boolean)=>{
         this.setState({openImageCropper: boolean});
     };
+    currentClass(e){
+        this.setState({currentClass: e.target.value});
+    }
     render() {
         return (
             <div>
@@ -264,6 +270,17 @@ class UpdateStudent extends Component {
                                     />}</InputMask>
                             </div><br/>
                             <div style={{display: "flex" , width: "100%"}}>
+                                <MuiPickersUtilsProvider utils={DateFnsUtils} >
+                                    <DatePicker inputVariant="filled" value={this.state.studentDetail.dateOfBirth} label='Date of Birth' onChange={this.handleDateChange.bind(this , 'dateOfBirth')} style={{flex: "1 1"}}/>
+                                </MuiPickersUtilsProvider>
+                                &nbsp;
+                                &nbsp;
+                                <MuiPickersUtilsProvider utils={DateFnsUtils} >
+                                    <DatePicker inputVariant="filled" value={this.state.studentDetail.admissionDate} label="Date of Admitted" onChange={this.handleDateChange.bind(this , "admissionDate")} style={{flex: "1 1"}}/>
+                                </MuiPickersUtilsProvider>
+                            </div>
+                            <br/>
+                            <div style={{display: "flex" , width: "100%"}}>
                             <FormControl
                                 variant="filled"
                                 style={{flex: "1 1"}}>
@@ -306,18 +323,33 @@ class UpdateStudent extends Component {
                                         )
                                     })}
                                 </Select>
+                            </FormControl>
+                                &nbsp;
+                            &nbsp;
+                            <FormControl
+                                variant="filled"
+                                         style={{flex: "1 1"}}>
+                                <InputLabel htmlFor="filled-age-simple">
+                                    Current Class
+                                </InputLabel>
+                                <Select style={{textAlign: 'left'}}
+                                    value={this.state.currentClass}
+                                        // onChange={this.changeValue.bind(this, 'admittedInClass')}
+                                        onChange={this.currentClass.bind(this)}
+                                        input={
+                                            <FilledInput name="age" id="filled-age-simple" fullWidth/>}
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    {this.state.classList.map((val, ind) => {
+                                        return (
+                                            <MenuItem key={ind} value={val}>{val}</MenuItem>
+                                        )
+                                    })}
+                                </Select>
                             </FormControl></div>
-                            <br/>
-                            <div style={{display: "flex" , width: "100%"}}>
-                                <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                                    <DatePicker inputVariant="filled" value={this.state.studentDetail.dateOfBirth} label='Date of Birth' onChange={this.handleDateChange.bind(this , 'dateOfBirth')} style={{flex: "1 1"}}/>
-                                </MuiPickersUtilsProvider>
-                                &nbsp;
-                                &nbsp;
-                                <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                                    <DatePicker inputVariant="filled" value={this.state.studentDetail.admissionDate} label="Date of Admitted" onChange={this.handleDateChange.bind(this , "admissionDate")} style={{flex: "1 1"}}/>
-                                </MuiPickersUtilsProvider>
-                            </div>
+
                             <br/>
                             <div style={{textAlign: "center"}}>
                             <Button variant="outlined" color="primary" size='large'

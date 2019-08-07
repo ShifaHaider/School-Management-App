@@ -97,6 +97,7 @@ MySnackbarContentWrapper.propTypes = {
 
 class UpdateStudent extends Component {
     constructor(props) {
+        console.log(props.studentDetail);
         super(props);
         this.state = {
             studentDetail: props.studentDetail,
@@ -132,6 +133,10 @@ class UpdateStudent extends Component {
             studentDetail.year = e.target.value.split("-")[0];
             this.setState({studentDetail: studentDetail})
         }
+        if (p === "admittedInClass") {
+            studentDetail.currentClass =  e.target.value;
+            this.setState({studentDetail:studentDetail});
+        }
         studentDetail[p] = e.target.value;
         this.setState({studentDetail: studentDetail});
     }
@@ -153,7 +158,6 @@ class UpdateStudent extends Component {
         var studentDetail = this.state.studentDetail;
         studentDetail.dateOfBirth = new Date(studentDetail.dateOfBirth).getTime();
         studentDetail.admissionDate = new Date(studentDetail.admissionDate).getTime();
-        studentDetail.currentClass = this.state.currentClass;
         var requiredData = {
             name: this.state.studentDetail.name,
             fatherName: this.state.studentDetail.fatherName,
@@ -333,9 +337,8 @@ class UpdateStudent extends Component {
                                     Current Class
                                 </InputLabel>
                                 <Select style={{textAlign: 'left'}}
-                                    value={this.state.currentClass}
-                                        // onChange={this.changeValue.bind(this, 'admittedInClass')}
-                                        onChange={this.currentClass.bind(this)}
+                                    value={this.state.studentDetail.currentClass}
+                                        onChange={this.changeValue.bind(this, 'currentClass')}
                                         input={
                                             <FilledInput name="age" id="filled-age-simple" fullWidth/>}
                                 >

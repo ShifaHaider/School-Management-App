@@ -139,11 +139,12 @@ class AddStudents extends Component {
 
     saveStData() {
         var dateOfBirth = new Date(this.state.dateOfBirth).getTime();
-        var ageDifMs = Date.now() - new Date(this.state.dateOfBirth).getTime();
-        var ageDate = new Date(ageDifMs);
-        var age = Math.abs(ageDate.getFullYear() - 1970);
-        console.log(age);
         var admissionDate = new Date(this.state.admissionDate).getTime();
+        // var ageDifMs = Date.now() - dateOfBirth;
+        // var ageDate = new Date(ageDifMs);
+        // var age = Math.abs(ageDate.getFullYear() - 1970);
+        // console.log(age);
+        console.log(this.state.currentClass);
         var requiredData = {
             name: this.state.name,
             fatherName: this.state.fatherName,
@@ -161,6 +162,7 @@ class AddStudents extends Component {
             phone: this.state.phone,
             lastInstitution: this.state.lastInstitution,
             admittedInClass: requiredData.admittedInClass,
+            currentClass: this.state.currentClass,
             admissionDate: admissionDate,
             year: requiredData.year,
             photoURL: this.state.studentImageURL,
@@ -184,6 +186,7 @@ class AddStudents extends Component {
             }
         }).then((data) => {
             data.json().then((studData) => {
+                console.log(studData);
                 this.setState({
                     name: "",
                     fatherName: "",
@@ -193,6 +196,7 @@ class AddStudents extends Component {
                     phone: "",
                     lastInstitution: "",
                     admittedInClass: "",
+                    currentClass: "",
                     admissionDate: new Date(),
                     year: "",
                     loading: false,
@@ -344,30 +348,33 @@ class AddStudents extends Component {
                                         })}
                                     </Select>
                                 </FormControl>
+                                    &nbsp;
+                                    &nbsp;
+                                    <FormControl variant="filled" style={{flex: "1 1"}}>
+                                        <InputLabel htmlFor="filled-age-simple">
+                                            Current Class
+                                        </InputLabel>
+                                        <Select style={{ textAlign: 'left'}}
+                                                value={this.state.currentClass}
+                                                onChange={this.changeValue.bind(this, 'currentClass')}
+                                                input={
+                                                    <FilledInput name="age" id="filled-age-simple"/>
+                                                }
+                                        >
+                                            <MenuItem value="">
+                                                <em>None</em>
+                                            </MenuItem>
+                                            {this.state.classList.map((val, ind) => {
+                                                return (
+                                                    <MenuItem key={ind} value={val}>{val}</MenuItem>
+                                                )
+                                            })}
+                                        </Select>
+                                    </FormControl>
                                 </div>
                                 <br/>
                                 <div style={{display: "flex" , width: "100%"}}>
-                                <FormControl variant="filled" style={{flex: "1 1"}}>
-                                    <InputLabel htmlFor="filled-age-simple">
-                                        Current Class
-                                    </InputLabel>
-                                    <Select style={{ textAlign: 'left'}}
-                                            value={this.state.currentClass}
-                                            onChange={this.changeValue.bind(this, 'currentClass')}
-                                            input={
-                                                <FilledInput name="age" id="filled-age-simple"/>
-                                            }
-                                    >
-                                        <MenuItem value="">
-                                            <em>None</em>
-                                        </MenuItem>
-                                        {this.state.classList.map((val, ind) => {
-                                            return (
-                                                <MenuItem key={ind} value={val}>{val}</MenuItem>
-                                            )
-                                        })}
-                                    </Select>
-                                </FormControl>
+
                                 </div>
                                 <br/>
                                 <div style={{textAlign: 'center'}}>

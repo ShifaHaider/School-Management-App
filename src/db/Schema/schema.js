@@ -4,15 +4,15 @@ var StudentSchema = new mongoose.Schema({
     phone: {type: String},
     photoURL: {type: String},
     dateOfBirth: {type: Number},
-    lastInstitution: {type: String},
+    currentClass: {type: String},
 
+    lastInstitution: {type: String},
     name: {type: String, required: true},
     year: {type: String, required: true},
     address: {type: String, required: true},
     fatherName: {type: String, required: true},
     admissionDate: {type: Number, required: true},
     admittedInClass: {type: String, required: true},
-    // currentClass: {type: String, required: true},
     createdAt: {type: Number, default: Date.now},
 }, {minimize: false});
 

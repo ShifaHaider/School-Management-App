@@ -3,13 +3,11 @@ var api = express.Router();
 var schema = require('../Schema/schema');
 var StudentModel = schema.StudentModel;
 
-
 api.post('/find-student', function (req, res) {
     StudentModel.find(req.body, ((error, data) => {
         res.send(data || error);
     }));
 });
-
 
 api.post('/find-student-detail', function (req, res) {
     StudentModel.findOne({_id: req.body.studentID}, ((error, data) => {
@@ -50,6 +48,6 @@ api.get('/find-by-keyword', function (req, res) {
         res.send(data || error);
     });
 });
-StudentModel.deleteMany().exec();
 
 module.exports = api;
+

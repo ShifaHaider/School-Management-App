@@ -144,7 +144,6 @@ class AddStudents extends Component {
         // var ageDate = new Date(ageDifMs);
         // var age = Math.abs(ageDate.getFullYear() - 1970);
         // console.log(age);
-        console.log(this.state.currentClass);
         var requiredData = {
             name: this.state.name,
             fatherName: this.state.fatherName,
@@ -172,10 +171,9 @@ class AddStudents extends Component {
                 this.setState({ snackbarOpen: true , snackbarMessage: "Some Fields are Required!!" , variant:"error" });
                 return;
                 break;
-            } else {
-                this.setState({dialogText: 'Saving..', open: true, loading : true})
             }
         }
+        this.setState({dialogText: 'Saving..', open: true, loading : true});
         const url = 'https://school-management--app.herokuapp.com/students/add-student';
         fetch(url, {
             method: "post",
@@ -186,7 +184,6 @@ class AddStudents extends Component {
             }
         }).then((data) => {
             data.json().then((studData) => {
-                console.log(studData);
                 this.setState({
                     name: "",
                     fatherName: "",

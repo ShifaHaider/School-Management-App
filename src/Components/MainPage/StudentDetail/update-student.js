@@ -97,7 +97,6 @@ MySnackbarContentWrapper.propTypes = {
 
 class UpdateStudent extends Component {
     constructor(props) {
-        console.log(props.studentDetail);
         super(props);
         this.state = {
             studentDetail: props.studentDetail,
@@ -119,7 +118,6 @@ class UpdateStudent extends Component {
             adm: "",
             openImageCropper: false,
             newImageUrl: '',
-            currentClass: ''
         };
     }
 
@@ -154,7 +152,6 @@ class UpdateStudent extends Component {
     };
 
     updateData() {
-        console.log(this.state.currentClass);
         var studentDetail = this.state.studentDetail;
         studentDetail.dateOfBirth = new Date(studentDetail.dateOfBirth).getTime();
         studentDetail.admissionDate = new Date(studentDetail.admissionDate).getTime();
@@ -218,9 +215,6 @@ class UpdateStudent extends Component {
     openImagePicker=(boolean)=>{
         this.setState({openImageCropper: boolean});
     };
-    currentClass(e){
-        this.setState({currentClass: e.target.value});
-    }
     render() {
         return (
             <div>

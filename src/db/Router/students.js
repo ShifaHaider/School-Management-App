@@ -48,6 +48,12 @@ api.get('/find-by-keyword', function (req, res) {
         res.send(data || error);
     });
 });
+api.get('/find-by-date-of-birth', function (req, res) {
+    StudentModel.find({dateOfBirth: {$gte: req.query.startDate , $lte: req.query.endDate}}).exec((error, data) => {
+        res.send(data || error);
+    });
+});
+
 
 module.exports = api;
 

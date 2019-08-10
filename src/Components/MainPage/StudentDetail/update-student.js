@@ -106,7 +106,7 @@ class UpdateStudent extends Component {
                 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
                 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043,
                 2044, 2045, 2046, 2047, 2048, 2049, 2050],
-            classList: ["Reception", "Junior", "Senior", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
+            classList: ["Reception", "Junior", "Senior","P.P.I", "P.P.II", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
             open: false,
             dialogText: "",
             loading: false,
@@ -215,6 +215,9 @@ class UpdateStudent extends Component {
     openImagePicker=(boolean)=>{
         this.setState({openImageCropper: boolean});
     };
+    cancelPage(){
+        this.props.afterComplete(false)
+    }
     render() {
         return (
             <div>
@@ -269,12 +272,14 @@ class UpdateStudent extends Component {
                             </div><br/>
                             <div style={{display: "flex" , width: "100%"}}>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                                    <DatePicker inputVariant="filled" value={this.state.studentDetail.dateOfBirth} label='Date of Birth' onChange={this.handleDateChange.bind(this , 'dateOfBirth')} style={{flex: "1 1"}}/>
+                                    <DatePicker disableFuture openTo="year" format="dd/MM/yyyy" views={["year", "month", "date"]}
+                                        inputVariant="filled" value={this.state.studentDetail.dateOfBirth} label='Date of Birth' onChange={this.handleDateChange.bind(this , 'dateOfBirth')} style={{flex: "1 1"}}/>
                                 </MuiPickersUtilsProvider>
                                 &nbsp;
                                 &nbsp;
                                 <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                                    <DatePicker inputVariant="filled" value={this.state.studentDetail.admissionDate} label="Date of Admitted" onChange={this.handleDateChange.bind(this , "admissionDate")} style={{flex: "1 1"}}/>
+                                    <DatePicker disableFuture openTo="year" format="dd/MM/yyyy" views={["year", "month", "date"]}
+                                        inputVariant="filled" value={this.state.studentDetail.admissionDate} label="Date of Admitted" onChange={this.handleDateChange.bind(this , "admissionDate")} style={{flex: "1 1"}}/>
                                 </MuiPickersUtilsProvider>
                             </div>
                             <br/>
@@ -355,7 +360,9 @@ class UpdateStudent extends Component {
                             {this.state.openImageCropper ?
                                 <ImageCropper onCropped={this.getNewImageURL} openImagePicker={this.openImagePicker}/>: null}<br/>
                             <Button variant="contained" color="primary" size='large' style={{float: "right"}}
-                                    onClick={this.updateData.bind(this)}>Update</Button><br/><br/>
+                                    onClick={this.updateData.bind(this)}>Update</Button>
+                            <Button  color="primary" size='large' style={{float: "right"}}
+                                    onClick={this.cancelPage.bind(this)}>Cancel</Button><br/><br/>
                         </CardContent>
                     </Card>
                 </Container>

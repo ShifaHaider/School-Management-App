@@ -108,7 +108,12 @@ class StudentDetail extends Component {
                                         </ListItem>
                                         <ListItem button>
                                             <ListItemText secondary="Admitted in Class"/>
-                                            <ListItemText primary={this.state.studentDetail.admittedInClass}
+                                            <ListItemText primary={this.state.studentDetail.admittedInClass?this.state.studentDetail.admittedInClass: "-"}
+                                                          style={{textAlign: "right"}}/>
+                                        </ListItem>
+                                        <ListItem button>
+                                            <ListItemText secondary="Current Class"/>
+                                            <ListItemText primary={this.state.studentDetail.currentClass?this.state.studentDetail.currentClass:"-"}
                                                           style={{textAlign: "right"}}/>
                                         </ListItem>
                                     </List>

@@ -16,7 +16,10 @@ import print from 'print-js'
 import MenuItem from '@material-ui/core/MenuItem';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from '@material-ui/core/TextField';
+import DateFnsUtils from "@date-io/date-fns";
+import {DatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
 
+import { makeStyles } from '@material-ui/core/styles';
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -36,6 +39,39 @@ const StyledTableRow = withStyles(theme => ({
     },
 }))(TableRow);
 
+const drawerWidth = 240;
+const useStyles = makeStyles(theme => ({
+    root: {
+        display: 'flex',
+    },
+    drawer: {
+        [theme.breakpoints.up('sm')]: {
+            width: drawerWidth,
+            flexShrink: 0,
+        },
+    },
+    appBar: {
+        marginLeft: drawerWidth,
+        [theme.breakpoints.up('sm')]: {
+            width: `calc(100% - ${drawerWidth}px)`,
+        },
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+        [theme.breakpoints.up('sm')]: {
+            display: 'none',
+        },
+    },
+    toolbar: theme.mixins.toolbar,
+    drawerPaper: {
+        width: drawerWidth,
+    },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing(3),
+    },
+}));
+
 class Find extends Component {
     constructor() {
         super();
@@ -52,7 +88,12 @@ class Find extends Component {
             keyword: '',
             findLoading: false,
             error: "",
-            searchResult: ""
+            searchResult: "",
+            startDOF: Date.now() - (1000*60*60*24*365),
+            endDOF: Date.now(),
+            dateLoading: false,
+            showPrintButton: false,
+            printButton: false,
 
         };
     }
@@ -89,7 +130,7 @@ class Find extends Component {
                 if (foundData.length == 0) {
                     this.setState({searchResult: "Search not found!! "})
                 } else {
-                    this.setState({searchResult: ""})
+                    this.setState({searchResult: "" ,  printButton: true})
                 }
                 this.setState({loading: false, foundStudent: foundData, error: error})
             });
@@ -161,7 +202,7 @@ class Find extends Component {
                     if (students.length == 0) {
                         this.setState({searchResult: "Search not found!!"})
                     } else {
-                        this.setState({searchResult: ""})
+                        this.setState({searchResult: "" , printButton: true})
                     }
                     this.setState({foundStudent: students, loading: false});
                 });
@@ -170,7 +211,37 @@ class Find extends Component {
                 console.log(err);
             });
     }
+    handleDateChange(p , e){
+        this.setState({[p]: e});
+    }
+    searchByDOB(){
+        var startDate = new Date(this.state.startDOF).getTime();
+        var endDate = new Date(this.state.endDOF).getTime();
+        const url = 'https://school-management--app.herokuapp.com/students/find-by-date-of-birth/?startDate=' + startDate + '&endDate='+ endDate;
+        this.setState({dateLoading: true});
+        fetch(url, {
+            method: "get",
+        })
+            .then((data) => {
+                data.json().then((students) => {
+                    if (students.length == 0) {
+                        this.setState({searchResult: "Search not found!!"});
+                    } else {
+                        this.setState({searchResult: "" })
+                    }
+                    this.setState({foundStudent: students, dateLoading: false , showPrintButton: true , printButton: false});
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
 
+    handleKeyPress(e){
+        if(e.key === "Enter"){
+            this.searchByKeyword();
+        }
+    }
     render() {
         return (
             <div>
@@ -221,6 +292,7 @@ class Find extends Component {
                                label="Search by keyword"
                                value={this.state.keyword}
                                onChange={this.changeKeyword.bind(this)}
+                               onKeyPress={this.handleKeyPress.bind(this)}
                                margin="normal"
                                variant="filled"/>
                     &nbsp;
@@ -233,12 +305,40 @@ class Find extends Component {
                     &nbsp;
                     &nbsp;
                     &nbsp;
-                    {this.state.foundStudent.length !== 0 ?
+                    {this.state.printButton ?
                         <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
                                 onClick={this.print.bind(this)}>Print</Button>
                         : null}
-                    {this.state.searchResult ? <h3 style={{textAlign: "center"}}>{this.state.searchResult}</h3> : ''}
                 </div>
+                <div style={{textAlign: "center" , margin: '12px auto 0'}}>
+                    <MuiPickersUtilsProvider utils={DateFnsUtils} style={{}}>
+                        <DatePicker disableFuture openTo="year" format="dd/MM/yyyy" views={["year", "month", "date"]} inputVariant="filled"
+                                    value={this.state.startDOF} label=' Start Date' onChange={this.handleDateChange.bind(this , 'startDOF')} style={{flex: "1 1" , width: '250px'}}/>
+                    </MuiPickersUtilsProvider>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <MuiPickersUtilsProvider utils={DateFnsUtils} style={{width: '250px'}}>
+                        <DatePicker inputVariant="filled" disableFuture openTo="year" format="dd/MM/yyyy" views={["year", "month", "date"]}
+                                    value={this.state.endDOF} label='End Date' onChange={this.handleDateChange.bind(this , 'endDOF')} style={{flex: "1 1" ,width: '250px'}}/>
+                    </MuiPickersUtilsProvider>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
+                            onClick={this.searchByDOB.bind(this)}> Find {this.state.dateLoading ? <div> &nbsp;&nbsp;
+                        <CircularProgress style={{width: "20px", height: "20px", color: 'white'}}/>
+                    </div> : null}</Button>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    {this.state.showPrintButton  ?
+                        <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}
+                                onClick={this.print.bind(this)}>Print</Button>
+                        : null}
+                </div>
+
+                {this.state.searchResult ? <div><br/><h3 style={{textAlign: "center"}}>{this.state.searchResult}</h3></div> : ''}
                 {this.state.foundStudent.length !== 0 ?
                     <Paper style={{margin: "0 16px 0 16px "}}>
                         <Table style={{minWidth: '700px'}}>
@@ -251,6 +351,7 @@ class Find extends Component {
                                     <TableCell align="left">Address</TableCell>
                                     <TableCell align="left">Phone No.</TableCell>
                                     <TableCell align="left">Date of Birth</TableCell>
+                                    <TableCell align="left">Current Class</TableCell>
                                     <TableCell align="left">Admitted in Class</TableCell>
                                     <TableCell align="left">Admitted Date</TableCell>
                                 </TableRow>
@@ -280,6 +381,9 @@ class Find extends Component {
                                             <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}>
                                                 {student.dateOfBirth ? new Date(student.dateOfBirth).toLocaleDateString() : "-"}</StyledTableCell>
+                                            <StyledTableCell align="left"
+                                                             onClick={this.studentDetail.bind(this, student)}
+                                            >{student.currentClass}</StyledTableCell>
                                             <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}
                                             >{student.admittedInClass}</StyledTableCell>

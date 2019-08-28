@@ -49,7 +49,7 @@ api.get('/find-by-keyword', function (req, res) {
     });
 });
 api.get('/find-by-date-of-birth', function (req, res) {
-    StudentModel.find({dateOfBirth: {$gte: req.query.startDate , $lte: req.query.endDate}}).exec((error, data) => {
+    StudentModel.find({dateOfBirth: {$gte: req.query.startDate, $lte: req.query.endDate}}).exec((error, data) => {
         res.send(data || error);
     });
 });

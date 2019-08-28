@@ -5,6 +5,7 @@ import ReactVirtualizedTable from './Find/table';
 import AddStudents from './AddStudentData/add-student';
 import StudentDetail from "./StudentDetail/student-detail";
 import UpdateStudent from "./StudentDetail/update-student";
+import StudentDetailPrint from "./StudentDetail/student-detail-print";
 
 
 class Main extends Component {
@@ -22,6 +23,7 @@ class Main extends Component {
                         <Route path="/main/add-student" component={AddStudents}/>
                         <Route path="/main/view-student-detail/:id" exact component={StudentDetail}/>
                         <Route path="/main/update-student" exact component={UpdateStudent}/>
+                        <Route path="/main/student-detail-print" exact component={StudentDetailPrint}/>
                     </div>
                 </Router>
             </div>

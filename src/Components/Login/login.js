@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
 import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -21,6 +20,8 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import ErrorIcon from '@material-ui/icons/Error';
 import InfoIcon from '@material-ui/icons/Info';
 import CloseIcon from '@material-ui/icons/Close';
+import Logo from "../../Logo/vBgXFc.png";
+
 const useStyles1 = makeStyles(theme => ({
     success: {
         backgroundColor: green[600],
@@ -64,7 +65,9 @@ function MySnackbarContentWrapper(props) {
             aria-describedby="client-snackbar"
             message={
                 <span id="client-snackbar" className={classes.message}>
-          <Icon className={clsx(classes.icon, classes.iconVariant)} />
+          <Icon
+              className={clsx(classes.icon, classes.iconVariant)}
+          />
                     {message}
         </span>
             }
@@ -111,9 +114,9 @@ class Login extends Component {
             .catch((error) => {
                 this.setState({ snackbarOpen: true , snackbarMessage: error.message });
                 console.log(error.message);
-
             });
     }
+
     snackbarClose(){
         this.setState({snackbarOpen: false});
     }
@@ -121,9 +124,10 @@ class Login extends Component {
     render() {
         return (
             <div className='App'>
-                <AppBar position="static">
-                    <Toolbar><Typography color="inherit"
-                   style={{fontSize: '20px'}}>LOGIN</Typography></Toolbar>
+                <AppBar position="static" style={{backgroundColor: "#E8E8E8" , color: "#00897b" }}>
+                    <Toolbar>
+                        <img src={Logo} alt="" height='55px' width='75px'/>
+                    </Toolbar>
                 </AppBar>
                 <Container maxWidth="sm">
                 <Card className='cardStyle' style={{textAlign: 'center', height: '330px', marginTop: '100px'}}>
@@ -172,3 +176,8 @@ class Login extends Component {
 }
 
 export default Login;
+
+
+
+
+

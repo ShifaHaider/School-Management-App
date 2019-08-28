@@ -78,7 +78,9 @@ function MySnackbarContentWrapper(props) {
             aria-describedby="client-snackbar"
             message={
                 <span id="client-snackbar" className={classes.message}>
-          <Icon className={clsx(classes.icon, classes.iconVariant)} />
+          <Icon
+              className={clsx(classes.icon, classes.iconVariant)}
+          />
                     {message}
         </span>
             }
@@ -248,7 +250,7 @@ class AddStudents extends Component {
             <div>
                 <ToolBarComponent title="Add Student"/>
                 <div style={{marginTop: '120px'}}>
-                    <Container maxWidth="md">
+                     <Container maxWidth="md">
                         <Card style={{margin: '20px 0 15px 0'}}>
                             <CardContent>
                                 <div style={{display: "flex" , width: "100%"}}>

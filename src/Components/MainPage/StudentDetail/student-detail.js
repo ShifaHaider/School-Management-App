@@ -54,7 +54,7 @@ class StudentDetail extends Component {
     };
 
     print() {
-       var w = window.open("/main/student-detail-print",
+      window.open("/main/student-detail-print",
             'popUpWindow', 'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
          localStorage.setItem("studentData" , JSON.stringify(this.state.studentDetail));
     }

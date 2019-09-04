@@ -72,14 +72,10 @@ function MySnackbarContentWrapper(props) {
         <SnackbarContent
             className={clsx(classes[variant], className)}
             aria-describedby="client-snackbar"
-            message={
-                <span id="client-snackbar" className={classes.message}>
-          <Icon
-              className={clsx(classes.icon, classes.iconVariant)}
-          />
+            message={<span id="client-snackbar" className={classes.message}>
+          <Icon className={clsx(classes.icon, classes.iconVariant)}/>
                     {message}
-        </span>
-            }
+        </span>}
             action={[
                 <IconButton key="close" aria-label="close" color="inherit" onClick={onClose}>
                     <CloseIcon className={classes.icon}/>
@@ -102,13 +98,13 @@ class UpdateStudent extends Component {
         super(props);
         this.state = {
             studentDetail: props.studentDetail,
-            yearsList: [ 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
+            yearsList: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,
                 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036,
                 2037, 2038, 2039, 2040, 2041, 2042, 2043, 2044, 2045, 2046, 2047, 2048, 2049, 2000, 2001, 2002, 2003, 2004, 2005,
                 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
                 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039, 2040, 2041, 2042, 2043,
                 2044, 2045, 2046, 2047, 2048, 2049, 2050],
-            classList: ["Reception", "Junior", "Senior","P.P.I", "P.P.II", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
+            classList: ["Reception", "Junior", "Senior", "P.P.I", "P.P.II", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
             open: false,
             dialogText: "",
             loading: false,
@@ -116,7 +112,7 @@ class UpdateStudent extends Component {
             snackbarOpen: false,
             snackbarMessage: "",
             variant: "success",
-            dob : '',
+            dob: '',
             adm: "",
             openImageCropper: false,
             newImageUrl: '',
@@ -134,8 +130,8 @@ class UpdateStudent extends Component {
             this.setState({studentDetail: studentDetail})
         }
         if (p === "admittedInClass") {
-            studentDetail.currentClass =  e.target.value;
-            this.setState({studentDetail:studentDetail});
+            studentDetail.currentClass = e.target.value;
+            this.setState({studentDetail: studentDetail});
         }
         studentDetail[p] = e.target.value;
         this.setState({studentDetail: studentDetail});
@@ -184,7 +180,12 @@ class UpdateStudent extends Component {
             }
         }).then((data) => {
             data.json().then((studData) => {
-                this.setState({open: false,snackbarOpen: true, snackbarMessage: "Successfully Saved!!", variant: "success"});
+                this.setState({
+                    open: false,
+                    snackbarOpen: true,
+                    snackbarMessage: "Successfully Saved!!",
+                    variant: "success"
+                });
                 this.props.afterComplete(false)
             });
         })
@@ -201,10 +202,11 @@ class UpdateStudent extends Component {
         this.setState({snackbarOpen: false});
     }
 
-    uploadPhoto(){
+    uploadPhoto() {
         this.setState({openImageCropper: true});
     }
-    handleDateChange(p , e){
+
+    handleDateChange(p, e) {
         var studentDetail = this.state.studentDetail;
         studentDetail[p] = e;
         if (p === "admissionDate") {
@@ -214,156 +216,168 @@ class UpdateStudent extends Component {
         this.setState({studentDetail: studentDetail});
     }
 
-    openImagePicker=(boolean)=>{
+    openImagePicker = (boolean) => {
         this.setState({openImageCropper: boolean});
     };
-    cancelPage(){
+
+    cancelPage() {
         this.props.afterComplete(false)
     }
+
     render() {
         return (
             <div>
                 <Container maxWidth="md">
                     <Card>
                         <CardContent>
-                            <div style={{display: "flex" , width: "100%"}}>
-                            <TextField id="outlined-name" label="Name of Student"  margin="normal"
-                                       variant="filled"
-                                       style={{flex: "1 1"}}
-                                value={this.state.studentDetail.name}
-                                       onChange={this.changeValue.bind(this, 'name')}/>
-                            &nbsp;
-                            &nbsp;
-                            <TextField id="outlined-name" label="Father's Name"  margin="normal"
-                                       variant="filled"
-                                       style={{flex: "1 1"}}
-                                value={this.state.studentDetail.fatherName}
-                                       onChange={this.changeValue.bind(this, 'fatherName')}/>
+                            <div style={{display: "flex", width: "100%"}}>
+                                <TextField id="outlined-name" label="Name of Student" margin="normal"
+                                           variant="filled"
+                                           style={{flex: "1 1"}}
+                                           value={this.state.studentDetail.name}
+                                           onChange={this.changeValue.bind(this, 'name')}/>
+                                &nbsp;
+                                &nbsp;
+                                <TextField id="outlined-name" label="Father's Name" margin="normal"
+                                           variant="filled"
+                                           style={{flex: "1 1"}}
+                                           value={this.state.studentDetail.fatherName}
+                                           onChange={this.changeValue.bind(this, 'fatherName')}/>
                             </div>
-                            <div style={{display: "flex" , width: "100%"}}>
-                            <TextField id="outlined-name" label="Address"  margin="normal"
-                                       variant="filled"
-                                value={this.state.studentDetail.address}
-                                       style={{flex: "1 1"}}
-                                       onChange={this.changeValue.bind(this, 'address')}/>
-                            &nbsp;
-                            &nbsp;
-                                <TextField id="outlined-name" label="Last Institution Name"  margin="normal"
+                            <div style={{display: "flex", width: "100%"}}>
+                                <TextField id="outlined-name" label="Address" margin="normal"
+                                           variant="filled"
+                                           value={this.state.studentDetail.address}
+                                           style={{flex: "1 1"}}
+                                           onChange={this.changeValue.bind(this, 'address')}/>
+                                &nbsp;
+                                &nbsp;
+                                <TextField id="outlined-name" label="Last Institution Name" margin="normal"
                                            variant="filled"
                                            style={{flex: "1 1"}}
                                            value={this.state.studentDetail.lastInstitution}
                                            onChange={this.changeValue.bind(this, 'lastInstitution')}/>
                             </div>
-                            <div style={{display: "flex" , width: "100%"}}>
-                            <InputMask mask="9999-9999999"
-                                value={this.state.studentDetail.phone}
-                                       onChange={this.changeValue.bind(this, 'phone')}>
-                                {() => <TextField id="outlined-name" label="Phone No."  margin="normal"
-                                                  variant="filled"
-                                                  style={{flex: "1 1"}}
-                                />}</InputMask>
-                            &nbsp;
-                            &nbsp;
-                                <InputMask mask="99999-9999999-9"
-                                           value={this.state.studentDetail.cnic}
-                                           onChange={this.changeValue.bind(this, 'cnic')}>
-                                    {() => <TextField id="outlined-name" label="CNIC No."  margin="normal"
+                            <div style={{display: "flex", width: "100%"}}>
+                                <InputMask mask="9999-9999999"
+                                           value={this.state.studentDetail.phone}
+                                           onChange={this.changeValue.bind(this, 'phone')}>
+                                    {() => <TextField id="outlined-name" label="Phone No." margin="normal"
                                                       variant="filled"
                                                       style={{flex: "1 1"}}
                                     />}</InputMask>
-                            </div><br/>
-                            <div style={{display: "flex" , width: "100%"}}>
-                                <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                                    <DatePicker disableFuture openTo="year" format="dd/MM/yyyy" views={["year", "month", "date"]}
-                                        inputVariant="filled" value={this.state.studentDetail.dateOfBirth} label='Date of Birth' onChange={this.handleDateChange.bind(this , 'dateOfBirth')} style={{flex: "1 1"}}/>
+                                &nbsp;
+                                &nbsp;
+                                <InputMask mask="99999-9999999-9"
+                                           value={this.state.studentDetail.cnic}
+                                           onChange={this.changeValue.bind(this, 'cnic')}>
+                                    {() => <TextField id="outlined-name" label="CNIC No." margin="normal"
+                                                      variant="filled"
+                                                      style={{flex: "1 1"}}
+                                    />}</InputMask>
+                            </div>
+                            <br/>
+                            <div style={{display: "flex", width: "100%"}}>
+                                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                    <DatePicker disableFuture openTo="year" format="dd/MM/yyyy"
+                                                views={["year", "month", "date"]}
+                                                inputVariant="filled" value={this.state.studentDetail.dateOfBirth}
+                                                label='Date of Birth'
+                                                onChange={this.handleDateChange.bind(this, 'dateOfBirth')}
+                                                style={{flex: "1 1"}}/>
                                 </MuiPickersUtilsProvider>
                                 &nbsp;
                                 &nbsp;
-                                <MuiPickersUtilsProvider utils={DateFnsUtils} >
-                                    <DatePicker disableFuture openTo="year" format="dd/MM/yyyy" views={["year", "month", "date"]}
-                                        inputVariant="filled" value={this.state.studentDetail.admissionDate} label="Date of Admitted" onChange={this.handleDateChange.bind(this , "admissionDate")} style={{flex: "1 1"}}/>
+                                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                    <DatePicker disableFuture openTo="year" format="dd/MM/yyyy"
+                                                views={["year", "month", "date"]}
+                                                inputVariant="filled" value={this.state.studentDetail.admissionDate}
+                                                label="Date of Admitted"
+                                                onChange={this.handleDateChange.bind(this, "admissionDate")}
+                                                style={{flex: "1 1"}}/>
                                 </MuiPickersUtilsProvider>
                             </div>
                             <br/>
-                            <div style={{display: "flex" , width: "100%"}}>
-                            <FormControl
-                                variant="filled"
-                                style={{flex: "1 1"}}>
-                                <InputLabel htmlFor="filled-age-simple">Year</InputLabel>
-                                <Select style={{textAlign: 'left'}}
-                                    value={this.state.studentDetail.year}
-                                        onChange={this.changeYear.bind(this)}
-                                        input={
-                                            <FilledInput name="age" id="filled-age-simple" fullWidth/>}>
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    {this.state.yearsList.map((val, ind) => {
-                                        return (
-                                            <MenuItem key={ind} value={val}>{val}</MenuItem>
-                                        )
-                                    })}
-                                </Select>
-                            </FormControl>
-                            &nbsp;
-                            &nbsp;
-                            <FormControl
-                                variant="filled"
-                                         style={{flex: "1 1"}}>
-                                <InputLabel htmlFor="filled-age-simple">
-                                    Admitted in Class
-                                </InputLabel>
-                                <Select style={{textAlign: 'left'}}
-                                    value={this.state.studentDetail.admittedInClass}
-                                        onChange={this.changeValue.bind(this, 'admittedInClass')}
-                                        input={
-                                            <FilledInput name="age" id="filled-age-simple" fullWidth/>}
-                                >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    {this.state.classList.map((val, ind) => {
-                                        return (
-                                            <MenuItem key={ind} value={val}>{val}</MenuItem>
-                                        )
-                                    })}
-                                </Select>
-                            </FormControl>
+                            <div style={{display: "flex", width: "100%"}}>
+                                <FormControl
+                                    variant="filled"
+                                    style={{flex: "1 1"}}>
+                                    <InputLabel htmlFor="filled-age-simple">Year</InputLabel>
+                                    <Select style={{textAlign: 'left'}}
+                                            value={this.state.studentDetail.year}
+                                            onChange={this.changeYear.bind(this)}
+                                            input={
+                                                <FilledInput name="age" id="filled-age-simple" fullWidth/>}>
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        {this.state.yearsList.map((val, ind) => {
+                                            return (
+                                                <MenuItem key={ind} value={val}>{val}</MenuItem>
+                                            )
+                                        })}
+                                    </Select>
+                                </FormControl>
                                 &nbsp;
-                            &nbsp;
-                            <FormControl
-                                variant="filled"
-                                         style={{flex: "1 1"}}>
-                                <InputLabel htmlFor="filled-age-simple">
-                                    Current Class
-                                </InputLabel>
-                                <Select style={{textAlign: 'left'}}
-                                    value={this.state.studentDetail.currentClass}
-                                        onChange={this.changeValue.bind(this, 'currentClass')}
-                                        input={
-                                            <FilledInput name="age" id="filled-age-simple" fullWidth/>}
-                                >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    {this.state.classList.map((val, ind) => {
-                                        return (
-                                            <MenuItem key={ind} value={val}>{val}</MenuItem>
-                                        )
-                                    })}
-                                </Select>
-                            </FormControl></div>
+                                &nbsp;
+                                <FormControl
+                                    variant="filled"
+                                    style={{flex: "1 1"}}>
+                                    <InputLabel htmlFor="filled-age-simple">
+                                        Admitted in Class
+                                    </InputLabel>
+                                    <Select style={{textAlign: 'left'}}
+                                            value={this.state.studentDetail.admittedInClass}
+                                            onChange={this.changeValue.bind(this, 'admittedInClass')}
+                                            input={
+                                                <FilledInput name="age" id="filled-age-simple" fullWidth/>}
+                                    >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        {this.state.classList.map((val, ind) => {
+                                            return (
+                                                <MenuItem key={ind} value={val}>{val}</MenuItem>
+                                            )
+                                        })}
+                                    </Select>
+                                </FormControl>
+                                &nbsp;
+                                &nbsp;
+                                <FormControl
+                                    variant="filled"
+                                    style={{flex: "1 1"}}>
+                                    <InputLabel htmlFor="filled-age-simple">
+                                        Current Class
+                                    </InputLabel>
+                                    <Select style={{textAlign: 'left'}}
+                                            value={this.state.studentDetail.currentClass}
+                                            onChange={this.changeValue.bind(this, 'currentClass')}
+                                            input={
+                                                <FilledInput name="age" id="filled-age-simple" fullWidth/>}
+                                    >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        {this.state.classList.map((val, ind) => {
+                                            return (
+                                                <MenuItem key={ind} value={val}>{val}</MenuItem>
+                                            )
+                                        })}
+                                    </Select>
+                                </FormControl></div>
 
                             <br/>
                             <div style={{textAlign: "center"}}>
-                            <Button variant="outlined" color="primary" size='large'
-                                    onClick={this.uploadPhoto.bind(this)}>Upload Photo</Button>
+                                <Button variant="outlined" color="primary" size='large'
+                                        onClick={this.uploadPhoto.bind(this)}>Upload Photo</Button>
                             </div>
                             {this.state.openImageCropper ?
-                                <ImageCropper onCropped={this.getNewImageURL} openImagePicker={this.openImagePicker}/>: null}<br/>
+                                <ImageCropper onCropped={this.getNewImageURL}
+                                              openImagePicker={this.openImagePicker}/> : null}<br/>
                             <Button variant="contained" color="primary" size='large' style={{float: "right"}}
                                     onClick={this.updateData.bind(this)}>Update</Button>
-                            <Button  color="primary" size='large' style={{float: "right"}}
+                            <Button color="primary" size='large' style={{float: "right"}}
                                     onClick={this.cancelPage.bind(this)}>Cancel</Button><br/><br/>
                         </CardContent>
                     </Card>
@@ -373,7 +387,7 @@ class UpdateStudent extends Component {
                         onClose={this.handleClose.bind(this)}
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description">
-                    <DialogContent style={{textAlign: "center" , paddingTop: "30px"}}>
+                    <DialogContent style={{textAlign: "center", paddingTop: "30px"}}>
                         {this.state.loading ? <CircularProgress color="primary"/> : null}
                         <Typography>{this.state.dialogText}</Typography>
                     </DialogContent>

@@ -1,4 +1,4 @@
-import React, {Component , useState} from 'react';
+import React, {Component } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
@@ -93,6 +93,7 @@ function MySnackbarContentWrapper(props) {
         />
     );
 }
+
 MySnackbarContentWrapper.propTypes = {
     className: PropTypes.string,
     message: PropTypes.string,
@@ -174,32 +175,32 @@ class AddStudents extends Component {
         this.setState({dialogText: 'Saving..', open: true, loading : true});
         const url = 'https://school-management--app.herokuapp.com/students/add-student';
         fetch(url, {
-            method: "post",
-            body: JSON.stringify(studentData),
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            }
-        }).then((data) => {
-            data.json().then((studData) => {
-                this.setState({
-                    name: "",
-                    fatherName: "",
-                    dateOfBirth: new Date(),
-                    address: "",
-                    cnic: "",
-                    phone: "",
-                    lastInstitution: "",
-                    admittedInClass: "",
-                    currentClass: "",
-                    admissionDate: new Date(),
-                    year: "",
-                    loading: false,
-                    open: false,
-                    studentImageURL: "",
-                    snackbarOpen: true , snackbarMessage: "Successfully Saved!!" , variant: "success" , openImageCropper: false
+                method: "post",
+                body: JSON.stringify(studentData),
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                }
+            }).then((data) => {
+                data.json().then((studData) => {
+                    this.setState({
+                        name: "",
+                        fatherName: "",
+                        dateOfBirth: new Date(),
+                        address: "",
+                        cnic: "",
+                        phone: "",
+                        lastInstitution: "",
+                        admittedInClass: "",
+                        currentClass: "",
+                        admissionDate: new Date(),
+                        year: "",
+                        loading: false,
+                        open: false,
+                        studentImageURL: "",
+                        snackbarOpen: true , snackbarMessage: "Successfully Saved!!" , variant: "success" , openImageCropper: false
+                    });
                 });
-            });
         })
             .catch((err) => {
                 this.setState({open: true, err});

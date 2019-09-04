@@ -1,7 +1,15 @@
 var express = require("express");
+var json2xls = require('json2xls');
 var api = express.Router();
 var schema = require('../Schema/schema');
 var StudentModel = schema.StudentModel;
+
+
+api.use(json2xls.middleware);
+api.post('/create-xls-file', function (req, res) {
+    res.xls('data.xlsx', req.body);
+});
+
 
 api.post('/find-student', function (req, res) {
     StudentModel.find(req.body, ((error, data) => {
@@ -15,7 +23,6 @@ api.post('/find-student-detail', function (req, res) {
     }));
 });
 
-
 api.post('/add-student', function (req, res) {
     var studentModel = new StudentModel(req.body);
     studentModel.save(function (error, data) {
@@ -24,14 +31,12 @@ api.post('/add-student', function (req, res) {
     });
 });
 
-
 api.post('/update-student-profile', function (req, res) {
     console.log(req.body);
     StudentModel.update({_id: req.body.studentID}, (req.body.updatedData), function (error, data) {
         res.send(data || error);
     })
 });
-
 
 api.get('/find-by-keyword', function (req, res) {
     var regexQuery = {
@@ -48,6 +53,7 @@ api.get('/find-by-keyword', function (req, res) {
         res.send(data || error);
     });
 });
+
 api.get('/find-by-date-of-birth', function (req, res) {
     StudentModel.find({dateOfBirth: {$gte: req.query.startDate, $lte: req.query.endDate}}).exec((error, data) => {
         res.send(data || error);

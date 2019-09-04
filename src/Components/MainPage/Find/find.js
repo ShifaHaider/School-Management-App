@@ -26,7 +26,9 @@ import SpeedDialAction from '@material-ui/lab/SpeedDialAction';
 import PrintIcon from '@material-ui/icons/Print';
 import TruncatePipe from './truncate';
 import Tooltip from '@material-ui/core/Tooltip';
-
+import Icon from "../../../Images/icons8-material-rounded-icons-24.png";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
 const StyledTableCell = withStyles(theme => ({
     head: {
         backgroundColor: theme.palette.common.black,
@@ -46,16 +48,21 @@ const StyledTableRow = withStyles(theme => ({
 
 const actions = [
     {
-        icon: <svg xmlns="http://www.w3.org/2000/svg"
-                   width="24" height="24" viewBox="0 0 24 24">
-            <path fill="none" d="M0 0h24v24H0V0z"/>
-            <path fill="#010101" d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/>
-        </svg>, name: 'Download'
+        icon: <img src={Icon} width="24" height="24"/>, name: 'Download as JSON'
     },
-    {icon: <PrintIcon/>, name: 'Print'},
+    {
+        icon:
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="24" height="24" fill="#000000">
+                <path
+                    d="M 15 3 A 2 2 0 0 0 14.599609 3.0429688 L 14.597656 3.0410156 L 4.6289062 5.0351562 L 4.6269531 5.0371094 A 2 2 0 0 0 3 7 L 3 23 A 2 2 0 0 0 4.6289062 24.964844 L 14.597656 26.958984 A 2 2 0 0 0 15 27 A 2 2 0 0 0 17 25 L 17 5 A 2 2 0 0 0 15 3 z M 19 5 L 19 8 L 21 8 L 21 10 L 19 10 L 19 12 L 21 12 L 21 14 L 19 14 L 19 16 L 21 16 L 21 18 L 19 18 L 19 20 L 21 20 L 21 22 L 19 22 L 19 25 L 25 25 C 26.105 25 27 24.105 27 23 L 27 7 C 27 5.895 26.105 5 25 5 L 19 5 z M 23 8 L 24 8 C 24.552 8 25 8.448 25 9 C 25 9.552 24.552 10 24 10 L 23 10 L 23 8 z M 6.1855469 10 L 8.5878906 10 L 9.8320312 12.990234 C 9.9330313 13.234234 10.013797 13.516891 10.091797 13.837891 L 10.125 13.837891 C 10.17 13.644891 10.258531 13.351797 10.394531 12.966797 L 11.785156 10 L 13.972656 10 L 11.359375 14.955078 L 14.050781 19.998047 L 11.716797 19.998047 L 10.212891 16.740234 C 10.155891 16.625234 10.089203 16.393266 10.033203 16.072266 L 10.011719 16.072266 C 9.9777187 16.226266 9.9105937 16.458578 9.8085938 16.767578 L 8.2949219 20 L 5.9492188 20 L 8.7324219 14.994141 L 6.1855469 10 z M 23 12 L 24 12 C 24.552 12 25 12.448 25 13 C 25 13.552 24.552 14 24 14 L 23 14 L 23 12 z M 23 16 L 24 16 C 24.552 16 25 16.448 25 17 C 25 17.552 24.552 18 24 18 L 23 18 L 23 16 z M 23 20 L 24 20 C 24.552 20 25 20.448 25 21 C 25 21.552 24.552 22 24 22 L 23 22 L 23 20 z"/>
+            </svg>, name: "Download as Excel"
+    },
+    {icon: <PrintIcon style={{color: "#000000", width: "24", height: "24"}}/>, name: 'Print'},
+
 ];
 
 class Find extends Component {
+
     constructor() {
         super();
         this.state = {
@@ -77,6 +84,7 @@ class Find extends Component {
             printButton: false,
             drawerWidth: 240,
             speedDialOpen: false,
+            open: false,
         };
     }
 
@@ -232,21 +240,66 @@ class Find extends Component {
         }
     }
 
-    createAndDownloadFile() {
+    createAndDownloadFileExcel() {
+        this.setState({open: true});
+        var foundStudent = this.state.foundStudent;
+        var studentsData = [];
+        for (var i = 0; i < foundStudent.length; i++) {
+            var newObj = {};
+            newObj["S No"] = i + 1;
+            newObj.Name = foundStudent[i].name;
+            newObj["Father Name"] = foundStudent[i].fatherName;
+            newObj.Address = foundStudent[i].address?foundStudent[i].address:"";
+            newObj["Last Institution"] = foundStudent[i].lastInstitution ? foundStudent[i].lastInstitution : "";
+            newObj["CNIC No"] = foundStudent[i].cnic ? foundStudent[i].cnic : "";
+            newObj["Phone No"] = foundStudent[i].phone ? foundStudent[i].phone : "";
+            newObj["Admitted In Class"] = foundStudent[i].admittedInClass;
+            newObj["Current Class"] = foundStudent[i].currentClass;
+            newObj.Year = foundStudent[i].year;
+            newObj["Date Of Birth"] = new Date(foundStudent[i].dateOfBirth).toLocaleDateString();
+            newObj["Date Of Admission"] = new Date(foundStudent[i].admissionDate).toLocaleDateString();
+            studentsData.push(newObj);
+        }
+        const url = 'https://school-management--app.herokuapp.com/students/create-xls-file';
+        fetch(url, {
+            method: "post",
+            body: JSON.stringify(studentsData),
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        })
+            .then((response) => {
+                response.blob().then((blob) => {
+                    this.setState({open: false});
+                    var a = document.createElement("a");
+                    document.body.appendChild(a);
+                    var url = window.URL.createObjectURL(blob);
+                    a.download = 'downloaded-data.xls';
+                    a.href = url;
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                })
+            })
+    };
+
+    createAndDownloadFileJson() {
         var a = document.createElement("a");
         document.body.appendChild(a);
         var json = JSON.stringify(this.state.foundStudent);
         var blob = new Blob([json], {type: "application/json"});
         var url = window.URL.createObjectURL(blob);
-        a.download = 'students-data';
+        a.download = 'downloaded-data-in-json';
         a.href = url;
         a.click();
         window.URL.revokeObjectURL(url);
-    };
+    }
 
     handleClick(actionName, e) {
-        if (actionName === "Download") {
-            this.createAndDownloadFile();
+        if (actionName === "Download as Excel") {
+            this.createAndDownloadFileExcel();
+        } else if (actionName === "Download as JSON") {
+            this.createAndDownloadFileJson();
         } else if (actionName === "Print") {
             this.print();
         }
@@ -259,7 +312,9 @@ class Find extends Component {
     handleClose = () => {
         this.setState({speedDialOpen: false});
     };
-
+    dialogClose(){
+        this.setState({open: false});
+    }
     render() {
         return (
             <div>
@@ -323,10 +378,6 @@ class Find extends Component {
                     &nbsp;
                     &nbsp;
                     &nbsp;
-                    {/*{this.state.printButton ?*/}
-                    {/*    <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}*/}
-                    {/*            onClick={this.print.bind(this)}>Print</Button>*/}
-                    {/*    : null}*/}
                 </div>
 
                 <div style={{textAlign: "center", margin: '12px auto 0'}}>
@@ -357,10 +408,6 @@ class Find extends Component {
                     &nbsp;
                     &nbsp;
                     &nbsp;
-                    {/*{this.state.showPrintButton ?*/}
-                    {/*    <Button variant="contained" color="primary" size='large' style={{padding: '15px 25px'}}*/}
-                    {/*            onClick={this.print.bind(this)}>Print</Button>*/}
-                    {/*    : null}*/}
                 </div>
                 {this.state.searchResult ?
                     <div><br/><h3 style={{textAlign: "center"}}>{this.state.searchResult}</h3></div> : ''}
@@ -423,16 +470,19 @@ class Find extends Component {
                                                 {student.name}
                                             </StyledTableCell>
                                             <Tooltip title={student.fatherName}>
-                                                <StyledTableCell align="left" onClick={this.studentDetail.bind(this, student)}>
+                                                <StyledTableCell align="left"
+                                                                 onClick={this.studentDetail.bind(this, student)}>
                                                     <TruncatePipe value={student.fatherName}/>
                                                 </StyledTableCell>
                                             </Tooltip>
-                                            <StyledTableCell align="left" onClick={this.studentDetail.bind(this, student)}>
+                                            <StyledTableCell align="left"
+                                                             onClick={this.studentDetail.bind(this, student)}>
                                                 {student.cnic ? student.cnic : "-"}</StyledTableCell>
                                             <Tooltip title={student.address}>
-                                            <StyledTableCell align="left" onClick={this.studentDetail.bind(this, student)}>
-                                               <TruncatePipe value={student.address}/>
-                                            </StyledTableCell>
+                                                <StyledTableCell align="left"
+                                                                 onClick={this.studentDetail.bind(this, student)}>
+                                                    <TruncatePipe value={student.address}/>
+                                                </StyledTableCell>
                                             </Tooltip>
                                             <StyledTableCell align="left"
                                                              onClick={this.studentDetail.bind(this, student)}>
@@ -455,6 +505,17 @@ class Find extends Component {
                             </TableBody>
                         </Table>
                     </Paper> : null}
+
+                <Dialog fullWidth
+                        open={this.state.open}
+                        onClose={this.dialogClose.bind(this)}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description">
+                    <DialogContent style={{textAlign: "center" , paddingTop: "30px"}}>
+                       <CircularProgress color="primary"/>
+                        <Typography>Processing...</Typography>
+                    </DialogContent>
+                </Dialog>
             </div>
         )
     }

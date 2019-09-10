@@ -54,9 +54,9 @@ class StudentDetail extends Component {
     };
 
     print() {
-      window.open("/main/student-detail-print",
+        window.open("/main/student-detail-print",
             'popUpWindow', 'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
-         localStorage.setItem("studentData" , JSON.stringify(this.state.studentDetail));
+        localStorage.setItem("studentData", JSON.stringify(this.state.studentDetail));
     }
 
     render() {
@@ -141,37 +141,6 @@ class StudentDetail extends Component {
                             </Card>}
                     </Container>
                 }
-                {/*<div id='student-detail' style={{}}>*/}
-                {/*    <img alt="student pic" style={{borderRadius: "50%", height: "160px"}}*/}
-                {/*         src={this.state.studentDetail.photoURL || "https://www.caretechfoundation.org.uk/wp-content/uploads/anonymous-person-221117.jpg"}/>*/}
-                {/*    <h2>{this.state.studentDetail.name}</h2>*/}
-                {/*    <p><b>F/Name: </b>&nbsp;&nbsp;<b style={{backgroundColor: 'red'}}>{this.state.studentDetail.fatherName}</b>*/}
-                {/*    </p>*/}
-
-                {/*    <p><b>Date of*/}
-                {/*        Birth: </b>&nbsp;&nbsp;{this.state.studentDetail.dateOfBirth ? new Date(this.state.studentDetail.dateOfBirth).toLocaleDateString() : "-"}*/}
-                {/*    </p>*/}
-
-                {/*    <p><b>Address: </b>&nbsp;&nbsp;{this.state.studentDetail.address}</p>*/}
-
-                {/*    <p><b>CNIC: </b>&nbsp;&nbsp;{this.state.studentDetail.cnic ? this.state.studentDetail.cnic : "-"}*/}
-                {/*    </p>*/}
-
-                {/*    <p><b>Phone*/}
-                {/*        No: </b>&nbsp;&nbsp;{this.state.studentDetail.phone ? this.state.studentDetail.phone : "-"}</p>*/}
-
-                {/*    <p><b>Last*/}
-                {/*        Institution: </b>&nbsp;&nbsp;{this.state.studentDetail.lastInstitution ? this.state.studentDetail.lastInstitution : "-"}*/}
-                {/*    </p>*/}
-
-                {/*    <p><b>Admission*/}
-                {/*        Date: </b>&nbsp;&nbsp;{this.state.studentDetail.admissionDate ? new Date(this.state.studentDetail.admissionDate).toLocaleDateString() : "-"}*/}
-                {/*    </p>*/}
-
-                {/*    <p><b>Admitted In Class: </b>&nbsp;&nbsp;{this.state.studentDetail.admittedInClass}</p>*/}
-
-                {/*    <p><b>Current Class: </b>&nbsp;&nbsp;{this.state.studentDetail.currentClass}</p>*/}
-                {/*</div>*/}
             </div>
         )
     }

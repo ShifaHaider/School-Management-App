@@ -11,6 +11,7 @@ class StudentDetailPrint extends Component {
     componentDidMount() {
         setTimeout(() => {
             window.print();
+            // window.close();
         }, 1000);
     }
 

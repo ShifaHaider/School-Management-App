@@ -5,7 +5,7 @@ import firebase from 'firebase';
 import {BrowserRouter as Router, Route, Redirect} from "react-router-dom";
 import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
-// import {createBrowserHistory} from "history";
+import {createBrowserHistory} from "history";
 import image from './vBgXFc.png'
 
 
@@ -41,14 +41,14 @@ const bgStyle = {
     backgroundPosition:"center",
     zIndex:"-22"
 };
-// const history = createBrowserHistory();
+const history = createBrowserHistory();
 class App extends Component {
     render() {
         return (
             <ThemeProvider theme={theme}>
                 {/*<div style={bgStyle}/>*/}
                 <div >
-                    <Router >
+                    <Router history={history}>
                         <div>
                             <Route path="/" exact
                                    render={() => adminID ? <Redirect to='/main'/> : <Redirect to='/login'/>}/>

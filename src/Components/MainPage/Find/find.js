@@ -38,6 +38,7 @@ const StyledTableCell = withStyles(theme => ({
         fontSize: 14,
     },
 }))(TableCell);
+
 const StyledTableRow = withStyles(theme => ({
     root: {
         '&:nth-of-type(odd)': {
@@ -63,8 +64,8 @@ const actions = [
 
 class Find extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             yearsList: [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025,],
             classList: ["Reception", "Junior", "Senior", "P.P.I", "P.P.II", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
@@ -319,6 +320,7 @@ class Find extends Component {
         return (
             <div>
                 <ToolBarComponent title='Find'/>
+
                 <div style={{margin: '80px auto 0', textAlign: "center"}}>
                     <FormControl variant="filled">
                         <InputLabel htmlFor="filled-age-simple">Search by Year</InputLabel>

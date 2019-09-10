@@ -371,10 +371,8 @@ class AddStudents extends Component {
                                     </FormControl>
                                 </div>
                                 <br/>
-                                <div style={{display: "flex" , width: "100%"}}>
-
-                                </div>
-                                <br/>
+                                {/*<div style={{display: "flex" , width: "100%"}}></div>*/}
+                                {/*<br/>*/}
                                 <div style={{textAlign: 'center'}}>
                                 <Button variant="outlined" color="primary" size='large'
                                         onClick={this.uploadPhoto.bind(this)}>Upload Photo</Button>

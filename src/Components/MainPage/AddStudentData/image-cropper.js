@@ -7,9 +7,11 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
+import MyCamera from "./camera";
 
 
 export default class ImageCropper extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -28,10 +30,11 @@ export default class ImageCropper extends Component {
             loading: false,
             success: false,
             open: true,
-            imageFileObj: {}
+            imageFileObj: {},
+            choosePhotoDialog: true,
+            takePhotoDialog: false,
         };
     };
-
 
     onSelectFile = e => {
         if (e.target.files && e.target.files.length > 0) {
@@ -110,19 +113,25 @@ export default class ImageCropper extends Component {
             });
         });
         this.setState({src: null});
-
     }
 
     handleClose() {
         this.setState({open: false});
         this.props.openImagePicker(false);
     }
+    openTakePhotoDialog(){
+        this.setState({choosePhotoDialog: false, takePhotoDialog: true});
+    }
 
+    changeDialogModel= (boolean1 , boolean2) => {
+        this.setState({takePhotoDialog: boolean1 ,choosePhotoDialog: boolean2});
+    };
     render() {
         const {crop, croppedImageUrl, src} = this.state;
         return (
             <div className="App">
-                <Dialog fullWidth open={this.state.open}
+                {this.state.choosePhotoDialog ?
+                <Dialog fullWidth open={this.state.open} id='a'
                         onClose={this.handleClose.bind(this)}
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description">
@@ -135,7 +144,13 @@ export default class ImageCropper extends Component {
                             <Button variant="outlined" component="span">
                                 Choose photo
                             </Button>
-                        </label><br/>
+                        </label>
+                        &nbsp;
+                        &nbsp;
+                            <Button variant="outlined" component="span" onClick={this.openTakePhotoDialog.bind(this)} >
+                                Take photo
+                            </Button>
+                       <br/>
                         {this.state.src &&
                         <ReactCrop style={{height: "200px"}} src={src} crop={crop} onImageLoaded={this.onImageLoaded}
                                    onComplete={this.onCropComplete} onChange={this.onCropChange}
@@ -156,7 +171,8 @@ export default class ImageCropper extends Component {
                             Close
                         </Button>
                     </DialogActions>
-                </Dialog>
+                </Dialog> : null}
+                {this.state.takePhotoDialog ? <MyCamera onCropped={this.props.onCropped} afterComplete={this.changeDialogModel}/> : null}
             </div>
         );
     }

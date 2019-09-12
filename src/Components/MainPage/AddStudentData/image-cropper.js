@@ -119,60 +119,60 @@ export default class ImageCropper extends Component {
         this.setState({open: false});
         this.props.openImagePicker(false);
     }
-    openTakePhotoDialog(){
+
+    openTakePhotoDialog() {
         this.setState({choosePhotoDialog: false, takePhotoDialog: true});
     }
 
-    changeDialogModel= (boolean1 , boolean2) => {
-        this.setState({takePhotoDialog: boolean1 ,choosePhotoDialog: boolean2});
+    changeDialogModel = (boolean1, boolean2) => {
+        this.setState({takePhotoDialog: boolean1, choosePhotoDialog: boolean2});
     };
+
     render() {
         const {crop, croppedImageUrl, src} = this.state;
         return (
             <div className="App">
-                {this.state.choosePhotoDialog ?
-                <Dialog fullWidth open={this.state.open} id='a'
-                        onClose={this.handleClose.bind(this)}
-                        aria-labelledby="alert-dialog-title"
-                        aria-describedby="alert-dialog-description">
-                    <DialogContent style={{textAlign: "center", paddingTop: "30px"}}>
-                        <input accept="image/*"
-                               style={{display: "none"}} id="outlined-button-file"
-                               multiple type="file" onChange={this.onSelectFile}
-                        />
-                        <label htmlFor="outlined-button-file">
-                            <Button variant="outlined" component="span">
-                                Choose photo
+                    <Dialog fullWidth open={this.state.open} id='a'
+                            onClose={this.handleClose.bind(this)}
+                            aria-labelledby="alert-dialog-title"
+                            aria-describedby="alert-dialog-description">
+                        <DialogContent style={{textAlign: "center", paddingTop: "30px"}}>
+                            <div>
+                            <input accept="image/*"
+                                   style={{display: "none"}} id="outlined-button-file"
+                                   multiple type="file" onChange={this.onSelectFile}
+                            />
+                            <label htmlFor="outlined-button-file">
+                                <Button variant="outlined" component="span">
+                                    Choose photo
+                                </Button>
+                            </label>
+                            &nbsp;
+                            &nbsp;
+                            <br/>
+                            {this.state.src &&
+                            <ReactCrop style={{height: "200px"}} src={src} crop={crop}
+                                       onImageLoaded={this.onImageLoaded}
+                                       onComplete={this.onCropComplete} onChange={this.onCropChange}
+                            />}
+                            <br/>
+                            {croppedImageUrl ? (
+                                <img alt="Crop" style={{maxWidth: "100%"}} src={croppedImageUrl}/>
+                            ) : null}
+                            <br/>
+                            {this.state.onSelect ?
+                                <Button color="primary" onClick={this.fileUpload.bind(this)}>Confirm</Button> : null}
+                            <br/>
+                            {this.state.loading ?
+                                <CircularProgress color="primary"/> : this.state.text}
+                            </div>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={this.handleClose.bind(this)} color="primary">
+                                Close
                             </Button>
-                        </label>
-                        &nbsp;
-                        &nbsp;
-                            <Button variant="outlined" component="span" onClick={this.openTakePhotoDialog.bind(this)} >
-                                Take photo
-                            </Button>
-                       <br/>
-                        {this.state.src &&
-                        <ReactCrop style={{height: "200px"}} src={src} crop={crop} onImageLoaded={this.onImageLoaded}
-                                   onComplete={this.onCropComplete} onChange={this.onCropChange}
-                        />}
-                        <br/>
-                        {croppedImageUrl ? (
-                            <img alt="Crop" style={{maxWidth: "100%"}} src={croppedImageUrl}/>
-                        ) : null}
-                        <br/>
-                        {this.state.onSelect ?
-                            <Button color="primary" onClick={this.fileUpload.bind(this)}>Confirm</Button> : null}
-                        <br/>
-                        {this.state.loading ?
-                            <CircularProgress color="primary"/> : this.state.text}
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={this.handleClose.bind(this)} color="primary">
-                            Close
-                        </Button>
-                    </DialogActions>
-                </Dialog> : null}
-                {this.state.takePhotoDialog ? <MyCamera onCropped={this.props.onCropped} afterComplete={this.changeDialogModel}/> : null}
+                        </DialogActions>
+                    </Dialog>
             </div>
         );
     }

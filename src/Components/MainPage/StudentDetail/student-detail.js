@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component , useEffect} from 'react';
 import Typography from '@material-ui/core/Typography';
 import Button from "@material-ui/core/Button";
 import UpdateStudent from "./update-student"
@@ -58,6 +58,7 @@ class StudentDetail extends Component {
             'popUpWindow', 'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
         localStorage.setItem("studentData", JSON.stringify(this.state.studentDetail));
     }
+
 
     render() {
         return (

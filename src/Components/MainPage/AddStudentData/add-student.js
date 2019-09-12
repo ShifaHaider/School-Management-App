@@ -34,7 +34,7 @@ import {
     MuiPickersUtilsProvider,
 } from "@material-ui/pickers";
 
-
+import MyCamera from './camera'
 const useStyles1 = makeStyles(theme => ({
     success: {
         backgroundColor: green[600],
@@ -197,6 +197,7 @@ class AddStudents extends Component {
                         year: "",
                         loading: false,
                         open: false,
+                        openCamera: false,
                         studentImageURL: "",
                         snackbarOpen: true , snackbarMessage: "Successfully Saved!!" , variant: "success" , openImageCropper: false
                     });
@@ -245,6 +246,12 @@ class AddStudents extends Component {
 
     openImagePicker=(boolean)=>{
         this.setState({openImageCropper: boolean});
+    };
+    takePhoto(){
+      this.setState({openCamera: true})
+    }
+    dialogOpen= (boolean) => {
+        this.setState({openCamera: boolean});
     };
     render() {
         return (
@@ -376,9 +383,14 @@ class AddStudents extends Component {
                                 <div style={{textAlign: 'center'}}>
                                 <Button variant="outlined" color="primary" size='large'
                                         onClick={this.uploadPhoto.bind(this)}>Upload Photo</Button>
+                                    &nbsp;
+                                    &nbsp;
+                                    <Button variant="outlined" color="primary" size='large'
+                                            onClick={this.takePhoto.bind(this)}>Take Photo</Button>
                                 </div>
+                                {this.state.openCamera ? <MyCamera onCropped={this.getStudentImageURL} open={this.dialogOpen}/>: null}
                                 {this.state.openImageCropper ?
-                                <ImageCropper onCropped={this.getStudentImageURL} openImagePicker={this.openImagePicker} />: null}<br/>
+                                <ImageCropper onCropped={this.getStudentImageURL} openImagePicker={this.openImagePicker}/>: null}<br/>
                                 <Button variant="contained" color="primary" size='large' style={{float: "right"}}
                                         onClick={this.saveStData.bind(this)}>Save</Button><br/><br/>
                             </CardContent>

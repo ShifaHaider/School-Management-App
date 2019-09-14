@@ -1,5 +1,5 @@
 
-import React, {useState} from "react";
+import React, {useState } from "react";
 import Webcam from "react-webcam";
 import firebase from 'firebase';
 import Dialog from '@material-ui/core/Dialog';
@@ -9,13 +9,11 @@ import Button from '@material-ui/core/Button';
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 var imageCapture;
-
 function getMediaStream() {
     window.navigator.mediaDevices.getUserMedia({video: true})
         .then((mediaStream) => {
             let mediaStreamTrack = mediaStream.getVideoTracks()[0];
             imageCapture = new ImageCapture(mediaStreamTrack);
-            // this.setState({stream: mediaStream, imageCapture: imageCapture});
         })
 }
 
@@ -64,6 +62,7 @@ const MyCamera = (props) => {
                 window.URL.revokeObjectURL(url);
             })
     }
+
 
     return (
         <div>

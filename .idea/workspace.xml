@@ -2,8 +2,459 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce5b2128-fabb-4493-9843-87b1f0ad7263" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/camera.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/camera.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/Connection/connection.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/Router/students.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/Schema/schema.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/example/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/lib/json2xls.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/History.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/bin/express" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/lib/application.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/lib/express.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/lib/middleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/lib/request.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/lib/response.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/lib/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/lib/router/route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/lib/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/lib/view.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/buffer-crc32/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/buffer-crc32/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/buffer-crc32/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/buffer-crc32/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/buffer-crc32/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/buffer-crc32/tests/crc.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/commander/History.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/commander/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/commander/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/commander/node_modules/keypress/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/commander/node_modules/keypress/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/commander/node_modules/keypress/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/commander/node_modules/keypress/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/commander/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/cache.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/connect.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/basicAuth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/bodyParser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/compress.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/cookieParser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/cookieSession.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/csrf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/directory.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/errorHandler.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/favicon.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/json.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/limit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/logger.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/methodOverride.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/multipart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/query.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/responseTime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/session.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/session/cookie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/session/memory.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/session/session.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/session/store.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/static.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/staticCache.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/timeout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/urlencoded.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/middleware/vhost.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/patch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/proto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/directory.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/error.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_attach.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_code.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_copy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_edit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_error.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_excel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_find.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_gear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_go.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_green.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_lightning.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_link.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_paintbrush.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_paste.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_refresh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_save.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_acrobat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_actionscript.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_camera.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_cd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_code.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_code_red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_coldfusion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_compressed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_copy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_cplusplus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_csharp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_cup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_database.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_dvd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_edit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_error.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_excel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_find.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_flash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_freehand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_gear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_get.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_go.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_horizontal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_lightning.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_link.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_magnify.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_medal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_office.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_paint.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_paintbrush.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_paste.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_php.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_picture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_powerpoint.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_put.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_ruby.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_stack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_star.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_swoosh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_text.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_text_width.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_tux.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_vector.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_visualstudio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_width.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_word.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_world.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_wrench.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_white_zip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_word.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/icons/page_world.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/public/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/lib/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/bytes/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/bytes/History.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/bytes/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/bytes/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/bytes/component.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/bytes/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/bytes/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/.jshintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/examples/azureblobstorage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/examples/s3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/examples/upload.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/duplex.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/examples/CAPSLOCKTYPER.JS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/examples/typer-fsr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/examples/typer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/float.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/fs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/lib/_stream_duplex.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/lib/_stream_passthrough.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/lib/_stream_readable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/lib/_stream_transform.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/lib/_stream_writable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/passthrough.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/readable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/fixtures/x1024.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-basic.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-compatibility.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-finish-pipe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-large-read-stall.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-objects.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-pipe-error-handling.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-push.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-read-sync-stack.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-readable-empty-buffer-no-eof.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-readable-from-list.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-readable-legacy-drain.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-readable-non-empty-end.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-set-encoding.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-transform.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-unpipe-drain.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-unpipe-leak.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/test/simple/test-stream2-writable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/transform.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/writable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/zlib.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/stream-counter/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/stream-counter/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/stream-counter/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/stream-counter/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/stream-counter/test/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/stream-counter/test/test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/bench-multipart-parser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/file/beta-sticker-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/file/binaryfile.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/file/blank.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/file/funkyfilename.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/file/menu_separator.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/file/pf1y5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/file/plain.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/encoding/beta-sticker-1.png.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/encoding/binaryfile.tar.gz.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/encoding/blank.gif.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/encoding/menu_seperator.png.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/encoding/pf1y5.png.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/encoding/plain.txt.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/no-filename/filename-name.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/no-filename/generic.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/preamble/crlf.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/preamble/preamble.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/info.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/osx-chrome-13.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/osx-firefox-3.6.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/osx-safari-5.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/xp-chrome-12.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/xp-ie-7.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/xp-ie-8.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/xp-safari-5.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/workarounds/missing-hyphens1.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/workarounds/missing-hyphens2.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/js/encoding.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/js/no-filename.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/js/preamble.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/js/special-chars-in-filename.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/js/workarounds.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/multi_video.upload" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/multipart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/record.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/standalone/test-connection-aborted.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/standalone/test-content-transfer-encoding.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/standalone/test-invalid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/standalone/test-issue-4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/standalone/test-issue-46.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/multiparty/test/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/pause/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/pause/History.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/pause/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/pause/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/pause/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/pause/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/qs/.gitmodules" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/qs/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/qs/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/qs/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/qs/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/uid2/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/node_modules/uid2/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/connect/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie-signature/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie-signature/History.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie-signature/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie-signature/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie-signature/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie-signature/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie/test/mocha.opts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie/test/parse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/cookie/test/serialize.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/debug/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/debug/History.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/debug/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/debug/component.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/debug/debug.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/debug/example/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/debug/example/browser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/debug/example/wildcards.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/debug/example/worker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/debug/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/debug/lib/debug.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/debug/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/fresh/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/fresh/History.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/fresh/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/fresh/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/fresh/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/fresh/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/methods/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/methods/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/examples/pow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/readme.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/test/chmod.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/test/clobber.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/test/mkdirp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/test/perm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/test/perm_sync.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/test/race.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/test/rel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/test/return.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/test/return_sync.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/test/root.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/test/sync.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/test/umask.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/mkdirp/test/umask_sync.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/range-parser/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/range-parser/History.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/range-parser/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/range-parser/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/range-parser/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/range-parser/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/History.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/lib/send.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/lib/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/node_modules/mime/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/node_modules/mime/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/node_modules/mime/mime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/node_modules/mime/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/node_modules/mime/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/node_modules/mime/types/mime.types" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/node_modules/mime/types/node.types" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/node_modules/send/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/node_modules/express/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/example/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/.bin/nodezip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/.bin/nodezip.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/bin/nodezip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/bin/packer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/lib/nodezip-cli.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/lib/nodezip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/.jshintignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/.jshintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/CHANGES.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/CHANGES.md.orig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/LICENSE.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/README.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/index.html.orig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/base64.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/compressedObject.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/compressions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/crc32.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/dataReader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/defaults.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/deprecatedPublicUtils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/flate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/license_header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/load.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/nodeBuffer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/nodeBufferReader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/object.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/signature.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/stringReader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/stringWriter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/support.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/uint8ArrayReader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/uint8ArrayWriter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/utf8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/zipEntries.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/lib/zipEntry.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/Gruntfile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/dist/pako.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/dist/pako.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/dist/pako_deflate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/dist/pako_deflate.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/dist/pako_inflate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/dist/pako_inflate.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/doc/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/deflate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/inflate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/utils/common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/utils/strings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/zlib/adler32.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/zlib/constants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/zlib/crc32.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/zlib/deflate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/zlib/gzheader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/zlib/inffast.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/zlib/inflate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/zlib/inftrees.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/zlib/messages.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/zlib/trees.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/lib/zlib/zstream.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/node_modules/pako/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/node_modules/jszip/vendor/FileSaver.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/node_modules/node-zip/test/nodezip_spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/node_modules/excel-export/test/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/npm-shrinkwrap.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/output.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/spec/arrayData.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/spec/objectData.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/spec/prepareSpec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/node_modules/json2xls/spec/weirdData.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/procfile" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,18 +470,125 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/Find/find.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+            <state relative-caret-position="85">
+              <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
               <folding>
                 <element signature="e#1681#1840#0" />
+                <element signature="e#1693#1796#0" />
+                <element signature="e#1808#1837#0" />
+                <element signature="e#1900#2028#0" />
+                <element signature="e#1912#2025#0" />
+                <element signature="e#1944#2018#0" />
+                <element signature="e#2059#3823#0" />
+                <element signature="e#2065#2153#0" />
+                <element signature="e#2159#3724#0" />
+                <element signature="e#2187#3691#0" />
+                <element signature="e#2302#3672#0" />
+                <element signature="n#Find#0" />
+                <element signature="n#!!block;n#constructor#0;n#Find#0" />
+                <element signature="e#3926#4738#0" />
                 <element signature="n#!!block;n#categoryChange#0;n#Find#0" />
                 <element signature="n#!!block;n#find#0;n#Find#0" />
+                <element signature="e#4927#5017#0" />
+                <element signature="e#5058#5110#0" />
+                <element signature="e#5142#5233#0" />
+                <element signature="e#5173#5223#0" />
+                <element signature="e#5344#5560#0" />
+                <element signature="e#5438#5550#0" />
+                <element signature="e#5577#5978#0" />
+                <element signature="e#5630#5966#0" />
+                <element signature="e#5675#5767#0" />
+                <element signature="e#5773#5865#0" />
+                <element signature="e#6008#6350#0" />
+                <element signature="e#6067#6302#0" />
+                <element signature="e#6103#6282#0" />
+                <element signature="n#!!block;n#studentDetail#0;n#Find#0" />
                 <element signature="n#!!block;n#print#0;n#Find#0" />
+                <element signature="e#6611#7242#0" />
+                <element signature="e#7257#8393#0" />
+                <element signature="e#7320#8011#0" />
                 <element signature="n#!!block;n#changeKeyword#0;n#Find#0" />
+                <element signature="n#!!block;n#searchByKeyword#0;n#Find#0" />
+                <element signature="e#8560#8616#0" />
+                <element signature="e#8800#8838#0" />
+                <element signature="e#8868#9281#0" />
+                <element signature="e#8917#9265#0" />
+                <element signature="e#8965#9064#0" />
+                <element signature="e#9070#9170#0" />
+                <element signature="e#9311#9360#0" />
                 <element signature="n#!!block;n#handleDateChange#0;n#Find#0" />
+                <element signature="n#!!block;n#searchByDOB#0;n#Find#0" />
+                <element signature="e#9795#9833#0" />
+                <element signature="e#9863#10423#0" />
+                <element signature="e#9912#10407#0" />
+                <element signature="e#9960#10060#0" />
+                <element signature="e#10066#10147#0" />
+                <element signature="e#10182#10387#0" />
+                <element signature="e#10453#10502#0" />
                 <element signature="n#!!block;n#handleKeyPress#0;n#Find#0" />
+                <element signature="e#10567#10614#0" />
+                <element signature="n#!!block;n#createAndDownloadFileExcel#0;n#Find#0" />
+                <element signature="e#10831#11812#0" />
+                <element signature="e#11925#12146#0" />
+                <element signature="e#12024#12136#0" />
+                <element signature="e#12180#12658#0" />
+                <element signature="e#12229#12643#0" />
                 <element signature="n#!!block;n#createAndDownloadFileJson#0;n#Find#0" />
                 <element signature="n#!!block;n#handleClick#0;n#Find#0" />
+                <element signature="e#13180#13238#0" />
+                <element signature="e#13283#13340#0" />
+                <element signature="e#13374#13411#0" />
+                <element signature="e#13443#13496#0" />
+                <element signature="e#13523#13577#0" />
+                <element signature="n#!!block;n#dialogClose#0;n#Find#0" />
+                <element signature="n#!!block;n#render#0;n#Find#0" />
+                <element signature="e#13686#25936#0" />
+                <element signature="e#13758#16848#0" />
+                <element signature="e#13837#14734#0" />
+                <element signature="e#13984#14699#0" />
+                <element signature="e#14298#14403#0" />
+                <element signature="e#14472#14663#0" />
+                <element signature="e#14836#15736#0" />
+                <element signature="e#14984#15701#0" />
+                <element signature="e#15300#15405#0" />
+                <element signature="e#15474#15665#0" />
+                <element signature="e#15838#16294#0" />
+                <element signature="e#16396#16744#0" />
+                <element signature="e#16582#16727#0" />
+                <element signature="e#16866#18672#0" />
+                <element signature="e#16945#17477#0" />
+                <element signature="e#17027#17430#0" />
+                <element signature="e#17579#18118#0" />
+                <element signature="e#17675#18071#0" />
+                <element signature="e#18220#18568#0" />
+                <element signature="e#18406#18551#0" />
+                <element signature="e#18899#25363#0" />
+                <element signature="e#18968#20638#0" />
+                <element signature="e#19006#19265#0" />
+                <element signature="e#19067#19230#0" />
+                <element signature="e#19294#20603#0" />
+                <element signature="e#19360#20568#0" />
+                <element signature="e#20132#20482#0" />
+                <element signature="e#20663#25334#0" />
+                <element signature="e#20727#21719#0" />
+                <element signature="e#20771#21678#0" />
+                <element signature="e#21748#25301#0" />
+                <element signature="e#21839#25258#0" />
+                <element signature="e#21926#25186#0" />
+                <element signature="e#22046#22184#0" />
+                <element signature="e#22229#22399#0" />
+                <element signature="e#22444#22890#0" />
+                <element signature="e#22529#22835#0" />
+                <element signature="e#22935#23177#0" />
+                <element signature="e#23222#23662#0" />
+                <element signature="e#23304#23607#0" />
+                <element signature="e#23707#23951#0" />
+                <element signature="e#23996#24283#0" />
+                <element signature="e#24328#24553#0" />
+                <element signature="e#24598#24826#0" />
+                <element signature="e#24871#25128#0" />
+                <element signature="e#25389#25917#0" />
+                <element signature="e#25666#25891#0" />
               </folding>
             </state>
           </provider>
@@ -39,10 +597,51 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="61" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="34">
+              <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
               <folding>
+                <element signature="n#StudentDetail#0" />
+                <element signature="n#!!block;n#constructor#0;n#StudentDetail#0" />
+                <element signature="e#833#977#0" />
+                <element signature="n#!!block;n#loadDetailStudent#0;n#StudentDetail#0" />
+                <element signature="e#1204#1446#0" />
+                <element signature="e#1324#1436#0" />
+                <element signature="e#1463#1595#0" />
+                <element signature="e#1501#1583#0" />
+                <element signature="e#1625#1674#0" />
                 <element signature="n#!!block;n#change#0;n#StudentDetail#0" />
+                <element signature="e#1777#1828#0" />
+                <element signature="n#!!block;n#print#0;n#StudentDetail#0" />
+                <element signature="n#!!block;n#render#0;n#StudentDetail#0" />
+                <element signature="e#2194#8372#0" />
+                <element signature="e#2425#8335#0" />
+                <element signature="e#2630#8301#0" />
+                <element signature="e#2713#7751#0" />
+                <element signature="e#2793#3035#0" />
+                <element signature="e#3240#7485#0" />
+                <element signature="e#3341#3682#0" />
+                <element signature="e#3482#3630#0" />
+                <element signature="e#3723#4186#0" />
+                <element signature="e#3871#4134#0" />
+                <element signature="e#4227#4566#0" />
+                <element signature="e#4369#4514#0" />
+                <element signature="e#4607#5020#0" />
+                <element signature="e#4750#4968#0" />
+                <element signature="e#5061#5477#0" />
+                <element signature="e#5205#5425#0" />
+                <element signature="e#5518#5970#0" />
+                <element signature="e#5678#5918#0" />
+                <element signature="e#6011#6481#0" />
+                <element signature="e#6162#6429#0" />
+                <element signature="e#6522#6966#0" />
+                <element signature="e#6674#6914#0" />
+                <element signature="e#7007#7441#0" />
+                <element signature="e#7155#7389#0" />
+                <element signature="e#7523#7606#0" />
+                <element signature="e#7645#7703#0" />
+                <element signature="e#7784#8265#0" />
+                <element signature="e#7859#8020#0" />
+                <element signature="e#8057#8218#0" />
               </folding>
             </state>
           </provider>
@@ -55,16 +654,94 @@
               <caret column="7" selection-start-column="7" selection-end-column="7" />
               <folding>
                 <element signature="e#1651#2120#0" />
+                <element signature="e#1666#1710#0" />
+                <element signature="e#1723#1781#0" />
+                <element signature="e#1793#1853#0" />
+                <element signature="e#1868#1912#0" />
+                <element signature="e#1924#1953#0" />
+                <element signature="e#1972#2040#0" />
+                <element signature="e#2055#2117#0" />
                 <element signature="e#2144#2245#0" />
                 <element signature="n#!!block;n#MySnackbarContentWrapper#0" />
+                <element signature="e#2454#3023#0" />
+                <element signature="e#2597#2768#0" />
+                <element signature="e#2790#2988#0" />
+                <element signature="e#2808#2973#0" />
                 <element signature="e#3071#3249#0" />
+                <element signature="n#UpdateStudent#0" />
                 <element signature="n#!!block;n#constructor#0;n#UpdateStudent#0" />
+                <element signature="e#3360#4577#0" />
+                <element signature="e#3433#4119#0" />
                 <element signature="n#!!block;n#componentWillReceiveProps#0;n#UpdateStudent#0" />
                 <element signature="n#!!block;n#changeValue#0;n#UpdateStudent#0" />
+                <element signature="e#4814#4946#0" />
+                <element signature="e#4984#5111#0" />
                 <element signature="n#!!block;n#changeYear#0;n#UpdateStudent#0" />
+                <element signature="e#5428#5582#0" />
+                <element signature="n#!!block;n#updateData#0;n#UpdateStudent#0" />
+                <element signature="e#5855#6204#0" />
+                <element signature="e#6242#6581#0" />
+                <element signature="e#6283#6463#0" />
+                <element signature="e#6469#6571#0" />
+                <element signature="e#6701#6990#0" />
+                <element signature="e#6868#6980#0" />
+                <element signature="e#7007#7352#0" />
+                <element signature="e#7052#7340#0" />
+                <element signature="e#7084#7276#0" />
+                <element signature="e#7382#7431#0" />
+                <element signature="n#!!block;n#handleClose#0;n#UpdateStudent#0" />
                 <element signature="n#!!block;n#snackbarClose#0;n#UpdateStudent#0" />
                 <element signature="n#!!block;n#uploadPhoto#0;n#UpdateStudent#0" />
                 <element signature="n#!!block;n#handleDateChange#0;n#UpdateStudent#0" />
+                <element signature="e#7805#7924#0" />
+                <element signature="e#8022#8081#0" />
+                <element signature="n#!!block;n#cancelPage#0;n#UpdateStudent#0" />
+                <element signature="n#!!block;n#render#0;n#UpdateStudent#0" />
+                <element signature="e#8194#19796#0" />
+                <element signature="e#8216#18502#0" />
+                <element signature="e#8262#18473#0" />
+                <element signature="e#8293#18445#0" />
+                <element signature="e#8335#9304#0" />
+                <element signature="e#8414#8781#0" />
+                <element signature="e#8892#9269#0" />
+                <element signature="e#9333#10318#0" />
+                <element signature="e#9412#9777#0" />
+                <element signature="e#9888#10283#0" />
+                <element signature="e#10347#11592#0" />
+                <element signature="e#10426#10936#0" />
+                <element signature="e#10674#10923#0" />
+                <element signature="e#11047#11557#0" />
+                <element signature="e#11296#11544#0" />
+                <element signature="e#11655#13181#0" />
+                <element signature="e#11734#12381#0" />
+                <element signature="e#11817#12322#0" />
+                <element signature="e#12492#13146#0" />
+                <element signature="e#12575#13087#0" />
+                <element signature="e#13244#17459#0" />
+                <element signature="e#13323#14523#0" />
+                <element signature="e#13578#14476#0" />
+                <element signature="e#13979#14108#0" />
+                <element signature="e#14189#14428#0" />
+                <element signature="e#14634#15993#0" />
+                <element signature="e#14795#14943#0" />
+                <element signature="e#14980#15946#0" />
+                <element signature="e#15449#15578#0" />
+                <element signature="e#15659#15898#0" />
+                <element signature="e#16104#17453#0" />
+                <element signature="e#16265#16409#0" />
+                <element signature="e#16446#17406#0" />
+                <element signature="e#16909#17038#0" />
+                <element signature="e#17119#17358#0" />
+                <element signature="e#17523#17781#0" />
+                <element signature="e#17591#17746#0" />
+                <element signature="e#17873#18005#0" />
+                <element signature="e#18047#18217#0" />
+                <element signature="e#18246#18396#0" />
+                <element signature="e#18519#19087#0" />
+                <element signature="e#18796#19061#0" />
+                <element signature="e#19104#19777#0" />
+                <element signature="e#19179#19310#0" />
+                <element signature="e#19523#19749#0" />
               </folding>
             </state>
           </provider>
@@ -73,7 +750,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="358">
               <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -82,14 +759,28 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/camera.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+            <state relative-caret-position="136">
+              <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
               <folding>
                 <element signature="n#!!block;n#getMediaStream#0" />
-                <element signature="e#734#3625#0" />
+                <element signature="e#532#674#0" />
+                <element signature="e#726#3448#0" />
+                <element signature="e#1109#1210#0" />
+                <element signature="e#1261#1337#0" />
+                <element signature="e#1367#1431#0" />
+                <element signature="e#1462#2100#0" />
+                <element signature="e#1626#2093#0" />
+                <element signature="e#1770#2028#0" />
+                <element signature="e#1844#2008#0" />
+                <element signature="e#2124#3439#0" />
+                <element signature="e#2142#3424#0" />
+                <element signature="e#2348#3210#0" />
+                <element signature="e#2434#2708#0" />
+                <element signature="e#3227#3402#0" />
+                <element signature="e#3263#3369#0" />
               </folding>
             </state>
           </provider>
@@ -98,18 +789,111 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4726">
-              <caret line="391" column="62" selection-start-line="391" selection-start-column="62" selection-end-line="391" selection-end-column="62" />
+            <state relative-caret-position="136">
+              <caret line="103" column="36" lean-forward="true" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
               <folding>
+                <element signature="e#1756#2225#0" />
+                <element signature="e#1771#1815#0" />
+                <element signature="e#1828#1886#0" />
+                <element signature="e#1898#1958#0" />
+                <element signature="e#1973#2017#0" />
+                <element signature="e#2029#2058#0" />
+                <element signature="e#2077#2145#0" />
+                <element signature="e#2160#2222#0" />
+                <element signature="e#2249#2350#0" />
                 <element signature="n#!!block;n#MySnackbarContentWrapper#0" />
+                <element signature="e#2559#3184#0" />
+                <element signature="e#2719#2915#0" />
+                <element signature="e#2785#2869#0" />
+                <element signature="e#2950#3149#0" />
+                <element signature="e#2968#3134#0" />
+                <element signature="e#3232#3410#0" />
+                <element signature="n#AddStudents#0" />
                 <element signature="n#!!block;n#constructor#0;n#AddStudents#0" />
+                <element signature="e#3510#4742#0" />
+                <element signature="e#3797#4135#0" />
+                <element signature="e#4785#4839#0" />
+                <element signature="n#!!block;n#saveStData#0;n#AddStudents#0" />
+                <element signature="e#5032#5300#0" />
+                <element signature="e#5328#5874#0" />
+                <element signature="e#5912#6146#0" />
+                <element signature="e#5953#6136#0" />
+                <element signature="e#6332#6580#0" />
+                <element signature="e#6442#6566#0" />
+                <element signature="e#6597#7480#0" />
+                <element signature="e#6646#7468#0" />
+                <element signature="e#6682#7448#0" />
+                <element signature="e#7510#7609#0" />
                 <element signature="n#!!block;n#changeValue#0;n#AddStudents#0" />
+                <element signature="e#7680#7755#0" />
+                <element signature="e#7793#7862#0" />
                 <element signature="n#!!block;n#changeYear#0;n#AddStudents#0" />
                 <element signature="n#!!block;n#handleClose#0;n#AddStudents#0" />
                 <element signature="n#!!block;n#snackbarClose#0;n#AddStudents#0" />
                 <element signature="n#!!block;n#uploadPhoto#0;n#AddStudents#0" />
                 <element signature="n#!!block;n#handleDateChange#0;n#AddStudents#0" />
+                <element signature="e#8268#8330#0" />
+                <element signature="e#8402#8461#0" />
+                <element signature="n#!!block;n#takePhoto#0;n#AddStudents#0" />
+                <element signature="e#8555#8608#0" />
+                <element signature="n#!!block;n#render#0;n#AddStudents#0" />
+                <element signature="e#8654#19986#0" />
+                <element signature="e#8732#19319#0" />
+                <element signature="e#8788#19296#0" />
+                <element signature="e#8838#18629#0" />
+                <element signature="e#8907#18597#0" />
+                <element signature="e#8953#9836#0" />
+                <element signature="e#9033#9344#0" />
+                <element signature="e#9476#9797#0" />
+                <element signature="e#9869#10763#0" />
+                <element signature="e#9949#10258#0" />
+                <element signature="e#10373#10724#0" />
+                <element signature="e#10796#11812#0" />
+                <element signature="e#10876#11276#0" />
+                <element signature="e#11067#11263#0" />
+                <element signature="e#11391#11806#0" />
+                <element signature="e#11591#11793#0" />
+                <element signature="e#11883#13031#0" />
+                <element signature="e#11967#12414#0" />
+                <element signature="e#12055#12351#0" />
+                <element signature="e#12537#12992#0" />
+                <element signature="e#12625#12929#0" />
+                <element signature="e#13102#17259#0" />
+                <element signature="e#13182#14297#0" />
+                <element signature="e#13365#14250#0" />
+                <element signature="e#13753#13882#0" />
+                <element signature="e#13963#14202#0" />
+                <element signature="e#14408#15718#0" />
+                <element signature="e#14497#14646#0" />
+                <element signature="e#14683#15671#0" />
+                <element signature="e#15174#15303#0" />
+                <element signature="e#15384#15623#0" />
+                <element signature="e#15841#17220#0" />
+                <element signature="e#15934#16086#0" />
+                <element signature="e#16127#17169#0" />
+                <element signature="e#16640#16777#0" />
+                <element signature="e#16862#17117#0" />
+                <element signature="e#17331#17388#0" />
+                <element signature="e#17423#17432#0" />
+                <element signature="e#17466#18006#0" />
+                <element signature="e#17534#17689#0" />
+                <element signature="e#17812#17967#0" />
+                <element signature="e#18372#18544#0" />
+                <element signature="e#18654#19263#0" />
+                <element signature="e#18939#19229#0" />
+                <element signature="e#19336#19967#0" />
+                <element signature="e#19405#19518#0" />
+                <element signature="e#19713#19939#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -117,10 +901,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail-print.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+            <state relative-caret-position="34">
+              <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="n#StudentDetailPrint#0" />
+                <element signature="n#!!block;n#constructor#0;n#StudentDetailPrint#0" />
+                <element signature="n#!!block;n#componentDidMount#0;n#StudentDetailPrint#0" />
+                <element signature="e#288#403#0" />
+                <element signature="n#!!block;n#render#0;n#StudentDetailPrint#0" />
+                <element signature="e#540#5132#0" />
+                <element signature="e#562#5113#0" />
+                <element signature="e#616#894#0" />
+                <element signature="e#728#859#0" />
+                <element signature="e#915#5090#0" />
+                <element signature="e#964#1003#0" />
+                <element signature="e#1030#1171#0" />
+                <element signature="e#1198#1208#0" />
+                <element signature="e#1234#5063#0" />
+                <element signature="e#1313#3105#0" />
+                <element signature="e#1364#3069#0" />
+                <element signature="e#1408#3028#0" />
+                <element signature="e#1452#1702#0" />
+                <element signature="e#1740#1998#0" />
+                <element signature="e#2035#2366#0" />
+                <element signature="e#2403#2671#0" />
+                <element signature="e#2708#2983#0" />
+                <element signature="e#3134#5031#0" />
+                <element signature="e#3185#4995#0" />
+                <element signature="e#3229#4954#0" />
+                <element signature="e#3273#3550#0" />
+                <element signature="e#3587#3867#0" />
+                <element signature="e#3904#4190#0" />
+                <element signature="e#4227#4538#0" />
+                <element signature="e#4575#4909#0" />
               </folding>
             </state>
           </provider>
@@ -129,10 +942,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/image-cropper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2397">
-              <caret line="150" column="34" selection-start-line="150" selection-start-column="34" selection-end-line="150" selection-end-column="34" />
+            <state relative-caret-position="51">
+              <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#494#6529#0" />
+                <element signature="e#557#1104#0" />
+                <element signature="e#602#1097#0" />
+                <element signature="e#622#723#0" />
+                <element signature="e#1131#1499#0" />
+                <element signature="e#1190#1493#0" />
+                <element signature="e#1531#1569#0" />
+                <element signature="e#1601#1643#0" />
+                <element signature="e#1688#1726#0" />
+                <element signature="e#1760#1980#0" />
+                <element signature="e#1818#1974#0" />
+                <element signature="e#2023#3141#0" />
+                <element signature="e#2620#3133#0" />
+                <element signature="e#2656#3107#0" />
+                <element signature="e#2685#2786#0" />
+                <element signature="e#3160#3695#0" />
+                <element signature="e#3424#3651#0" />
+                <element signature="e#3490#3639#0" />
+                <element signature="e#3715#3803#0" />
+                <element signature="e#3831#3912#0" />
+                <element signature="e#3962#4050#0" />
+                <element signature="e#4066#6527#0" />
+                <element signature="e#4154#6510#0" />
+                <element signature="e#4196#6491#0" />
+                <element signature="e#4472#6213#0" />
+                <element signature="e#4566#6172#0" />
+                <element signature="e#4600#4826#0" />
+                <element signature="e#4855#5098#0" />
+                <element signature="e#4926#5061#0" />
+                <element signature="e#5278#5542#0" />
+                <element signature="e#6238#6461#0" />
+                <element signature="e#6282#6420#0" />
               </folding>
             </state>
           </provider>
@@ -253,6 +1097,7 @@
         <option value="$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail-print.js" />
         <option value="$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail.js" />
         <option value="$PROJECT_DIR$/src/Components/MainPage/AddStudentData/camera.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -278,43 +1123,6 @@
               <item name="school-management-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="school-management-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="school-management-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="school-management-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="school-management-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="school-management-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="MainPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="school-management-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="school-management-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="MainPage" type="462c0819:PsiDirectoryNode" />
-              <item name="AddStudentData" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="school-management-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="school-management-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="MainPage" type="462c0819:PsiDirectoryNode" />
-              <item name="Find" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="school-management-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="school-management-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="MainPage" type="462c0819:PsiDirectoryNode" />
-              <item name="StudentDetail" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -693,11 +1501,12 @@
       <workItem from="1568319786996" duration="86000" />
       <workItem from="1568450200543" duration="591000" />
       <workItem from="1568452123191" duration="634000" />
+      <workItem from="1569154081399" duration="471000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="623756000" />
+    <option name="totallyTimeSpent" value="624227000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -728,13 +1537,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/styles/createMuiTheme.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/styles/createBreakpoints.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -862,13 +1664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/db/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -957,30 +1752,290 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/Find/find.js">
+    <entry file="file://$PROJECT_DIR$/db/Router/students.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+        <state relative-caret-position="336">
+          <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail-print.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
           <folding>
-            <element signature="e#1681#1840#0" />
-            <element signature="n#!!block;n#categoryChange#0;n#Find#0" />
-            <element signature="n#!!block;n#find#0;n#Find#0" />
-            <element signature="n#!!block;n#print#0;n#Find#0" />
-            <element signature="n#!!block;n#changeKeyword#0;n#Find#0" />
-            <element signature="n#!!block;n#handleDateChange#0;n#Find#0" />
-            <element signature="n#!!block;n#handleKeyPress#0;n#Find#0" />
-            <element signature="n#!!block;n#createAndDownloadFileJson#0;n#Find#0" />
-            <element signature="n#!!block;n#handleClick#0;n#Find#0" />
+            <element signature="n#StudentDetailPrint#0" />
+            <element signature="n#!!block;n#constructor#0;n#StudentDetailPrint#0" />
+            <element signature="n#!!block;n#componentDidMount#0;n#StudentDetailPrint#0" />
+            <element signature="e#288#403#0" />
+            <element signature="n#!!block;n#render#0;n#StudentDetailPrint#0" />
+            <element signature="e#540#5132#0" />
+            <element signature="e#562#5113#0" />
+            <element signature="e#616#894#0" />
+            <element signature="e#728#859#0" />
+            <element signature="e#915#5090#0" />
+            <element signature="e#964#1003#0" />
+            <element signature="e#1030#1171#0" />
+            <element signature="e#1198#1208#0" />
+            <element signature="e#1234#5063#0" />
+            <element signature="e#1313#3105#0" />
+            <element signature="e#1364#3069#0" />
+            <element signature="e#1408#3028#0" />
+            <element signature="e#1452#1702#0" />
+            <element signature="e#1740#1998#0" />
+            <element signature="e#2035#2366#0" />
+            <element signature="e#2403#2671#0" />
+            <element signature="e#2708#2983#0" />
+            <element signature="e#3134#5031#0" />
+            <element signature="e#3185#4995#0" />
+            <element signature="e#3229#4954#0" />
+            <element signature="e#3273#3550#0" />
+            <element signature="e#3587#3867#0" />
+            <element signature="e#3904#4190#0" />
+            <element signature="e#4227#4538#0" />
+            <element signature="e#4575#4909#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/image-cropper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+          <folding>
+            <element signature="e#494#6529#0" />
+            <element signature="e#557#1104#0" />
+            <element signature="e#602#1097#0" />
+            <element signature="e#622#723#0" />
+            <element signature="e#1131#1499#0" />
+            <element signature="e#1190#1493#0" />
+            <element signature="e#1531#1569#0" />
+            <element signature="e#1601#1643#0" />
+            <element signature="e#1688#1726#0" />
+            <element signature="e#1760#1980#0" />
+            <element signature="e#1818#1974#0" />
+            <element signature="e#2023#3141#0" />
+            <element signature="e#2620#3133#0" />
+            <element signature="e#2656#3107#0" />
+            <element signature="e#2685#2786#0" />
+            <element signature="e#3160#3695#0" />
+            <element signature="e#3424#3651#0" />
+            <element signature="e#3490#3639#0" />
+            <element signature="e#3715#3803#0" />
+            <element signature="e#3831#3912#0" />
+            <element signature="e#3962#4050#0" />
+            <element signature="e#4066#6527#0" />
+            <element signature="e#4154#6510#0" />
+            <element signature="e#4196#6491#0" />
+            <element signature="e#4472#6213#0" />
+            <element signature="e#4566#6172#0" />
+            <element signature="e#4600#4826#0" />
+            <element signature="e#4855#5098#0" />
+            <element signature="e#4926#5061#0" />
+            <element signature="e#5278#5542#0" />
+            <element signature="e#6238#6461#0" />
+            <element signature="e#6282#6420#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/camera.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!block;n#getMediaStream#0" />
+            <element signature="e#532#674#0" />
+            <element signature="e#726#3448#0" />
+            <element signature="e#1109#1210#0" />
+            <element signature="e#1261#1337#0" />
+            <element signature="e#1367#1431#0" />
+            <element signature="e#1462#2100#0" />
+            <element signature="e#1626#2093#0" />
+            <element signature="e#1770#2028#0" />
+            <element signature="e#1844#2008#0" />
+            <element signature="e#2124#3439#0" />
+            <element signature="e#2142#3424#0" />
+            <element signature="e#2348#3210#0" />
+            <element signature="e#2434#2708#0" />
+            <element signature="e#3227#3402#0" />
+            <element signature="e#3263#3369#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="34">
+          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
           <folding>
+            <element signature="n#StudentDetail#0" />
+            <element signature="n#!!block;n#constructor#0;n#StudentDetail#0" />
+            <element signature="e#833#977#0" />
+            <element signature="n#!!block;n#loadDetailStudent#0;n#StudentDetail#0" />
+            <element signature="e#1204#1446#0" />
+            <element signature="e#1324#1436#0" />
+            <element signature="e#1463#1595#0" />
+            <element signature="e#1501#1583#0" />
+            <element signature="e#1625#1674#0" />
             <element signature="n#!!block;n#change#0;n#StudentDetail#0" />
+            <element signature="e#1777#1828#0" />
+            <element signature="n#!!block;n#print#0;n#StudentDetail#0" />
+            <element signature="n#!!block;n#render#0;n#StudentDetail#0" />
+            <element signature="e#2194#8372#0" />
+            <element signature="e#2425#8335#0" />
+            <element signature="e#2630#8301#0" />
+            <element signature="e#2713#7751#0" />
+            <element signature="e#2793#3035#0" />
+            <element signature="e#3240#7485#0" />
+            <element signature="e#3341#3682#0" />
+            <element signature="e#3482#3630#0" />
+            <element signature="e#3723#4186#0" />
+            <element signature="e#3871#4134#0" />
+            <element signature="e#4227#4566#0" />
+            <element signature="e#4369#4514#0" />
+            <element signature="e#4607#5020#0" />
+            <element signature="e#4750#4968#0" />
+            <element signature="e#5061#5477#0" />
+            <element signature="e#5205#5425#0" />
+            <element signature="e#5518#5970#0" />
+            <element signature="e#5678#5918#0" />
+            <element signature="e#6011#6481#0" />
+            <element signature="e#6162#6429#0" />
+            <element signature="e#6522#6966#0" />
+            <element signature="e#6674#6914#0" />
+            <element signature="e#7007#7441#0" />
+            <element signature="e#7155#7389#0" />
+            <element signature="e#7523#7606#0" />
+            <element signature="e#7645#7703#0" />
+            <element signature="e#7784#8265#0" />
+            <element signature="e#7859#8020#0" />
+            <element signature="e#8057#8218#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/Find/find.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+          <folding>
+            <element signature="e#1681#1840#0" />
+            <element signature="e#1693#1796#0" />
+            <element signature="e#1808#1837#0" />
+            <element signature="e#1900#2028#0" />
+            <element signature="e#1912#2025#0" />
+            <element signature="e#1944#2018#0" />
+            <element signature="e#2059#3823#0" />
+            <element signature="e#2065#2153#0" />
+            <element signature="e#2159#3724#0" />
+            <element signature="e#2187#3691#0" />
+            <element signature="e#2302#3672#0" />
+            <element signature="n#Find#0" />
+            <element signature="n#!!block;n#constructor#0;n#Find#0" />
+            <element signature="e#3926#4738#0" />
+            <element signature="n#!!block;n#categoryChange#0;n#Find#0" />
+            <element signature="n#!!block;n#find#0;n#Find#0" />
+            <element signature="e#4927#5017#0" />
+            <element signature="e#5058#5110#0" />
+            <element signature="e#5142#5233#0" />
+            <element signature="e#5173#5223#0" />
+            <element signature="e#5344#5560#0" />
+            <element signature="e#5438#5550#0" />
+            <element signature="e#5577#5978#0" />
+            <element signature="e#5630#5966#0" />
+            <element signature="e#5675#5767#0" />
+            <element signature="e#5773#5865#0" />
+            <element signature="e#6008#6350#0" />
+            <element signature="e#6067#6302#0" />
+            <element signature="e#6103#6282#0" />
+            <element signature="n#!!block;n#studentDetail#0;n#Find#0" />
+            <element signature="n#!!block;n#print#0;n#Find#0" />
+            <element signature="e#6611#7242#0" />
+            <element signature="e#7257#8393#0" />
+            <element signature="e#7320#8011#0" />
+            <element signature="n#!!block;n#changeKeyword#0;n#Find#0" />
+            <element signature="n#!!block;n#searchByKeyword#0;n#Find#0" />
+            <element signature="e#8560#8616#0" />
+            <element signature="e#8800#8838#0" />
+            <element signature="e#8868#9281#0" />
+            <element signature="e#8917#9265#0" />
+            <element signature="e#8965#9064#0" />
+            <element signature="e#9070#9170#0" />
+            <element signature="e#9311#9360#0" />
+            <element signature="n#!!block;n#handleDateChange#0;n#Find#0" />
+            <element signature="n#!!block;n#searchByDOB#0;n#Find#0" />
+            <element signature="e#9795#9833#0" />
+            <element signature="e#9863#10423#0" />
+            <element signature="e#9912#10407#0" />
+            <element signature="e#9960#10060#0" />
+            <element signature="e#10066#10147#0" />
+            <element signature="e#10182#10387#0" />
+            <element signature="e#10453#10502#0" />
+            <element signature="n#!!block;n#handleKeyPress#0;n#Find#0" />
+            <element signature="e#10567#10614#0" />
+            <element signature="n#!!block;n#createAndDownloadFileExcel#0;n#Find#0" />
+            <element signature="e#10831#11812#0" />
+            <element signature="e#11925#12146#0" />
+            <element signature="e#12024#12136#0" />
+            <element signature="e#12180#12658#0" />
+            <element signature="e#12229#12643#0" />
+            <element signature="n#!!block;n#createAndDownloadFileJson#0;n#Find#0" />
+            <element signature="n#!!block;n#handleClick#0;n#Find#0" />
+            <element signature="e#13180#13238#0" />
+            <element signature="e#13283#13340#0" />
+            <element signature="e#13374#13411#0" />
+            <element signature="e#13443#13496#0" />
+            <element signature="e#13523#13577#0" />
+            <element signature="n#!!block;n#dialogClose#0;n#Find#0" />
+            <element signature="n#!!block;n#render#0;n#Find#0" />
+            <element signature="e#13686#25936#0" />
+            <element signature="e#13758#16848#0" />
+            <element signature="e#13837#14734#0" />
+            <element signature="e#13984#14699#0" />
+            <element signature="e#14298#14403#0" />
+            <element signature="e#14472#14663#0" />
+            <element signature="e#14836#15736#0" />
+            <element signature="e#14984#15701#0" />
+            <element signature="e#15300#15405#0" />
+            <element signature="e#15474#15665#0" />
+            <element signature="e#15838#16294#0" />
+            <element signature="e#16396#16744#0" />
+            <element signature="e#16582#16727#0" />
+            <element signature="e#16866#18672#0" />
+            <element signature="e#16945#17477#0" />
+            <element signature="e#17027#17430#0" />
+            <element signature="e#17579#18118#0" />
+            <element signature="e#17675#18071#0" />
+            <element signature="e#18220#18568#0" />
+            <element signature="e#18406#18551#0" />
+            <element signature="e#18899#25363#0" />
+            <element signature="e#18968#20638#0" />
+            <element signature="e#19006#19265#0" />
+            <element signature="e#19067#19230#0" />
+            <element signature="e#19294#20603#0" />
+            <element signature="e#19360#20568#0" />
+            <element signature="e#20132#20482#0" />
+            <element signature="e#20663#25334#0" />
+            <element signature="e#20727#21719#0" />
+            <element signature="e#20771#21678#0" />
+            <element signature="e#21748#25301#0" />
+            <element signature="e#21839#25258#0" />
+            <element signature="e#21926#25186#0" />
+            <element signature="e#22046#22184#0" />
+            <element signature="e#22229#22399#0" />
+            <element signature="e#22444#22890#0" />
+            <element signature="e#22529#22835#0" />
+            <element signature="e#22935#23177#0" />
+            <element signature="e#23222#23662#0" />
+            <element signature="e#23304#23607#0" />
+            <element signature="e#23707#23951#0" />
+            <element signature="e#23996#24283#0" />
+            <element signature="e#24328#24553#0" />
+            <element signature="e#24598#24826#0" />
+            <element signature="e#24871#25128#0" />
+            <element signature="e#25389#25917#0" />
+            <element signature="e#25666#25891#0" />
           </folding>
         </state>
       </provider>
@@ -991,23 +2046,101 @@
           <caret column="7" selection-start-column="7" selection-end-column="7" />
           <folding>
             <element signature="e#1651#2120#0" />
+            <element signature="e#1666#1710#0" />
+            <element signature="e#1723#1781#0" />
+            <element signature="e#1793#1853#0" />
+            <element signature="e#1868#1912#0" />
+            <element signature="e#1924#1953#0" />
+            <element signature="e#1972#2040#0" />
+            <element signature="e#2055#2117#0" />
             <element signature="e#2144#2245#0" />
             <element signature="n#!!block;n#MySnackbarContentWrapper#0" />
+            <element signature="e#2454#3023#0" />
+            <element signature="e#2597#2768#0" />
+            <element signature="e#2790#2988#0" />
+            <element signature="e#2808#2973#0" />
             <element signature="e#3071#3249#0" />
+            <element signature="n#UpdateStudent#0" />
             <element signature="n#!!block;n#constructor#0;n#UpdateStudent#0" />
+            <element signature="e#3360#4577#0" />
+            <element signature="e#3433#4119#0" />
             <element signature="n#!!block;n#componentWillReceiveProps#0;n#UpdateStudent#0" />
             <element signature="n#!!block;n#changeValue#0;n#UpdateStudent#0" />
+            <element signature="e#4814#4946#0" />
+            <element signature="e#4984#5111#0" />
             <element signature="n#!!block;n#changeYear#0;n#UpdateStudent#0" />
+            <element signature="e#5428#5582#0" />
+            <element signature="n#!!block;n#updateData#0;n#UpdateStudent#0" />
+            <element signature="e#5855#6204#0" />
+            <element signature="e#6242#6581#0" />
+            <element signature="e#6283#6463#0" />
+            <element signature="e#6469#6571#0" />
+            <element signature="e#6701#6990#0" />
+            <element signature="e#6868#6980#0" />
+            <element signature="e#7007#7352#0" />
+            <element signature="e#7052#7340#0" />
+            <element signature="e#7084#7276#0" />
+            <element signature="e#7382#7431#0" />
+            <element signature="n#!!block;n#handleClose#0;n#UpdateStudent#0" />
             <element signature="n#!!block;n#snackbarClose#0;n#UpdateStudent#0" />
             <element signature="n#!!block;n#uploadPhoto#0;n#UpdateStudent#0" />
             <element signature="n#!!block;n#handleDateChange#0;n#UpdateStudent#0" />
+            <element signature="e#7805#7924#0" />
+            <element signature="e#8022#8081#0" />
+            <element signature="n#!!block;n#cancelPage#0;n#UpdateStudent#0" />
+            <element signature="n#!!block;n#render#0;n#UpdateStudent#0" />
+            <element signature="e#8194#19796#0" />
+            <element signature="e#8216#18502#0" />
+            <element signature="e#8262#18473#0" />
+            <element signature="e#8293#18445#0" />
+            <element signature="e#8335#9304#0" />
+            <element signature="e#8414#8781#0" />
+            <element signature="e#8892#9269#0" />
+            <element signature="e#9333#10318#0" />
+            <element signature="e#9412#9777#0" />
+            <element signature="e#9888#10283#0" />
+            <element signature="e#10347#11592#0" />
+            <element signature="e#10426#10936#0" />
+            <element signature="e#10674#10923#0" />
+            <element signature="e#11047#11557#0" />
+            <element signature="e#11296#11544#0" />
+            <element signature="e#11655#13181#0" />
+            <element signature="e#11734#12381#0" />
+            <element signature="e#11817#12322#0" />
+            <element signature="e#12492#13146#0" />
+            <element signature="e#12575#13087#0" />
+            <element signature="e#13244#17459#0" />
+            <element signature="e#13323#14523#0" />
+            <element signature="e#13578#14476#0" />
+            <element signature="e#13979#14108#0" />
+            <element signature="e#14189#14428#0" />
+            <element signature="e#14634#15993#0" />
+            <element signature="e#14795#14943#0" />
+            <element signature="e#14980#15946#0" />
+            <element signature="e#15449#15578#0" />
+            <element signature="e#15659#15898#0" />
+            <element signature="e#16104#17453#0" />
+            <element signature="e#16265#16409#0" />
+            <element signature="e#16446#17406#0" />
+            <element signature="e#16909#17038#0" />
+            <element signature="e#17119#17358#0" />
+            <element signature="e#17523#17781#0" />
+            <element signature="e#17591#17746#0" />
+            <element signature="e#17873#18005#0" />
+            <element signature="e#18047#18217#0" />
+            <element signature="e#18246#18396#0" />
+            <element signature="e#18519#19087#0" />
+            <element signature="e#18796#19061#0" />
+            <element signature="e#19104#19777#0" />
+            <element signature="e#19179#19310#0" />
+            <element signature="e#19523#19749#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/MainPage/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="358">
           <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
@@ -1017,49 +2150,109 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/add-student.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4726">
-          <caret line="391" column="62" selection-start-line="391" selection-start-column="62" selection-end-line="391" selection-end-column="62" />
+        <state relative-caret-position="136">
+          <caret line="103" column="36" lean-forward="true" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
           <folding>
+            <element signature="e#1756#2225#0" />
+            <element signature="e#1771#1815#0" />
+            <element signature="e#1828#1886#0" />
+            <element signature="e#1898#1958#0" />
+            <element signature="e#1973#2017#0" />
+            <element signature="e#2029#2058#0" />
+            <element signature="e#2077#2145#0" />
+            <element signature="e#2160#2222#0" />
+            <element signature="e#2249#2350#0" />
             <element signature="n#!!block;n#MySnackbarContentWrapper#0" />
+            <element signature="e#2559#3184#0" />
+            <element signature="e#2719#2915#0" />
+            <element signature="e#2785#2869#0" />
+            <element signature="e#2950#3149#0" />
+            <element signature="e#2968#3134#0" />
+            <element signature="e#3232#3410#0" />
+            <element signature="n#AddStudents#0" />
             <element signature="n#!!block;n#constructor#0;n#AddStudents#0" />
+            <element signature="e#3510#4742#0" />
+            <element signature="e#3797#4135#0" />
+            <element signature="e#4785#4839#0" />
+            <element signature="n#!!block;n#saveStData#0;n#AddStudents#0" />
+            <element signature="e#5032#5300#0" />
+            <element signature="e#5328#5874#0" />
+            <element signature="e#5912#6146#0" />
+            <element signature="e#5953#6136#0" />
+            <element signature="e#6332#6580#0" />
+            <element signature="e#6442#6566#0" />
+            <element signature="e#6597#7480#0" />
+            <element signature="e#6646#7468#0" />
+            <element signature="e#6682#7448#0" />
+            <element signature="e#7510#7609#0" />
             <element signature="n#!!block;n#changeValue#0;n#AddStudents#0" />
+            <element signature="e#7680#7755#0" />
+            <element signature="e#7793#7862#0" />
             <element signature="n#!!block;n#changeYear#0;n#AddStudents#0" />
             <element signature="n#!!block;n#handleClose#0;n#AddStudents#0" />
             <element signature="n#!!block;n#snackbarClose#0;n#AddStudents#0" />
             <element signature="n#!!block;n#uploadPhoto#0;n#AddStudents#0" />
             <element signature="n#!!block;n#handleDateChange#0;n#AddStudents#0" />
+            <element signature="e#8268#8330#0" />
+            <element signature="e#8402#8461#0" />
+            <element signature="n#!!block;n#takePhoto#0;n#AddStudents#0" />
+            <element signature="e#8555#8608#0" />
+            <element signature="n#!!block;n#render#0;n#AddStudents#0" />
+            <element signature="e#8654#19986#0" />
+            <element signature="e#8732#19319#0" />
+            <element signature="e#8788#19296#0" />
+            <element signature="e#8838#18629#0" />
+            <element signature="e#8907#18597#0" />
+            <element signature="e#8953#9836#0" />
+            <element signature="e#9033#9344#0" />
+            <element signature="e#9476#9797#0" />
+            <element signature="e#9869#10763#0" />
+            <element signature="e#9949#10258#0" />
+            <element signature="e#10373#10724#0" />
+            <element signature="e#10796#11812#0" />
+            <element signature="e#10876#11276#0" />
+            <element signature="e#11067#11263#0" />
+            <element signature="e#11391#11806#0" />
+            <element signature="e#11591#11793#0" />
+            <element signature="e#11883#13031#0" />
+            <element signature="e#11967#12414#0" />
+            <element signature="e#12055#12351#0" />
+            <element signature="e#12537#12992#0" />
+            <element signature="e#12625#12929#0" />
+            <element signature="e#13102#17259#0" />
+            <element signature="e#13182#14297#0" />
+            <element signature="e#13365#14250#0" />
+            <element signature="e#13753#13882#0" />
+            <element signature="e#13963#14202#0" />
+            <element signature="e#14408#15718#0" />
+            <element signature="e#14497#14646#0" />
+            <element signature="e#14683#15671#0" />
+            <element signature="e#15174#15303#0" />
+            <element signature="e#15384#15623#0" />
+            <element signature="e#15841#17220#0" />
+            <element signature="e#15934#16086#0" />
+            <element signature="e#16127#17169#0" />
+            <element signature="e#16640#16777#0" />
+            <element signature="e#16862#17117#0" />
+            <element signature="e#17331#17388#0" />
+            <element signature="e#17423#17432#0" />
+            <element signature="e#17466#18006#0" />
+            <element signature="e#17534#17689#0" />
+            <element signature="e#17812#17967#0" />
+            <element signature="e#18372#18544#0" />
+            <element signature="e#18654#19263#0" />
+            <element signature="e#18939#19229#0" />
+            <element signature="e#19336#19967#0" />
+            <element signature="e#19405#19518#0" />
+            <element signature="e#19713#19939#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/StudentDetail/student-detail-print.js">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/image-cropper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2397">
-          <caret line="150" column="34" selection-start-line="150" selection-start-column="34" selection-end-line="150" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/MainPage/AddStudentData/camera.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding>
-            <element signature="n#!!block;n#getMediaStream#0" />
-            <element signature="e#734#3625#0" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>

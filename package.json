@@ -30,7 +30,7 @@
     "react-scripts": "3.0.1",
     "react-virtualized": "^9.21.1",
     "react-webcam": "^3.0.1",
-    "xlsx": "^0.15.1"
+    "xlsx": "^0.17.0"
   },
   "scripts": {
     "start": "react-scripts start",

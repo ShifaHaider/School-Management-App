@@ -27,7 +27,7 @@
     "react-input-mask": "^2.0.4",
     "react-responsive-modal": "^4.0.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-virtualized": "^9.21.1",
     "react-webcam": "^3.0.1",
     "xlsx": "^0.15.1"

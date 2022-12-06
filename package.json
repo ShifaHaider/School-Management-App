@@ -11,7 +11,7 @@
     "clsx": "^1.0.4",
     "cors": "^2.8.5",
     "date-fns": "^2.0.0-beta.3",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "firebase": "^6.3.1",
     "firestore": "^1.1.6",
     "history": "^4.9.0",
